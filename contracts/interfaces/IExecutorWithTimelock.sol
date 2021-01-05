@@ -2,7 +2,7 @@
 pragma solidity 0.7.5;
 pragma abicoder v2;
 
-import {IAaveGovernanceV2} from './IAaveGovernanceV2.sol';
+import {IPopulousGovernanceV2} from './IPopulousGovernanceV2.sol';
 
 interface IExecutorWithTimelock {
   /**
@@ -112,7 +112,7 @@ interface IExecutorWithTimelock {
    * @param proposalId Id of the proposal against which to test
    * @return true of proposal is over grace period
    **/
-  function isProposalOverGracePeriod(IAaveGovernanceV2 governance, uint256 proposalId)
+  function isProposalOverGracePeriod(IPopulousGovernanceV2 governance, uint256 proposalId)
     external
     view
     returns (bool);

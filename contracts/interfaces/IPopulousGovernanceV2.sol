@@ -4,7 +4,7 @@ pragma abicoder v2;
 
 import {IExecutorWithTimelock} from './IExecutorWithTimelock.sol';
 
-interface IAaveGovernanceV2 {
+interface IPopulousGovernanceV2 {
   enum ProposalState {Pending, Canceled, Active, Failed, Succeeded, Queued, Expired, Executed}
 
   struct Vote {

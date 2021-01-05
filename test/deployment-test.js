@@ -9,7 +9,7 @@ const {
 const { expect } = require('chai');
 const { utils } = require('web3');
 const BigNumber = require('bignumber.js');
-const AaveGovernanceV2 = artifacts.require('AaveGovernanceV2');
+const PopulousGovernanceV2 = artifacts.require('PopulousGovernanceV2');
 const GovernanceStrategy = artifacts.require('GovernanceStrategy');
 const MockPPT = artifacts.require('MockPPT');
 const MockPXT = artifacts.require('MockPXT');
@@ -51,32 +51,32 @@ contract('Populous Governance V2 and Governance Strategy', async ([deployer, ...
         await deployGovernance();
     });
 
-    //NOTE - governance strategy makes use of aave governance power delegationtoken constructs
+    //NOTE - governance strategy makes use of Populous governance power delegationtoken constructs
     //executor is/inherits from proposal validator contract
 
     it('should deploy governance strategy and governance', async () => {
 
-        //deploy Aave token V2 
-        //let aave = await AaveTokenV2.new({ from: deployer });
+        //deploy Populous token V2 
+        //let Populous = await AaveTokenV2.new({ from: deployer });
 
-        //deploy PPT token - to replace Aave token
+        //deploy PPT token - to replace Populous token
         let ppt = await MockPPT.new({ from: deployer });
         //await deployContract('MockPPT')
         //only deployer prints contract created address, using .new() does not
         console.log(ppt.address, 'ppt token address')
 
-        //deploy PXT token - to replace stkAave token
+        //deploy PXT token - to replace stkPopulous token
         let pxt = await MockPXT.new({ from: deployer });
         console.log(pxt.address, 'pxt token address')
 
 
-        let aave = ppt.address; //address aave, 
-        let stkAave = pxt.address; //address stkAave
+        let Populous = ppt.address; //address Populous, 
+        let stkPopulous = pxt.address; //address stkPopulous
 
         //deploy Governance Strategy - required in Governance deployment
         let governanceStrategy = await GovernanceStrategy.new(
-            aave,
-            stkAave,
+            Populous,
+            stkPopulous,
             { from: deployer }
         );
         console.log(governanceStrategy.address, 'governance strategy address')
@@ -86,7 +86,7 @@ contract('Populous Governance V2 and Governance Strategy', async ([deployer, ...
         let guardian = deployer; //address
         let executors = []; //address[] memory
 
-        let gov = await AaveGovernanceV2.new(
+        let gov = await PopulousGovernanceV2.new(
             governanceStrategy.address,
             votingDelay,
             guardian,

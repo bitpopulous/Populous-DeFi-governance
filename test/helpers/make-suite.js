@@ -9,22 +9,22 @@ const {solidity} = require('ethereum-waffle');
 const { web3 } = require('@openzeppelin/test-helpers/src/setup');
 //const {getEthersSigners} = require('../../helpers/contracts-helpers'); //addresses of local accounts in network
 /* const {
-  getAaveGovernanceV2,
-  getAaveV2Mocked,
+  getPopulousGovernanceV2,
+  getPopulousV2Mocked,
   getExecutor,
   getGovernanceStrategy,
 } = require('../../helpers/contracts-getters'); */ //addresses of the deployed smart contracts
 /* const {tEthereumAddress} = require('../../helpers/types');
-const {AaveGovernanceV2} = require('../../types/AaveGovernanceV2');
+const {PopulousGovernanceV2} = require('../../types/PopulousGovernanceV2');
 const {AaveTokenV2} = require('../../types/AaveTokenV2');
 const {Executor} = require('../../types/Executor');
 const {GovernanceStrategy} = require('../../types/GovernanceStrategy'); */
 
-const AaveGovernanceV2 = artifacts.require('AaveGovernanceV2');
+const PopulousGovernanceV2 = artifacts.require('PopulousGovernanceV2');
 const GovernanceStrategy = artifacts.require('GovernanceStrategy');
 const Executor = artifacts.require('Executor');
-const MockPPT = artifacts.require('MockPPT'); //for aave v2 token
-const MockPXT = artifacts.require('MockPXT');//for stkAave token
+const MockPPT = artifacts.require('MockPPT'); //for Populous v2 token
+const MockPXT = artifacts.require('MockPXT');//for stkPopulous token
 const AaveTokenV2 = artifacts.require('AaveTokenV2');
 
 //chai.use(solidity);
@@ -38,9 +38,9 @@ const SignerWithAddress = {
   deployer: SignerWithAddress,
   minter: SignerWithAddress,
   users: [], //array of SignerWithAddress
-  aave: AaveTokenV2,
-  stkAave: AaveTokenV2, // TODO change to a mock of stkAAVE
-  gov: AaveGovernanceV2,
+  Populous: AaveTokenV2,
+  stkPopulous: AaveTokenV2, // TODO change to a mock of stkPopulous
+  gov: PopulousGovernanceV2,
   strategy: GovernanceStrategy,
   executor: Executor
 } */
@@ -49,8 +49,8 @@ const TestEnv = {
   deployer: SignerWithAddress,
   minter: SignerWithAddress,
   users: [], //array of addresses
-  aave: "",
-  stkAave: "", // TODO change to a mock of stkAAVE
+  Populous: "",
+  stkPopulous: "", // TODO change to a mock of stkPopulous
   gov: "",
   strategy: "",
   executor: ""
@@ -122,9 +122,9 @@ const setBuidlerevmSnapshotId = (id) => {
   deployer: {} as SignerWithAddress,
   minter: {} as SignerWithAddress,
   users: [] as SignerWithAddress[],
-  aave: {} as AaveTokenV2,
-  stkAave: {} as AaveTokenV2,
-  gov: {} as AaveGovernanceV2,
+  Populous: {} as AaveTokenV2,
+  stkPopulous: {} as AaveTokenV2,
+  gov: {} as PopulousGovernanceV2,
   strategy: {} as GovernanceStrategy,
   executor: {} as Executor,
 } as TestEnv; */
@@ -141,22 +141,22 @@ task(`migrate:dev`, `Deploy governance for tests and development purposes`)
     const [adminSigner, tokenMinterSigner] = await _DRE.ethers.getSigners();
     const admin = await adminSigner.getAddress();
     const tokenMinter = await tokenMinterSigner.getAddress();
-    // Deploy mocked AAVE v2
-    const token = await _DRE.run('deploy:mocked-aave', {
+    // Deploy mocked Populous v2
+    const token = await _DRE.run('deploy:mocked-Populous', {
       minter: tokenMinter,
       verify,
     });
 
-    // Deploy mocked AAVE v2
-    const stkToken = await _DRE.run('deploy:mocked-stk-aave', {
+    // Deploy mocked Populous v2
+    const stkToken = await _DRE.run('deploy:mocked-stk-Populous', {
       minter: tokenMinter,
       verify,
     });
 
     // Deploy strategy
     const strategy = await _DRE.run('deploy:strategy', {
-      aave: token.address,
-      stkAave: stkToken.address,
+      Populous: token.address,
+      stkPopulous: stkToken.address,
     });
 
     // Deploy governance v2
@@ -210,10 +210,10 @@ const migrate_test_env = async (votingDelay, executorAsOwner, silent) => {
   const [adminSigner, tokenMinterSigner] = await getEthersSigners();
   const admin = adminSigner;
   const tokenMinter = tokenMinterSigner;
-  // Deploy mocked AAVE v2 / ppt token
+  // Deploy mocked Populous v2 / ppt token
   const token = await deployContract(MockPPT, [], admin); //contract, params, deployer/admin
 
-  // Deploy mocked AAVE v2 / pxt token
+  // Deploy mocked Populous v2 / pxt token
   const stkToken = await deployContract(MockPXT, [], admin);
 
   // Deploy strategy
@@ -224,7 +224,7 @@ const migrate_test_env = async (votingDelay, executorAsOwner, silent) => {
   const guardian = admin
   const executors = []
   const governance = await deployContract(
-    AaveGovernanceV2, 
+    PopulousGovernanceV2, 
     [strategy.address, votingDelay, guardian, executors], 
     admin);
 
@@ -281,8 +281,8 @@ const migrate_test_env = async (votingDelay, executorAsOwner, silent) => {
   testEnv.deployer = deployer;
   testEnv.minter = minter;
   //console.log(testEnv.minter, "MINTER")
-  testEnv.aave = token;
-  testEnv.stkAave = stkToken;
+  testEnv.Populous = token;
+  testEnv.stkPopulous = stkToken;
   testEnv.gov = governance;
   testEnv.strategy = strategy;
   testEnv.executor = executor;
@@ -308,9 +308,9 @@ const migrate_test_env = async (votingDelay, executorAsOwner, silent) => {
 
   testEnv.deployer = deployer;
   testEnv.minter = minter;
-  testEnv.aave = await getAaveV2Mocked();
-  testEnv.stkAave = await getAaveV2Mocked();
-  testEnv.gov = await getAaveGovernanceV2();
+  testEnv.Populous = await getPopulousV2Mocked();
+  testEnv.stkPopulous = await getPopulousV2Mocked();
+  testEnv.gov = await getPopulousGovernanceV2();
   testEnv.strategy = await getGovernanceStrategy();
   testEnv.executor = await getExecutor();
 } */
@@ -341,9 +341,9 @@ const initializeMakeSuite = async () => {
   testEnv.users = restSigners;
   testEnv.deployer = deployer;
   testEnv.minter = minter;
-  testEnv.aave = await getContractWithoutAddress(MockPPT);
-  testEnv.stkAave = await getContractWithoutAddress(MockPXT);
-  testEnv.gov = await getContractWithoutAddress(AaveGovernanceV2);
+  testEnv.Populous = await getContractWithoutAddress(MockPPT);
+  testEnv.stkPopulous = await getContractWithoutAddress(MockPXT);
+  testEnv.gov = await getContractWithoutAddress(PopulousGovernanceV2);
   testEnv.strategy = await getContractWithoutAddress(GovernanceStrategy);
   testEnv.executor = await getContractWithoutAddress(Executor);
 }

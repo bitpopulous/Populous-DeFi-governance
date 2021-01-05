@@ -2,7 +2,7 @@
 pragma solidity 0.7.5;
 pragma abicoder v2;
 
-import {IAaveGovernanceV2} from '../interfaces/IAaveGovernanceV2.sol';
+import {IPopulousGovernanceV2} from '../interfaces/IPopulousGovernanceV2.sol';
 import {IERC20} from './interfaces/IERC20.sol';
 import {IExecutorWithTimelock} from '../interfaces/IExecutorWithTimelock.sol';
 
@@ -11,12 +11,12 @@ contract FlashAttacks {
 
   IERC20 internal immutable TOKEN;
   address internal immutable MINTER;
-  IAaveGovernanceV2 internal immutable GOV;
+  IPopulousGovernanceV2 internal immutable GOV;
 
   constructor(address _token, address _MINTER, address _governance) {
     TOKEN = IERC20(_token);
     MINTER = _MINTER;
-    GOV = IAaveGovernanceV2(_governance);
+    GOV = IPopulousGovernanceV2(_governance);
   }
 
   function flashVote(uint256 votePower, uint256 proposalId, bool support) external {

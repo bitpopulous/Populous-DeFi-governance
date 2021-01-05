@@ -11,7 +11,7 @@ import {ProposalValidator} from './ProposalValidator.sol';
  * - Validate Proposal creations/ cancellation
  * - Validate Vote Quorum and Vote success on proposal
  * - Queue, Execute, Cancel, successful proposals' transactions.
- * @author Aave
+ * @author Populous
  **/
 contract Executor is ExecutorWithTimelock, ProposalValidator {
   constructor(
