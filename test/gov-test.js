@@ -88,9 +88,7 @@ const convertToCurrencyDecimals = async (token_address, amount) => {
 
 }); */
 
-contract('Aave Governance V2 no voting delay', async ([deployer, ...users]) => {
-
-    //await makeSuite('Aave Governance V2 no voting delay', deployGovernanceNoDelay);
+contract('Populous Governance V2', async ([deployer, ...users]) => {
 
     let votingDelay;
     let votingDuration;
@@ -381,16 +379,8 @@ contract('Aave Governance V2 no voting delay', async ([deployer, ...users]) => {
 
 
  
-  it('Testing queue function', async () => {
+  it('', async () => {
   
   })
-
-  it('Testing voting functions', async () => {
-
-  })
-
-  it('Testing create function', async () => {
-
-  }) 
 
 })
