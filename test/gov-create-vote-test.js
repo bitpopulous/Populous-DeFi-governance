@@ -379,7 +379,7 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
 
 
  
-  it('', async () => {
+  it('Proposal 1 and 2 ', async () => {
   
   })
 
