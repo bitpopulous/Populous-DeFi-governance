@@ -79,7 +79,7 @@ module.exports = function (deployer, network, accounts) {
             );
 
             //authorise executor
-            //await gov.authorizeExecutors([exec.address], {from: deployer});
+            await gov.authorizeExecutors([exec.address], {from: deployer});
 
             //transfer ownership of governance to executor?
             /*
@@ -87,8 +87,6 @@ module.exports = function (deployer, network, accounts) {
                 await gov.transferOwnership(exec, {from: deployer});
             } */
 
-
-            //deploy FlashAttacks? (in helpers/contracts-deployments.js)
         });
     } else {
 
