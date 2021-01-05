@@ -65,5 +65,3 @@ Truffle v5.1.58 (core: 5.1.58)
 Solidity - 0.7.5 (solc-js)
 Node v10.13.0
 Web3.js v1.2.9 */
-
-//replaced pragma solidity ^0.5.0; => pragma solidity ^0.5.0;
