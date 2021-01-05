@@ -7,10 +7,10 @@ const { Test } = require('mocha');
 
 const emptyBalances = async (users, testEnv) => {
   for (let i = 0; i < users.length; i++) {
-    const balanceBefore = await testEnv.aave.balanceOf(users[i]);//TODO - if balance > 0
+    const balanceBefore = await testEnv.Populous.balanceOf(users[i]);//TODO - if balance > 0
     if (new BigNumber(balanceBefore).shiftedBy(-8).toNumber() > 0) {
       await (
-        await testEnv.aave.transfer(testEnv.minter.address, balanceBefore, {from: users[i]})
+        await testEnv.Populous.transfer(testEnv.minter.address, balanceBefore, {from: users[i]})
       ).wait();
     }
   }
@@ -18,14 +18,14 @@ const emptyBalances = async (users, testEnv) => {
 
 const setBalance = async (user, amount, testEnv) => {
   // emptying
-  const balanceBefore = await testEnv.aave.balanceOf(user);
+  const balanceBefore = await testEnv.Populous.balanceOf(user);
   if (new BigNumber(balanceBefore).shiftedBy(-8).toNumber() > 0) {
     await (
-      await testEnv.aave.transfer(testEnv.minter.address, balanceBefore, {from: user})
+      await testEnv.Populous.transfer(testEnv.minter.address, balanceBefore, {from: user})
     ).wait();
   }
   // filling
-  await testEnv.aave.transfer(user, amount, {from: testEnv.minter.address});
+  await testEnv.Populous.transfer(user, amount, {from: testEnv.minter.address});
 };
 
 const getInitContractData = async (testEnv) => ({

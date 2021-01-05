@@ -6,14 +6,14 @@ import {IVotingStrategy} from '../interfaces/IVotingStrategy.sol';
 import {IExecutorWithTimelock} from '../interfaces/IExecutorWithTimelock.sol';
 import {IProposalValidator} from '../interfaces/IProposalValidator.sol';
 import {IGovernanceStrategy} from '../interfaces/IGovernanceStrategy.sol';
-import {IAaveGovernanceV2} from '../interfaces/IAaveGovernanceV2.sol';
+import {IPopulousGovernanceV2} from '../interfaces/IPopulousGovernanceV2.sol';
 import {Ownable} from '../dependencies/open-zeppelin/Ownable.sol';
 import {SafeMath} from '../dependencies/open-zeppelin/SafeMath.sol';
 import {isContract, getChainId} from '../misc/Helpers.sol';
 
 /**
  * @title Governance V2 contract
- * @dev Main point of interaction with Aave protocol's governance
+ * @dev Main point of interaction with Populous protocol's governance
  * - Create a Proposal
  * - Cancel a Proposal
  * - Queue a Proposal
@@ -21,9 +21,9 @@ import {isContract, getChainId} from '../misc/Helpers.sol';
  * - Submit Vote to a Proposal
  * Proposal States : Pending => Active => Succeeded(/Failed) => Queued => Executed(/Expired)
  *                   The transition to "Canceled" can appear in multiple states
- * @author Aave
+ * @author Populous
  **/
-contract AaveGovernanceV2 is Ownable, IAaveGovernanceV2 {
+contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
   using SafeMath for uint256;
 
   address private _governanceStrategy;
@@ -39,7 +39,7 @@ contract AaveGovernanceV2 is Ownable, IAaveGovernanceV2 {
     'EIP712Domain(string name,uint256 chainId,address verifyingContract)'
   );
   bytes32 public constant VOTE_EMITTED_TYPEHASH = keccak256('VoteEmitted(uint256 id,bool support)');
-  string public constant NAME = 'Aave Governance v2';
+  string public constant NAME = 'Populous Governance v2';
 
   modifier onlyGuardian() {
     require(msg.sender == _guardian, 'ONLY_BY_GUARDIAN');

@@ -9,7 +9,7 @@ const {
 const { expect, use } = require('chai');
 const { utils } = require('web3');
 const BigNumber = require('bignumber.js');
-const AaveGovernanceV2 = artifacts.require('AaveGovernanceV2');
+const PopulousGovernanceV2 = artifacts.require('PopulousGovernanceV2');
 const GovernanceStrategy = artifacts.require('GovernanceStrategy');
 const MockPPT = artifacts.require('MockPPT');
 const MockPXT = artifacts.require('MockPXT');
@@ -113,18 +113,18 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
     deployer: SignerWithAddress,
     minter: SignerWithAddress,
     users: [], //array of addresses
-    aave: "",
-    stkAave: "", // TODO change to a mock of stkAAVE
+    Populous: "",
+    stkPopulous: "", // TODO change to a mock of stkPopulous
     gov: "",
     strategy: "",
     executor: "" */
-    const {dep, minter, users, aave, stkAave, gov, strategy, executor} = testEnv;
+    const {dep, minter, users, Populous, stkPopulous, gov, strategy, executor} = testEnv;
     const [user1, user2, user3, user4, user5] = users;
 
     console.log(testEnv.strategy.address, 'governance strategy address')
     
-    await testEnv.aave.mint("1000000"+"00000000", {from: minter.address})
-    console.log(await testEnv.aave.totalSupply(), 'total ppt tokens')
+    await testEnv.Populous.mint("1000000"+"00000000", {from: minter.address})
+    console.log(await testEnv.Populous.totalSupply(), 'total ppt tokens')
     
     const totalSupply = await testEnv.strategy.getTotalVotingSupplyAt(await getCurrentBlock())
 
@@ -154,20 +154,20 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
     snapshots.set('start', await evmSnapshot());//save ethereum virtual machine snapshot to map/mapping
 
     //console.log(new BigNumber(minimumPower).shiftedBy(-8).toNumber() / 2 + 2 , 'power div 2')
-    //console.log(await convertToCurrencyDecimals(aave.address, new BigNumber(minimumPower).shiftedBy(-8).toNumber() / 2 + 2) , 'amount after conversion')
+    //console.log(await convertToCurrencyDecimals(Populous.address, new BigNumber(minimumPower).shiftedBy(-8).toNumber() / 2 + 2) , 'amount after conversion')
 
     // Preparing users with different powers for test
     // user 1: 50% min voting power + 2 = 10%+ total power
-    await setBalance(user1, await convertToCurrencyDecimals(aave.address, new BigNumber(minimumPower).shiftedBy(-8).toNumber() / 2 + 2), testEnv);
+    await setBalance(user1, await convertToCurrencyDecimals(Populous.address, new BigNumber(minimumPower).shiftedBy(-8).toNumber() / 2 + 2), testEnv);
     // user 2: 50% min voting power + 2 = 10%+ total power
-    await setBalance(user2, await convertToCurrencyDecimals(aave.address, new BigNumber(minimumPower).shiftedBy(-8).toNumber() / 2 + 2), testEnv);
+    await setBalance(user2, await convertToCurrencyDecimals(Populous.address, new BigNumber(minimumPower).shiftedBy(-8).toNumber() / 2 + 2), testEnv);
     // user 3: 2 % min voting power, will be used to swing the vote
     //await setBalance(user3, minimumPower.mul('2').div('100').add('10'), testEnv);
-    await setBalance(user3, await convertToCurrencyDecimals(aave.address, new BigNumber(minimumPower).shiftedBy(-8).toNumber() * 2 / 100 + 10), testEnv)
+    await setBalance(user3, await convertToCurrencyDecimals(Populous.address, new BigNumber(minimumPower).shiftedBy(-8).toNumber() * 2 / 100 + 10), testEnv)
     // user 4: 75% min voting power + 10 : = 15%+ total power, can barely make fail differential
-    await setBalance(user4, await convertToCurrencyDecimals(aave.address, new BigNumber(minimumPower).shiftedBy(-8).toNumber() * 75 / 100 + 10), testEnv);
+    await setBalance(user4, await convertToCurrencyDecimals(Populous.address, new BigNumber(minimumPower).shiftedBy(-8).toNumber() * 75 / 100 + 10), testEnv);
     // user 5: 50% min voting power + 2 = 10%+ total power.
-    await setBalance(user5, await convertToCurrencyDecimals(aave.address, new BigNumber(minimumPower).shiftedBy(-8).toNumber() / 2 + 2), testEnv);
+    await setBalance(user5, await convertToCurrencyDecimals(Populous.address, new BigNumber(minimumPower).shiftedBy(-8).toNumber() / 2 + 2), testEnv);
     
     let block = await provider.getBlockNumber();
     expect(new BigNumber(await strategy.getVotingPowerAt(user5, block)).shiftedBy(-8).toNumber()).to.be.equal( //TODO add new function to ppt token
@@ -176,7 +176,7 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
 
     /*
     // user 5 delegates to user 2 => user 2 reached quorum
-    await waitForTx(await aave.connect(user5.signer).delegate(user2.address));
+    await waitForTx(await Populous.connect(user5.signer).delegate(user2.address));
     block = await DRE.ethers.provider.getBlockNumber();
     // checking delegation worked
     expect(await strategy.getVotingPowerAt(user5.address, block)).to.be.equal('0');
@@ -216,7 +216,7 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
     // SNAPSHOT PENDING
     snapshots.set('active', await evmSnapshot());
 
-    const balanceAfter = await aave.balanceOf(user1);
+    const balanceAfter = await Populous.balanceOf(user1);
     console.log(new BigNumber(balanceAfter).toNumber())
 
     // Pending => Active
@@ -307,7 +307,7 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
     // SNAPSHOT PENDING
     snapshots.set('active', await evmSnapshot());
 
-    /* const balanceAfter = await aave.balanceOf(user1);
+    /* const balanceAfter = await Populous.balanceOf(user1);
     console.log(new BigNumber(balanceAfter).toNumber()) */
 
     // Pending => Active

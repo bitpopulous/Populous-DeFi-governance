@@ -21,7 +21,7 @@ const buildPermitParams = (
   },
   primaryType: 'VoteEmitted',
   domain: {
-    name: 'Aave Governance v2',
+    name: 'Populous Governance v2',
     version: '1',
     chainId: chainId,
     verifyingContract: governance,
@@ -53,7 +53,7 @@ const buildFakePermitParams = (
   },
   primaryType: 'VoteEmitted',
   domain: {
-    name: 'Aave Governance v2',
+    name: 'Populous Governance v2',
     version: '1',
     chainId: chainId,
     verifyingContract: governance,
