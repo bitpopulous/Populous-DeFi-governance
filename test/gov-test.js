@@ -185,7 +185,7 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
     );
     */
 
-    //to create proposal, users proposition power should be greater or equal to mimimum create power (shown above)
+    //to create proposal, users proposition power should be greater or equal to minimum create power (shown above)
     //this is checked in governance create function
     console.log((await strategy.getPropositionPowerAt(user1, await provider.getBlockNumber())).toNumber() >= (await executor.getMinimumPropositionPowerNeeded(gov.address, await provider.getBlockNumber())).toNumber())
     console.log(await executor.isPropositionPowerEnough(gov.address, user1, await provider.getBlockNumber())) //this checks condition above in smart contract
