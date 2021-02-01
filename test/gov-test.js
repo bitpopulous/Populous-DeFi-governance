@@ -210,7 +210,7 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
     proposalId = tx1.logs[0].args.id;//proposal id is first parameter in ProposalCreated event
     startBlock = tx1.logs[0].blockNumber + votingDelay.toNumber();
     endBlock = tx1.logs[0].blockNumber + votingDelay.toNumber() + votingDuration.toNumber();
-    // delay = 0, should be active
+    // if delay = 0, proposal should be active immediately
     await expectProposalState(proposalId, proposalStates.PENDING, testEnv);
 
     // SNAPSHOT PENDING
@@ -283,7 +283,7 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
 
 
     
-    //Creating 2nd proposal: Changing delay to 300 via sig + argument data
+    //Create second proposal: Changing delay to 300 via sig + argument data
     const encodedArgument2 = ethers.utils.defaultAbiCoder.encode(['uint'], [300]);
     const tx2 = 
       await gov
@@ -379,7 +379,7 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
 
 
  
-  it('Proposal 1 and 2 ', async () => {
+  it('PopDeFi Proposal 1 and 2 ', async () => {
   
   })
 

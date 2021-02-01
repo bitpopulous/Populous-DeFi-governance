@@ -93,6 +93,7 @@ module.exports = function (deployer, network, accounts) {
         });
     } else {
         deployer.then(async () => {
+            //ROPSTEN DEPLOYMENT
 
             //deploy PPT token - to replace Populous token
             let pptWrapper = await deployer.deploy(PPTWrapper);
