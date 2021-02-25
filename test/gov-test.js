@@ -1,10 +1,10 @@
 
 const {
-    BN,           // Big Number support
-    constants,    // Common constants, like the zero address and largest integers
-    expectEvent,  // Assertions for emitted events
-    expectRevert, // Assertions for transactions that should fail
-    time,
+  BN,           // Big Number support
+  constants,    // Common constants, like the zero address and largest integers
+  expectEvent,  // Assertions for emitted events
+  expectRevert, // Assertions for transactions that should fail
+  time,
 } = require('@openzeppelin/test-helpers');
 const { expect, use } = require('chai');
 const { utils } = require('web3');
@@ -16,21 +16,21 @@ const MockPXT = artifacts.require('MockPXT');
 const Executor = artifacts.require('Executor');
 const AaveTokenV2 = artifacts.require('AaveTokenV2');
 
-const {makeSuite, deployGovernanceNoDelay, deployGovernanceWithoutExecutorAsOwner, 
-    deployGovernance, initializeMakeSuite, getEthersSigners, 
-    getCurrentBlock, deployContract, getContract, getContractWithoutAddress,
-    SignerWithAddress, testEnv
+const { makeSuite, deployGovernanceNoDelay, deployGovernanceWithoutExecutorAsOwner,
+  deployGovernance, initializeMakeSuite, getEthersSigners,
+  getCurrentBlock, deployContract, getContract, getContractWithoutAddress,
+  SignerWithAddress, testEnv
 } = require('./helpers/make-suite');
 
 const {
-    WAD, MAX_UINT_AMOUNT, 
-    ONE_ADDRESS, ONE_YEAR, ZERO_ADDRESS, 
-    ipfsBytes32Hash
+  WAD, MAX_UINT_AMOUNT,
+  ONE_ADDRESS, ONE_YEAR, ZERO_ADDRESS,
+  ipfsBytes32Hash
 } = require('./helpers/constants');
 
-const {solidity} = require('ethereum-waffle');
-const {BytesLike, formatEther, parseEther, splitSignature} = require('ethers/lib/utils');
-const {Signer, ethers, BigNumberish, Wallet} = require('ethers');
+const { solidity } = require('ethereum-waffle');
+const { BytesLike, formatEther, parseEther, splitSignature } = require('ethers/lib/utils');
+const { Signer, ethers, BigNumberish, Wallet } = require('ethers');
 const {
   emptyBalances,
   getInitContractData,
@@ -38,34 +38,34 @@ const {
   expectProposalState,
   getLastProposalId,
 } = require('./helpers/gov-utils');
-const {buildPermitParams, getSignatureFromTypedData} = require('./helpers/permit');
-const {fail} = require('assert');
-const {waitForTx, increaseTime, advanceBlock, advanceBlockTo, latestBlock,
+const { buildPermitParams, getSignatureFromTypedData } = require('./helpers/permit');
+const { fail } = require('assert');
+const { waitForTx, increaseTime, advanceBlock, advanceBlockTo, latestBlock,
   toWad, bnToBigNumber, stringToBigNumber, sleep,
-  createRandomAddress, evmSnapshot, evmRevert, timeLatest} = require('./helpers/misc-utils');
+  createRandomAddress, evmSnapshot, evmRevert, timeLatest } = require('./helpers/misc-utils');
 const { exec } = require('child_process');
 
 use(solidity);
 
 const proposalStates = {
-    PENDING: 0,
-    CANCELED: 1,
-    ACTIVE: 2,
-    FAILED: 3,
-    SUCCEEDED: 4,
-    QUEUED: 5,
-    EXPIRED: 6,
-    EXECUTED: 7,
-  };
-  
+  PENDING: 0,
+  CANCELED: 1,
+  ACTIVE: 2,
+  FAILED: 3,
+  SUCCEEDED: 4,
+  QUEUED: 5,
+  EXPIRED: 6,
+  EXECUTED: 7,
+};
+
 const snapshots = new Map(); //new Map https://stackoverflow.com/questions/4246980/how-to-create-a-simple-map-using-javascript-jquery // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set
 
 const convertToCurrencyDecimals = async (token_address, amount) => {
-    let _token = await MockPPT.at(token_address);
-    let pDecimals = await _token.decimals();
-    ////console.log(Number(pDecimals.toString()), 'MockPPT decimals');
-    let converted = new BigNumber(10 ** Number(pDecimals.toString()) * amount);
-    return converted;
+  let _token = await MockPPT.at(token_address);
+  let pDecimals = await _token.decimals();
+  ////console.log(Number(pDecimals.toString()), 'MockPPT decimals');
+  let converted = new BigNumber(10 ** Number(pDecimals.toString()) * amount);
+  return converted;
 };
 
 
@@ -90,16 +90,16 @@ const convertToCurrencyDecimals = async (token_address, amount) => {
 
 contract('Populous Governance V2', async ([deployer, ...users]) => {
 
-    let votingDelay;
-    let votingDuration;
-    let executionDelay;
-    let minimumPower;
-    let minimumCreatePower;
-    let proposalId;
-    let startBlock;
-    let endBlock;
-    let executionTime;
-    let gracePeriod;
+  let votingDelay;
+  let votingDuration;
+  let executionDelay;
+  let minimumPower;
+  let minimumCreatePower;
+  let proposalId;
+  let startBlock;
+  let endBlock;
+  let executionTime;
+  let gracePeriod;
 
   // Snapshoting main states as entry for later testing
   // Then will test by last snap shot first.
@@ -118,14 +118,14 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
     gov: "",
     strategy: "",
     executor: "" */
-    const {dep, minter, users, Populous, stkPopulous, gov, strategy, executor} = testEnv;
+    const { dep, minter, users, Populous, stkPopulous, gov, strategy, executor } = testEnv;
     const [user1, user2, user3, user4, user5] = users;
 
     console.log(testEnv.strategy.address, 'governance strategy address')
-    
-    await testEnv.Populous.mint("1000000"+"00000000", {from: minter.address})
+
+    await testEnv.Populous.mint("1000000" + "00000000", { from: minter.address })
     console.log(await testEnv.Populous.totalSupply(), 'total ppt tokens')
-    
+
     const totalSupply = await testEnv.strategy.getTotalVotingSupplyAt(await getCurrentBlock())
 
     console.log(totalSupply, 'total voting supply')
@@ -168,7 +168,7 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
     await setBalance(user4, await convertToCurrencyDecimals(Populous.address, new BigNumber(minimumPower).shiftedBy(-8).toNumber() * 75 / 100 + 10), testEnv);
     // user 5: 50% min voting power + 2 = 10%+ total power.
     await setBalance(user5, await convertToCurrencyDecimals(Populous.address, new BigNumber(minimumPower).shiftedBy(-8).toNumber() / 2 + 2), testEnv);
-    
+
     let block = await provider.getBlockNumber();
     expect(new BigNumber(await strategy.getVotingPowerAt(user5, block)).shiftedBy(-8).toNumber()).to.be.equal( //TODO add new function to ppt token
       new BigNumber(minimumPower).shiftedBy(-8).toNumber() / 2 + 2
@@ -190,7 +190,7 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
     console.log((await strategy.getPropositionPowerAt(user1, await provider.getBlockNumber())).toNumber() >= (await executor.getMinimumPropositionPowerNeeded(gov.address, await provider.getBlockNumber())).toNumber())
     console.log(await executor.isPropositionPowerEnough(gov.address, user1, await provider.getBlockNumber())) //this checks condition above in smart contract
     console.log(await executor.validateCreatorOfProposal(gov.address, user1, await provider.getBlockNumber()))//this calls function above
-  
+
     //const callData = await encodeSetDelay('400', testEnv);
     //Creating first proposal: Changing delay to 400 via no sig + calldata
     /* const tx1 = 
@@ -199,9 +199,9 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
 
 
     //Creating first proposal: no sig + no calldata
-    const tx1 = 
+    const tx1 =
       await gov
-        .create(executor.address, [ZERO_ADDRESS], ['0'], [''], ['0x'], [false], ipfsBytes32Hash, {from: user1});
+        .create(executor.address, [ZERO_ADDRESS], ['0'], [''], ['0x'], [false], ipfsBytes32Hash, { from: user1 });
     console.log(tx1.logs[0].blockNumber)
 
     //Proposal 1
@@ -210,7 +210,7 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
     proposalId = tx1.logs[0].args.id;//proposal id is first parameter in ProposalCreated event
     startBlock = tx1.logs[0].blockNumber + votingDelay.toNumber();
     endBlock = tx1.logs[0].blockNumber + votingDelay.toNumber() + votingDuration.toNumber();
-    // delay = 0, should be active
+    // if delay = 0, proposal should be active immediately
     await expectProposalState(proposalId, proposalStates.PENDING, testEnv);
 
     // SNAPSHOT PENDING
@@ -221,7 +221,7 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
 
     // Pending => Active
     // => go to start block
-    await advanceBlockTo(Number(startBlock + 1 ).toString());
+    await advanceBlockTo(Number(startBlock + 1).toString());
     await expectProposalState(proposalId, proposalStates.ACTIVE, testEnv);
 
     // SNAPSHOT: ACTIVE PROPOSAL
@@ -236,26 +236,26 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
     await expect(gov.connect(user2.signer).submitVote(proposalId, true))
       .to.emit(gov, 'VoteEmitted')
       .withArgs(proposalId, user2.address, true, balanceAfter.mul('2'));
-    */ 
-    const voteTx1 = await gov.submitVote(proposalId, true, {from: user1})
+    */
+    const voteTx1 = await gov.submitVote(proposalId, true, { from: user1 })
     //console.log(voteTx1.logs)
     await expect(voteTx1.logs[0].event).to.be.equal('VoteEmitted')
 
-    const voteTx2 = await gov.submitVote(proposalId, true, {from: user2})
+    const voteTx2 = await gov.submitVote(proposalId, true, { from: user2 })
     //console.log(voteTx1.logs)
     await expect(voteTx2.logs[0].event).to.be.equal('VoteEmitted')
 
     // go to end of voting period
-    await advanceBlockTo(Number(endBlock + 3 ).toString());
+    await advanceBlockTo(Number(endBlock + 3).toString());
     await expectProposalState(proposalId, proposalStates.SUCCEEDED, testEnv);
 
     // SNAPSHOT: SUCCEEDED PROPOSAL
     snapshots.set('succeeded', await evmSnapshot());
 
     // Succeeded => Queued:
-    const queueTx = await gov.queue(proposalId, {from: user1});//proposal executionTime is created here - uint256 executionTime = block.timestamp.add(proposal.executor.getDelay())
+    const queueTx = await gov.queue(proposalId, { from: user1 });//proposal executionTime is created here - uint256 executionTime = block.timestamp.add(proposal.executor.getDelay())
     await expectProposalState(proposalId, proposalStates.QUEUED, testEnv);
-    
+
     // SNAPSHOT: QUEUED PROPOSAL
     executionTime = (await gov.getProposalById(proposalId)).executionTime;
     console.log(executionTime, 'proposal 1 execution unix timestamp');
@@ -282,10 +282,10 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
     await expect(executeTx.logs[0].event).to.be.equal('ProposalExecuted') */
 
 
-    
-    //Creating 2nd proposal: Changing delay to 300 via sig + argument data
+
+    //Create second proposal: Changing delay to 300 via sig + argument data
     const encodedArgument2 = ethers.utils.defaultAbiCoder.encode(['uint'], [300]);
-    const tx2 = 
+    const tx2 =
       await gov
         .create(
           executor.address,
@@ -294,9 +294,9 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
           ['setVotingDelay(uint256)'],
           [encodedArgument2],
           [false],
-          ipfsBytes32Hash, 
-          {from: user1}
-    );
+          ipfsBytes32Hash,
+          { from: user1 }
+        );
     const proposal2Id = tx2.logs[0].args.id
 
     startBlock = tx2.logs[0].blockNumber + votingDelay.toNumber();
@@ -312,7 +312,7 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
 
     // Pending => Active
     // => go to start block
-    await advanceBlockTo(Number(startBlock + 1 ).toString());
+    await advanceBlockTo(Number(startBlock + 1).toString());
     await expectProposalState(proposal2Id, proposalStates.ACTIVE, testEnv);
 
     // SNAPSHOT: ACTIVE PROPOSAL
@@ -327,26 +327,26 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
     await expect(gov.connect(user2.signer).submitVote(proposalId, true))
       .to.emit(gov, 'VoteEmitted')
       .withArgs(proposalId, user2.address, true, balanceAfter.mul('2'));
-    */ 
-    const voteTx3 = await gov.submitVote(proposal2Id, true, {from: user1})
+    */
+    const voteTx3 = await gov.submitVote(proposal2Id, true, { from: user1 })
     //console.log(voteTx1.logs)
     await expect(voteTx3.logs[0].event).to.be.equal('VoteEmitted')
 
-    const voteTx4 = await gov.submitVote(proposal2Id, true, {from: user2})
+    const voteTx4 = await gov.submitVote(proposal2Id, true, { from: user2 })
     //console.log(voteTx1.logs)
     await expect(voteTx4.logs[0].event).to.be.equal('VoteEmitted')
 
     // go to end of voting period
-    await advanceBlockTo(Number(endBlock + 3 ).toString());
+    await advanceBlockTo(Number(endBlock + 3).toString());
     await expectProposalState(proposal2Id, proposalStates.SUCCEEDED, testEnv);
 
     // SNAPSHOT: SUCCEEDED PROPOSAL
     snapshots.set('succeeded', await evmSnapshot());
 
     // Succeeded => Queued:
-    const queueTx2 = await gov.queue(proposal2Id, {from: user1});//proposal executionTime is created here - uint256 executionTime = block.timestamp.add(proposal.executor.getDelay())
+    const queueTx2 = await gov.queue(proposal2Id, { from: user1 });//proposal executionTime is created here - uint256 executionTime = block.timestamp.add(proposal.executor.getDelay())
     await expectProposalState(proposal2Id, proposalStates.QUEUED, testEnv);
-    
+
     // SNAPSHOT: QUEUED PROPOSAL
     executionTime = (await gov.getProposalById(proposal2Id)).executionTime;
     console.log(executionTime, 'proposal 1 execution unix timestamp');
@@ -378,9 +378,8 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
   });
 
 
- 
-  it('Proposal 1 and 2 ', async () => {
-  
+  it('PopDeFi Proposal 1 and 2 ', async () => {
+
   })
 
 })

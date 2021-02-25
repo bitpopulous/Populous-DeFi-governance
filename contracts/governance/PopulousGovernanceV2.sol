@@ -406,7 +406,7 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
   /**
    * @dev Get the current state of a proposal
    * @param proposalId id of the proposal
-   * @return The current state if the proposal
+   * @return The current state of the proposal
    **/
   function getProposalState(uint256 proposalId) public view override returns (ProposalState) {
     require(_proposalsCount >= proposalId, 'INVALID_PROPOSAL_ID');
