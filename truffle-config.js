@@ -39,7 +39,10 @@ module.exports = {
   mocha: {
     timeout: 1200000
   },
-  plugins: ["solidity-coverage"],
+  plugins: ["solidity-coverage", 'truffle-plugin-verify'],
+  api_keys: {
+    etherscan: 'YWGA9IG8T37IZ5JX4UKKNNF8E3W8XKGCD1'
+  },
   compilers: {
     solc: {
       //version: "0.5.16",
@@ -47,9 +50,9 @@ module.exports = {
       settings: {
        optimizer: {
          enabled: true,
-         runs: 150
+         runs: 200
        },
-       evmVersion: "istanbul", // https://github.com/OpenZeppelin/openzeppelin-contracts/issues/2342
+       //evmVersion: "istanbul", // https://github.com/OpenZeppelin/openzeppelin-contracts/issues/2342
       }
     }
   }
