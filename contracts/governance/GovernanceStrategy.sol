@@ -5,6 +5,8 @@ pragma abicoder v2;
 import {IGovernanceStrategy} from '../interfaces/IGovernanceStrategy.sol';
 import {IERC20} from '../interfaces/IERC20.sol';
 import {IGovernancePowerDelegationToken} from '../interfaces/IGovernancePowerDelegationToken.sol';
+import {Ownable} from '../dependencies/open-zeppelin/Ownable.sol';
+import {SafeMath} from '../dependencies/open-zeppelin/SafeMath.sol';
 
 /**
  * @title Governance Strategy contract
@@ -16,18 +18,67 @@ import {IGovernancePowerDelegationToken} from '../interfaces/IGovernancePowerDel
  * - getVotingPowerAt: fetching a user Voting Power at a specified block
  * @author Populous
  **/
-contract GovernanceStrategy is IGovernanceStrategy {
+contract GovernanceStrategy is Ownable, IGovernanceStrategy {
+  using SafeMath for uint256;
+
   address public immutable Populous;
   address public immutable STK_Populous;
+
+  uint256 private pptWeight;
+  uint256 private pxtWeight;
+
+  event WeightSet(address indexed _token, uint256 indexed _weight);
 
   /**
    * @dev Constructor, register tokens used for Voting and Proposition Powers.
    * @param _populous The address of the Populous Token contract.
    * @param _stkPopulous The address of the stkPopulous Token Contract
    **/
-  constructor(address _populous, address _stkPopulous) {
+  constructor(address _populous, address _stkPopulous, uint256 _pptWeight, uint256 _pxtWeight) {
     Populous = _populous;
     STK_Populous = _stkPopulous;
+    pptWeight = _pptWeight;
+    pxtWeight = _pxtWeight;
+  }
+
+  /**
+   * @dev Returns the weight assigned to the PPT token for voting
+   * @return ppt assigned weight
+   **/
+  function getPPTWeight() public view returns (uint256) {
+    return pptWeight;
+  }
+
+  /**
+   * @dev Returns the weight assigned to the PXT token for voting
+   * @return pxt assigned weight
+   **/
+  function getPXTWeight() public view returns (uint256){
+    return pxtWeight;
+  }
+
+  /**
+   * @dev Assigns a weight to each PPT token for voting
+   * @param _weight weight to assign
+   * @return boolean true/false
+   **/
+  function setPPTWeight(uint256 _weight) external onlyOwner returns (bool) {
+    require(_weight > 0, "weight cannot be 0 or less");
+    pptWeight = _weight;
+    emit WeightSet(Populous, _weight);
+    return true;
+  }
+
+  /**
+   * @dev Assigns a weight to each PPT token for voting
+   * @param _weight weight to assign
+   * @return boolean true/false
+   **/
+  function setPXTWeight(uint256 _weight) external onlyOwner returns (bool) {
+    require(_weight > 0, "weight cannot be 0 or less");
+    pxtWeight = _weight;
+    emit WeightSet(Populous, _weight);
+    return true;
   }
 
   /**
@@ -89,7 +140,8 @@ contract GovernanceStrategy is IGovernanceStrategy {
     IGovernancePowerDelegationToken.DelegationType powerType
   ) internal view returns (uint256) {
     return
-      IGovernancePowerDelegationToken(Populous).getPowerAtBlock(user, blockNumber, powerType) +
-      IGovernancePowerDelegationToken(STK_Populous).getPowerAtBlock(user, blockNumber, powerType);
+      (IGovernancePowerDelegationToken(Populous).getPowerAtBlock(user, blockNumber, powerType).mul(pptWeight))
+      .add
+      (IGovernancePowerDelegationToken(STK_Populous).getPowerAtBlock(user, blockNumber, powerType).mul(pxtWeight));
   }
 }

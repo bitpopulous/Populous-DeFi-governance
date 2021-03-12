@@ -462,7 +462,9 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
     uint256 votingPower = IVotingStrategy(proposal.strategy).getVotingPowerAt(
       voter,
       proposal.startBlock
-    );
+    ); //todo pass token weights in here as parameter 
+    //calls line 77 in governance strategy which calls line 86
+    //parameters of abstract functions in interface IGovernanceStrategy will need changing
 
     if (support) {
       proposal.forVotes = proposal.forVotes.add(votingPower);
