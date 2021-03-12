@@ -30,12 +30,15 @@ module.exports = function (deployer, network, accounts) {
             //assign Populous and stkPopulous ERC-20 token addresses
             let Populous = ppt.address; //address Populous, 
             let stkPopulous = pxt.address; //address stkPopulous
-
+            let pptWeight = '2';
+            let pxtWeight = '1';
             //deploy Governance Strategy 
             let governanceStrategy = await deployer.deploy(
                 GovernanceStrategy,
                 Populous, 
                 stkPopulous, 
+                pptWeight,
+                pxtWeight, 
                 {from: root, overwrite: true}
             );
 
@@ -95,6 +98,9 @@ module.exports = function (deployer, network, accounts) {
         deployer.then(async () => {
             //ROPSTEN DEPLOYMENT
 
+            //root address in alchemy is different from infura
+            //not using root here
+
             //deploy PPT token - to replace Populous token
             let pptWrapper = await deployer.deploy(PPTWrapper);
             //only deployer prints contract created address
@@ -107,13 +113,15 @@ module.exports = function (deployer, network, accounts) {
             //assign Populous and stkPopulous ERC-20 token addresses
             let Populous = pptWrapper.address; //address Populous, 
             let stkPopulous = pxtWrapper.address; //address stkPopulous
-
+            let pptWeight = '2';
+            let pxtWeight = '1';
             //deploy Governance Strategy 
             let governanceStrategy = await deployer.deploy(
                 GovernanceStrategy,
                 Populous, 
                 stkPopulous, 
-                {from: root, overwrite: true}
+                pptWeight,
+                pxtWeight,
             );
 
             //deploy Governance v2
@@ -126,7 +134,6 @@ module.exports = function (deployer, network, accounts) {
                 votingDelay, 
                 guardian, 
                 executors, //can be empty array if executor will not be given ownership
-                {from: root, overwrite: true}
             );
 
             //deploy mock PopulousV2 token = ppt
@@ -155,11 +162,10 @@ module.exports = function (deployer, network, accounts) {
                 voteDuration,
                 voteDifferential,
                 minimumQuorum,
-                {from: root, overwrite: true}
             );
 
             //authorise executor
-            await gov.authorizeExecutors([exec.address], {from: root});
+            await gov.authorizeExecutors([exec.address]);
 
             //transfer ownership of governance to executor?
             /*

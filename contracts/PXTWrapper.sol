@@ -8,7 +8,7 @@ contract PXTWrapper is ERC20 {
 
     enum DelegationType {VOTING_POWER, PROPOSITION_POWER}
 
-    address public pxtToken = 0x350E7A260B584e24c04ac2ba682fa568D59c7829;
+    address public pxtToken = 0x72C770aB6CA28114504255C6b5b2e67f9a4749DA;//decimals - 8
     
     /**
      * @dev Function to mint tokens

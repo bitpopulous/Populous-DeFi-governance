@@ -8,7 +8,7 @@ contract PPTWrapper is ERC20 {
 
     enum DelegationType {VOTING_POWER, PROPOSITION_POWER}
 
-    address public pptToken = 0x350E7A260B584e24c04ac2ba682fa568D59c7829;
+    address public pptToken = 0x350E7A260B584e24c04ac2ba682fa568D59c7829;//decimals - 8
     
     /**
      * @dev Function to mint tokens
