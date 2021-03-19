@@ -73,10 +73,15 @@ contract('Populous Governance V2 and Governance Strategy', async ([deployer, ...
         let Populous = ppt.address; //address Populous, 
         let stkPopulous = pxt.address; //address stkPopulous
 
+        let pptWeight = '2';
+        let pxtWeight = '1';
+
         //deploy Governance Strategy - required in Governance deployment
         let governanceStrategy = await GovernanceStrategy.new(
             Populous,
             stkPopulous,
+            pptWeight,
+            pxtWeight,
             { from: deployer }
         );
         console.log(governanceStrategy.address, 'governance strategy address')

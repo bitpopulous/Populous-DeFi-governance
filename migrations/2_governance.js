@@ -115,6 +115,7 @@ module.exports = function (deployer, network, accounts) {
             let stkPopulous = pxtWrapper.address; //address stkPopulous
             let pptWeight = '2';
             let pxtWeight = '1';
+            
             //deploy Governance Strategy 
             let governanceStrategy = await deployer.deploy(
                 GovernanceStrategy,

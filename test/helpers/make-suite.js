@@ -216,8 +216,11 @@ const migrate_test_env = async (votingDelay, executorAsOwner, silent) => {
   // Deploy mocked Populous v2 / pxt token
   const stkToken = await deployContract(MockPXT, [], admin);
 
+  const pptWeight = '10';
+  const pxtWeight = '1';
+
   // Deploy strategy
-  const strategy = await deployContract(GovernanceStrategy, [token.address, stkToken.address], admin)
+  const strategy = await deployContract(GovernanceStrategy, [token.address, stkToken.address, pptWeight, pxtWeight], admin)
 
   // Deploy governance v2
   //const strategy = strategy.address

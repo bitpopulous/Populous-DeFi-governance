@@ -106,9 +106,12 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
   before(async () => {
     await deployGovernanceNoDelay();
 
+  });
+
+
+  it('should create and execute Proposal 1 and 2', async () => {
     const provider = new ethers.providers.Web3Provider(web3.currentProvider);
     console.log(provider, 'current provider')
-
     /* //testEnv structure
     deployer: SignerWithAddress,
     minter: SignerWithAddress,
@@ -170,8 +173,11 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
     await setBalance(user5, await convertToCurrencyDecimals(Populous.address, new BigNumber(minimumPower).shiftedBy(-8).toNumber() / 2 + 2), testEnv);
 
     let block = await provider.getBlockNumber();
+    let pptWeight = (await strategy.getPPTWeight()).toNumber();
+
     expect(new BigNumber(await strategy.getVotingPowerAt(user5, block)).shiftedBy(-8).toNumber()).to.be.equal( //TODO add new function to ppt token
-      new BigNumber(minimumPower).shiftedBy(-8).toNumber() / 2 + 2
+      //new BigNumber(minimumPower).shiftedBy(-8).toNumber() / 2 + 2
+      new BigNumber(await Populous.balanceOf(user5)).shiftedBy(-8).toNumber() * pptWeight
     );
 
     /*
@@ -274,12 +280,12 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
     //Execute the proposal (If Proposal Queued)
     //will not: execute a canceled proposal; execute a queued proposal before timelock; execute a queued proposal after grace period (expired); 
     // 5 sec before grace period reached
-    /* await advanceBlockTo(Number(executionTime + gracePeriod - 5).toString());
-    await expect(gov.votingDelay()).to.be.equal(votingDelay)
+    //await advanceBlockTo(Number(executionTime + gracePeriod - 5).toString());
+    expect((await gov.getVotingDelay()).toNumber()).to.be.equal(votingDelay.toNumber())
     //governance: function execute(uint256 proposalId) external payable override {
     const executeTx = await gov.execute(proposalId, {from: user1}) //conditions: block.timestamp >= executionTime (checks uint256 executionTime = block.timestamp.add(proposal.executor.getDelay()))
     //gov.execute calls executor.executeTransaction in executorWithTimeLock
-    await expect(executeTx.logs[0].event).to.be.equal('ProposalExecuted') */
+    await expect(executeTx.logs[0].event).to.be.equal('ProposalExecuted')
 
 
 
@@ -373,12 +379,6 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
     await expect(executeTx.logs[0].event).to.be.equal('ProposalExecuted')
     //after execute, check that voting delay is changed
     expect(await gov.getVotingDelay()).to.be.equal(Number(300)); */
-
-
-  });
-
-
-  it('PopDeFi Proposal 1 and 2 ', async () => {
 
   })
 
