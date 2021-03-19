@@ -274,7 +274,7 @@ contract('Populous Governance V2', async ([deployer, ...users]) => {
     console.log(Number(executionDelay.toString()), 'exec delay unix timestamp')
     console.log(blockTime.timestamp, 'block timestamp')
 
-    await advanceBlock(Number(execTime.toString()))
+    await advanceBlock(Number(execTime.toString())) //advance to execution time
 
     console.log(gracePeriod, 'grace period')
     //Execute the proposal (If Proposal Queued)
