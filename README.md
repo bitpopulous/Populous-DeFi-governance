@@ -142,7 +142,7 @@ Summary
 
 
 
-## Ethereum (ropsten) test network deployment for Populous governance smart contracts with automated migration scripts in required order - 12/03/2021
+## Ethereum (ropsten) test network deployment for Populous governance smart contracts with automated migration scripts in required order - 25/03/2021
 
 ```
 infura key/address used - https://ropsten.infura.io/v3/${secret.infuraKey[1]}`, 2
@@ -153,27 +153,25 @@ ppt = 0x350E7A260B584e24c04ac2ba682fa568D59c7829
 
 
 
-
-
 Starting migrations...
 ======================
 > Network name:    'ropsten'
 > Network id:      3
-> Block gas limit: 8000000 (0x7a1200)
+> Block gas limit: 8000029 (0x7a121d)
 
 
 1_initial_migration.js
 ======================
 
-   Deploying 'Migrations'
+   Replacing 'Migrations'
    ----------------------
-   > transaction hash:    0x42104ec662f6ebe1a789dbb475998fe306a887ee1714a8030edfaf6ab28b3ff8
-   > Blocks: 1            Seconds: 12
-   > contract address:    0xDBb1fe26757DfDF103E0a7F3e4e0A3CE849B7443
-   > block number:        9823223
-   > block timestamp:     1615568418
+   > transaction hash:    0x0ebe0be46a3c12339cb27cad659fb9a5c291ece353684247ce0c1284e3bf5511
+   > Blocks: 176          Seconds: 264
+   > contract address:    0xfe8aC875D1522be7e08aA2C7395f5037Cd648d65
+   > block number:        9904205
+   > block timestamp:     1616664893
    > account:             0xC6561dF9180a8863fA9a16aB376eFbca17166CF4
-   > balance:             7.6712031719
+   > balance:             7.5082951609
    > gas used:            169802 (0x2974a)
    > gas price:           23 gwei
    > value sent:          0 ETH
@@ -189,75 +187,75 @@ Starting migrations...
 2_governance.js
 ===============
 
-   Deploying 'PPTWrapper'
+   Replacing 'PPTWrapper'
    ----------------------
-   > transaction hash:    0xd66059fadd4ad50bc5fd63b193282b30e63e7e562574e791480e935d9e3f7982
-   > Blocks: 2            Seconds: 4
-   > contract address:    0xC3a19D7540F2872B3aD29Ca2E4C335b0eb2aC42c
-   > block number:        9823227
-   > block timestamp:     1615568459
+   > transaction hash:    0x07002def35a852510d1772270f7ab53322ff8c428ff049080fa678f8c819951c
+   > Blocks: 0            Seconds: 0
+   > contract address:    0xCd06b7d3edD8e7185E7757d89f829F183C3Bf228
+   > block number:        9904209
+   > block timestamp:     1616665065
    > account:             0xC6561dF9180a8863fA9a16aB376eFbca17166CF4
-   > balance:             7.6562950549
+   > balance:             7.4933870439
    > gas used:            602500 (0x93184)
    > gas price:           23 gwei
    > value sent:          0 ETH
    > total cost:          0.0138575 ETH
 
 
-   Deploying 'PXTWrapper'
+   Replacing 'PXTWrapper'
    ----------------------
-   > transaction hash:    0x193f746a8ddc2ac165b0dae8982629d9a2af47cf4e1c8761278312a5d515fdbf
-   > Blocks: 2            Seconds: 36
-   > contract address:    0xfac4342d729fBDc1501A47A9acd818aE254a5FD3
-   > block number:        9823229
-   > block timestamp:     1615568485
-   > account:             0xC6561dF9180a8863fA9a16aB376eFbca17166CF4
-   > balance:             7.6424375549
-   > gas used:            602500 (0x93184)
-   > gas price:           23 gwei
-   > value sent:          0 ETH
-   > total cost:          0.0138575 ETH
-
-
-   Deploying 'GovernanceStrategy'
-   ------------------------------
-   > transaction hash:    0x65adbec079f1178d0b548ddd2f72ca3a0e9e9b166d13213fff2830d6178e147b
+   > transaction hash:    0xd567672a8779dc835edbb5ac8e90e3141811b638bbea92a43c3803f2aa05cf54
    > Blocks: 0            Seconds: 16
-   > contract address:    0x6827AaeF25002dd416dc64FEa80445914A6a8cb3
-   > block number:        9823231
-   > block timestamp:     1615568503
+   > contract address:    0x7De8E0Ed49Ffe2512C42597D61623C7EcF3A9F49
+   > block number:        9904210
+   > block timestamp:     1616665072
    > account:             0xC6561dF9180a8863fA9a16aB376eFbca17166CF4
-   > balance:             7.6270786609
+   > balance:             7.4795295439
+   > gas used:            602500 (0x93184)
+   > gas price:           23 gwei
+   > value sent:          0 ETH
+   > total cost:          0.0138575 ETH
+
+
+   Replacing 'GovernanceStrategy'
+   ------------------------------
+   > transaction hash:    0x59ffbafc89d5c0c57885a818cf2140bd0a10a1b8a024ca5f71b80d2a96c493b3
+   > Blocks: 1            Seconds: 116
+   > contract address:    0xf59c6980A817760223d602654155B28A9c2E51Dd
+   > block number:        9904212
+   > block timestamp:     1616665206
+   > account:             0xC6561dF9180a8863fA9a16aB376eFbca17166CF4
+   > balance:             7.4641706499
    > gas used:            667778 (0xa3082)
    > gas price:           23 gwei
    > value sent:          0 ETH
    > total cost:          0.015358894 ETH
 
 
-   Deploying 'PopulousGovernanceV2'
+   Replacing 'PopulousGovernanceV2'
    --------------------------------
-   > transaction hash:    0xf76bd5449f041539f6e61c6a9f461e835a92ed8cab4a86b33a37164291b89db6
-   > Blocks: 1            Seconds: 8
-   > contract address:    0x90ab7B9732EA04404B779b4470cF22402cC030be
-   > block number:        9823233
-   > block timestamp:     1615568526
+   > transaction hash:    0xe80a0bf251092f51b02abc606facc2372a99ca52b1f98e4a436dff3e0d2ba4be
+   > Blocks: 0            Seconds: 4
+   > contract address:    0xf87Ce2272A4D55368f084A555EfEc23e736822f6
+   > block number:        9904213
+   > block timestamp:     1616665210
    > account:             0xC6561dF9180a8863fA9a16aB376eFbca17166CF4
-   > balance:             7.5597580059
-   > gas used:            2926985 (0x2ca989)
+   > balance:             7.3968497189
+   > gas used:            2926997 (0x2ca995)
    > gas price:           23 gwei
    > value sent:          0 ETH
-   > total cost:          0.067320655 ETH
+   > total cost:          0.067320931 ETH
 
 
-   Deploying 'Executor'
+   Replacing 'Executor'
    --------------------
-   > transaction hash:    0x75d0fba50011a3b9b410e7cc95b27fd1d1c0d52757640e2f80a4cbc0449de035
-   > Blocks: 1            Seconds: 8
-   > contract address:    0x99F3083f101e0BAb8AdCf10e6b620388C5f1AC23
-   > block number:        9823235
-   > block timestamp:     1615568535
+   > transaction hash:    0x6de291cb5e2bc4715c0a385588ccf4b9fcadaf03b57d280f77112abd6a2d4fd8
+   > Blocks: 0            Seconds: 4
+   > contract address:    0xBcA335D2342F9341cc743e599a4F0def52F15348
+   > block number:        9904214
+   > block timestamp:     1616665218
    > account:             0xC6561dF9180a8863fA9a16aB376eFbca17166CF4
-   > balance:             7.5182022039
+   > balance:             7.3552939169
    > gas used:            1806774 (0x1b91b6)
    > gas price:           23 gwei
    > value sent:          0 ETH
@@ -267,12 +265,12 @@ Starting migrations...
    > Saving migration to chain.
    > Saving artifacts
    -------------------------------------
-   > Total cost:         0.151950351 ETH
+   > Total cost:         0.151950627 ETH
 
 
 Summary
 =======
 > Total deployments:   6
-> Final cost:          0.155855797 ETH
+> Final cost:          0.155856073 ETH
 
 ```
