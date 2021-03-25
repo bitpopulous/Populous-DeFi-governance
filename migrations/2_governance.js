@@ -113,8 +113,9 @@ module.exports = function (deployer, network, accounts) {
             //assign Populous and stkPopulous ERC-20 token addresses
             let Populous = pptWrapper.address; //address Populous, 
             let stkPopulous = pxtWrapper.address; //address stkPopulous
-            let pptWeight = '2';
+            let pptWeight = '30';
             let pxtWeight = '1';
+            
             //deploy Governance Strategy 
             let governanceStrategy = await deployer.deploy(
                 GovernanceStrategy,
