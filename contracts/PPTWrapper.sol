@@ -4,7 +4,7 @@ pragma solidity 0.7.5;
 import "./ERC20.sol";
 import "./MintableERC20.sol";
 
-contract PPTWrapper is ERC20 {
+contract PPTWrapper {
 
     enum DelegationType {VOTING_POWER, PROPOSITION_POWER}
 
