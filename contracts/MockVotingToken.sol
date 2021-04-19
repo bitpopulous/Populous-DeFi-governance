@@ -3,12 +3,13 @@ pragma abicoder v2;
 
 import "./ERC20.sol";
 import "./interfaces/IPopulousGovernanceV2.sol";
+import {Ownable} from './dependencies/open-zeppelin/Ownable.sol';
 
 /**
  * @title MockVotingToken
  * @dev Implements ERC20 minting logic
  */
-contract MockVotingToken is ERC20 {
+contract MockVotingToken is ERC20, Ownable {
     enum DelegationType {VOTING_POWER, PROPOSITION_POWER}
 
     ERC20 public pxtToken;
@@ -27,7 +28,7 @@ contract MockVotingToken is ERC20 {
     }
 
     // only owner/admin
-    function setGov(address _governance) public {
+    function setGov(address _governance) public onlyOwner {
         require(_governance != address(0), "MockVotingToken: Invalid governance address");
         governance = IPopulousGovernanceV2(_governance);
     }
