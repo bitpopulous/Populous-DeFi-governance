@@ -5,12 +5,11 @@ import "./ERC20.sol";
 import "./interfaces/IPopulousGovernanceV2.sol";
 
 /**
- * @title ERC20Mintable
- * @dev ERC20 minting logic
+ * @title MockVotingToken
+ * @dev Implements ERC20 minting logic
  */
 contract MockVotingToken is ERC20 {
     enum DelegationType {VOTING_POWER, PROPOSITION_POWER}
-    enum ProposalState {Pending, Canceled, Active, Failed, Succeeded, Queued, Expired, Executed}
 
     ERC20 public pxtToken;
     IPopulousGovernanceV2 public governance;
