@@ -5,8 +5,9 @@ const GovernanceStrategy = artifacts.require('GovernanceStrategy');
 const MockPPT = artifacts.require('MockPPT');
 const MockPXT = artifacts.require('MockPXT');
 const Executor = artifacts.require('Executor');
-const PPTWrapper = artifacts.require('PPTWrapper');
-const PXTWrapper = artifacts.require('PXTWrapper');
+//const PPTWrapper = artifacts.require('PPTWrapper');
+//const PXTWrapper = artifacts.require('PXTWrapper');
+const MockVotingToken = artifacts.require('MockVotingToken');
 
 //const BigNumber = require('bignumber.js');
 
@@ -28,17 +29,21 @@ module.exports = function (deployer, network, accounts) {
             let pxt = await deployer.deploy(MockPXT);
 
             //assign Populous and stkPopulous ERC-20 token addresses
-            let Populous = ppt.address; //address Populous, 
-            let stkPopulous = pxt.address; //address stkPopulous
-            let pptWeight = '2';
-            let pxtWeight = '1';
+            //let Populous = pxt.address; //address Populous, 
+            //let stkPopulous = pxt.address; //address stkPopulous
+            //let pptWeight = '2';
+            //let pxtWeight = '1';
             //deploy Governance Strategy 
+            let mockVotingToken = await deployer.deploy(
+                MockVotingToken,
+                pxt.address,
+                {from: root, overwrite: true}
+            );
+
             let governanceStrategy = await deployer.deploy(
                 GovernanceStrategy,
-                Populous, 
-                stkPopulous, 
-                pptWeight,
-                pxtWeight, 
+                pxt.address, 
+                mockVotingToken.address, 
                 {from: root, overwrite: true}
             );
 
@@ -53,6 +58,11 @@ module.exports = function (deployer, network, accounts) {
                 guardian, 
                 executors, //can be empty array if executor will not be given ownership
                 {from: root, overwrite: true}
+            );
+
+            await mockVotingToken.setGov(
+                gov.address,
+                {from: root}
             );
 
             //deploy mock PopulousV2 token

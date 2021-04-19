@@ -22,63 +22,18 @@ contract GovernanceStrategy is Ownable, IGovernanceStrategy {
   using SafeMath for uint256;
 
   address public immutable Populous;
-  address public immutable STK_Populous;
-
-  uint256 private pptWeight;
-  uint256 private pxtWeight;
-
-  event WeightSet(address indexed _token, uint256 indexed _weight);
+  address public immutable stkPopulous;
 
   /**
    * @dev Constructor, register tokens used for Voting and Proposition Powers.
    * @param _populous The address of the Populous Token contract.
    * @param _stkPopulous The address of the stkPopulous Token Contract
    **/
-  constructor(address _populous, address _stkPopulous, uint256 _pptWeight, uint256 _pxtWeight) {
+  constructor(address _populous, address _stkPopulous) {
+    require(_populous != address(0), "GovernanceStrategy: Invalid populous token address");
+    require(_stkPopulous != address(0), "GovernanceStrategy: Invalid stkPopulous token address");
     Populous = _populous;
-    STK_Populous = _stkPopulous;
-    pptWeight = _pptWeight;
-    pxtWeight = _pxtWeight;
-  }
-
-  /**
-   * @dev Returns the weight assigned to the PPT token for voting
-   * @return ppt assigned weight
-   **/
-  function getPPTWeight() public view returns (uint256) {
-    return pptWeight;
-  }
-
-  /**
-   * @dev Returns the weight assigned to the PXT token for voting
-   * @return pxt assigned weight
-   **/
-  function getPXTWeight() public view returns (uint256){
-    return pxtWeight;
-  }
-
-  /**
-   * @dev Assigns a weight to each PPT token for voting
-   * @param _weight weight to assign
-   * @return boolean true/false
-   **/
-  function setPPTWeight(uint256 _weight) external onlyOwner returns (bool) {
-    require(_weight > 0, "weight cannot be 0 or less");
-    pptWeight = _weight;
-    emit WeightSet(Populous, _weight);
-    return true;
-  }
-
-  /**
-   * @dev Assigns a weight to each PPT token for voting
-   * @param _weight weight to assign
-   * @return boolean true/false
-   **/
-  function setPXTWeight(uint256 _weight) external onlyOwner returns (bool) {
-    require(_weight > 0, "weight cannot be 0 or less");
-    pxtWeight = _weight;
-    emit WeightSet(Populous, _weight);
-    return true;
+    stkPopulous = _stkPopulous;
   }
 
   /**
@@ -140,8 +95,9 @@ contract GovernanceStrategy is Ownable, IGovernanceStrategy {
     IGovernancePowerDelegationToken.DelegationType powerType
   ) internal view returns (uint256) {
     return
-      (IGovernancePowerDelegationToken(Populous).getPowerAtBlock(user, blockNumber, powerType).mul(pptWeight))
+    IGovernancePowerDelegationToken(stkPopulous).getPowerAtBlock(user, blockNumber, powerType);
+      /* (IGovernancePowerDelegationToken(Populous).getPowerAtBlock(user, blockNumber, powerType).mul(pptWeight))
       .add
-      (IGovernancePowerDelegationToken(STK_Populous).getPowerAtBlock(user, blockNumber, powerType).mul(pxtWeight));
+      (IGovernancePowerDelegationToken(STK_Populous).getPowerAtBlock(user, blockNumber, powerType).mul(pxtWeight)); */
   }
 }

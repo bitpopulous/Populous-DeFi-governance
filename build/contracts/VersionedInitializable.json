@@ -1,7 +1,7 @@
 {
   "contractName": "VersionedInitializable",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.5+commit.eb77ed08\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"author\":\"Aave, inspired by the OpenZeppelin Initializable contract\",\"details\":\"Helper contract to support initializer functions. To use it, replace the constructor with a function that has the `initializer` modifier. WARNING: Unlike constructors, initializer functions must be manually invoked. This applies both to deploying an Initializable contract, as well as extending an Initializable contract via inheritance. WARNING: When used with inheritance, manual care must be taken to not invoke a parent initializer twice, or ensure that all initializers are idempotent, because this is not dealt with automatically as with constructors.\",\"kind\":\"dev\",\"methods\":{},\"stateVariables\":{\"lastInitializedRevision\":{\"details\":\"Indicates that the contract has been initialized.\"}},\"title\":\"VersionedInitializable\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/dependencies/aave-token-v2/contracts/utils/VersionedInitializable.sol\":\"VersionedInitializable\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/dependencies/aave-token-v2/contracts/utils/VersionedInitializable.sol\":{\"keccak256\":\"0x989d03903ead945c88a1d8985265995ef11b825b63497b39f03e0aeb176d3ccb\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://8f64dd4854f13cbdafd772867df8b6344d1befa876e9dfeaf1bc8cd24bd6a75f\",\"dweb:/ipfs/QmZdXUP6e7XdnfN3XEkpW9VGZe8PLt4jmYmhnveyA8txnD\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.5+commit.eb77ed08\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"author\":\"Aave, inspired by the OpenZeppelin Initializable contract\",\"details\":\"Helper contract to support initializer functions. To use it, replace the constructor with a function that has the `initializer` modifier. WARNING: Unlike constructors, initializer functions must be manually invoked. This applies both to deploying an Initializable contract, as well as extending an Initializable contract via inheritance. WARNING: When used with inheritance, manual care must be taken to not invoke a parent initializer twice, or ensure that all initializers are idempotent, because this is not dealt with automatically as with constructors.\",\"kind\":\"dev\",\"methods\":{},\"stateVariables\":{\"lastInitializedRevision\":{\"details\":\"Indicates that the contract has been initialized.\"}},\"title\":\"VersionedInitializable\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/aave-token-v2/contracts/utils/VersionedInitializable.sol\":\"VersionedInitializable\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/aave-token-v2/contracts/utils/VersionedInitializable.sol\":{\"keccak256\":\"0x989d03903ead945c88a1d8985265995ef11b825b63497b39f03e0aeb176d3ccb\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://8f64dd4854f13cbdafd772867df8b6344d1befa876e9dfeaf1bc8cd24bd6a75f\",\"dweb:/ipfs/QmZdXUP6e7XdnfN3XEkpW9VGZe8PLt4jmYmhnveyA8txnD\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -10,27 +10,27 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity 0.7.5;\n\n/**\n * @title VersionedInitializable\n *\n * @dev Helper contract to support initializer functions. To use it, replace\n * the constructor with a function that has the `initializer` modifier.\n * WARNING: Unlike constructors, initializer functions must be manually\n * invoked. This applies both to deploying an Initializable contract, as well\n * as extending an Initializable contract via inheritance.\n * WARNING: When used with inheritance, manual care must be taken to not invoke\n * a parent initializer twice, or ensure that all initializers are idempotent,\n * because this is not dealt with automatically as with constructors.\n *\n * @author Aave, inspired by the OpenZeppelin Initializable contract\n */\nabstract contract VersionedInitializable {\n    /**\n   * @dev Indicates that the contract has been initialized.\n   */\n    uint256 internal lastInitializedRevision = 0;\n\n   /**\n   * @dev Modifier to use in the initializer function of a contract.\n   */\n    modifier initializer() {\n        uint256 revision = getRevision();\n        require(revision > lastInitializedRevision, \"Contract instance has already been initialized\");\n\n        lastInitializedRevision = revision;\n\n        _;\n\n    }\n\n    /// @dev returns the revision number of the contract.\n    /// Needs to be defined in the inherited class as a constant.\n    function getRevision() internal pure virtual returns(uint256);\n\n\n    // Reserved storage space to allow for layout changes in the future.\n    uint256[50] private ______gap;\n}\n",
-  "sourcePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/dependencies/aave-token-v2/contracts/utils/VersionedInitializable.sol",
+  "sourcePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/aave-token-v2/contracts/utils/VersionedInitializable.sol",
   "ast": {
-    "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/dependencies/aave-token-v2/contracts/utils/VersionedInitializable.sol",
+    "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/aave-token-v2/contracts/utils/VersionedInitializable.sol",
     "exportedSymbols": {
       "VersionedInitializable": [
-        4289
+        4524
       ]
     },
-    "id": 4290,
+    "id": 4525,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4252,
+        "id": 4487,
         "literals": [
           "solidity",
           "0.7",
           ".5"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:22:28"
+        "src": "37:22:29"
       },
       {
         "abstract": true,
@@ -38,15 +38,15 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "documentation": {
-          "id": 4253,
+          "id": 4488,
           "nodeType": "StructuredDocumentation",
-          "src": "61:702:28",
+          "src": "61:702:29",
           "text": " @title VersionedInitializable\n @dev Helper contract to support initializer functions. To use it, replace\n the constructor with a function that has the `initializer` modifier.\n WARNING: Unlike constructors, initializer functions must be manually\n invoked. This applies both to deploying an Initializable contract, as well\n as extending an Initializable contract via inheritance.\n WARNING: When used with inheritance, manual care must be taken to not invoke\n a parent initializer twice, or ensure that all initializers are idempotent,\n because this is not dealt with automatically as with constructors.\n @author Aave, inspired by the OpenZeppelin Initializable contract"
         },
         "fullyImplemented": false,
-        "id": 4289,
+        "id": 4524,
         "linearizedBaseContracts": [
-          4289
+          4524
         ],
         "name": "VersionedInitializable",
         "nodeType": "ContractDefinition",
@@ -54,17 +54,17 @@
           {
             "constant": false,
             "documentation": {
-              "id": 4254,
+              "id": 4489,
               "nodeType": "StructuredDocumentation",
-              "src": "811:69:28",
+              "src": "811:69:29",
               "text": " @dev Indicates that the contract has been initialized."
             },
-            "id": 4257,
+            "id": 4492,
             "mutability": "mutable",
             "name": "lastInitializedRevision",
             "nodeType": "VariableDeclaration",
-            "scope": 4289,
-            "src": "885:44:28",
+            "scope": 4524,
+            "src": "885:44:29",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -72,10 +72,10 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 4255,
+              "id": 4490,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "885:7:28",
+              "src": "885:7:29",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -83,14 +83,14 @@
             },
             "value": {
               "hexValue": "30",
-              "id": 4256,
+              "id": 4491,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "928:1:28",
+              "src": "928:1:29",
               "typeDescriptions": {
                 "typeIdentifier": "t_rational_0_by_1",
                 "typeString": "int_const 0"
@@ -101,23 +101,23 @@
           },
           {
             "body": {
-              "id": 4277,
+              "id": 4512,
               "nodeType": "Block",
-              "src": "1041:210:28",
+              "src": "1041:210:29",
               "statements": [
                 {
                   "assignments": [
-                    4261
+                    4496
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 4261,
+                      "id": 4496,
                       "mutability": "mutable",
                       "name": "revision",
                       "nodeType": "VariableDeclaration",
-                      "scope": 4277,
-                      "src": "1051:16:28",
+                      "scope": 4512,
+                      "src": "1051:16:29",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -125,10 +125,10 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 4260,
+                        "id": 4495,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
-                        "src": "1051:7:28",
+                        "src": "1051:7:29",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -137,23 +137,23 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 4264,
+                  "id": 4499,
                   "initialValue": {
                     "arguments": [],
                     "expression": {
                       "argumentTypes": [],
-                      "id": 4262,
+                      "id": 4497,
                       "name": "getRevision",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4284,
-                      "src": "1070:11:28",
+                      "referencedDeclaration": 4519,
+                      "src": "1070:11:29",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_pure$__$returns$_t_uint256_$",
                         "typeString": "function () pure returns (uint256)"
                       }
                     },
-                    "id": 4263,
+                    "id": 4498,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -161,7 +161,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1070:13:28",
+                    "src": "1070:13:29",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -169,7 +169,7 @@
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "1051:32:28"
+                  "src": "1051:32:29"
                 },
                 {
                   "expression": {
@@ -179,18 +179,18 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 4268,
+                        "id": 4503,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
-                          "id": 4266,
+                          "id": 4501,
                           "name": "revision",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4261,
-                          "src": "1101:8:28",
+                          "referencedDeclaration": 4496,
+                          "src": "1101:8:29",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -199,18 +199,18 @@
                         "nodeType": "BinaryOperation",
                         "operator": ">",
                         "rightExpression": {
-                          "id": 4267,
+                          "id": 4502,
                           "name": "lastInitializedRevision",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4257,
-                          "src": "1112:23:28",
+                          "referencedDeclaration": 4492,
+                          "src": "1112:23:29",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
-                        "src": "1101:34:28",
+                        "src": "1101:34:29",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -218,14 +218,14 @@
                       },
                       {
                         "hexValue": "436f6e747261637420696e7374616e63652068617320616c7265616479206265656e20696e697469616c697a6564",
-                        "id": 4269,
+                        "id": 4504,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1137:48:28",
+                        "src": "1137:48:29",
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_9fbba6c4dcac9134893b633b9564f36435b3f927c1d5fa152c5c14b20cecb1a4",
                           "typeString": "literal_string \"Contract instance has already been initialized\""
@@ -244,7 +244,7 @@
                           "typeString": "literal_string \"Contract instance has already been initialized\""
                         }
                       ],
-                      "id": 4265,
+                      "id": 4500,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -252,13 +252,13 @@
                         -18
                       ],
                       "referencedDeclaration": -18,
-                      "src": "1093:7:28",
+                      "src": "1093:7:29",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 4270,
+                    "id": 4505,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -266,31 +266,31 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1093:93:28",
+                    "src": "1093:93:29",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 4271,
+                  "id": 4506,
                   "nodeType": "ExpressionStatement",
-                  "src": "1093:93:28"
+                  "src": "1093:93:29"
                 },
                 {
                   "expression": {
-                    "id": 4274,
+                    "id": 4509,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 4272,
+                      "id": 4507,
                       "name": "lastInitializedRevision",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4257,
-                      "src": "1197:23:28",
+                      "referencedDeclaration": 4492,
+                      "src": "1197:23:29",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -299,84 +299,84 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 4273,
+                      "id": 4508,
                       "name": "revision",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4261,
-                      "src": "1223:8:28",
+                      "referencedDeclaration": 4496,
+                      "src": "1223:8:29",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "1197:34:28",
+                    "src": "1197:34:29",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 4275,
+                  "id": 4510,
                   "nodeType": "ExpressionStatement",
-                  "src": "1197:34:28"
+                  "src": "1197:34:29"
                 },
                 {
-                  "id": 4276,
+                  "id": 4511,
                   "nodeType": "PlaceholderStatement",
-                  "src": "1242:1:28"
+                  "src": "1242:1:29"
                 }
               ]
             },
             "documentation": {
-              "id": 4258,
+              "id": 4493,
               "nodeType": "StructuredDocumentation",
-              "src": "935:78:28",
+              "src": "935:78:29",
               "text": " @dev Modifier to use in the initializer function of a contract."
             },
-            "id": 4278,
+            "id": 4513,
             "name": "initializer",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 4259,
+              "id": 4494,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1038:2:28"
+              "src": "1038:2:29"
             },
-            "src": "1018:233:28",
+            "src": "1018:233:29",
             "virtual": false,
             "visibility": "internal"
           },
           {
             "documentation": {
-              "id": 4279,
+              "id": 4514,
               "nodeType": "StructuredDocumentation",
-              "src": "1257:119:28",
+              "src": "1257:119:29",
               "text": "@dev returns the revision number of the contract.\n Needs to be defined in the inherited class as a constant."
             },
-            "id": 4284,
+            "id": 4519,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getRevision",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4280,
+              "id": 4515,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1401:2:28"
+              "src": "1401:2:29"
             },
             "returnParameters": {
-              "id": 4283,
+              "id": 4518,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4282,
+                  "id": 4517,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4284,
-                  "src": "1434:7:28",
+                  "scope": 4519,
+                  "src": "1434:7:29",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -384,10 +384,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4281,
+                    "id": 4516,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1434:7:28",
+                    "src": "1434:7:29",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -396,22 +396,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1433:9:28"
+              "src": "1433:9:29"
             },
-            "scope": 4289,
-            "src": "1381:62:28",
+            "scope": 4524,
+            "src": "1381:62:29",
             "stateMutability": "pure",
             "virtual": true,
             "visibility": "internal"
           },
           {
             "constant": false,
-            "id": 4288,
+            "id": 4523,
             "mutability": "mutable",
             "name": "______gap",
             "nodeType": "VariableDeclaration",
-            "scope": 4289,
-            "src": "1523:29:28",
+            "scope": 4524,
+            "src": "1523:29:29",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -420,26 +420,26 @@
             },
             "typeName": {
               "baseType": {
-                "id": 4285,
+                "id": 4520,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
-                "src": "1523:7:28",
+                "src": "1523:7:29",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
-              "id": 4287,
+              "id": 4522,
               "length": {
                 "hexValue": "3530",
-                "id": 4286,
+                "id": 4521,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
                 "kind": "number",
                 "lValueRequested": false,
                 "nodeType": "Literal",
-                "src": "1531:2:28",
+                "src": "1531:2:29",
                 "typeDescriptions": {
                   "typeIdentifier": "t_rational_50_by_1",
                   "typeString": "int_const 50"
@@ -447,7 +447,7 @@
                 "value": "50"
               },
               "nodeType": "ArrayTypeName",
-              "src": "1523:11:28",
+              "src": "1523:11:29",
               "typeDescriptions": {
                 "typeIdentifier": "t_array$_t_uint256_$50_storage_ptr",
                 "typeString": "uint256[50]"
@@ -456,18 +456,18 @@
             "visibility": "private"
           }
         ],
-        "scope": 4290,
-        "src": "764:791:28"
+        "scope": 4525,
+        "src": "764:791:29"
       }
     ],
-    "src": "37:1519:28"
+    "src": "37:1519:29"
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/dependencies/aave-token-v2/contracts/utils/VersionedInitializable.sol",
+      "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/aave-token-v2/contracts/utils/VersionedInitializable.sol",
       "exportedSymbols": {
         "VersionedInitializable": [
-          4289
+          4524
         ]
       },
       "license": "agpl-3.0"
@@ -481,9 +481,9 @@
             ".5"
           ]
         },
-        "id": 4252,
+        "id": 4487,
         "name": "PragmaDirective",
-        "src": "37:22:28"
+        "src": "37:22:29"
       },
       {
         "attributes": {
@@ -497,26 +497,26 @@
           "contractKind": "contract",
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            4289
+            4524
           ],
           "name": "VersionedInitializable",
-          "scope": 4290
+          "scope": 4525
         },
         "children": [
           {
             "attributes": {
               "text": " @title VersionedInitializable\n @dev Helper contract to support initializer functions. To use it, replace\n the constructor with a function that has the `initializer` modifier.\n WARNING: Unlike constructors, initializer functions must be manually\n invoked. This applies both to deploying an Initializable contract, as well\n as extending an Initializable contract via inheritance.\n WARNING: When used with inheritance, manual care must be taken to not invoke\n a parent initializer twice, or ensure that all initializers are idempotent,\n because this is not dealt with automatically as with constructors.\n @author Aave, inspired by the OpenZeppelin Initializable contract"
             },
-            "id": 4253,
+            "id": 4488,
             "name": "StructuredDocumentation",
-            "src": "61:702:28"
+            "src": "61:702:29"
           },
           {
             "attributes": {
               "constant": false,
               "mutability": "mutable",
               "name": "lastInitializedRevision",
-              "scope": 4289,
+              "scope": 4524,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -528,9 +528,9 @@
                   "name": "uint256",
                   "type": "uint256"
                 },
-                "id": 4255,
+                "id": 4490,
                 "name": "ElementaryTypeName",
-                "src": "885:7:28"
+                "src": "885:7:29"
               },
               {
                 "attributes": {
@@ -543,22 +543,22 @@
                   "type": "int_const 0",
                   "value": "0"
                 },
-                "id": 4256,
+                "id": 4491,
                 "name": "Literal",
-                "src": "928:1:28"
+                "src": "928:1:29"
               },
               {
                 "attributes": {
                   "text": " @dev Indicates that the contract has been initialized."
                 },
-                "id": 4254,
+                "id": 4489,
                 "name": "StructuredDocumentation",
-                "src": "811:69:28"
+                "src": "811:69:29"
               }
             ],
-            "id": 4257,
+            "id": 4492,
             "name": "VariableDeclaration",
-            "src": "885:44:28"
+            "src": "885:44:29"
           },
           {
             "attributes": {
@@ -571,9 +571,9 @@
                 "attributes": {
                   "text": " @dev Modifier to use in the initializer function of a contract."
                 },
-                "id": 4258,
+                "id": 4493,
                 "name": "StructuredDocumentation",
-                "src": "935:78:28"
+                "src": "935:78:29"
               },
               {
                 "attributes": {
@@ -582,16 +582,16 @@
                   ]
                 },
                 "children": [],
-                "id": 4259,
+                "id": 4494,
                 "name": "ParameterList",
-                "src": "1038:2:28"
+                "src": "1038:2:29"
               },
               {
                 "children": [
                   {
                     "attributes": {
                       "assignments": [
-                        4261
+                        4496
                       ]
                     },
                     "children": [
@@ -600,7 +600,7 @@
                           "constant": false,
                           "mutability": "mutable",
                           "name": "revision",
-                          "scope": 4277,
+                          "scope": 4512,
                           "stateVariable": false,
                           "storageLocation": "default",
                           "type": "uint256",
@@ -612,14 +612,14 @@
                               "name": "uint256",
                               "type": "uint256"
                             },
-                            "id": 4260,
+                            "id": 4495,
                             "name": "ElementaryTypeName",
-                            "src": "1051:7:28"
+                            "src": "1051:7:29"
                           }
                         ],
-                        "id": 4261,
+                        "id": 4496,
                         "name": "VariableDeclaration",
-                        "src": "1051:16:28"
+                        "src": "1051:16:29"
                       },
                       {
                         "attributes": {
@@ -647,23 +647,23 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 4284,
+                              "referencedDeclaration": 4519,
                               "type": "function () pure returns (uint256)",
                               "value": "getRevision"
                             },
-                            "id": 4262,
+                            "id": 4497,
                             "name": "Identifier",
-                            "src": "1070:11:28"
+                            "src": "1070:11:29"
                           }
                         ],
-                        "id": 4263,
+                        "id": 4498,
                         "name": "FunctionCall",
-                        "src": "1070:13:28"
+                        "src": "1070:13:29"
                       }
                     ],
-                    "id": 4264,
+                    "id": 4499,
                     "name": "VariableDeclarationStatement",
-                    "src": "1051:32:28"
+                    "src": "1051:32:29"
                   },
                   {
                     "children": [
@@ -702,9 +702,9 @@
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
-                            "id": 4265,
+                            "id": 4500,
                             "name": "Identifier",
-                            "src": "1093:7:28"
+                            "src": "1093:7:29"
                           },
                           {
                             "attributes": {
@@ -725,31 +725,31 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4261,
+                                  "referencedDeclaration": 4496,
                                   "type": "uint256",
                                   "value": "revision"
                                 },
-                                "id": 4266,
+                                "id": 4501,
                                 "name": "Identifier",
-                                "src": "1101:8:28"
+                                "src": "1101:8:29"
                               },
                               {
                                 "attributes": {
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4257,
+                                  "referencedDeclaration": 4492,
                                   "type": "uint256",
                                   "value": "lastInitializedRevision"
                                 },
-                                "id": 4267,
+                                "id": 4502,
                                 "name": "Identifier",
-                                "src": "1112:23:28"
+                                "src": "1112:23:29"
                               }
                             ],
-                            "id": 4268,
+                            "id": 4503,
                             "name": "BinaryOperation",
-                            "src": "1101:34:28"
+                            "src": "1101:34:29"
                           },
                           {
                             "attributes": {
@@ -762,19 +762,19 @@
                               "type": "literal_string \"Contract instance has already been initialized\"",
                               "value": "Contract instance has already been initialized"
                             },
-                            "id": 4269,
+                            "id": 4504,
                             "name": "Literal",
-                            "src": "1137:48:28"
+                            "src": "1137:48:29"
                           }
                         ],
-                        "id": 4270,
+                        "id": 4505,
                         "name": "FunctionCall",
-                        "src": "1093:93:28"
+                        "src": "1093:93:29"
                       }
                     ],
-                    "id": 4271,
+                    "id": 4506,
                     "name": "ExpressionStatement",
-                    "src": "1093:93:28"
+                    "src": "1093:93:29"
                   },
                   {
                     "children": [
@@ -793,51 +793,51 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 4257,
+                              "referencedDeclaration": 4492,
                               "type": "uint256",
                               "value": "lastInitializedRevision"
                             },
-                            "id": 4272,
+                            "id": 4507,
                             "name": "Identifier",
-                            "src": "1197:23:28"
+                            "src": "1197:23:29"
                           },
                           {
                             "attributes": {
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 4261,
+                              "referencedDeclaration": 4496,
                               "type": "uint256",
                               "value": "revision"
                             },
-                            "id": 4273,
+                            "id": 4508,
                             "name": "Identifier",
-                            "src": "1223:8:28"
+                            "src": "1223:8:29"
                           }
                         ],
-                        "id": 4274,
+                        "id": 4509,
                         "name": "Assignment",
-                        "src": "1197:34:28"
+                        "src": "1197:34:29"
                       }
                     ],
-                    "id": 4275,
+                    "id": 4510,
                     "name": "ExpressionStatement",
-                    "src": "1197:34:28"
+                    "src": "1197:34:29"
                   },
                   {
-                    "id": 4276,
+                    "id": 4511,
                     "name": "PlaceholderStatement",
-                    "src": "1242:1:28"
+                    "src": "1242:1:29"
                   }
                 ],
-                "id": 4277,
+                "id": 4512,
                 "name": "Block",
-                "src": "1041:210:28"
+                "src": "1041:210:29"
               }
             ],
-            "id": 4278,
+            "id": 4513,
             "name": "ModifierDefinition",
-            "src": "1018:233:28"
+            "src": "1018:233:29"
           },
           {
             "attributes": {
@@ -848,7 +848,7 @@
                 null
               ],
               "name": "getRevision",
-              "scope": 4289,
+              "scope": 4524,
               "stateMutability": "pure",
               "virtual": true,
               "visibility": "internal"
@@ -858,9 +858,9 @@
                 "attributes": {
                   "text": "@dev returns the revision number of the contract.\n Needs to be defined in the inherited class as a constant."
                 },
-                "id": 4279,
+                "id": 4514,
                 "name": "StructuredDocumentation",
-                "src": "1257:119:28"
+                "src": "1257:119:29"
               },
               {
                 "attributes": {
@@ -869,9 +869,9 @@
                   ]
                 },
                 "children": [],
-                "id": 4280,
+                "id": 4515,
                 "name": "ParameterList",
-                "src": "1401:2:28"
+                "src": "1401:2:29"
               },
               {
                 "children": [
@@ -880,7 +880,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 4284,
+                      "scope": 4519,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -892,31 +892,31 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 4281,
+                        "id": 4516,
                         "name": "ElementaryTypeName",
-                        "src": "1434:7:28"
+                        "src": "1434:7:29"
                       }
                     ],
-                    "id": 4282,
+                    "id": 4517,
                     "name": "VariableDeclaration",
-                    "src": "1434:7:28"
+                    "src": "1434:7:29"
                   }
                 ],
-                "id": 4283,
+                "id": 4518,
                 "name": "ParameterList",
-                "src": "1433:9:28"
+                "src": "1433:9:29"
               }
             ],
-            "id": 4284,
+            "id": 4519,
             "name": "FunctionDefinition",
-            "src": "1381:62:28"
+            "src": "1381:62:29"
           },
           {
             "attributes": {
               "constant": false,
               "mutability": "mutable",
               "name": "______gap",
-              "scope": 4289,
+              "scope": 4524,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256[50]",
@@ -933,9 +933,9 @@
                       "name": "uint256",
                       "type": "uint256"
                     },
-                    "id": 4285,
+                    "id": 4520,
                     "name": "ElementaryTypeName",
-                    "src": "1523:7:28"
+                    "src": "1523:7:29"
                   },
                   {
                     "attributes": {
@@ -948,29 +948,29 @@
                       "type": "int_const 50",
                       "value": "50"
                     },
-                    "id": 4286,
+                    "id": 4521,
                     "name": "Literal",
-                    "src": "1531:2:28"
+                    "src": "1531:2:29"
                   }
                 ],
-                "id": 4287,
+                "id": 4522,
                 "name": "ArrayTypeName",
-                "src": "1523:11:28"
+                "src": "1523:11:29"
               }
             ],
-            "id": 4288,
+            "id": 4523,
             "name": "VariableDeclaration",
-            "src": "1523:29:28"
+            "src": "1523:29:29"
           }
         ],
-        "id": 4289,
+        "id": 4524,
         "name": "ContractDefinition",
-        "src": "764:791:28"
+        "src": "764:791:29"
       }
     ],
-    "id": 4290,
+    "id": 4525,
     "name": "SourceUnit",
-    "src": "37:1519:28"
+    "src": "37:1519:29"
   },
   "compiler": {
     "name": "solc",
@@ -978,7 +978,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-03-25T14:55:19.232Z",
+  "updatedAt": "2021-04-19T10:46:55.145Z",
   "devdoc": {
     "author": "Aave, inspired by the OpenZeppelin Initializable contract",
     "details": "Helper contract to support initializer functions. To use it, replace the constructor with a function that has the `initializer` modifier. WARNING: Unlike constructors, initializer functions must be manually invoked. This applies both to deploying an Initializable contract, as well as extending an Initializable contract via inheritance. WARNING: When used with inheritance, manual care must be taken to not invoke a parent initializer twice, or ensure that all initializers are idempotent, because this is not dealt with automatically as with constructors.",

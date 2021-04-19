@@ -269,7 +269,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.5+commit.eb77ed08\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"MINIMUM_QUORUM\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ONE_HUNDRED_WITH_PRECISION\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PROPOSITION_THRESHOLD\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VOTE_DIFFERENTIAL\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VOTING_DURATION\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IPopulousGovernanceV2\",\"name\":\"governance\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"}],\"name\":\"getMinimumPropositionPowerNeeded\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"votingSupply\",\"type\":\"uint256\"}],\"name\":\"getMinimumVotingPowerNeeded\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IPopulousGovernanceV2\",\"name\":\"governance\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"proposalId\",\"type\":\"uint256\"}],\"name\":\"isProposalPassed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IPopulousGovernanceV2\",\"name\":\"governance\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"}],\"name\":\"isPropositionPowerEnough\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IPopulousGovernanceV2\",\"name\":\"governance\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"proposalId\",\"type\":\"uint256\"}],\"name\":\"isQuorumValid\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IPopulousGovernanceV2\",\"name\":\"governance\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"proposalId\",\"type\":\"uint256\"}],\"name\":\"isVoteDifferentialValid\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IPopulousGovernanceV2\",\"name\":\"governance\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"}],\"name\":\"validateCreatorOfProposal\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IPopulousGovernanceV2\",\"name\":\"governance\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"}],\"name\":\"validateProposalCancellation\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"MINIMUM_QUORUM()\":{\"details\":\"Get quorum threshold constant value to compare with % of for votes/total supply\",\"returns\":{\"_0\":\"the quorum threshold value (100 <=> 1%)*\"}},\"ONE_HUNDRED_WITH_PRECISION()\":{\"details\":\"precision helper: 100% = 10000\",\"returns\":{\"_0\":\"one hundred percents with our chosen precision*\"}},\"PROPOSITION_THRESHOLD()\":{\"details\":\"Get proposition threshold constant value\",\"returns\":{\"_0\":\"the proposition threshold value (100 <=> 1%)*\"}},\"VOTE_DIFFERENTIAL()\":{\"details\":\"Get the vote differential threshold constant value to compare with % of for votes/total supply - % of against votes/total supply\",\"returns\":{\"_0\":\"the vote differential threshold value (100 <=> 1%)*\"}},\"VOTING_DURATION()\":{\"details\":\"Get voting duration constant value\",\"returns\":{\"_0\":\"the voting duration value in seconds*\"}},\"getMinimumPropositionPowerNeeded(address,uint256)\":{\"details\":\"Returns the minimum Proposition Power needed to create a proposition.\",\"params\":{\"blockNumber\":\"Blocknumber at which to evaluate\",\"governance\":\"Governance Contract\"},\"returns\":{\"_0\":\"minimum Proposition Power needed*\"}},\"getMinimumVotingPowerNeeded(uint256)\":{\"details\":\"Calculates the minimum amount of Voting Power needed for a proposal to Pass\",\"params\":{\"votingSupply\":\"Total number of oustanding voting tokens\"},\"returns\":{\"_0\":\"voting power needed for a proposal to pass*\"}},\"isProposalPassed(address,uint256)\":{\"details\":\"Returns whether a proposal passed or not\",\"params\":{\"governance\":\"Governance Contract\",\"proposalId\":\"Id of the proposal to set\"},\"returns\":{\"_0\":\"true if proposal passed*\"}},\"isPropositionPowerEnough(address,address,uint256)\":{\"details\":\"Returns whether a user has enough Proposition Power to make a proposal.\",\"params\":{\"blockNumber\":\"Block Number against which to make the challenge.\",\"governance\":\"Governance Contract\",\"user\":\"Address of the user to be challenged.\"},\"returns\":{\"_0\":\"true if user has enough power*\"}},\"isQuorumValid(address,uint256)\":{\"details\":\"Check whether a proposal has reached quorum, ie has enough FOR-voting-power Here quorum is not to understand as number of votes reached, but number of for-votes reached\",\"params\":{\"governance\":\"Governance Contract\",\"proposalId\":\"Id of the proposal to verify\"},\"returns\":{\"_0\":\"voting power needed for a proposal to pass*\"}},\"isVoteDifferentialValid(address,uint256)\":{\"details\":\"Check whether a proposal has enough extra FOR-votes than AGAINST-votes FOR VOTES - AGAINST VOTES > VOTE_DIFFERENTIAL * voting supply\",\"params\":{\"governance\":\"Governance Contract\",\"proposalId\":\"Id of the proposal to verify\"},\"returns\":{\"_0\":\"true if enough For-Votes*\"}},\"validateCreatorOfProposal(address,address,uint256)\":{\"details\":\"Called to validate a proposal (e.g when creating new proposal in Governance)\",\"params\":{\"blockNumber\":\"Block Number against which to make the test (e.g proposal creation block -1).\",\"governance\":\"Governance Contract\",\"user\":\"Address of the proposal creator\"},\"returns\":{\"_0\":\"boolean, true if can be created*\"}},\"validateProposalCancellation(address,address,uint256)\":{\"details\":\"Called to validate the cancellation of a proposal\",\"params\":{\"blockNumber\":\"Block Number against which to make the test (e.g proposal creation block -1).\",\"governance\":\"Governance Contract\",\"user\":\"Address of the proposal creator\"},\"returns\":{\"_0\":\"boolean, true if can be cancelled*\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IProposalValidator.sol\":\"IProposalValidator\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IExecutorWithTimelock.sol\":{\"keccak256\":\"0xe27ae25a8abbeaf73dafda3cf0917a32ba43b3d81bd96515eb8ecf1885e62661\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://853b9bfaff76bf4f22a1e63025340c9931734a2c8120658ed9eaf92fa1651483\",\"dweb:/ipfs/Qmcx4UjPCZTwoHWh3AMeWj43U5Br8FVBn4DFg2zqpoKuX7\"]},\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IPopulousGovernanceV2.sol\":{\"keccak256\":\"0x9abedeacf8546d2ecc6286d815bf232c59acacc24c3314a65b3c23885278f332\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://66815e35f4140a4929237ebb1285e5cab7df38f707eafb1853df417548aa6e60\",\"dweb:/ipfs/Qmba7wctr5qjUaXK3evf3yfn6yVaW7XT6p8xQrBsLGtEDw\"]},\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IProposalValidator.sol\":{\"keccak256\":\"0xd75799d0d18a21c425ba2ff3f509a735021d05c3f868cd6275fc2a8814113feb\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://25a2e1b6a4e85f3280ae521b3b830da2f55285423ea30d05b2df011c4c9b3cf1\",\"dweb:/ipfs/QmR7Fsn6m7LCFBMDyHvJrTXUJnULWoJCLxyc9pFxQeJ3Yg\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.5+commit.eb77ed08\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"MINIMUM_QUORUM\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ONE_HUNDRED_WITH_PRECISION\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PROPOSITION_THRESHOLD\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VOTE_DIFFERENTIAL\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VOTING_DURATION\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IPopulousGovernanceV2\",\"name\":\"governance\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"}],\"name\":\"getMinimumPropositionPowerNeeded\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"votingSupply\",\"type\":\"uint256\"}],\"name\":\"getMinimumVotingPowerNeeded\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IPopulousGovernanceV2\",\"name\":\"governance\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"proposalId\",\"type\":\"uint256\"}],\"name\":\"isProposalPassed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IPopulousGovernanceV2\",\"name\":\"governance\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"}],\"name\":\"isPropositionPowerEnough\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IPopulousGovernanceV2\",\"name\":\"governance\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"proposalId\",\"type\":\"uint256\"}],\"name\":\"isQuorumValid\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IPopulousGovernanceV2\",\"name\":\"governance\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"proposalId\",\"type\":\"uint256\"}],\"name\":\"isVoteDifferentialValid\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IPopulousGovernanceV2\",\"name\":\"governance\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"}],\"name\":\"validateCreatorOfProposal\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IPopulousGovernanceV2\",\"name\":\"governance\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"}],\"name\":\"validateProposalCancellation\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"MINIMUM_QUORUM()\":{\"details\":\"Get quorum threshold constant value to compare with % of for votes/total supply\",\"returns\":{\"_0\":\"the quorum threshold value (100 <=> 1%)*\"}},\"ONE_HUNDRED_WITH_PRECISION()\":{\"details\":\"precision helper: 100% = 10000\",\"returns\":{\"_0\":\"one hundred percents with our chosen precision*\"}},\"PROPOSITION_THRESHOLD()\":{\"details\":\"Get proposition threshold constant value\",\"returns\":{\"_0\":\"the proposition threshold value (100 <=> 1%)*\"}},\"VOTE_DIFFERENTIAL()\":{\"details\":\"Get the vote differential threshold constant value to compare with % of for votes/total supply - % of against votes/total supply\",\"returns\":{\"_0\":\"the vote differential threshold value (100 <=> 1%)*\"}},\"VOTING_DURATION()\":{\"details\":\"Get voting duration constant value\",\"returns\":{\"_0\":\"the voting duration value in seconds*\"}},\"getMinimumPropositionPowerNeeded(address,uint256)\":{\"details\":\"Returns the minimum Proposition Power needed to create a proposition.\",\"params\":{\"blockNumber\":\"Blocknumber at which to evaluate\",\"governance\":\"Governance Contract\"},\"returns\":{\"_0\":\"minimum Proposition Power needed*\"}},\"getMinimumVotingPowerNeeded(uint256)\":{\"details\":\"Calculates the minimum amount of Voting Power needed for a proposal to Pass\",\"params\":{\"votingSupply\":\"Total number of oustanding voting tokens\"},\"returns\":{\"_0\":\"voting power needed for a proposal to pass*\"}},\"isProposalPassed(address,uint256)\":{\"details\":\"Returns whether a proposal passed or not\",\"params\":{\"governance\":\"Governance Contract\",\"proposalId\":\"Id of the proposal to set\"},\"returns\":{\"_0\":\"true if proposal passed*\"}},\"isPropositionPowerEnough(address,address,uint256)\":{\"details\":\"Returns whether a user has enough Proposition Power to make a proposal.\",\"params\":{\"blockNumber\":\"Block Number against which to make the challenge.\",\"governance\":\"Governance Contract\",\"user\":\"Address of the user to be challenged.\"},\"returns\":{\"_0\":\"true if user has enough power*\"}},\"isQuorumValid(address,uint256)\":{\"details\":\"Check whether a proposal has reached quorum, ie has enough FOR-voting-power Here quorum is not to understand as number of votes reached, but number of for-votes reached\",\"params\":{\"governance\":\"Governance Contract\",\"proposalId\":\"Id of the proposal to verify\"},\"returns\":{\"_0\":\"voting power needed for a proposal to pass*\"}},\"isVoteDifferentialValid(address,uint256)\":{\"details\":\"Check whether a proposal has enough extra FOR-votes than AGAINST-votes FOR VOTES - AGAINST VOTES > VOTE_DIFFERENTIAL * voting supply\",\"params\":{\"governance\":\"Governance Contract\",\"proposalId\":\"Id of the proposal to verify\"},\"returns\":{\"_0\":\"true if enough For-Votes*\"}},\"validateCreatorOfProposal(address,address,uint256)\":{\"details\":\"Called to validate a proposal (e.g when creating new proposal in Governance)\",\"params\":{\"blockNumber\":\"Block Number against which to make the test (e.g proposal creation block -1).\",\"governance\":\"Governance Contract\",\"user\":\"Address of the proposal creator\"},\"returns\":{\"_0\":\"boolean, true if can be created*\"}},\"validateProposalCancellation(address,address,uint256)\":{\"details\":\"Called to validate the cancellation of a proposal\",\"params\":{\"blockNumber\":\"Block Number against which to make the test (e.g proposal creation block -1).\",\"governance\":\"Governance Contract\",\"user\":\"Address of the proposal creator\"},\"returns\":{\"_0\":\"boolean, true if can be cancelled*\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IProposalValidator.sol\":\"IProposalValidator\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IExecutorWithTimelock.sol\":{\"keccak256\":\"0xe27ae25a8abbeaf73dafda3cf0917a32ba43b3d81bd96515eb8ecf1885e62661\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://853b9bfaff76bf4f22a1e63025340c9931734a2c8120658ed9eaf92fa1651483\",\"dweb:/ipfs/Qmcx4UjPCZTwoHWh3AMeWj43U5Br8FVBn4DFg2zqpoKuX7\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IPopulousGovernanceV2.sol\":{\"keccak256\":\"0x9abedeacf8546d2ecc6286d815bf232c59acacc24c3314a65b3c23885278f332\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://66815e35f4140a4929237ebb1285e5cab7df38f707eafb1853df417548aa6e60\",\"dweb:/ipfs/Qmba7wctr5qjUaXK3evf3yfn6yVaW7XT6p8xQrBsLGtEDw\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IProposalValidator.sol\":{\"keccak256\":\"0xd75799d0d18a21c425ba2ff3f509a735021d05c3f868cd6275fc2a8814113feb\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://25a2e1b6a4e85f3280ae521b3b830da2f55285423ea30d05b2df011c4c9b3cf1\",\"dweb:/ipfs/QmR7Fsn6m7LCFBMDyHvJrTXUJnULWoJCLxyc9pFxQeJ3Yg\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -278,56 +278,56 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity 0.7.5;\npragma abicoder v2;\n\nimport {IPopulousGovernanceV2} from './IPopulousGovernanceV2.sol';\n\ninterface IProposalValidator {\n\n  /**\n   * @dev Called to validate a proposal (e.g when creating new proposal in Governance)\n   * @param governance Governance Contract\n   * @param user Address of the proposal creator\n   * @param blockNumber Block Number against which to make the test (e.g proposal creation block -1).\n   * @return boolean, true if can be created\n   **/\n  function validateCreatorOfProposal(\n    IPopulousGovernanceV2 governance,\n    address user,\n    uint256 blockNumber\n  ) external view returns (bool);\n\n  /**\n   * @dev Called to validate the cancellation of a proposal\n   * @param governance Governance Contract\n   * @param user Address of the proposal creator\n   * @param blockNumber Block Number against which to make the test (e.g proposal creation block -1).\n   * @return boolean, true if can be cancelled\n   **/\n  function validateProposalCancellation(\n    IPopulousGovernanceV2 governance,\n    address user,\n    uint256 blockNumber\n  ) external view returns (bool);\n\n  /**\n   * @dev Returns whether a user has enough Proposition Power to make a proposal.\n   * @param governance Governance Contract\n   * @param user Address of the user to be challenged.\n   * @param blockNumber Block Number against which to make the challenge.\n   * @return true if user has enough power\n   **/\n  function isPropositionPowerEnough(\n    IPopulousGovernanceV2 governance,\n    address user,\n    uint256 blockNumber\n  ) external view returns (bool);\n\n  /**\n   * @dev Returns the minimum Proposition Power needed to create a proposition.\n   * @param governance Governance Contract\n   * @param blockNumber Blocknumber at which to evaluate\n   * @return minimum Proposition Power needed\n   **/\n  function getMinimumPropositionPowerNeeded(IPopulousGovernanceV2 governance, uint256 blockNumber)\n    external\n    view\n    returns (uint256);\n\n  /**\n   * @dev Returns whether a proposal passed or not\n   * @param governance Governance Contract\n   * @param proposalId Id of the proposal to set\n   * @return true if proposal passed\n   **/\n  function isProposalPassed(IPopulousGovernanceV2 governance, uint256 proposalId)\n    external\n    view\n    returns (bool);\n\n  /**\n   * @dev Check whether a proposal has reached quorum, ie has enough FOR-voting-power\n   * Here quorum is not to understand as number of votes reached, but number of for-votes reached\n   * @param governance Governance Contract\n   * @param proposalId Id of the proposal to verify\n   * @return voting power needed for a proposal to pass\n   **/\n  function isQuorumValid(IPopulousGovernanceV2 governance, uint256 proposalId)\n    external\n    view\n    returns (bool);\n\n  /**\n   * @dev Check whether a proposal has enough extra FOR-votes than AGAINST-votes\n   * FOR VOTES - AGAINST VOTES > VOTE_DIFFERENTIAL * voting supply\n   * @param governance Governance Contract\n   * @param proposalId Id of the proposal to verify\n   * @return true if enough For-Votes\n   **/\n  function isVoteDifferentialValid(IPopulousGovernanceV2 governance, uint256 proposalId)\n    external\n    view\n    returns (bool);\n\n  /**\n   * @dev Calculates the minimum amount of Voting Power needed for a proposal to Pass\n   * @param votingSupply Total number of oustanding voting tokens\n   * @return voting power needed for a proposal to pass\n   **/\n  function getMinimumVotingPowerNeeded(uint256 votingSupply) external view returns (uint256);\n\n  /**\n   * @dev Get proposition threshold constant value\n   * @return the proposition threshold value (100 <=> 1%)\n   **/\n  function PROPOSITION_THRESHOLD() external view returns (uint256);\n\n  /**\n   * @dev Get voting duration constant value\n   * @return the voting duration value in seconds\n   **/\n  function VOTING_DURATION() external view returns (uint256);\n\n  /**\n   * @dev Get the vote differential threshold constant value\n   * to compare with % of for votes/total supply - % of against votes/total supply\n   * @return the vote differential threshold value (100 <=> 1%)\n   **/\n  function VOTE_DIFFERENTIAL() external view returns (uint256);\n\n  /**\n   * @dev Get quorum threshold constant value\n   * to compare with % of for votes/total supply\n   * @return the quorum threshold value (100 <=> 1%)\n   **/\n  function MINIMUM_QUORUM() external view returns (uint256);\n\n  /**\n   * @dev precision helper: 100% = 10000\n   * @return one hundred percents with our chosen precision\n   **/\n  function ONE_HUNDRED_WITH_PRECISION() external view returns (uint256);\n}\n",
-  "sourcePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IProposalValidator.sol",
+  "sourcePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IProposalValidator.sol",
   "ast": {
-    "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IProposalValidator.sol",
+    "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IProposalValidator.sol",
     "exportedSymbols": {
       "IPopulousGovernanceV2": [
-        8179
+        8319
       ],
       "IProposalValidator": [
-        8299
+        8439
       ]
     },
-    "id": 8300,
+    "id": 8440,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 8181,
+        "id": 8321,
         "literals": [
           "solidity",
           "0.7",
           ".5"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:22:49"
+        "src": "37:22:50"
       },
       {
-        "id": 8182,
+        "id": 8322,
         "literals": [
           "abicoder",
           "v2"
         ],
         "nodeType": "PragmaDirective",
-        "src": "60:19:49"
+        "src": "60:19:50"
       },
       {
-        "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IPopulousGovernanceV2.sol",
+        "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IPopulousGovernanceV2.sol",
         "file": "./IPopulousGovernanceV2.sol",
-        "id": 8184,
+        "id": 8324,
         "nodeType": "ImportDirective",
-        "scope": 8300,
-        "sourceUnit": 8180,
-        "src": "81:66:49",
+        "scope": 8440,
+        "sourceUnit": 8320,
+        "src": "81:66:50",
         "symbolAliases": [
           {
             "foreign": {
-              "id": 8183,
+              "id": 8323,
               "name": "IPopulousGovernanceV2",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "src": "89:21:49",
+              "src": "89:21:50",
               "typeDescriptions": {}
             }
           }
@@ -340,53 +340,53 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 8299,
+        "id": 8439,
         "linearizedBaseContracts": [
-          8299
+          8439
         ],
         "name": "IProposalValidator",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "documentation": {
-              "id": 8185,
+              "id": 8325,
               "nodeType": "StructuredDocumentation",
-              "src": "183:336:49",
+              "src": "183:336:50",
               "text": " @dev Called to validate a proposal (e.g when creating new proposal in Governance)\n @param governance Governance Contract\n @param user Address of the proposal creator\n @param blockNumber Block Number against which to make the test (e.g proposal creation block -1).\n @return boolean, true if can be created*"
             },
             "functionSelector": "d0d90298",
-            "id": 8196,
+            "id": 8336,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "validateCreatorOfProposal",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8192,
+              "id": 8332,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8187,
+                  "id": 8327,
                   "mutability": "mutable",
                   "name": "governance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8196,
-                  "src": "562:32:49",
+                  "scope": 8336,
+                  "src": "562:32:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8179",
+                    "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8319",
                     "typeString": "contract IPopulousGovernanceV2"
                   },
                   "typeName": {
-                    "id": 8186,
+                    "id": 8326,
                     "name": "IPopulousGovernanceV2",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8179,
-                    "src": "562:21:49",
+                    "referencedDeclaration": 8319,
+                    "src": "562:21:50",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8179",
+                      "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8319",
                       "typeString": "contract IPopulousGovernanceV2"
                     }
                   },
@@ -394,12 +394,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 8189,
+                  "id": 8329,
                   "mutability": "mutable",
                   "name": "user",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8196,
-                  "src": "600:12:49",
+                  "scope": 8336,
+                  "src": "600:12:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -407,10 +407,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 8188,
+                    "id": 8328,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "600:7:49",
+                    "src": "600:7:50",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -421,12 +421,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 8191,
+                  "id": 8331,
                   "mutability": "mutable",
                   "name": "blockNumber",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8196,
-                  "src": "618:19:49",
+                  "scope": 8336,
+                  "src": "618:19:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -434,10 +434,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8190,
+                    "id": 8330,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "618:7:49",
+                    "src": "618:7:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -446,20 +446,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "556:85:49"
+              "src": "556:85:50"
             },
             "returnParameters": {
-              "id": 8195,
+              "id": 8335,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8194,
+                  "id": 8334,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8196,
-                  "src": "665:4:49",
+                  "scope": 8336,
+                  "src": "665:4:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -467,10 +467,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 8193,
+                    "id": 8333,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "665:4:49",
+                    "src": "665:4:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -479,54 +479,54 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "664:6:49"
+              "src": "664:6:50"
             },
-            "scope": 8299,
-            "src": "522:149:49",
+            "scope": 8439,
+            "src": "522:149:50",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 8197,
+              "id": 8337,
               "nodeType": "StructuredDocumentation",
-              "src": "675:311:49",
+              "src": "675:311:50",
               "text": " @dev Called to validate the cancellation of a proposal\n @param governance Governance Contract\n @param user Address of the proposal creator\n @param blockNumber Block Number against which to make the test (e.g proposal creation block -1).\n @return boolean, true if can be cancelled*"
             },
             "functionSelector": "31a7bc41",
-            "id": 8208,
+            "id": 8348,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "validateProposalCancellation",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8204,
+              "id": 8344,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8199,
+                  "id": 8339,
                   "mutability": "mutable",
                   "name": "governance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8208,
-                  "src": "1032:32:49",
+                  "scope": 8348,
+                  "src": "1032:32:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8179",
+                    "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8319",
                     "typeString": "contract IPopulousGovernanceV2"
                   },
                   "typeName": {
-                    "id": 8198,
+                    "id": 8338,
                     "name": "IPopulousGovernanceV2",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8179,
-                    "src": "1032:21:49",
+                    "referencedDeclaration": 8319,
+                    "src": "1032:21:50",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8179",
+                      "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8319",
                       "typeString": "contract IPopulousGovernanceV2"
                     }
                   },
@@ -534,12 +534,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 8201,
+                  "id": 8341,
                   "mutability": "mutable",
                   "name": "user",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8208,
-                  "src": "1070:12:49",
+                  "scope": 8348,
+                  "src": "1070:12:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -547,10 +547,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 8200,
+                    "id": 8340,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1070:7:49",
+                    "src": "1070:7:50",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -561,12 +561,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 8203,
+                  "id": 8343,
                   "mutability": "mutable",
                   "name": "blockNumber",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8208,
-                  "src": "1088:19:49",
+                  "scope": 8348,
+                  "src": "1088:19:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -574,10 +574,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8202,
+                    "id": 8342,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1088:7:49",
+                    "src": "1088:7:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -586,20 +586,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1026:85:49"
+              "src": "1026:85:50"
             },
             "returnParameters": {
-              "id": 8207,
+              "id": 8347,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8206,
+                  "id": 8346,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8208,
-                  "src": "1135:4:49",
+                  "scope": 8348,
+                  "src": "1135:4:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -607,10 +607,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 8205,
+                    "id": 8345,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1135:4:49",
+                    "src": "1135:4:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -619,54 +619,54 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1134:6:49"
+              "src": "1134:6:50"
             },
-            "scope": 8299,
-            "src": "989:152:49",
+            "scope": 8439,
+            "src": "989:152:50",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 8209,
+              "id": 8349,
               "nodeType": "StructuredDocumentation",
-              "src": "1145:307:49",
+              "src": "1145:307:50",
               "text": " @dev Returns whether a user has enough Proposition Power to make a proposal.\n @param governance Governance Contract\n @param user Address of the user to be challenged.\n @param blockNumber Block Number against which to make the challenge.\n @return true if user has enough power*"
             },
             "functionSelector": "66121042",
-            "id": 8220,
+            "id": 8360,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "isPropositionPowerEnough",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8216,
+              "id": 8356,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8211,
+                  "id": 8351,
                   "mutability": "mutable",
                   "name": "governance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8220,
-                  "src": "1494:32:49",
+                  "scope": 8360,
+                  "src": "1494:32:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8179",
+                    "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8319",
                     "typeString": "contract IPopulousGovernanceV2"
                   },
                   "typeName": {
-                    "id": 8210,
+                    "id": 8350,
                     "name": "IPopulousGovernanceV2",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8179,
-                    "src": "1494:21:49",
+                    "referencedDeclaration": 8319,
+                    "src": "1494:21:50",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8179",
+                      "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8319",
                       "typeString": "contract IPopulousGovernanceV2"
                     }
                   },
@@ -674,12 +674,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 8213,
+                  "id": 8353,
                   "mutability": "mutable",
                   "name": "user",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8220,
-                  "src": "1532:12:49",
+                  "scope": 8360,
+                  "src": "1532:12:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -687,10 +687,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 8212,
+                    "id": 8352,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1532:7:49",
+                    "src": "1532:7:50",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -701,12 +701,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 8215,
+                  "id": 8355,
                   "mutability": "mutable",
                   "name": "blockNumber",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8220,
-                  "src": "1550:19:49",
+                  "scope": 8360,
+                  "src": "1550:19:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -714,10 +714,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8214,
+                    "id": 8354,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1550:7:49",
+                    "src": "1550:7:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -726,20 +726,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1488:85:49"
+              "src": "1488:85:50"
             },
             "returnParameters": {
-              "id": 8219,
+              "id": 8359,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8218,
+                  "id": 8358,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8220,
-                  "src": "1597:4:49",
+                  "scope": 8360,
+                  "src": "1597:4:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -747,10 +747,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 8217,
+                    "id": 8357,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1597:4:49",
+                    "src": "1597:4:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -759,54 +759,54 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1596:6:49"
+              "src": "1596:6:50"
             },
-            "scope": 8299,
-            "src": "1455:148:49",
+            "scope": 8439,
+            "src": "1455:148:50",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 8221,
+              "id": 8361,
               "nodeType": "StructuredDocumentation",
-              "src": "1607:236:49",
+              "src": "1607:236:50",
               "text": " @dev Returns the minimum Proposition Power needed to create a proposition.\n @param governance Governance Contract\n @param blockNumber Blocknumber at which to evaluate\n @return minimum Proposition Power needed*"
             },
             "functionSelector": "f48cb134",
-            "id": 8230,
+            "id": 8370,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getMinimumPropositionPowerNeeded",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8226,
+              "id": 8366,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8223,
+                  "id": 8363,
                   "mutability": "mutable",
                   "name": "governance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8230,
-                  "src": "1888:32:49",
+                  "scope": 8370,
+                  "src": "1888:32:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8179",
+                    "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8319",
                     "typeString": "contract IPopulousGovernanceV2"
                   },
                   "typeName": {
-                    "id": 8222,
+                    "id": 8362,
                     "name": "IPopulousGovernanceV2",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8179,
-                    "src": "1888:21:49",
+                    "referencedDeclaration": 8319,
+                    "src": "1888:21:50",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8179",
+                      "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8319",
                       "typeString": "contract IPopulousGovernanceV2"
                     }
                   },
@@ -814,12 +814,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 8225,
+                  "id": 8365,
                   "mutability": "mutable",
                   "name": "blockNumber",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8230,
-                  "src": "1922:19:49",
+                  "scope": 8370,
+                  "src": "1922:19:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -827,10 +827,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8224,
+                    "id": 8364,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1922:7:49",
+                    "src": "1922:7:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -839,20 +839,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1887:55:49"
+              "src": "1887:55:50"
             },
             "returnParameters": {
-              "id": 8229,
+              "id": 8369,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8228,
+                  "id": 8368,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8230,
-                  "src": "1978:7:49",
+                  "scope": 8370,
+                  "src": "1978:7:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -860,10 +860,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8227,
+                    "id": 8367,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1978:7:49",
+                    "src": "1978:7:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -872,54 +872,54 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1977:9:49"
+              "src": "1977:9:50"
             },
-            "scope": 8299,
-            "src": "1846:141:49",
+            "scope": 8439,
+            "src": "1846:141:50",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 8231,
+              "id": 8371,
               "nodeType": "StructuredDocumentation",
-              "src": "1991:190:49",
+              "src": "1991:190:50",
               "text": " @dev Returns whether a proposal passed or not\n @param governance Governance Contract\n @param proposalId Id of the proposal to set\n @return true if proposal passed*"
             },
             "functionSelector": "06fbb3ab",
-            "id": 8240,
+            "id": 8380,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "isProposalPassed",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8236,
+              "id": 8376,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8233,
+                  "id": 8373,
                   "mutability": "mutable",
                   "name": "governance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8240,
-                  "src": "2210:32:49",
+                  "scope": 8380,
+                  "src": "2210:32:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8179",
+                    "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8319",
                     "typeString": "contract IPopulousGovernanceV2"
                   },
                   "typeName": {
-                    "id": 8232,
+                    "id": 8372,
                     "name": "IPopulousGovernanceV2",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8179,
-                    "src": "2210:21:49",
+                    "referencedDeclaration": 8319,
+                    "src": "2210:21:50",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8179",
+                      "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8319",
                       "typeString": "contract IPopulousGovernanceV2"
                     }
                   },
@@ -927,12 +927,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 8235,
+                  "id": 8375,
                   "mutability": "mutable",
                   "name": "proposalId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8240,
-                  "src": "2244:18:49",
+                  "scope": 8380,
+                  "src": "2244:18:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -940,10 +940,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8234,
+                    "id": 8374,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2244:7:49",
+                    "src": "2244:7:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -952,20 +952,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2209:54:49"
+              "src": "2209:54:50"
             },
             "returnParameters": {
-              "id": 8239,
+              "id": 8379,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8238,
+                  "id": 8378,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8240,
-                  "src": "2299:4:49",
+                  "scope": 8380,
+                  "src": "2299:4:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -973,10 +973,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 8237,
+                    "id": 8377,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2299:4:49",
+                    "src": "2299:4:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -985,54 +985,54 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2298:6:49"
+              "src": "2298:6:50"
             },
-            "scope": 8299,
-            "src": "2184:121:49",
+            "scope": 8439,
+            "src": "2184:121:50",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 8241,
+              "id": 8381,
               "nodeType": "StructuredDocumentation",
-              "src": "2309:345:49",
+              "src": "2309:345:50",
               "text": " @dev Check whether a proposal has reached quorum, ie has enough FOR-voting-power\n Here quorum is not to understand as number of votes reached, but number of for-votes reached\n @param governance Governance Contract\n @param proposalId Id of the proposal to verify\n @return voting power needed for a proposal to pass*"
             },
             "functionSelector": "ace43209",
-            "id": 8250,
+            "id": 8390,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "isQuorumValid",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8246,
+              "id": 8386,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8243,
+                  "id": 8383,
                   "mutability": "mutable",
                   "name": "governance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8250,
-                  "src": "2680:32:49",
+                  "scope": 8390,
+                  "src": "2680:32:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8179",
+                    "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8319",
                     "typeString": "contract IPopulousGovernanceV2"
                   },
                   "typeName": {
-                    "id": 8242,
+                    "id": 8382,
                     "name": "IPopulousGovernanceV2",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8179,
-                    "src": "2680:21:49",
+                    "referencedDeclaration": 8319,
+                    "src": "2680:21:50",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8179",
+                      "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8319",
                       "typeString": "contract IPopulousGovernanceV2"
                     }
                   },
@@ -1040,12 +1040,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 8245,
+                  "id": 8385,
                   "mutability": "mutable",
                   "name": "proposalId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8250,
-                  "src": "2714:18:49",
+                  "scope": 8390,
+                  "src": "2714:18:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1053,10 +1053,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8244,
+                    "id": 8384,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2714:7:49",
+                    "src": "2714:7:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1065,20 +1065,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2679:54:49"
+              "src": "2679:54:50"
             },
             "returnParameters": {
-              "id": 8249,
+              "id": 8389,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8248,
+                  "id": 8388,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8250,
-                  "src": "2769:4:49",
+                  "scope": 8390,
+                  "src": "2769:4:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1086,10 +1086,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 8247,
+                    "id": 8387,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2769:4:49",
+                    "src": "2769:4:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1098,54 +1098,54 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2768:6:49"
+              "src": "2768:6:50"
             },
-            "scope": 8299,
-            "src": "2657:118:49",
+            "scope": 8439,
+            "src": "2657:118:50",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 8251,
+              "id": 8391,
               "nodeType": "StructuredDocumentation",
-              "src": "2779:291:49",
+              "src": "2779:291:50",
               "text": " @dev Check whether a proposal has enough extra FOR-votes than AGAINST-votes\n FOR VOTES - AGAINST VOTES > VOTE_DIFFERENTIAL * voting supply\n @param governance Governance Contract\n @param proposalId Id of the proposal to verify\n @return true if enough For-Votes*"
             },
             "functionSelector": "7aa50080",
-            "id": 8260,
+            "id": 8400,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "isVoteDifferentialValid",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8256,
+              "id": 8396,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8253,
+                  "id": 8393,
                   "mutability": "mutable",
                   "name": "governance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8260,
-                  "src": "3106:32:49",
+                  "scope": 8400,
+                  "src": "3106:32:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8179",
+                    "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8319",
                     "typeString": "contract IPopulousGovernanceV2"
                   },
                   "typeName": {
-                    "id": 8252,
+                    "id": 8392,
                     "name": "IPopulousGovernanceV2",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8179,
-                    "src": "3106:21:49",
+                    "referencedDeclaration": 8319,
+                    "src": "3106:21:50",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8179",
+                      "typeIdentifier": "t_contract$_IPopulousGovernanceV2_$8319",
                       "typeString": "contract IPopulousGovernanceV2"
                     }
                   },
@@ -1153,12 +1153,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 8255,
+                  "id": 8395,
                   "mutability": "mutable",
                   "name": "proposalId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8260,
-                  "src": "3140:18:49",
+                  "scope": 8400,
+                  "src": "3140:18:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1166,10 +1166,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8254,
+                    "id": 8394,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3140:7:49",
+                    "src": "3140:7:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1178,20 +1178,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3105:54:49"
+              "src": "3105:54:50"
             },
             "returnParameters": {
-              "id": 8259,
+              "id": 8399,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8258,
+                  "id": 8398,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8260,
-                  "src": "3195:4:49",
+                  "scope": 8400,
+                  "src": "3195:4:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1199,10 +1199,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 8257,
+                    "id": 8397,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3195:4:49",
+                    "src": "3195:4:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1211,40 +1211,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3194:6:49"
+              "src": "3194:6:50"
             },
-            "scope": 8299,
-            "src": "3073:128:49",
+            "scope": 8439,
+            "src": "3073:128:50",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 8261,
+              "id": 8401,
               "nodeType": "StructuredDocumentation",
-              "src": "3205:218:49",
+              "src": "3205:218:50",
               "text": " @dev Calculates the minimum amount of Voting Power needed for a proposal to Pass\n @param votingSupply Total number of oustanding voting tokens\n @return voting power needed for a proposal to pass*"
             },
             "functionSelector": "e50f8400",
-            "id": 8268,
+            "id": 8408,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getMinimumVotingPowerNeeded",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8264,
+              "id": 8404,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8263,
+                  "id": 8403,
                   "mutability": "mutable",
                   "name": "votingSupply",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8268,
-                  "src": "3463:20:49",
+                  "scope": 8408,
+                  "src": "3463:20:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1252,10 +1252,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8262,
+                    "id": 8402,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3463:7:49",
+                    "src": "3463:7:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1264,20 +1264,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3462:22:49"
+              "src": "3462:22:50"
             },
             "returnParameters": {
-              "id": 8267,
+              "id": 8407,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8266,
+                  "id": 8406,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8268,
-                  "src": "3508:7:49",
+                  "scope": 8408,
+                  "src": "3508:7:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1285,10 +1285,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8265,
+                    "id": 8405,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3508:7:49",
+                    "src": "3508:7:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1297,46 +1297,46 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3507:9:49"
+              "src": "3507:9:50"
             },
-            "scope": 8299,
-            "src": "3426:91:49",
+            "scope": 8439,
+            "src": "3426:91:50",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 8269,
+              "id": 8409,
               "nodeType": "StructuredDocumentation",
-              "src": "3521:119:49",
+              "src": "3521:119:50",
               "text": " @dev Get proposition threshold constant value\n @return the proposition threshold value (100 <=> 1%)*"
             },
             "functionSelector": "fd58afd4",
-            "id": 8274,
+            "id": 8414,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "PROPOSITION_THRESHOLD",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8270,
+              "id": 8410,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3673:2:49"
+              "src": "3673:2:50"
             },
             "returnParameters": {
-              "id": 8273,
+              "id": 8413,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8272,
+                  "id": 8412,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8274,
-                  "src": "3699:7:49",
+                  "scope": 8414,
+                  "src": "3699:7:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1344,10 +1344,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8271,
+                    "id": 8411,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3699:7:49",
+                    "src": "3699:7:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1356,46 +1356,46 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3698:9:49"
+              "src": "3698:9:50"
             },
-            "scope": 8299,
-            "src": "3643:65:49",
+            "scope": 8439,
+            "src": "3643:65:50",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 8275,
+              "id": 8415,
               "nodeType": "StructuredDocumentation",
-              "src": "3712:105:49",
+              "src": "3712:105:50",
               "text": " @dev Get voting duration constant value\n @return the voting duration value in seconds*"
             },
             "functionSelector": "a438d208",
-            "id": 8280,
+            "id": 8420,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "VOTING_DURATION",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8276,
+              "id": 8416,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3844:2:49"
+              "src": "3844:2:50"
             },
             "returnParameters": {
-              "id": 8279,
+              "id": 8419,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8278,
+                  "id": 8418,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8280,
-                  "src": "3870:7:49",
+                  "scope": 8420,
+                  "src": "3870:7:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1403,10 +1403,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8277,
+                    "id": 8417,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3870:7:49",
+                    "src": "3870:7:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1415,46 +1415,46 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3869:9:49"
+              "src": "3869:9:50"
             },
-            "scope": 8299,
-            "src": "3820:59:49",
+            "scope": 8439,
+            "src": "3820:59:50",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 8281,
+              "id": 8421,
               "nodeType": "StructuredDocumentation",
-              "src": "3883:218:49",
+              "src": "3883:218:50",
               "text": " @dev Get the vote differential threshold constant value\n to compare with % of for votes/total supply - % of against votes/total supply\n @return the vote differential threshold value (100 <=> 1%)*"
             },
             "functionSelector": "9125fb58",
-            "id": 8286,
+            "id": 8426,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "VOTE_DIFFERENTIAL",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8282,
+              "id": 8422,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "4130:2:49"
+              "src": "4130:2:50"
             },
             "returnParameters": {
-              "id": 8285,
+              "id": 8425,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8284,
+                  "id": 8424,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8286,
-                  "src": "4156:7:49",
+                  "scope": 8426,
+                  "src": "4156:7:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1462,10 +1462,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8283,
+                    "id": 8423,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4156:7:49",
+                    "src": "4156:7:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1474,46 +1474,46 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4155:9:49"
+              "src": "4155:9:50"
             },
-            "scope": 8299,
-            "src": "4104:61:49",
+            "scope": 8439,
+            "src": "4104:61:50",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 8287,
+              "id": 8427,
               "nodeType": "StructuredDocumentation",
-              "src": "4169:158:49",
+              "src": "4169:158:50",
               "text": " @dev Get quorum threshold constant value\n to compare with % of for votes/total supply\n @return the quorum threshold value (100 <=> 1%)*"
             },
             "functionSelector": "b159beac",
-            "id": 8292,
+            "id": 8432,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "MINIMUM_QUORUM",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8288,
+              "id": 8428,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "4353:2:49"
+              "src": "4353:2:50"
             },
             "returnParameters": {
-              "id": 8291,
+              "id": 8431,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8290,
+                  "id": 8430,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8292,
-                  "src": "4379:7:49",
+                  "scope": 8432,
+                  "src": "4379:7:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1521,10 +1521,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8289,
+                    "id": 8429,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4379:7:49",
+                    "src": "4379:7:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1533,46 +1533,46 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4378:9:49"
+              "src": "4378:9:50"
             },
-            "scope": 8299,
-            "src": "4330:58:49",
+            "scope": 8439,
+            "src": "4330:58:50",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 8293,
+              "id": 8433,
               "nodeType": "StructuredDocumentation",
-              "src": "4392:111:49",
+              "src": "4392:111:50",
               "text": " @dev precision helper: 100% = 10000\n @return one hundred percents with our chosen precision*"
             },
             "functionSelector": "1d73fd6d",
-            "id": 8298,
+            "id": 8438,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "ONE_HUNDRED_WITH_PRECISION",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8294,
+              "id": 8434,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "4541:2:49"
+              "src": "4541:2:50"
             },
             "returnParameters": {
-              "id": 8297,
+              "id": 8437,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8296,
+                  "id": 8436,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8298,
-                  "src": "4567:7:49",
+                  "scope": 8438,
+                  "src": "4567:7:50",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1580,10 +1580,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8295,
+                    "id": 8435,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4567:7:49",
+                    "src": "4567:7:50",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1592,30 +1592,30 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4566:9:49"
+              "src": "4566:9:50"
             },
-            "scope": 8299,
-            "src": "4506:70:49",
+            "scope": 8439,
+            "src": "4506:70:50",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 8300,
-        "src": "149:4429:49"
+        "scope": 8440,
+        "src": "149:4429:50"
       }
     ],
-    "src": "37:4542:49"
+    "src": "37:4542:50"
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IProposalValidator.sol",
+      "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IProposalValidator.sol",
       "exportedSymbols": {
         "IPopulousGovernanceV2": [
-          8179
+          8319
         ],
         "IProposalValidator": [
-          8299
+          8439
         ]
       },
       "license": "agpl-3.0"
@@ -1629,9 +1629,9 @@
             ".5"
           ]
         },
-        "id": 8181,
+        "id": 8321,
         "name": "PragmaDirective",
-        "src": "37:22:49"
+        "src": "37:22:50"
       },
       {
         "attributes": {
@@ -1640,16 +1640,16 @@
             "v2"
           ]
         },
-        "id": 8182,
+        "id": 8322,
         "name": "PragmaDirective",
-        "src": "60:19:49"
+        "src": "60:19:50"
       },
       {
         "attributes": {
-          "SourceUnit": 8180,
-          "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IPopulousGovernanceV2.sol",
+          "SourceUnit": 8320,
+          "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IPopulousGovernanceV2.sol",
           "file": "./IPopulousGovernanceV2.sol",
-          "scope": 8300,
+          "scope": 8440,
           "symbolAliases": [
             {
               "foreign": {
@@ -1659,17 +1659,17 @@
                   ],
                   "value": "IPopulousGovernanceV2"
                 },
-                "id": 8183,
+                "id": 8323,
                 "name": "Identifier",
-                "src": "89:21:49"
+                "src": "89:21:50"
               }
             }
           ],
           "unitAlias": ""
         },
-        "id": 8184,
+        "id": 8324,
         "name": "ImportDirective",
-        "src": "81:66:49"
+        "src": "81:66:50"
       },
       {
         "attributes": {
@@ -1683,10 +1683,10 @@
           "contractKind": "interface",
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            8299
+            8439
           ],
           "name": "IProposalValidator",
-          "scope": 8300
+          "scope": 8440
         },
         "children": [
           {
@@ -1699,7 +1699,7 @@
                 null
               ],
               "name": "validateCreatorOfProposal",
-              "scope": 8299,
+              "scope": 8439,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -1709,9 +1709,9 @@
                 "attributes": {
                   "text": " @dev Called to validate a proposal (e.g when creating new proposal in Governance)\n @param governance Governance Contract\n @param user Address of the proposal creator\n @param blockNumber Block Number against which to make the test (e.g proposal creation block -1).\n @return boolean, true if can be created*"
                 },
-                "id": 8185,
+                "id": 8325,
                 "name": "StructuredDocumentation",
-                "src": "183:336:49"
+                "src": "183:336:50"
               },
               {
                 "children": [
@@ -1720,7 +1720,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "governance",
-                      "scope": 8196,
+                      "scope": 8336,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "contract IPopulousGovernanceV2",
@@ -1730,24 +1730,24 @@
                       {
                         "attributes": {
                           "name": "IPopulousGovernanceV2",
-                          "referencedDeclaration": 8179,
+                          "referencedDeclaration": 8319,
                           "type": "contract IPopulousGovernanceV2"
                         },
-                        "id": 8186,
+                        "id": 8326,
                         "name": "UserDefinedTypeName",
-                        "src": "562:21:49"
+                        "src": "562:21:50"
                       }
                     ],
-                    "id": 8187,
+                    "id": 8327,
                     "name": "VariableDeclaration",
-                    "src": "562:32:49"
+                    "src": "562:32:50"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "user",
-                      "scope": 8196,
+                      "scope": 8336,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1760,21 +1760,21 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 8188,
+                        "id": 8328,
                         "name": "ElementaryTypeName",
-                        "src": "600:7:49"
+                        "src": "600:7:50"
                       }
                     ],
-                    "id": 8189,
+                    "id": 8329,
                     "name": "VariableDeclaration",
-                    "src": "600:12:49"
+                    "src": "600:12:50"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "blockNumber",
-                      "scope": 8196,
+                      "scope": 8336,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1786,19 +1786,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 8190,
+                        "id": 8330,
                         "name": "ElementaryTypeName",
-                        "src": "618:7:49"
+                        "src": "618:7:50"
                       }
                     ],
-                    "id": 8191,
+                    "id": 8331,
                     "name": "VariableDeclaration",
-                    "src": "618:19:49"
+                    "src": "618:19:50"
                   }
                 ],
-                "id": 8192,
+                "id": 8332,
                 "name": "ParameterList",
-                "src": "556:85:49"
+                "src": "556:85:50"
               },
               {
                 "children": [
@@ -1807,7 +1807,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 8196,
+                      "scope": 8336,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -1819,24 +1819,24 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 8193,
+                        "id": 8333,
                         "name": "ElementaryTypeName",
-                        "src": "665:4:49"
+                        "src": "665:4:50"
                       }
                     ],
-                    "id": 8194,
+                    "id": 8334,
                     "name": "VariableDeclaration",
-                    "src": "665:4:49"
+                    "src": "665:4:50"
                   }
                 ],
-                "id": 8195,
+                "id": 8335,
                 "name": "ParameterList",
-                "src": "664:6:49"
+                "src": "664:6:50"
               }
             ],
-            "id": 8196,
+            "id": 8336,
             "name": "FunctionDefinition",
-            "src": "522:149:49"
+            "src": "522:149:50"
           },
           {
             "attributes": {
@@ -1848,7 +1848,7 @@
                 null
               ],
               "name": "validateProposalCancellation",
-              "scope": 8299,
+              "scope": 8439,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -1858,9 +1858,9 @@
                 "attributes": {
                   "text": " @dev Called to validate the cancellation of a proposal\n @param governance Governance Contract\n @param user Address of the proposal creator\n @param blockNumber Block Number against which to make the test (e.g proposal creation block -1).\n @return boolean, true if can be cancelled*"
                 },
-                "id": 8197,
+                "id": 8337,
                 "name": "StructuredDocumentation",
-                "src": "675:311:49"
+                "src": "675:311:50"
               },
               {
                 "children": [
@@ -1869,7 +1869,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "governance",
-                      "scope": 8208,
+                      "scope": 8348,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "contract IPopulousGovernanceV2",
@@ -1879,24 +1879,24 @@
                       {
                         "attributes": {
                           "name": "IPopulousGovernanceV2",
-                          "referencedDeclaration": 8179,
+                          "referencedDeclaration": 8319,
                           "type": "contract IPopulousGovernanceV2"
                         },
-                        "id": 8198,
+                        "id": 8338,
                         "name": "UserDefinedTypeName",
-                        "src": "1032:21:49"
+                        "src": "1032:21:50"
                       }
                     ],
-                    "id": 8199,
+                    "id": 8339,
                     "name": "VariableDeclaration",
-                    "src": "1032:32:49"
+                    "src": "1032:32:50"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "user",
-                      "scope": 8208,
+                      "scope": 8348,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1909,21 +1909,21 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 8200,
+                        "id": 8340,
                         "name": "ElementaryTypeName",
-                        "src": "1070:7:49"
+                        "src": "1070:7:50"
                       }
                     ],
-                    "id": 8201,
+                    "id": 8341,
                     "name": "VariableDeclaration",
-                    "src": "1070:12:49"
+                    "src": "1070:12:50"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "blockNumber",
-                      "scope": 8208,
+                      "scope": 8348,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1935,19 +1935,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 8202,
+                        "id": 8342,
                         "name": "ElementaryTypeName",
-                        "src": "1088:7:49"
+                        "src": "1088:7:50"
                       }
                     ],
-                    "id": 8203,
+                    "id": 8343,
                     "name": "VariableDeclaration",
-                    "src": "1088:19:49"
+                    "src": "1088:19:50"
                   }
                 ],
-                "id": 8204,
+                "id": 8344,
                 "name": "ParameterList",
-                "src": "1026:85:49"
+                "src": "1026:85:50"
               },
               {
                 "children": [
@@ -1956,7 +1956,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 8208,
+                      "scope": 8348,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -1968,24 +1968,24 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 8205,
+                        "id": 8345,
                         "name": "ElementaryTypeName",
-                        "src": "1135:4:49"
+                        "src": "1135:4:50"
                       }
                     ],
-                    "id": 8206,
+                    "id": 8346,
                     "name": "VariableDeclaration",
-                    "src": "1135:4:49"
+                    "src": "1135:4:50"
                   }
                 ],
-                "id": 8207,
+                "id": 8347,
                 "name": "ParameterList",
-                "src": "1134:6:49"
+                "src": "1134:6:50"
               }
             ],
-            "id": 8208,
+            "id": 8348,
             "name": "FunctionDefinition",
-            "src": "989:152:49"
+            "src": "989:152:50"
           },
           {
             "attributes": {
@@ -1997,7 +1997,7 @@
                 null
               ],
               "name": "isPropositionPowerEnough",
-              "scope": 8299,
+              "scope": 8439,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -2007,9 +2007,9 @@
                 "attributes": {
                   "text": " @dev Returns whether a user has enough Proposition Power to make a proposal.\n @param governance Governance Contract\n @param user Address of the user to be challenged.\n @param blockNumber Block Number against which to make the challenge.\n @return true if user has enough power*"
                 },
-                "id": 8209,
+                "id": 8349,
                 "name": "StructuredDocumentation",
-                "src": "1145:307:49"
+                "src": "1145:307:50"
               },
               {
                 "children": [
@@ -2018,7 +2018,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "governance",
-                      "scope": 8220,
+                      "scope": 8360,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "contract IPopulousGovernanceV2",
@@ -2028,24 +2028,24 @@
                       {
                         "attributes": {
                           "name": "IPopulousGovernanceV2",
-                          "referencedDeclaration": 8179,
+                          "referencedDeclaration": 8319,
                           "type": "contract IPopulousGovernanceV2"
                         },
-                        "id": 8210,
+                        "id": 8350,
                         "name": "UserDefinedTypeName",
-                        "src": "1494:21:49"
+                        "src": "1494:21:50"
                       }
                     ],
-                    "id": 8211,
+                    "id": 8351,
                     "name": "VariableDeclaration",
-                    "src": "1494:32:49"
+                    "src": "1494:32:50"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "user",
-                      "scope": 8220,
+                      "scope": 8360,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -2058,21 +2058,21 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 8212,
+                        "id": 8352,
                         "name": "ElementaryTypeName",
-                        "src": "1532:7:49"
+                        "src": "1532:7:50"
                       }
                     ],
-                    "id": 8213,
+                    "id": 8353,
                     "name": "VariableDeclaration",
-                    "src": "1532:12:49"
+                    "src": "1532:12:50"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "blockNumber",
-                      "scope": 8220,
+                      "scope": 8360,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -2084,19 +2084,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 8214,
+                        "id": 8354,
                         "name": "ElementaryTypeName",
-                        "src": "1550:7:49"
+                        "src": "1550:7:50"
                       }
                     ],
-                    "id": 8215,
+                    "id": 8355,
                     "name": "VariableDeclaration",
-                    "src": "1550:19:49"
+                    "src": "1550:19:50"
                   }
                 ],
-                "id": 8216,
+                "id": 8356,
                 "name": "ParameterList",
-                "src": "1488:85:49"
+                "src": "1488:85:50"
               },
               {
                 "children": [
@@ -2105,7 +2105,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 8220,
+                      "scope": 8360,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -2117,24 +2117,24 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 8217,
+                        "id": 8357,
                         "name": "ElementaryTypeName",
-                        "src": "1597:4:49"
+                        "src": "1597:4:50"
                       }
                     ],
-                    "id": 8218,
+                    "id": 8358,
                     "name": "VariableDeclaration",
-                    "src": "1597:4:49"
+                    "src": "1597:4:50"
                   }
                 ],
-                "id": 8219,
+                "id": 8359,
                 "name": "ParameterList",
-                "src": "1596:6:49"
+                "src": "1596:6:50"
               }
             ],
-            "id": 8220,
+            "id": 8360,
             "name": "FunctionDefinition",
-            "src": "1455:148:49"
+            "src": "1455:148:50"
           },
           {
             "attributes": {
@@ -2146,7 +2146,7 @@
                 null
               ],
               "name": "getMinimumPropositionPowerNeeded",
-              "scope": 8299,
+              "scope": 8439,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -2156,9 +2156,9 @@
                 "attributes": {
                   "text": " @dev Returns the minimum Proposition Power needed to create a proposition.\n @param governance Governance Contract\n @param blockNumber Blocknumber at which to evaluate\n @return minimum Proposition Power needed*"
                 },
-                "id": 8221,
+                "id": 8361,
                 "name": "StructuredDocumentation",
-                "src": "1607:236:49"
+                "src": "1607:236:50"
               },
               {
                 "children": [
@@ -2167,7 +2167,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "governance",
-                      "scope": 8230,
+                      "scope": 8370,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "contract IPopulousGovernanceV2",
@@ -2177,24 +2177,24 @@
                       {
                         "attributes": {
                           "name": "IPopulousGovernanceV2",
-                          "referencedDeclaration": 8179,
+                          "referencedDeclaration": 8319,
                           "type": "contract IPopulousGovernanceV2"
                         },
-                        "id": 8222,
+                        "id": 8362,
                         "name": "UserDefinedTypeName",
-                        "src": "1888:21:49"
+                        "src": "1888:21:50"
                       }
                     ],
-                    "id": 8223,
+                    "id": 8363,
                     "name": "VariableDeclaration",
-                    "src": "1888:32:49"
+                    "src": "1888:32:50"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "blockNumber",
-                      "scope": 8230,
+                      "scope": 8370,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -2206,19 +2206,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 8224,
+                        "id": 8364,
                         "name": "ElementaryTypeName",
-                        "src": "1922:7:49"
+                        "src": "1922:7:50"
                       }
                     ],
-                    "id": 8225,
+                    "id": 8365,
                     "name": "VariableDeclaration",
-                    "src": "1922:19:49"
+                    "src": "1922:19:50"
                   }
                 ],
-                "id": 8226,
+                "id": 8366,
                 "name": "ParameterList",
-                "src": "1887:55:49"
+                "src": "1887:55:50"
               },
               {
                 "children": [
@@ -2227,7 +2227,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 8230,
+                      "scope": 8370,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -2239,24 +2239,24 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 8227,
+                        "id": 8367,
                         "name": "ElementaryTypeName",
-                        "src": "1978:7:49"
+                        "src": "1978:7:50"
                       }
                     ],
-                    "id": 8228,
+                    "id": 8368,
                     "name": "VariableDeclaration",
-                    "src": "1978:7:49"
+                    "src": "1978:7:50"
                   }
                 ],
-                "id": 8229,
+                "id": 8369,
                 "name": "ParameterList",
-                "src": "1977:9:49"
+                "src": "1977:9:50"
               }
             ],
-            "id": 8230,
+            "id": 8370,
             "name": "FunctionDefinition",
-            "src": "1846:141:49"
+            "src": "1846:141:50"
           },
           {
             "attributes": {
@@ -2268,7 +2268,7 @@
                 null
               ],
               "name": "isProposalPassed",
-              "scope": 8299,
+              "scope": 8439,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -2278,9 +2278,9 @@
                 "attributes": {
                   "text": " @dev Returns whether a proposal passed or not\n @param governance Governance Contract\n @param proposalId Id of the proposal to set\n @return true if proposal passed*"
                 },
-                "id": 8231,
+                "id": 8371,
                 "name": "StructuredDocumentation",
-                "src": "1991:190:49"
+                "src": "1991:190:50"
               },
               {
                 "children": [
@@ -2289,7 +2289,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "governance",
-                      "scope": 8240,
+                      "scope": 8380,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "contract IPopulousGovernanceV2",
@@ -2299,24 +2299,24 @@
                       {
                         "attributes": {
                           "name": "IPopulousGovernanceV2",
-                          "referencedDeclaration": 8179,
+                          "referencedDeclaration": 8319,
                           "type": "contract IPopulousGovernanceV2"
                         },
-                        "id": 8232,
+                        "id": 8372,
                         "name": "UserDefinedTypeName",
-                        "src": "2210:21:49"
+                        "src": "2210:21:50"
                       }
                     ],
-                    "id": 8233,
+                    "id": 8373,
                     "name": "VariableDeclaration",
-                    "src": "2210:32:49"
+                    "src": "2210:32:50"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "proposalId",
-                      "scope": 8240,
+                      "scope": 8380,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -2328,19 +2328,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 8234,
+                        "id": 8374,
                         "name": "ElementaryTypeName",
-                        "src": "2244:7:49"
+                        "src": "2244:7:50"
                       }
                     ],
-                    "id": 8235,
+                    "id": 8375,
                     "name": "VariableDeclaration",
-                    "src": "2244:18:49"
+                    "src": "2244:18:50"
                   }
                 ],
-                "id": 8236,
+                "id": 8376,
                 "name": "ParameterList",
-                "src": "2209:54:49"
+                "src": "2209:54:50"
               },
               {
                 "children": [
@@ -2349,7 +2349,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 8240,
+                      "scope": 8380,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -2361,24 +2361,24 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 8237,
+                        "id": 8377,
                         "name": "ElementaryTypeName",
-                        "src": "2299:4:49"
+                        "src": "2299:4:50"
                       }
                     ],
-                    "id": 8238,
+                    "id": 8378,
                     "name": "VariableDeclaration",
-                    "src": "2299:4:49"
+                    "src": "2299:4:50"
                   }
                 ],
-                "id": 8239,
+                "id": 8379,
                 "name": "ParameterList",
-                "src": "2298:6:49"
+                "src": "2298:6:50"
               }
             ],
-            "id": 8240,
+            "id": 8380,
             "name": "FunctionDefinition",
-            "src": "2184:121:49"
+            "src": "2184:121:50"
           },
           {
             "attributes": {
@@ -2390,7 +2390,7 @@
                 null
               ],
               "name": "isQuorumValid",
-              "scope": 8299,
+              "scope": 8439,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -2400,9 +2400,9 @@
                 "attributes": {
                   "text": " @dev Check whether a proposal has reached quorum, ie has enough FOR-voting-power\n Here quorum is not to understand as number of votes reached, but number of for-votes reached\n @param governance Governance Contract\n @param proposalId Id of the proposal to verify\n @return voting power needed for a proposal to pass*"
                 },
-                "id": 8241,
+                "id": 8381,
                 "name": "StructuredDocumentation",
-                "src": "2309:345:49"
+                "src": "2309:345:50"
               },
               {
                 "children": [
@@ -2411,7 +2411,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "governance",
-                      "scope": 8250,
+                      "scope": 8390,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "contract IPopulousGovernanceV2",
@@ -2421,24 +2421,24 @@
                       {
                         "attributes": {
                           "name": "IPopulousGovernanceV2",
-                          "referencedDeclaration": 8179,
+                          "referencedDeclaration": 8319,
                           "type": "contract IPopulousGovernanceV2"
                         },
-                        "id": 8242,
+                        "id": 8382,
                         "name": "UserDefinedTypeName",
-                        "src": "2680:21:49"
+                        "src": "2680:21:50"
                       }
                     ],
-                    "id": 8243,
+                    "id": 8383,
                     "name": "VariableDeclaration",
-                    "src": "2680:32:49"
+                    "src": "2680:32:50"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "proposalId",
-                      "scope": 8250,
+                      "scope": 8390,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -2450,19 +2450,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 8244,
+                        "id": 8384,
                         "name": "ElementaryTypeName",
-                        "src": "2714:7:49"
+                        "src": "2714:7:50"
                       }
                     ],
-                    "id": 8245,
+                    "id": 8385,
                     "name": "VariableDeclaration",
-                    "src": "2714:18:49"
+                    "src": "2714:18:50"
                   }
                 ],
-                "id": 8246,
+                "id": 8386,
                 "name": "ParameterList",
-                "src": "2679:54:49"
+                "src": "2679:54:50"
               },
               {
                 "children": [
@@ -2471,7 +2471,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 8250,
+                      "scope": 8390,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -2483,24 +2483,24 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 8247,
+                        "id": 8387,
                         "name": "ElementaryTypeName",
-                        "src": "2769:4:49"
+                        "src": "2769:4:50"
                       }
                     ],
-                    "id": 8248,
+                    "id": 8388,
                     "name": "VariableDeclaration",
-                    "src": "2769:4:49"
+                    "src": "2769:4:50"
                   }
                 ],
-                "id": 8249,
+                "id": 8389,
                 "name": "ParameterList",
-                "src": "2768:6:49"
+                "src": "2768:6:50"
               }
             ],
-            "id": 8250,
+            "id": 8390,
             "name": "FunctionDefinition",
-            "src": "2657:118:49"
+            "src": "2657:118:50"
           },
           {
             "attributes": {
@@ -2512,7 +2512,7 @@
                 null
               ],
               "name": "isVoteDifferentialValid",
-              "scope": 8299,
+              "scope": 8439,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -2522,9 +2522,9 @@
                 "attributes": {
                   "text": " @dev Check whether a proposal has enough extra FOR-votes than AGAINST-votes\n FOR VOTES - AGAINST VOTES > VOTE_DIFFERENTIAL * voting supply\n @param governance Governance Contract\n @param proposalId Id of the proposal to verify\n @return true if enough For-Votes*"
                 },
-                "id": 8251,
+                "id": 8391,
                 "name": "StructuredDocumentation",
-                "src": "2779:291:49"
+                "src": "2779:291:50"
               },
               {
                 "children": [
@@ -2533,7 +2533,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "governance",
-                      "scope": 8260,
+                      "scope": 8400,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "contract IPopulousGovernanceV2",
@@ -2543,24 +2543,24 @@
                       {
                         "attributes": {
                           "name": "IPopulousGovernanceV2",
-                          "referencedDeclaration": 8179,
+                          "referencedDeclaration": 8319,
                           "type": "contract IPopulousGovernanceV2"
                         },
-                        "id": 8252,
+                        "id": 8392,
                         "name": "UserDefinedTypeName",
-                        "src": "3106:21:49"
+                        "src": "3106:21:50"
                       }
                     ],
-                    "id": 8253,
+                    "id": 8393,
                     "name": "VariableDeclaration",
-                    "src": "3106:32:49"
+                    "src": "3106:32:50"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "proposalId",
-                      "scope": 8260,
+                      "scope": 8400,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -2572,19 +2572,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 8254,
+                        "id": 8394,
                         "name": "ElementaryTypeName",
-                        "src": "3140:7:49"
+                        "src": "3140:7:50"
                       }
                     ],
-                    "id": 8255,
+                    "id": 8395,
                     "name": "VariableDeclaration",
-                    "src": "3140:18:49"
+                    "src": "3140:18:50"
                   }
                 ],
-                "id": 8256,
+                "id": 8396,
                 "name": "ParameterList",
-                "src": "3105:54:49"
+                "src": "3105:54:50"
               },
               {
                 "children": [
@@ -2593,7 +2593,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 8260,
+                      "scope": 8400,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -2605,24 +2605,24 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 8257,
+                        "id": 8397,
                         "name": "ElementaryTypeName",
-                        "src": "3195:4:49"
+                        "src": "3195:4:50"
                       }
                     ],
-                    "id": 8258,
+                    "id": 8398,
                     "name": "VariableDeclaration",
-                    "src": "3195:4:49"
+                    "src": "3195:4:50"
                   }
                 ],
-                "id": 8259,
+                "id": 8399,
                 "name": "ParameterList",
-                "src": "3194:6:49"
+                "src": "3194:6:50"
               }
             ],
-            "id": 8260,
+            "id": 8400,
             "name": "FunctionDefinition",
-            "src": "3073:128:49"
+            "src": "3073:128:50"
           },
           {
             "attributes": {
@@ -2634,7 +2634,7 @@
                 null
               ],
               "name": "getMinimumVotingPowerNeeded",
-              "scope": 8299,
+              "scope": 8439,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -2644,9 +2644,9 @@
                 "attributes": {
                   "text": " @dev Calculates the minimum amount of Voting Power needed for a proposal to Pass\n @param votingSupply Total number of oustanding voting tokens\n @return voting power needed for a proposal to pass*"
                 },
-                "id": 8261,
+                "id": 8401,
                 "name": "StructuredDocumentation",
-                "src": "3205:218:49"
+                "src": "3205:218:50"
               },
               {
                 "children": [
@@ -2655,7 +2655,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "votingSupply",
-                      "scope": 8268,
+                      "scope": 8408,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -2667,19 +2667,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 8262,
+                        "id": 8402,
                         "name": "ElementaryTypeName",
-                        "src": "3463:7:49"
+                        "src": "3463:7:50"
                       }
                     ],
-                    "id": 8263,
+                    "id": 8403,
                     "name": "VariableDeclaration",
-                    "src": "3463:20:49"
+                    "src": "3463:20:50"
                   }
                 ],
-                "id": 8264,
+                "id": 8404,
                 "name": "ParameterList",
-                "src": "3462:22:49"
+                "src": "3462:22:50"
               },
               {
                 "children": [
@@ -2688,7 +2688,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 8268,
+                      "scope": 8408,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -2700,24 +2700,24 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 8265,
+                        "id": 8405,
                         "name": "ElementaryTypeName",
-                        "src": "3508:7:49"
+                        "src": "3508:7:50"
                       }
                     ],
-                    "id": 8266,
+                    "id": 8406,
                     "name": "VariableDeclaration",
-                    "src": "3508:7:49"
+                    "src": "3508:7:50"
                   }
                 ],
-                "id": 8267,
+                "id": 8407,
                 "name": "ParameterList",
-                "src": "3507:9:49"
+                "src": "3507:9:50"
               }
             ],
-            "id": 8268,
+            "id": 8408,
             "name": "FunctionDefinition",
-            "src": "3426:91:49"
+            "src": "3426:91:50"
           },
           {
             "attributes": {
@@ -2729,7 +2729,7 @@
                 null
               ],
               "name": "PROPOSITION_THRESHOLD",
-              "scope": 8299,
+              "scope": 8439,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -2739,9 +2739,9 @@
                 "attributes": {
                   "text": " @dev Get proposition threshold constant value\n @return the proposition threshold value (100 <=> 1%)*"
                 },
-                "id": 8269,
+                "id": 8409,
                 "name": "StructuredDocumentation",
-                "src": "3521:119:49"
+                "src": "3521:119:50"
               },
               {
                 "attributes": {
@@ -2750,9 +2750,9 @@
                   ]
                 },
                 "children": [],
-                "id": 8270,
+                "id": 8410,
                 "name": "ParameterList",
-                "src": "3673:2:49"
+                "src": "3673:2:50"
               },
               {
                 "children": [
@@ -2761,7 +2761,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 8274,
+                      "scope": 8414,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -2773,24 +2773,24 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 8271,
+                        "id": 8411,
                         "name": "ElementaryTypeName",
-                        "src": "3699:7:49"
+                        "src": "3699:7:50"
                       }
                     ],
-                    "id": 8272,
+                    "id": 8412,
                     "name": "VariableDeclaration",
-                    "src": "3699:7:49"
+                    "src": "3699:7:50"
                   }
                 ],
-                "id": 8273,
+                "id": 8413,
                 "name": "ParameterList",
-                "src": "3698:9:49"
+                "src": "3698:9:50"
               }
             ],
-            "id": 8274,
+            "id": 8414,
             "name": "FunctionDefinition",
-            "src": "3643:65:49"
+            "src": "3643:65:50"
           },
           {
             "attributes": {
@@ -2802,7 +2802,7 @@
                 null
               ],
               "name": "VOTING_DURATION",
-              "scope": 8299,
+              "scope": 8439,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -2812,9 +2812,9 @@
                 "attributes": {
                   "text": " @dev Get voting duration constant value\n @return the voting duration value in seconds*"
                 },
-                "id": 8275,
+                "id": 8415,
                 "name": "StructuredDocumentation",
-                "src": "3712:105:49"
+                "src": "3712:105:50"
               },
               {
                 "attributes": {
@@ -2823,9 +2823,9 @@
                   ]
                 },
                 "children": [],
-                "id": 8276,
+                "id": 8416,
                 "name": "ParameterList",
-                "src": "3844:2:49"
+                "src": "3844:2:50"
               },
               {
                 "children": [
@@ -2834,7 +2834,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 8280,
+                      "scope": 8420,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -2846,24 +2846,24 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 8277,
+                        "id": 8417,
                         "name": "ElementaryTypeName",
-                        "src": "3870:7:49"
+                        "src": "3870:7:50"
                       }
                     ],
-                    "id": 8278,
+                    "id": 8418,
                     "name": "VariableDeclaration",
-                    "src": "3870:7:49"
+                    "src": "3870:7:50"
                   }
                 ],
-                "id": 8279,
+                "id": 8419,
                 "name": "ParameterList",
-                "src": "3869:9:49"
+                "src": "3869:9:50"
               }
             ],
-            "id": 8280,
+            "id": 8420,
             "name": "FunctionDefinition",
-            "src": "3820:59:49"
+            "src": "3820:59:50"
           },
           {
             "attributes": {
@@ -2875,7 +2875,7 @@
                 null
               ],
               "name": "VOTE_DIFFERENTIAL",
-              "scope": 8299,
+              "scope": 8439,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -2885,9 +2885,9 @@
                 "attributes": {
                   "text": " @dev Get the vote differential threshold constant value\n to compare with % of for votes/total supply - % of against votes/total supply\n @return the vote differential threshold value (100 <=> 1%)*"
                 },
-                "id": 8281,
+                "id": 8421,
                 "name": "StructuredDocumentation",
-                "src": "3883:218:49"
+                "src": "3883:218:50"
               },
               {
                 "attributes": {
@@ -2896,9 +2896,9 @@
                   ]
                 },
                 "children": [],
-                "id": 8282,
+                "id": 8422,
                 "name": "ParameterList",
-                "src": "4130:2:49"
+                "src": "4130:2:50"
               },
               {
                 "children": [
@@ -2907,7 +2907,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 8286,
+                      "scope": 8426,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -2919,24 +2919,24 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 8283,
+                        "id": 8423,
                         "name": "ElementaryTypeName",
-                        "src": "4156:7:49"
+                        "src": "4156:7:50"
                       }
                     ],
-                    "id": 8284,
+                    "id": 8424,
                     "name": "VariableDeclaration",
-                    "src": "4156:7:49"
+                    "src": "4156:7:50"
                   }
                 ],
-                "id": 8285,
+                "id": 8425,
                 "name": "ParameterList",
-                "src": "4155:9:49"
+                "src": "4155:9:50"
               }
             ],
-            "id": 8286,
+            "id": 8426,
             "name": "FunctionDefinition",
-            "src": "4104:61:49"
+            "src": "4104:61:50"
           },
           {
             "attributes": {
@@ -2948,7 +2948,7 @@
                 null
               ],
               "name": "MINIMUM_QUORUM",
-              "scope": 8299,
+              "scope": 8439,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -2958,9 +2958,9 @@
                 "attributes": {
                   "text": " @dev Get quorum threshold constant value\n to compare with % of for votes/total supply\n @return the quorum threshold value (100 <=> 1%)*"
                 },
-                "id": 8287,
+                "id": 8427,
                 "name": "StructuredDocumentation",
-                "src": "4169:158:49"
+                "src": "4169:158:50"
               },
               {
                 "attributes": {
@@ -2969,9 +2969,9 @@
                   ]
                 },
                 "children": [],
-                "id": 8288,
+                "id": 8428,
                 "name": "ParameterList",
-                "src": "4353:2:49"
+                "src": "4353:2:50"
               },
               {
                 "children": [
@@ -2980,7 +2980,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 8292,
+                      "scope": 8432,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -2992,24 +2992,24 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 8289,
+                        "id": 8429,
                         "name": "ElementaryTypeName",
-                        "src": "4379:7:49"
+                        "src": "4379:7:50"
                       }
                     ],
-                    "id": 8290,
+                    "id": 8430,
                     "name": "VariableDeclaration",
-                    "src": "4379:7:49"
+                    "src": "4379:7:50"
                   }
                 ],
-                "id": 8291,
+                "id": 8431,
                 "name": "ParameterList",
-                "src": "4378:9:49"
+                "src": "4378:9:50"
               }
             ],
-            "id": 8292,
+            "id": 8432,
             "name": "FunctionDefinition",
-            "src": "4330:58:49"
+            "src": "4330:58:50"
           },
           {
             "attributes": {
@@ -3021,7 +3021,7 @@
                 null
               ],
               "name": "ONE_HUNDRED_WITH_PRECISION",
-              "scope": 8299,
+              "scope": 8439,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -3031,9 +3031,9 @@
                 "attributes": {
                   "text": " @dev precision helper: 100% = 10000\n @return one hundred percents with our chosen precision*"
                 },
-                "id": 8293,
+                "id": 8433,
                 "name": "StructuredDocumentation",
-                "src": "4392:111:49"
+                "src": "4392:111:50"
               },
               {
                 "attributes": {
@@ -3042,9 +3042,9 @@
                   ]
                 },
                 "children": [],
-                "id": 8294,
+                "id": 8434,
                 "name": "ParameterList",
-                "src": "4541:2:49"
+                "src": "4541:2:50"
               },
               {
                 "children": [
@@ -3053,7 +3053,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 8298,
+                      "scope": 8438,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -3065,34 +3065,34 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 8295,
+                        "id": 8435,
                         "name": "ElementaryTypeName",
-                        "src": "4567:7:49"
+                        "src": "4567:7:50"
                       }
                     ],
-                    "id": 8296,
+                    "id": 8436,
                     "name": "VariableDeclaration",
-                    "src": "4567:7:49"
+                    "src": "4567:7:50"
                   }
                 ],
-                "id": 8297,
+                "id": 8437,
                 "name": "ParameterList",
-                "src": "4566:9:49"
+                "src": "4566:9:50"
               }
             ],
-            "id": 8298,
+            "id": 8438,
             "name": "FunctionDefinition",
-            "src": "4506:70:49"
+            "src": "4506:70:50"
           }
         ],
-        "id": 8299,
+        "id": 8439,
         "name": "ContractDefinition",
-        "src": "149:4429:49"
+        "src": "149:4429:50"
       }
     ],
-    "id": 8300,
+    "id": 8440,
     "name": "SourceUnit",
-    "src": "37:4542:49"
+    "src": "37:4542:50"
   },
   "compiler": {
     "name": "solc",
@@ -3100,7 +3100,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-03-25T14:55:19.366Z",
+  "updatedAt": "2021-04-19T10:46:55.236Z",
   "devdoc": {
     "kind": "dev",
     "methods": {

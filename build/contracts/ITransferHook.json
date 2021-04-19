@@ -25,7 +25,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.5+commit.eb77ed08\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"onTransfer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/dependencies/aave-token-v2/contracts/interfaces/ITransferHook.sol\":\"ITransferHook\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/dependencies/aave-token-v2/contracts/interfaces/ITransferHook.sol\":{\"keccak256\":\"0x4dbba845d8847a01c2cdef22e758cb75392a9650993dbb2e02f0a6097ebb8ca5\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://6d6cc7f73e8597c92ffafe4450ceb46227ee9a66a02de820724208804627a970\",\"dweb:/ipfs/Qmc6SQDtT59r7SSEHgXPJuasogpdjPm6ucTux6J7R37jpz\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.5+commit.eb77ed08\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"onTransfer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/aave-token-v2/contracts/interfaces/ITransferHook.sol\":\"ITransferHook\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/aave-token-v2/contracts/interfaces/ITransferHook.sol\":{\"keccak256\":\"0x4dbba845d8847a01c2cdef22e758cb75392a9650993dbb2e02f0a6097ebb8ca5\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://6d6cc7f73e8597c92ffafe4450ceb46227ee9a66a02de820724208804627a970\",\"dweb:/ipfs/Qmc6SQDtT59r7SSEHgXPJuasogpdjPm6ucTux6J7R37jpz\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -34,27 +34,27 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity 0.7.5;\n\ninterface ITransferHook {\n    function onTransfer(address from, address to, uint256 amount) external;\n}",
-  "sourcePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/dependencies/aave-token-v2/contracts/interfaces/ITransferHook.sol",
+  "sourcePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/aave-token-v2/contracts/interfaces/ITransferHook.sol",
   "ast": {
-    "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/dependencies/aave-token-v2/contracts/interfaces/ITransferHook.sol",
+    "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/aave-token-v2/contracts/interfaces/ITransferHook.sol",
     "exportedSymbols": {
       "ITransferHook": [
-        1132
+        1367
       ]
     },
-    "id": 1133,
+    "id": 1368,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1122,
+        "id": 1357,
         "literals": [
           "solidity",
           "0.7",
           ".5"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:22:10"
+        "src": "37:22:11"
       },
       {
         "abstract": false,
@@ -62,33 +62,33 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 1132,
+        "id": 1367,
         "linearizedBaseContracts": [
-          1132
+          1367
         ],
         "name": "ITransferHook",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "functionSelector": "4a393149",
-            "id": 1131,
+            "id": 1366,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "onTransfer",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1129,
+              "id": 1364,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1124,
+                  "id": 1359,
                   "mutability": "mutable",
                   "name": "from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1131,
-                  "src": "111:12:10",
+                  "scope": 1366,
+                  "src": "111:12:11",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -96,10 +96,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1123,
+                    "id": 1358,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "111:7:10",
+                    "src": "111:7:11",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -110,12 +110,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1126,
+                  "id": 1361,
                   "mutability": "mutable",
                   "name": "to",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1131,
-                  "src": "125:10:10",
+                  "scope": 1366,
+                  "src": "125:10:11",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -123,10 +123,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1125,
+                    "id": 1360,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "125:7:10",
+                    "src": "125:7:11",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -137,12 +137,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1128,
+                  "id": 1363,
                   "mutability": "mutable",
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1131,
-                  "src": "137:14:10",
+                  "scope": 1366,
+                  "src": "137:14:11",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -150,10 +150,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1127,
+                    "id": 1362,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "137:7:10",
+                    "src": "137:7:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -162,33 +162,33 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "110:42:10"
+              "src": "110:42:11"
             },
             "returnParameters": {
-              "id": 1130,
+              "id": 1365,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "161:0:10"
+              "src": "161:0:11"
             },
-            "scope": 1132,
-            "src": "91:71:10",
+            "scope": 1367,
+            "src": "91:71:11",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 1133,
-        "src": "61:103:10"
+        "scope": 1368,
+        "src": "61:103:11"
       }
     ],
-    "src": "37:127:10"
+    "src": "37:127:11"
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/dependencies/aave-token-v2/contracts/interfaces/ITransferHook.sol",
+      "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/aave-token-v2/contracts/interfaces/ITransferHook.sol",
       "exportedSymbols": {
         "ITransferHook": [
-          1132
+          1367
         ]
       },
       "license": "agpl-3.0"
@@ -202,9 +202,9 @@
             ".5"
           ]
         },
-        "id": 1122,
+        "id": 1357,
         "name": "PragmaDirective",
-        "src": "37:22:10"
+        "src": "37:22:11"
       },
       {
         "attributes": {
@@ -218,10 +218,10 @@
           "contractKind": "interface",
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            1132
+            1367
           ],
           "name": "ITransferHook",
-          "scope": 1133
+          "scope": 1368
         },
         "children": [
           {
@@ -234,7 +234,7 @@
                 null
               ],
               "name": "onTransfer",
-              "scope": 1132,
+              "scope": 1367,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -247,7 +247,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "from",
-                      "scope": 1131,
+                      "scope": 1366,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -260,21 +260,21 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 1123,
+                        "id": 1358,
                         "name": "ElementaryTypeName",
-                        "src": "111:7:10"
+                        "src": "111:7:11"
                       }
                     ],
-                    "id": 1124,
+                    "id": 1359,
                     "name": "VariableDeclaration",
-                    "src": "111:12:10"
+                    "src": "111:12:11"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "to",
-                      "scope": 1131,
+                      "scope": 1366,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -287,21 +287,21 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 1125,
+                        "id": 1360,
                         "name": "ElementaryTypeName",
-                        "src": "125:7:10"
+                        "src": "125:7:11"
                       }
                     ],
-                    "id": 1126,
+                    "id": 1361,
                     "name": "VariableDeclaration",
-                    "src": "125:10:10"
+                    "src": "125:10:11"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "amount",
-                      "scope": 1131,
+                      "scope": 1366,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -313,19 +313,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1127,
+                        "id": 1362,
                         "name": "ElementaryTypeName",
-                        "src": "137:7:10"
+                        "src": "137:7:11"
                       }
                     ],
-                    "id": 1128,
+                    "id": 1363,
                     "name": "VariableDeclaration",
-                    "src": "137:14:10"
+                    "src": "137:14:11"
                   }
                 ],
-                "id": 1129,
+                "id": 1364,
                 "name": "ParameterList",
-                "src": "110:42:10"
+                "src": "110:42:11"
               },
               {
                 "attributes": {
@@ -334,24 +334,24 @@
                   ]
                 },
                 "children": [],
-                "id": 1130,
+                "id": 1365,
                 "name": "ParameterList",
-                "src": "161:0:10"
+                "src": "161:0:11"
               }
             ],
-            "id": 1131,
+            "id": 1366,
             "name": "FunctionDefinition",
-            "src": "91:71:10"
+            "src": "91:71:11"
           }
         ],
-        "id": 1132,
+        "id": 1367,
         "name": "ContractDefinition",
-        "src": "61:103:10"
+        "src": "61:103:11"
       }
     ],
-    "id": 1133,
+    "id": 1368,
     "name": "SourceUnit",
-    "src": "37:127:10"
+    "src": "37:127:11"
   },
   "compiler": {
     "name": "solc",
@@ -359,7 +359,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-03-25T14:55:19.122Z",
+  "updatedAt": "2021-04-19T10:46:55.079Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
