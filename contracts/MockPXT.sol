@@ -1,8 +1,8 @@
 pragma solidity 0.7.5;
 
-import "./MintableERC20.sol";
+import "./ERC20.sol";
 
-contract MockPXT is MintableERC20 {
+contract MockPXT is ERC20 {
     uint256 public decimals = 8;
     string public symbol = "PXT";
     string public name = "PXT";

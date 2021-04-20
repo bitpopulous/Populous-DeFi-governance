@@ -96,6 +96,7 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
     require(isExecutorAuthorized(address(executor)), 'EXECUTOR_NOT_AUTHORIZED');
 
     require(
+      //todo: proposition token is based on ppt and proposition token needs locking
       IProposalValidator(address(executor)).validateCreatorOfProposal(
         this,
         msg.sender,
@@ -229,6 +230,7 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
     emit ProposalExecuted(proposalId, msg.sender);
   }
 
+  //todo: modify based on interface
   /**
    * @dev Function allowing msg.sender to vote for/against a proposal
    * @param proposalId id of the proposal
@@ -238,6 +240,8 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
     return _submitVote(msg.sender, proposalId, support);
   }
 
+
+  //todo: modify based on interface
   /**
    * @dev Function to register the vote of user that has voted offchain via signature
    * @param proposalId id of the proposal
@@ -448,6 +452,7 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
     executor.queueTransaction(target, value, signature, callData, executionTime, withDelegatecall);
   }
 
+  //todo - modify based on interface
   function _submitVote(
     address voter,
     uint256 proposalId,
@@ -497,5 +502,5 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
     _authorizedExecutors[executor] = false;
     emit ExecutorUnauthorized(executor);
   }
-  
+
 }

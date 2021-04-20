@@ -7,7 +7,7 @@ import {IERC20} from '../interfaces/IERC20.sol';
 import {IGovernancePowerDelegationToken} from '../interfaces/IGovernancePowerDelegationToken.sol';
 import {Ownable} from '../dependencies/open-zeppelin/Ownable.sol';
 import {SafeMath} from '../dependencies/open-zeppelin/SafeMath.sol';
-import {PopulousGovernanceToken} from './PopulousGovernanceToken.sol';
+import {ERC20} from '../ERC20.sol';
 
 /**
  * @title Governance Strategy contract
@@ -22,76 +22,68 @@ import {PopulousGovernanceToken} from './PopulousGovernanceToken.sol';
 contract GovernanceStrategy is Ownable, IGovernanceStrategy {
   using SafeMath for uint256;
 
-  PopulousGovernanceToken public governanceToken;
+  ERC20 public PXT;
+  ERC20 public PPT;
+  ERC20 public votingToken;
 
   /**
    * @dev Constructor, register tokens used for Voting and Proposition Powers.
-   * @param _governanceToken The address of the Populous Governance Token contract.
+   * @param pxt_ The address of the Populous PXT Token contract.
    **/
-  constructor(address _governanceToken) {
-    require(_governanceToken != address(0), "GovernanceStrategy: Invalid governance token address");
-    governanceToken = PopulousGovernanceToken(_governanceToken);
+  constructor(address pxt_, address ppt_, address votingToken_) {
+    require(
+      (pxt_ != address(0)) &&
+      (ppt_ != address(0)) &&
+      (votingToken_ != address(0)), 
+      "GovernanceStrategy: Invalid PXT/PPT token address"
+    );
+
+    votingToken = votingToken_;
+    PPT = ERC20(ppt_);
+    PXT = ERC20(pxt_);
   }
 
   /**
    * @dev Returns the total supply of Proposition Tokens Available for Governance
-   * = Populous Available for governance      + stkPopulous available
-   * The supply of Populous staked in stkPopulous are not taken into account so:
-   * = (Supply of Populous - Populous in stkPopulous) + (Supply of stkPopulous)
-   * = Supply of Populous, Since the supply of stkPopulous is equal to the number of Populous staked
-   * @param blockNumber Blocknumber at which to evaluate
    * @return total supply at blockNumber
    **/
-  function getTotalPropositionSupplyAt(uint256 blockNumber) public view override returns (uint256) {
-    // return IERC20(PopulousGovernanceToken).totalSupplyAt(blockNumber);
-    return governanceToken.totalSupply();
+  function getTotalPropositionSupply() public view override returns (uint256) {
+    return PXT.totalSupply();
   }
 
   /**
    * @dev Returns the total supply of Outstanding Voting Tokens 
-   * @param blockNumber Blocknumber at which to evaluate
    * @return total supply at blockNumber
    **/
-  function getTotalVotingSupplyAt(uint256 blockNumber) public view override returns (uint256) {
-    return getTotalPropositionSupplyAt(blockNumber);
+  function getTotalVotingSupply() public view override returns (uint256) {
+    return votingToken.totalSupply();
   }
 
   /**
    * @dev Returns the Proposition Power of a user at a specific block number.
    * @param user Address of the user.
-   * @param blockNumber Blocknumber at which to fetch Proposition Power
    * @return Power number
    **/
-  function getPropositionPowerAt(address user, uint256 blockNumber)
+  function getPropositionPower(address user)
     public
     view
     override
     returns (uint256)
   {
-    return
-      _getPowerByTypeAt(user, blockNumber, IGovernancePowerDelegationToken.DelegationType.PROPOSITION_POWER);
+    return PXT.balanceOf(user);
   }
 
   /**
    * @dev Returns the Vote Power of a user at a specific block number.
    * @param user Address of the user.
-   * @param blockNumber Blocknumber at which to fetch Vote Power
    * @return Vote number
    **/
-  function getVotingPowerAt(address user, uint256 blockNumber)
+  function getVotingPower(address user)
     public
     view
     override
     returns (uint256)
   {
-    return _getPowerByTypeAt(user, blockNumber, IGovernancePowerDelegationToken.DelegationType.VOTING_POWER);
-  }
-
-  function _getPowerByTypeAt(
-    address user,
-    uint256 blockNumber,
-    IGovernancePowerDelegationToken.DelegationType powerType
-  ) internal view returns (uint256) {
-    return governanceToken.getPriorVotes(user, blockNumber);    
+    return votingToken.balanceOf(user);
   }
 }

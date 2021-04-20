@@ -268,6 +268,7 @@ interface IPopulousGovernanceV2 {
    **/
   function getProposalState(uint256 proposalId) external view returns (ProposalState);
 
+  
   // NEW FUCTIONS
 
   /**
