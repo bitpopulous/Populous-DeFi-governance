@@ -31,6 +31,6 @@ contract MockVotingToken is ERC20, Ownable {
     }
 
     function burn(address account, uint256 amount) external onlyAdmin {
-        _burn(account, value);
+        _burn(account, amount);
     }
 }
