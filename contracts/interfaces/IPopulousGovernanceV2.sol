@@ -12,6 +12,11 @@ interface IPopulousGovernanceV2 {
     uint248 votingPower;
   }
 
+  struct LockedTokens {
+    address tokenAddress;
+    uint256 amount;
+  }
+
   struct Proposal {
     uint256 id;
     address creator;
@@ -31,6 +36,8 @@ interface IPopulousGovernanceV2 {
     address strategy;
     bytes32 ipfsHash;
     mapping(address => Vote) votes;
+    // NEW MAPPING
+    mapping(address => LockedTokens) lockedTokens;
   }
 
   struct ProposalWithoutVotes {
@@ -160,13 +167,6 @@ interface IPopulousGovernanceV2 {
   function execute(uint256 proposalId) external payable;
 
   /**
-   * @dev Function allowing msg.sender to vote for/against a proposal
-   * @param proposalId id of the proposal
-   * @param support boolean, true = vote for, false = vote against
-   **/
-  function submitVote(uint256 proposalId, bool support) external;
-
-  /**
    * @dev Function to register the vote of user that has voted offchain via signature
    * @param proposalId id of the proposal
    * @param support boolean, true = vote for, false = vote against
@@ -267,4 +267,61 @@ interface IPopulousGovernanceV2 {
    * @return The current state if the proposal
    **/
   function getProposalState(uint256 proposalId) external view returns (ProposalState);
+
+  // NEW FUCTIONS
+
+  /**
+   * @dev Function allowing msg.sender to vote for/against a proposal
+   * @param tokenAddress the address of the token to use to vote
+   * tokenAddress must be PPT or PXT and user balance of tokenAddress
+   * must be greater than zero
+   * @param votingPower the amount of tokens to use as voting power
+   * @param proposalId id of the proposal
+   * @param support boolean, true = vote for, false = vote against
+   **/
+  function submitVote(
+    address tokenAddress, 
+    uint256 votingPower,
+    uint256 proposalId, 
+    bool support
+  ) external;
+
+  /**
+   * @dev View function allowing msg.sender to view how their voting power
+   * could change the outcome of the proposal. 
+   * The proposal must be pending or active
+   * @param tokenAddress the address of the token to use to vote
+   * tokenAddress must be PPT or PXT and user balance of tokenAddress
+   * must be greater than zero
+   * @param votingPower the amount of tokens to use as voting power
+   * @param proposalId id of the proposal
+   * @param support boolean, true = vote for, false = vote against
+   * @return for votes and against votes
+   **/
+  function viewVotingOutcome(
+    address tokenAddress, 
+    uint256 votingPower,
+    uint256 proposalId, 
+    bool support
+  ) external view returns (uint256, uint256);
+
+  /**
+   * @dev Getter function to get tokens locked in proposal for user
+   * by proposal id
+   * @param proposalId id of the proposal to get
+   * @return the amount of tokens locked and token address
+   **/
+  function viewLockedTokens(
+    uint256 proposalId
+  ) external view returns(address, uint256);
+
+  /**
+   * @dev Function to redeem tokens locked in proposal for user
+   * by proposal id
+   * @param proposalId id of the proposal to get
+   **/
+  function redeemLockedTokens(
+    uint256 proposalId
+  ) external;
+
 }

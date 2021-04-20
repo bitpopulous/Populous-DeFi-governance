@@ -7,6 +7,7 @@ import {IERC20} from '../interfaces/IERC20.sol';
 import {IGovernancePowerDelegationToken} from '../interfaces/IGovernancePowerDelegationToken.sol';
 import {Ownable} from '../dependencies/open-zeppelin/Ownable.sol';
 import {SafeMath} from '../dependencies/open-zeppelin/SafeMath.sol';
+import {PopulousGovernanceToken} from './PopulousGovernanceToken.sol';
 
 /**
  * @title Governance Strategy contract
@@ -21,19 +22,15 @@ import {SafeMath} from '../dependencies/open-zeppelin/SafeMath.sol';
 contract GovernanceStrategy is Ownable, IGovernanceStrategy {
   using SafeMath for uint256;
 
-  address public immutable Populous;
-  address public immutable stkPopulous;
+  PopulousGovernanceToken public governanceToken;
 
   /**
    * @dev Constructor, register tokens used for Voting and Proposition Powers.
-   * @param _populous The address of the Populous Token contract.
-   * @param _stkPopulous The address of the stkPopulous Token Contract
+   * @param _governanceToken The address of the Populous Governance Token contract.
    **/
-  constructor(address _populous, address _stkPopulous) {
-    require(_populous != address(0), "GovernanceStrategy: Invalid populous token address");
-    require(_stkPopulous != address(0), "GovernanceStrategy: Invalid stkPopulous token address");
-    Populous = _populous;
-    stkPopulous = _stkPopulous;
+  constructor(address _governanceToken) {
+    require(_governanceToken != address(0), "GovernanceStrategy: Invalid governance token address");
+    governanceToken = PopulousGovernanceToken(_governanceToken);
   }
 
   /**
@@ -46,7 +43,8 @@ contract GovernanceStrategy is Ownable, IGovernanceStrategy {
    * @return total supply at blockNumber
    **/
   function getTotalPropositionSupplyAt(uint256 blockNumber) public view override returns (uint256) {
-    return IERC20(Populous).totalSupplyAt(blockNumber);
+    // return IERC20(PopulousGovernanceToken).totalSupplyAt(blockNumber);
+    return governanceToken.totalSupply();
   }
 
   /**
@@ -94,10 +92,6 @@ contract GovernanceStrategy is Ownable, IGovernanceStrategy {
     uint256 blockNumber,
     IGovernancePowerDelegationToken.DelegationType powerType
   ) internal view returns (uint256) {
-    return
-    IGovernancePowerDelegationToken(stkPopulous).getPowerAtBlock(user, blockNumber, powerType);
-      /* (IGovernancePowerDelegationToken(Populous).getPowerAtBlock(user, blockNumber, powerType).mul(pptWeight))
-      .add
-      (IGovernancePowerDelegationToken(STK_Populous).getPowerAtBlock(user, blockNumber, powerType).mul(pxtWeight)); */
+    return governanceToken.getPriorVotes(user, blockNumber);    
   }
 }
