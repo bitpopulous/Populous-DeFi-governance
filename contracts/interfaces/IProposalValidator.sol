@@ -10,48 +10,41 @@ interface IProposalValidator {
    * @dev Called to validate a proposal (e.g when creating new proposal in Governance)
    * @param governance Governance Contract
    * @param user Address of the proposal creator
-   * @param blockNumber Block Number against which to make the test (e.g proposal creation block -1).
    * @return boolean, true if can be created
    **/
   function validateCreatorOfProposal(
     IPopulousGovernanceV2 governance,
-    address user,
-    uint256 blockNumber
+    address user
   ) external view returns (bool);
 
   /**
    * @dev Called to validate the cancellation of a proposal
    * @param governance Governance Contract
    * @param user Address of the proposal creator
-   * @param blockNumber Block Number against which to make the test (e.g proposal creation block -1).
    * @return boolean, true if can be cancelled
    **/
   function validateProposalCancellation(
     IPopulousGovernanceV2 governance,
-    address user,
-    uint256 blockNumber
+    address user
   ) external view returns (bool);
 
   /**
    * @dev Returns whether a user has enough Proposition Power to make a proposal.
    * @param governance Governance Contract
    * @param user Address of the user to be challenged.
-   * @param blockNumber Block Number against which to make the challenge.
    * @return true if user has enough power
    **/
   function isPropositionPowerEnough(
     IPopulousGovernanceV2 governance,
-    address user,
-    uint256 blockNumber
+    address user
   ) external view returns (bool);
 
   /**
    * @dev Returns the minimum Proposition Power needed to create a proposition.
    * @param governance Governance Contract
-   * @param blockNumber Blocknumber at which to evaluate
    * @return minimum Proposition Power needed
    **/
-  function getMinimumPropositionPowerNeeded(IPopulousGovernanceV2 governance, uint256 blockNumber)
+  function getMinimumPropositionPowerNeeded(IPopulousGovernanceV2 governance)
     external
     view
     returns (uint256);

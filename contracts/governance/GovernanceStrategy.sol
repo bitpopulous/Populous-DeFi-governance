@@ -22,9 +22,13 @@ import {ERC20} from '../ERC20.sol';
 contract GovernanceStrategy is Ownable, IGovernanceStrategy {
   using SafeMath for uint256;
 
+  // proposal creation token
+  // can be locked in exchange for voting token
   ERC20 public PXT;
-  ERC20 public PPT;
-  ERC20 public votingToken;
+  // can be locked in exchange for voting token
+  ERC20 public PPT; 
+  // voting token
+  ERC20 public votingToken; 
 
   /**
    * @dev Constructor, register tokens used for Voting and Proposition Powers.
@@ -38,7 +42,7 @@ contract GovernanceStrategy is Ownable, IGovernanceStrategy {
       "GovernanceStrategy: Invalid PXT/PPT token address"
     );
 
-    votingToken = votingToken_;
+    votingToken = ERC20(votingToken_);
     PPT = ERC20(ppt_);
     PXT = ERC20(pxt_);
   }
@@ -74,7 +78,7 @@ contract GovernanceStrategy is Ownable, IGovernanceStrategy {
   }
 
   /**
-   * @dev Returns the Vote Power of a user at a specific block number.
+   * @dev Returns the Vote Power of a user.
    * @param user Address of the user.
    * @return Vote number
    **/

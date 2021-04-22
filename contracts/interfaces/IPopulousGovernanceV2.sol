@@ -126,6 +126,12 @@ interface IPopulousGovernanceV2 {
 
   event ExecutorUnauthorized(address executor);
 
+  event VotingTokenSet(address token);
+
+  event TokensLockedForVoting(address indexed voter, address indexed tokenAddress, uint256 tokenAmount);
+
+  event LockedTokensRedeemed(address indexed voter, address indexed tokenAddress, uint256 tokenAmount);
+
   /**
    * @dev Creates a Proposal (needs Proposition Power of creator > Threshold)
    * @param executor The ExecutorWithTimelock contract that will execute the proposal
@@ -165,22 +171,6 @@ interface IPopulousGovernanceV2 {
    * @param proposalId id of the proposal to execute
    **/
   function execute(uint256 proposalId) external payable;
-
-  /**
-   * @dev Function to register the vote of user that has voted offchain via signature
-   * @param proposalId id of the proposal
-   * @param support boolean, true = vote for, false = vote against
-   * @param v v part of the voter signature
-   * @param r r part of the voter signature
-   * @param s s part of the voter signature
-   **/
-  function submitVoteBySignature(
-    uint256 proposalId,
-    bool support,
-    uint8 v,
-    bytes32 r,
-    bytes32 s
-  ) external;
 
   /**
    * @dev Set new GovernanceStrategy
@@ -268,7 +258,7 @@ interface IPopulousGovernanceV2 {
    **/
   function getProposalState(uint256 proposalId) external view returns (ProposalState);
 
-  
+
   // NEW FUCTIONS
 
   /**
@@ -276,16 +266,35 @@ interface IPopulousGovernanceV2 {
    * @param tokenAddress the address of the token to use to vote
    * tokenAddress must be PPT or PXT and user balance of tokenAddress
    * must be greater than zero
-   * @param votingPower the amount of tokens to use as voting power
+   * @param tokenAmount the amount of tokens to use as voting power
    * @param proposalId id of the proposal
    * @param support boolean, true = vote for, false = vote against
    **/
   function submitVote(
     address tokenAddress, 
-    uint256 votingPower,
+    uint256 tokenAmount,
     uint256 proposalId, 
     bool support
   ) external;
+
+  /**
+   * @dev Function to register the vote of user that has voted offchain via signature
+   * @param proposalId id of the proposal
+   * @param support boolean, true = vote for, false = vote against
+   * @param v v part of the voter signature
+   * @param r r part of the voter signature
+   * @param s s part of the voter signature
+   **/
+  function submitVoteBySignature(
+    address tokenAddress, 
+    uint256 tokenAmount,
+    uint256 proposalId,
+    bool support,
+    uint8 v,
+    bytes32 r,
+    bytes32 s
+  ) external;
+
 
   /**
    * @dev View function allowing msg.sender to view how their voting power
@@ -294,14 +303,14 @@ interface IPopulousGovernanceV2 {
    * @param tokenAddress the address of the token to use to vote
    * tokenAddress must be PPT or PXT and user balance of tokenAddress
    * must be greater than zero
-   * @param votingPower the amount of tokens to use as voting power
+   * @param tokenAmount the amount of tokens to use as voting power
    * @param proposalId id of the proposal
    * @param support boolean, true = vote for, false = vote against
    * @return for votes and against votes
    **/
-  function viewVotingOutcome(
+  function getVotingOutcome(
     address tokenAddress, 
-    uint256 votingPower,
+    uint256 tokenAmount,
     uint256 proposalId, 
     bool support
   ) external view returns (uint256, uint256);
@@ -310,11 +319,10 @@ interface IPopulousGovernanceV2 {
    * @dev Getter function to get tokens locked in proposal for user
    * by proposal id
    * @param proposalId id of the proposal to get
+   * @param voter address of the voter
    * @return the amount of tokens locked and token address
    **/
-  function viewLockedTokens(
-    uint256 proposalId
-  ) external view returns(address, uint256);
+  function getLockedTokens(uint256 proposalId, address voter) external view returns(LockedTokens memory);
 
   /**
    * @dev Function to redeem tokens locked in proposal for user

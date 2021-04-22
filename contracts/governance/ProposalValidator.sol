@@ -50,15 +50,13 @@ contract ProposalValidator is IProposalValidator {
    * @dev Called to validate a proposal (e.g when creating new proposal in Governance)
    * @param governance Governance Contract
    * @param user Address of the proposal creator
-   * @param blockNumber Block Number against which to make the test (e.g proposal creation block -1).
    * @return boolean, true if can be created
    **/
   function validateCreatorOfProposal(
     IPopulousGovernanceV2 governance,
-    address user,
-    uint256 blockNumber
+    address user
   ) external view override returns (bool) {
-    return isPropositionPowerEnough(governance, user, blockNumber);
+    return isPropositionPowerEnough(governance, user);
   }
 
   /**
@@ -66,44 +64,39 @@ contract ProposalValidator is IProposalValidator {
    * Needs to creator to have lost proposition power threashold
    * @param governance Governance Contract
    * @param user Address of the proposal creator
-   * @param blockNumber Block Number against which to make the test (e.g proposal creation block -1).
    * @return boolean, true if can be cancelled
    **/
   function validateProposalCancellation(
     IPopulousGovernanceV2 governance,
-    address user,
-    uint256 blockNumber
+    address user
   ) external view override returns (bool) {
-    return !isPropositionPowerEnough(governance, user, blockNumber);
+    return !isPropositionPowerEnough(governance, user);
   }
 
   /**
    * @dev Returns whether a user has enough Proposition Power to make a proposal.
    * @param governance Governance Contract
    * @param user Address of the user to be challenged.
-   * @param blockNumber Block Number against which to make the challenge.
    * @return true if user has enough power
    **/
   function isPropositionPowerEnough(
     IPopulousGovernanceV2 governance,
-    address user,
-    uint256 blockNumber
+    address user
   ) public view override returns (bool) {
     IGovernanceStrategy currentGovernanceStrategy = IGovernanceStrategy(
       governance.getGovernanceStrategy()
     );
     return
-      currentGovernanceStrategy.getPropositionPowerAt(user, blockNumber) >=
-      getMinimumPropositionPowerNeeded(governance, blockNumber);
+      currentGovernanceStrategy.getPropositionPower(user) >=
+      getMinimumPropositionPowerNeeded(governance);
   }
 
   /**
    * @dev Returns the minimum Proposition Power needed to create a proposition.
    * @param governance Governance Contract
-   * @param blockNumber Blocknumber at which to evaluate
    * @return minimum Proposition Power needed
    **/
-  function getMinimumPropositionPowerNeeded(IPopulousGovernanceV2 governance, uint256 blockNumber)
+  function getMinimumPropositionPowerNeeded(IPopulousGovernanceV2 governance)
     public
     view
     override
@@ -114,7 +107,7 @@ contract ProposalValidator is IProposalValidator {
     );
     return
       currentGovernanceStrategy
-        .getTotalPropositionSupplyAt(blockNumber)
+        .getTotalPropositionSupply()
         .mul(PROPOSITION_THRESHOLD)
         .div(ONE_HUNDRED_WITH_PRECISION);
   }
@@ -163,9 +156,7 @@ contract ProposalValidator is IProposalValidator {
     returns (bool)
   {
     IPopulousGovernanceV2.ProposalWithoutVotes memory proposal = governance.getProposalById(proposalId);
-    uint256 votingSupply = IGovernanceStrategy(proposal.strategy).getTotalVotingSupplyAt(
-      proposal.startBlock
-    );
+    uint256 votingSupply = IGovernanceStrategy(proposal.strategy).getTotalVotingSupply();
 
     return proposal.forVotes >= getMinimumVotingPowerNeeded(votingSupply);
   }
@@ -184,9 +175,7 @@ contract ProposalValidator is IProposalValidator {
     returns (bool)
   {
     IPopulousGovernanceV2.ProposalWithoutVotes memory proposal = governance.getProposalById(proposalId);
-    uint256 votingSupply = IGovernanceStrategy(proposal.strategy).getTotalVotingSupplyAt(
-      proposal.startBlock
-    );
+    uint256 votingSupply = IGovernanceStrategy(proposal.strategy).getTotalVotingSupply();
 
     return (proposal.forVotes.mul(ONE_HUNDRED_WITH_PRECISION).div(votingSupply) >
       proposal.againstVotes.mul(ONE_HUNDRED_WITH_PRECISION).div(votingSupply).add(

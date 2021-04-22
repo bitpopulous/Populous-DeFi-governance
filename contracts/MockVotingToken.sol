@@ -12,7 +12,7 @@ import {Ownable} from './dependencies/open-zeppelin/Ownable.sol';
 contract MockVotingToken is ERC20, Ownable {
     uint256 public decimals = 8;
     string public symbol = "PGT";
-    string public name = "Populous Governance Tokens";
+    string public name = "Populous Governance Token";
 
     address public admin;
 
@@ -26,11 +26,13 @@ contract MockVotingToken is ERC20, Ownable {
         admin = _admin;
     }
 
-    function mint(address account, uint256 amount) external onlyAdmin {
+    function mint(address account, uint256 amount) external onlyAdmin returns (bool) {
         _mint(account, amount);
+        return true;
     }
 
-    function burn(address account, uint256 amount) external onlyAdmin {
+    function burn(address account, uint256 amount) external onlyAdmin returns (bool) {
         _burn(account, amount);
+        return true;
     }
 }

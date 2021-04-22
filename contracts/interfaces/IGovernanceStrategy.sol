@@ -20,7 +20,7 @@ interface IGovernanceStrategy {
    **/
   function getTotalVotingSupply() external view returns (uint256);
   /**
-   * @dev Returns the Vote Power of a user at a specific block number.
+   * @dev Returns the Vote Power of a user.
    * @param user Address of the user.
    * @return Vote number
    **/

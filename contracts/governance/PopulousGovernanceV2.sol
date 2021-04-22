@@ -10,6 +10,8 @@ import {IPopulousGovernanceV2} from '../interfaces/IPopulousGovernanceV2.sol';
 import {Ownable} from '../dependencies/open-zeppelin/Ownable.sol';
 import {SafeMath} from '../dependencies/open-zeppelin/SafeMath.sol';
 import {isContract, getChainId} from '../misc/Helpers.sol';
+import {MockVotingToken} from '../MockVotingToken.sol';
+import {IERC20Detailed} from '../interfaces/IERC20Detailed.sol';
 
 /**
  * @title Governance V2 contract
@@ -28,6 +30,9 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
 
   address private _governanceStrategy;
   uint256 private _votingDelay;
+  address private _votingToken;
+  address public _PPT;
+  address public _PXT;
 
   uint256 private _proposalsCount;
   mapping(uint256 => Proposal) private _proposals;
@@ -47,6 +52,9 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
   }
 
   constructor(
+    address votingToken,
+    address ppt,
+    address pxt,
     address governanceStrategy,
     uint256 votingDelay,
     address guardian,
@@ -54,8 +62,10 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
   ) {
     _setGovernanceStrategy(governanceStrategy);
     _setVotingDelay(votingDelay);
+    _setVotingToken(votingToken);
+    _setUserTokens(ppt, pxt);
     _guardian = guardian;
-
+    
     authorizeExecutors(executors);
   }
 
@@ -96,11 +106,11 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
     require(isExecutorAuthorized(address(executor)), 'EXECUTOR_NOT_AUTHORIZED');
 
     require(
-      //todo: proposition token is based on ppt and proposition token needs locking
+      // proposition token is based on pxt and proposition token
+      // and does not need locking or swap with voting tokens
       IProposalValidator(address(executor)).validateCreatorOfProposal(
         this,
-        msg.sender,
-        block.number - 1
+        msg.sender
       ),
       'PROPOSITION_CREATION_INVALID'
     );
@@ -165,8 +175,7 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
       msg.sender == _guardian ||
         IProposalValidator(address(proposal.executor)).validateProposalCancellation(
           this,
-          proposal.creator,
-          block.number - 1
+          proposal.creator
         ),
       'PROPOSITION_CANCELLATION_INVALID'
     );
@@ -230,20 +239,33 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
     emit ProposalExecuted(proposalId, msg.sender);
   }
 
-  //todo: modify based on interface
   /**
    * @dev Function allowing msg.sender to vote for/against a proposal
+   * @param tokenAddress the address of the token to use to vote
+   * tokenAddress must be PPT or PXT and user balance of tokenAddress
+   * must be greater than zero
+   * @param tokenAmount the amount of tokens to use as voting power
    * @param proposalId id of the proposal
    * @param support boolean, true = vote for, false = vote against
    **/
-  function submitVote(uint256 proposalId, bool support) external override {
-    return _submitVote(msg.sender, proposalId, support);
+  function submitVote(
+    address tokenAddress, 
+    uint256 tokenAmount,
+    uint256 proposalId, 
+    bool support
+    ) external override {
+    return 
+    _submitVote(
+      tokenAddress, tokenAmount, msg.sender, proposalId, support
+    );
   }
 
-
-  //todo: modify based on interface
   /**
    * @dev Function to register the vote of user that has voted offchain via signature
+   * @param tokenAddress the address of the token to use to vote
+   * tokenAddress must be PPT or PXT and user balance of tokenAddress
+   * must be greater than zero
+   * @param tokenAmount the amount of tokens to use as voting power
    * @param proposalId id of the proposal
    * @param support boolean, true = vote for, false = vote against
    * @param v v part of the voter signature
@@ -251,6 +273,8 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
    * @param s s part of the voter signature
    **/
   function submitVoteBySignature(
+    address tokenAddress, 
+    uint256 tokenAmount,
     uint256 proposalId,
     bool support,
     uint8 v,
@@ -261,12 +285,14 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
       abi.encodePacked(
         '\x19\x01',
         keccak256(abi.encode(DOMAIN_TYPEHASH, keccak256(bytes(NAME)), getChainId(), address(this))),
-        keccak256(abi.encode(VOTE_EMITTED_TYPEHASH, proposalId, support))
+        keccak256(abi.encode(VOTE_EMITTED_TYPEHASH, tokenAddress, tokenAmount, proposalId, support))
       )
     );
     address signer = ecrecover(digest, v, r, s);
     require(signer != address(0), 'INVALID_SIGNATURE');
-    return _submitVote(signer, proposalId, support);
+    _submitVote(
+      tokenAddress, tokenAmount, signer, proposalId, support
+    );
   }
 
   /**
@@ -362,7 +388,7 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
    * @return the proposal as ProposalWithoutVotes memory object
    **/
   function getProposalById(uint256 proposalId)
-    external
+    public
     view
     override
     returns (ProposalWithoutVotes memory)
@@ -399,7 +425,7 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
    * @return The associated Vote memory object
    **/
   function getVoteOnProposal(uint256 proposalId, address voter)
-    external
+    public
     view
     override
     returns (Vote memory)
@@ -452,8 +478,9 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
     executor.queueTransaction(target, value, signature, callData, executionTime, withDelegatecall);
   }
 
-  //todo - modify based on interface
   function _submitVote(
+    address tokenAddress,
+    uint256 tokenAmount,
     address voter,
     uint256 proposalId,
     bool support
@@ -461,14 +488,34 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
     require(getProposalState(proposalId) == ProposalState.Active, 'VOTING_CLOSED');
     Proposal storage proposal = _proposals[proposalId];
     Vote storage vote = proposal.votes[voter];
+    LockedTokens storage lockedTokens = proposal.lockedTokens[voter];
 
     require(vote.votingPower == 0, 'VOTE_ALREADY_SUBMITTED');
-
-    uint256 votingPower = IVotingStrategy(proposal.strategy).getVotingPowerAt(
-      voter,
-      proposal.startBlock
-    ); 
     
+    require(tokenAmount > 0, 'TOKEN AMOUNT TO SWAP MUST BE ABOVE 0');
+    require(
+      (tokenAddress == _PPT) || 
+      (tokenAddress == _PXT),
+      'TOKEN_ADDRESS MUST BE PPT OR PXT TO VOTE'
+    );
+
+    uint256 votingPower = 0;
+
+    if (tokenAddress == _PPT) {
+      votingPower = tokenAmount.mul(2); // to issue x2 for PPT
+      _tokenSwapAndLock(
+        proposalId, voter, 
+        tokenAddress, tokenAmount, 
+        votingPower
+      );
+    } else if (tokenAddress == _PXT) {
+      _tokenSwapAndLock(
+        proposalId, voter, 
+        tokenAddress, tokenAmount, 
+        tokenAmount // to issue 1-1 for PXT
+      ); 
+    }
+
     if (support) {
       proposal.forVotes = proposal.forVotes.add(votingPower);
     } else {
@@ -479,6 +526,30 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
     vote.votingPower = uint248(votingPower);
 
     emit VoteEmitted(proposalId, voter, support, votingPower);
+  }
+
+  function _tokenSwapAndLock(
+    uint256 proposalId,
+    address voter,
+    address tokenAddress, 
+    uint256 tokenAmount, 
+    uint256 votingPower
+    ) internal {
+    LockedTokens storage lockedTokens = _proposals[proposalId].lockedTokens[voter];
+    MockVotingToken voteToken = MockVotingToken(_votingToken);
+    IERC20Detailed userToken = IERC20Detailed(tokenAddress);
+    require(
+        userToken.transferFrom(voter, address(this), tokenAmount) == true,
+        'TOKEN TRANSFER_FROM FAILED, CHECK BALANCE OR APPROVAL'
+    );
+    lockedTokens.tokenAddress =  tokenAddress;
+    lockedTokens.amount = tokenAmount;
+    require(
+      voteToken.mint(voter, votingPower) == true,
+      'VOTE TOKENS NOT MINTED'
+    );
+
+    emit TokensLockedForVoting(voter, tokenAddress, tokenAmount);
   }
 
   function _setGovernanceStrategy(address governanceStrategy) internal {
@@ -493,6 +564,12 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
     emit VotingDelayChanged(votingDelay, msg.sender);
   }
 
+  function _setVotingToken(address votingToken) internal {
+    require(votingToken != address(0), "VOTING_TOKEN INVALID");
+    _votingToken = votingToken;
+    emit VotingTokenSet(_votingToken);
+  }
+
   function _authorizeExecutor(address executor) internal {
     _authorizedExecutors[executor] = true;
     emit ExecutorAuthorized(executor);
@@ -501,6 +578,119 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
   function _unauthorizeExecutor(address executor) internal {
     _authorizedExecutors[executor] = false;
     emit ExecutorUnauthorized(executor);
+  }
+
+  function _setUserTokens(address ppt, address pxt) internal {
+    require(
+      (ppt != address(0)) &&
+      (IERC20Detailed(ppt).totalSupply() > 0), 
+      'PPT TOKEN ADDRESS IS INVALID'
+    );
+
+    require(
+      (pxt != address(0)) &&
+      (IERC20Detailed(pxt).totalSupply() > 0), 
+      'PXT TOKEN ADDRESS IS INVALID'
+    );
+    
+    _PPT = ppt;
+    _PXT = pxt;
+  }
+
+  /**
+   * @dev View function allowing msg.sender to view how their voting power
+   * could change the outcome of the proposal. 
+   * The proposal must be pending or active
+   * @param tokenAddress the address of the token to use to vote
+   * tokenAddress must be PPT or PXT and user balance of tokenAddress
+   * must be greater than zero
+   * @param tokenAmount the amount of tokens to use as voting power
+   * @param proposalId id of the proposal
+   * @param support boolean, true = vote for, false = vote against
+   * @return for votes and against votes
+   **/
+  function getVotingOutcome(
+    address tokenAddress, 
+    uint256 tokenAmount,
+    uint256 proposalId, 
+    bool support
+  ) external view override returns (uint256, uint256) {
+    require(getProposalState(proposalId) == ProposalState.Active, 'VOTING_CLOSED');
+    ProposalWithoutVotes memory proposal = getProposalById(proposalId);
+    address voter = msg.sender;
+    Vote memory vote = _proposals[proposalId].votes[voter];
+
+    require(vote.votingPower == 0, 'VOTE_ALREADY_SUBMITTED');
+    require(tokenAmount > 0, 'TOKEN AMOUNT TO SWAP MUST BE ABOVE 0');
+    require(
+      (tokenAddress == _PPT) || 
+      (tokenAddress == _PXT),
+      'TOKEN_ADDRESS MUST BE PPT OR PXT TO VOTE'
+    );
+
+    IERC20Detailed userToken = IERC20Detailed(tokenAddress);
+    uint256 votingPower = 0;
+
+    if (tokenAddress == _PPT) {
+      votingPower = tokenAmount.mul(2);
+    } else if (tokenAddress == _PXT) {
+      votingPower = tokenAmount;
+    }
+    
+    if (support) {
+      proposal.forVotes = proposal.forVotes.add(votingPower);
+    } else {
+      proposal.againstVotes = proposal.againstVotes.add(votingPower);
+    }
+
+    return (proposal.forVotes, proposal.againstVotes);
+  }
+
+  /**
+   * @dev Getter function to get tokens locked in proposal for user
+   * by proposal id
+   * @param proposalId id of the proposal to get
+   * @param voter address of the voter
+   * @return the amount of tokens locked and token address
+   **/
+  function getLockedTokens(uint256 proposalId, address voter) 
+  public 
+  view 
+  override 
+  returns(LockedTokens memory) {
+    return _proposals[proposalId].lockedTokens[voter];
+  }
+
+  /**
+   * @dev Function to redeem tokens locked in proposal for user
+   * by proposal id
+   * @param proposalId id of the proposal to get
+   **/
+  function redeemLockedTokens(
+    uint256 proposalId
+  ) external override {
+    address voter = msg.sender;
+    uint256 votingPower = IVotingStrategy(_proposals[proposalId].strategy).getVotingPower(
+      voter    
+    );
+  
+    LockedTokens memory lockTokens = getLockedTokens(proposalId, voter);
+    MockVotingToken voteToken = MockVotingToken(_votingToken);
+    uint248 voteOnProposal = getVoteOnProposal(proposalId, voter).votingPower;
+    require(votingPower >= voteOnProposal, 'VOTING POWER MUST BE ABOVE or EQUAL TO VOTE ON PROPOSAL');
+    IERC20Detailed userToken = IERC20Detailed(lockTokens.tokenAddress);
+  
+    require(
+      voteToken.burn(voter, voteOnProposal) == true,
+      'VOTE TOKENS NOT BURNT'
+    );
+
+    require(
+      userToken.transfer(voter, lockTokens.amount) == true,
+      'LOCKED TOKENS NOT SENT TO USER'
+    );
+    
+    emit LockedTokensRedeemed(voter, lockTokens.tokenAddress, lockTokens.amount);
   }
 
 }
