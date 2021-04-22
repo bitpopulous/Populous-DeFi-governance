@@ -51,6 +51,8 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
     _;
   }
 
+  // todo - check for bugs with using different governance strategy address
+  // for each proposal in unit tests
   constructor(
     address votingToken,
     address ppt,
