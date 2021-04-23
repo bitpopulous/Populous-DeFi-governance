@@ -137,14 +137,10 @@ const deployExecutor = async (options = {}) => {
 };
 
 module.exports = {
-  deployStaking,
-  deployMockERC20Token,
-  deployMockNftToken,
-  deployRarityRegister,
-  deployRaffle,
-  deployRNG,
-  deployMockTicket,
-  deployMockPrize,
-  deployBurpToken,
-  MockBurpTokenV2
+  deployExecutor,
+  deployGovernance,
+  deployGovernanceStrategy,
+  deployMockPPT,
+  deployMockPXT,
+  deployMockVotingToken
 };
