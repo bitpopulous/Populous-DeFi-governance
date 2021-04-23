@@ -1,4 +1,4 @@
-const RAFFLE_STATES = {
+const PROPOSAL_STATES = {
   Pending: 0,
   Canceled: 1,
   Active: 2,
