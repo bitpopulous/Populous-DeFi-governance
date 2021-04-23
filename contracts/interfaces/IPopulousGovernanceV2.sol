@@ -132,6 +132,9 @@ interface IPopulousGovernanceV2 {
 
   event LockedTokensRedeemed(address indexed voter, address indexed tokenAddress, uint256 tokenAmount);
 
+  event UserTokensSet(address PPT, address PXT);
+
+  
   /**
    * @dev Creates a Proposal (needs Proposition Power of creator > Threshold)
    * @param executor The ExecutorWithTimelock contract that will execute the proposal

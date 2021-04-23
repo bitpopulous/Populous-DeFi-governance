@@ -597,6 +597,8 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
     
     _PPT = ppt;
     _PXT = pxt;
+
+    emit UserTokensSet(_PPT, _PXT);
   }
 
   /**
