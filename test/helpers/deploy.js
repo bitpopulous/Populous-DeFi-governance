@@ -5,12 +5,13 @@ const PopulousGovernanceV2 = artifacts.require('PopulousGovernanceV2');
 const Executor = artifacts.require('Executor');
 const MockVotingToken = artifacts.require('MockVotingToken');
 
-const {deployProxy} = require('@openzeppelin/truffle-upgrades');
-const {ethers} = require('ethers');
-const {latest, duration, toBN} = require('../../helpers/utils');
-const {getGovernanceActorsAsync, getGovernanceActorsAsync} = require('../../helpers/address');
+// const {deployProxy} = require('@openzeppelin/truffle-upgrades');
+// const {ethers} = require('ethers');
+// const {latest, duration, toBN} = require('../../helpers/utils');
+// const {parseEther} = ethers.utils;
 
-const {parseEther} = ethers.utils;
+const {getGovernanceActorsAsync} = require('../../helpers/address');
+
 
 const deployMockPPT = async () => {
   const {owner} = await getGovernanceActorsAsync();
@@ -127,7 +128,6 @@ const deployExecutor = async (options = {}) => {
       {from: owner}
   );        
   
-  //authorise executor
   await governanceInstance.authorizeExecutors(
     [executorInstance.address], 
     {from: owner}
