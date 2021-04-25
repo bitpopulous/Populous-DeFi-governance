@@ -127,7 +127,7 @@ const deployExecutor = async (options = {}) => {
   const {
     ONE_DAY = 60*60*24, // BigNumber.from('60').mul('60').mul('24');
     admin = governanceInstance.address,
-    delay = '60', // 60 secs
+    delay = '60', // 60 secs // minimum time between queueing and execution of proposal
     gracePeriod = (ONE_DAY*14).toString(), //ONE_DAY.mul('14').toString();
     minimumDelay = '0',
     maximumDelay = (ONE_DAY*30).toString(),//ONE_DAY.mul('30').toString();
