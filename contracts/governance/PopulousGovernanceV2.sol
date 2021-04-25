@@ -30,7 +30,8 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
 
   address private _governanceStrategy;
   uint256 private _votingDelay;
-  address private _votingToken;
+
+  address public _votingToken;
   address public _PPT;
   address public _PXT;
 
@@ -584,14 +585,14 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
 
   function _setUserTokens(address ppt, address pxt) internal {
     require(
-      (ppt != address(0)) &&
-      (IERC20Detailed(ppt).totalSupply() > 0), 
+      (ppt != address(0)),
+      //&& (IERC20Detailed(ppt).totalSupply() > 0), 
       'PPT TOKEN ADDRESS IS INVALID'
     );
 
     require(
-      (pxt != address(0)) &&
-      (IERC20Detailed(pxt).totalSupply() > 0), 
+      (pxt != address(0)),
+      //&& (IERC20Detailed(pxt).totalSupply() > 0), 
       'PXT TOKEN ADDRESS IS INVALID'
     );
     

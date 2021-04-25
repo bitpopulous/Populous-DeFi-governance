@@ -64,7 +64,7 @@ contract GovernanceStrategy is Ownable, IGovernanceStrategy {
   }
 
   /**
-   * @dev Returns the Proposition Power of a user at a specific block number.
+   * @dev Returns the Proposition Power of a user.
    * @param user Address of the user.
    * @return Power number
    **/

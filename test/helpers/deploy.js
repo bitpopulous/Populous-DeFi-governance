@@ -81,10 +81,12 @@ const deployGovernance = async () => {
     {from: owner}
   );
 
-  // todo - mint ppt and pxt for users
+  // mint ppt and pxt for users
   const amountToMint = 1000000 * (10**8);
-  for (let from of [owner, firstUser, secondUser, thirdUser, fourthUser]) {
-    
+  for (let wallet of [owner, firstUser, secondUser, thirdUser, fourthUser]) {
+    await pptInstance.mint(wallet, amountToMint, {from: owner});
+
+    await pxtInstance.mint(wallet, amountToMint, {from:owner});
   }
 
   // set governance as voting token admin
@@ -99,14 +101,28 @@ const deployGovernance = async () => {
     votingDelay,
     guardian,
     executors,
-    {owner}
+    {
+      owner, 
+      firstUser, 
+      secondUser, 
+      thirdUser, 
+      fourthUser
+    }
   ];
 };
 
-const deployExecutor = async (options = {}) => {
-  const {owner} = await getGovernanceActorsAsync();
-  
-  const [governanceInstance] = await deployGovernance();
+const deployExecutor = async (options = {}) => {  
+  const {owner, firstUser, secondUser, thirdUser, fourthUser} = await getGovernanceActorsAsync();
+
+  const [
+    governanceInstance,
+    votingTokenInstance,
+    pptInstance,
+    pxtInstance,
+    governanceStrategyInstance,
+    votingDelay,
+    guardian
+  ] = await deployGovernance();
 
   const {
     ONE_DAY = 60*60*24, // BigNumber.from('60').mul('60').mul('24');
@@ -139,7 +155,23 @@ const deployExecutor = async (options = {}) => {
     {from: owner}
   );
 
-  return [executorInstance, governanceInstance, {owner}];
+  return [
+    governanceInstance,
+    votingTokenInstance,
+    pptInstance,
+    pxtInstance,
+    governanceStrategyInstance,
+    votingDelay,
+    guardian,
+    executorInstance,
+    {
+      owner, 
+      firstUser, 
+      secondUser, 
+      thirdUser, 
+      fourthUser
+    }
+  ];
 };
 
 module.exports = {
