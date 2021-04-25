@@ -64,7 +64,8 @@ module.exports = {
        //evmVersion: "istanbul", // https://github.com/OpenZeppelin/openzeppelin-contracts/issues/2342
       }
     }
-  }
+  },
+  plugins: ["solidity-coverage"]
 }
 
 /* stable version

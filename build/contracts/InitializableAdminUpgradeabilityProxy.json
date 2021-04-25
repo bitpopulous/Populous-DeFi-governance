@@ -163,33 +163,33 @@
     "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/InitializableAdminUpgradeabilityProxy.sol",
     "exportedSymbols": {
       "Address": [
-        4229
+        4263
       ],
       "BaseAdminUpgradeabilityProxy": [
-        4399
+        4433
       ],
       "BaseUpgradeabilityProxy": [
-        4464
+        4498
       ],
       "InitializableAdminUpgradeabilityProxy": [
-        4558
+        4592
       ],
       "InitializableUpgradeabilityProxy": [
-        4621
+        4655
       ],
       "Proxy": [
-        4774
+        4808
       ],
       "UpgradeabilityProxy": [
-        5023
+        5057
       ]
     },
-    "id": 4559,
+    "id": 4593,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4489,
+        "id": 4523,
         "literals": [
           "solidity",
           "0.7",
@@ -201,10 +201,10 @@
       {
         "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/BaseAdminUpgradeabilityProxy.sol",
         "file": "./BaseAdminUpgradeabilityProxy.sol",
-        "id": 4490,
+        "id": 4524,
         "nodeType": "ImportDirective",
-        "scope": 4559,
-        "sourceUnit": 4400,
+        "scope": 4593,
+        "sourceUnit": 4434,
         "src": "61:44:31",
         "symbolAliases": [],
         "unitAlias": ""
@@ -212,10 +212,10 @@
       {
         "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/InitializableUpgradeabilityProxy.sol",
         "file": "./InitializableUpgradeabilityProxy.sol",
-        "id": 4491,
+        "id": 4525,
         "nodeType": "ImportDirective",
-        "scope": 4559,
-        "sourceUnit": 4622,
+        "scope": 4593,
+        "sourceUnit": 4656,
         "src": "106:48:31",
         "symbolAliases": [],
         "unitAlias": ""
@@ -225,65 +225,65 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 4493,
+              "id": 4527,
               "name": "BaseAdminUpgradeabilityProxy",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4399,
+              "referencedDeclaration": 4433,
               "src": "396:28:31",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_BaseAdminUpgradeabilityProxy_$4399",
+                "typeIdentifier": "t_contract$_BaseAdminUpgradeabilityProxy_$4433",
                 "typeString": "contract BaseAdminUpgradeabilityProxy"
               }
             },
-            "id": 4494,
+            "id": 4528,
             "nodeType": "InheritanceSpecifier",
             "src": "396:28:31"
           },
           {
             "baseName": {
-              "id": 4495,
+              "id": 4529,
               "name": "InitializableUpgradeabilityProxy",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4621,
+              "referencedDeclaration": 4655,
               "src": "428:32:31",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_InitializableUpgradeabilityProxy_$4621",
+                "typeIdentifier": "t_contract$_InitializableUpgradeabilityProxy_$4655",
                 "typeString": "contract InitializableUpgradeabilityProxy"
               }
             },
-            "id": 4496,
+            "id": 4530,
             "nodeType": "InheritanceSpecifier",
             "src": "428:32:31"
           }
         ],
         "contractDependencies": [
-          4399,
-          4464,
-          4621,
-          4774
+          4433,
+          4498,
+          4655,
+          4808
         ],
         "contractKind": "contract",
         "documentation": {
-          "id": 4492,
+          "id": 4526,
           "nodeType": "StructuredDocumentation",
           "src": "156:187:31",
           "text": " @title InitializableAdminUpgradeabilityProxy\n @dev Extends from BaseAdminUpgradeabilityProxy with an initializer for\n initializing the implementation, admin, and init data."
         },
         "fullyImplemented": true,
-        "id": 4558,
+        "id": 4592,
         "linearizedBaseContracts": [
-          4558,
-          4621,
-          4399,
-          4464,
-          4774
+          4592,
+          4655,
+          4433,
+          4498,
+          4808
         ],
         "name": "InitializableAdminUpgradeabilityProxy",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 4543,
+              "id": 4577,
               "nodeType": "Block",
               "src": "1140:220:31",
               "statements": [
@@ -295,7 +295,7 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 4513,
+                        "id": 4547,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -304,20 +304,20 @@
                           "arguments": [],
                           "expression": {
                             "argumentTypes": [],
-                            "id": 4507,
+                            "id": 4541,
                             "name": "_implementation",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [
-                              4428
+                              4462
                             ],
-                            "referencedDeclaration": 4428,
+                            "referencedDeclaration": 4462,
                             "src": "1154:15:31",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
                               "typeString": "function () view returns (address)"
                             }
                           },
-                          "id": 4508,
+                          "id": 4542,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -338,7 +338,7 @@
                           "arguments": [
                             {
                               "hexValue": "30",
-                              "id": 4511,
+                              "id": 4545,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -360,7 +360,7 @@
                                 "typeString": "int_const 0"
                               }
                             ],
-                            "id": 4510,
+                            "id": 4544,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -372,14 +372,14 @@
                               "typeString": "type(address)"
                             },
                             "typeName": {
-                              "id": 4509,
+                              "id": 4543,
                               "name": "address",
                               "nodeType": "ElementaryTypeName",
                               "src": "1175:7:31",
                               "typeDescriptions": {}
                             }
                           },
-                          "id": 4512,
+                          "id": 4546,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -408,7 +408,7 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 4506,
+                      "id": 4540,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -422,7 +422,7 @@
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 4514,
+                    "id": 4548,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -437,7 +437,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 4515,
+                  "id": 4549,
                   "nodeType": "ExpressionStatement",
                   "src": "1146:40:31"
                 },
@@ -445,11 +445,11 @@
                   "expression": {
                     "arguments": [
                       {
-                        "id": 4519,
+                        "id": 4553,
                         "name": "_logic",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4499,
+                        "referencedDeclaration": 4533,
                         "src": "1236:6:31",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -457,11 +457,11 @@
                         }
                       },
                       {
-                        "id": 4520,
+                        "id": 4554,
                         "name": "_data",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4503,
+                        "referencedDeclaration": 4537,
                         "src": "1244:5:31",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes_memory_ptr",
@@ -481,32 +481,32 @@
                         }
                       ],
                       "expression": {
-                        "id": 4516,
+                        "id": 4550,
                         "name": "InitializableUpgradeabilityProxy",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4621,
+                        "referencedDeclaration": 4655,
                         "src": "1192:32:31",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_InitializableUpgradeabilityProxy_$4621_$",
+                          "typeIdentifier": "t_type$_t_contract$_InitializableUpgradeabilityProxy_$4655_$",
                           "typeString": "type(contract InitializableUpgradeabilityProxy)"
                         }
                       },
-                      "id": 4518,
+                      "id": 4552,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "initialize",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4620,
+                      "referencedDeclaration": 4654,
                       "src": "1192:43:31",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_bytes_memory_ptr_$returns$__$",
                         "typeString": "function (address,bytes memory)"
                       }
                     },
-                    "id": 4521,
+                    "id": 4555,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -521,7 +521,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 4522,
+                  "id": 4556,
                   "nodeType": "ExpressionStatement",
                   "src": "1192:58:31"
                 },
@@ -533,17 +533,17 @@
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
                         },
-                        "id": 4536,
+                        "id": 4570,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "lValueRequested": false,
                         "leftExpression": {
-                          "id": 4524,
+                          "id": 4558,
                           "name": "ADMIN_SLOT",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4246,
+                          "referencedDeclaration": 4280,
                           "src": "1263:10:31",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -559,7 +559,7 @@
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
                               },
-                              "id": 4534,
+                              "id": 4568,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -570,7 +570,7 @@
                                     "arguments": [
                                       {
                                         "hexValue": "656970313936372e70726f78792e61646d696e",
-                                        "id": 4530,
+                                        "id": 4564,
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": true,
@@ -592,7 +592,7 @@
                                           "typeString": "literal_string \"eip1967.proxy.admin\""
                                         }
                                       ],
-                                      "id": 4529,
+                                      "id": 4563,
                                       "name": "keccak256",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
@@ -603,7 +603,7 @@
                                         "typeString": "function (bytes memory) pure returns (bytes32)"
                                       }
                                     },
-                                    "id": 4531,
+                                    "id": 4565,
                                     "isConstant": false,
                                     "isLValue": false,
                                     "isPure": true,
@@ -626,7 +626,7 @@
                                       "typeString": "bytes32"
                                     }
                                   ],
-                                  "id": 4528,
+                                  "id": 4562,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
@@ -638,14 +638,14 @@
                                     "typeString": "type(uint256)"
                                   },
                                   "typeName": {
-                                    "id": 4527,
+                                    "id": 4561,
                                     "name": "uint256",
                                     "nodeType": "ElementaryTypeName",
                                     "src": "1285:7:31",
                                     "typeDescriptions": {}
                                   }
                                 },
-                                "id": 4532,
+                                "id": 4566,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
@@ -664,7 +664,7 @@
                               "operator": "-",
                               "rightExpression": {
                                 "hexValue": "31",
-                                "id": 4533,
+                                "id": 4567,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
@@ -692,7 +692,7 @@
                                 "typeString": "uint256"
                               }
                             ],
-                            "id": 4526,
+                            "id": 4560,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -704,14 +704,14 @@
                               "typeString": "type(bytes32)"
                             },
                             "typeName": {
-                              "id": 4525,
+                              "id": 4559,
                               "name": "bytes32",
                               "nodeType": "ElementaryTypeName",
                               "src": "1277:7:31",
                               "typeDescriptions": {}
                             }
                           },
-                          "id": 4535,
+                          "id": 4569,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -740,7 +740,7 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 4523,
+                      "id": 4557,
                       "name": "assert",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -751,7 +751,7 @@
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 4537,
+                    "id": 4571,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -766,7 +766,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 4538,
+                  "id": 4572,
                   "nodeType": "ExpressionStatement",
                   "src": "1256:76:31"
                 },
@@ -774,11 +774,11 @@
                   "expression": {
                     "arguments": [
                       {
-                        "id": 4540,
+                        "id": 4574,
                         "name": "_admin",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4501,
+                        "referencedDeclaration": 4535,
                         "src": "1348:6:31",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -793,18 +793,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 4539,
+                      "id": 4573,
                       "name": "_setAdmin",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4378,
+                      "referencedDeclaration": 4412,
                       "src": "1338:9:31",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
                         "typeString": "function (address)"
                       }
                     },
-                    "id": 4541,
+                    "id": 4575,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -819,36 +819,36 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 4542,
+                  "id": 4576,
                   "nodeType": "ExpressionStatement",
                   "src": "1338:17:31"
                 }
               ]
             },
             "documentation": {
-              "id": 4497,
+              "id": 4531,
               "nodeType": "StructuredDocumentation",
               "src": "465:569:31",
               "text": " Contract initializer.\n @param _logic address of the initial implementation.\n @param _admin Address of the proxy administrator.\n @param _data Data to send as msg.data to the implementation to initialize the proxied contract.\n It should include the signature and the parameters of the function to be called, as described in\n https://solidity.readthedocs.io/en/v0.4.24/abi-spec.html#function-selector-and-argument-encoding.\n This parameter is optional, if no data is given the initialization call to proxied contract will be skipped."
             },
             "functionSelector": "cf7a1d77",
-            "id": 4544,
+            "id": 4578,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "initialize",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4504,
+              "id": 4538,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4499,
+                  "id": 4533,
                   "mutability": "mutable",
                   "name": "_logic",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4544,
+                  "scope": 4578,
                   "src": "1062:14:31",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -857,7 +857,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 4498,
+                    "id": 4532,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1062:7:31",
@@ -871,11 +871,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 4501,
+                  "id": 4535,
                   "mutability": "mutable",
                   "name": "_admin",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4544,
+                  "scope": 4578,
                   "src": "1082:14:31",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -884,7 +884,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 4500,
+                    "id": 4534,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1082:7:31",
@@ -898,11 +898,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 4503,
+                  "id": 4537,
                   "mutability": "mutable",
                   "name": "_data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4544,
+                  "scope": 4578,
                   "src": "1102:18:31",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -911,7 +911,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 4502,
+                    "id": 4536,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "1102:5:31",
@@ -926,12 +926,12 @@
               "src": "1056:68:31"
             },
             "returnParameters": {
-              "id": 4505,
+              "id": 4539,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1140:0:31"
             },
-            "scope": 4558,
+            "scope": 4592,
             "src": "1037:323:31",
             "stateMutability": "payable",
             "virtual": false,
@@ -939,11 +939,11 @@
           },
           {
             "baseFunctions": [
-              4398,
-              4760
+              4432,
+              4794
             ],
             "body": {
-              "id": 4556,
+              "id": 4590,
               "nodeType": "Block",
               "src": "1515:55:31",
               "statements": [
@@ -953,32 +953,32 @@
                     "expression": {
                       "argumentTypes": [],
                       "expression": {
-                        "id": 4551,
+                        "id": 4585,
                         "name": "BaseAdminUpgradeabilityProxy",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4399,
+                        "referencedDeclaration": 4433,
                         "src": "1521:28:31",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_BaseAdminUpgradeabilityProxy_$4399_$",
+                          "typeIdentifier": "t_type$_t_contract$_BaseAdminUpgradeabilityProxy_$4433_$",
                           "typeString": "type(contract BaseAdminUpgradeabilityProxy)"
                         }
                       },
-                      "id": 4553,
+                      "id": 4587,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "_willFallback",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4398,
+                      "referencedDeclaration": 4432,
                       "src": "1521:42:31",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$__$returns$__$",
                         "typeString": "function ()"
                       }
                     },
-                    "id": 4554,
+                    "id": 4588,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -993,47 +993,47 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 4555,
+                  "id": 4589,
                   "nodeType": "ExpressionStatement",
                   "src": "1521:44:31"
                 }
               ]
             },
             "documentation": {
-              "id": 4545,
+              "id": 4579,
               "nodeType": "StructuredDocumentation",
               "src": "1364:68:31",
               "text": " @dev Only fall back when the sender is not the admin."
             },
-            "id": 4557,
+            "id": 4591,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_willFallback",
             "nodeType": "FunctionDefinition",
             "overrides": {
-              "id": 4549,
+              "id": 4583,
               "nodeType": "OverrideSpecifier",
               "overrides": [
                 {
-                  "id": 4547,
+                  "id": 4581,
                   "name": "BaseAdminUpgradeabilityProxy",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 4399,
+                  "referencedDeclaration": 4433,
                   "src": "1478:28:31",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_BaseAdminUpgradeabilityProxy_$4399",
+                    "typeIdentifier": "t_contract$_BaseAdminUpgradeabilityProxy_$4433",
                     "typeString": "contract BaseAdminUpgradeabilityProxy"
                   }
                 },
                 {
-                  "id": 4548,
+                  "id": 4582,
                   "name": "Proxy",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 4774,
+                  "referencedDeclaration": 4808,
                   "src": "1508:5:31",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_Proxy_$4774",
+                    "typeIdentifier": "t_contract$_Proxy_$4808",
                     "typeString": "contract Proxy"
                   }
                 }
@@ -1041,25 +1041,25 @@
               "src": "1469:45:31"
             },
             "parameters": {
-              "id": 4546,
+              "id": 4580,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1457:2:31"
             },
             "returnParameters": {
-              "id": 4550,
+              "id": 4584,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1515:0:31"
             },
-            "scope": 4558,
+            "scope": 4592,
             "src": "1435:135:31",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 4559,
+        "scope": 4593,
         "src": "344:1228:31"
       }
     ],
@@ -1070,25 +1070,25 @@
       "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/InitializableAdminUpgradeabilityProxy.sol",
       "exportedSymbols": {
         "Address": [
-          4229
+          4263
         ],
         "BaseAdminUpgradeabilityProxy": [
-          4399
+          4433
         ],
         "BaseUpgradeabilityProxy": [
-          4464
+          4498
         ],
         "InitializableAdminUpgradeabilityProxy": [
-          4558
+          4592
         ],
         "InitializableUpgradeabilityProxy": [
-          4621
+          4655
         ],
         "Proxy": [
-          4774
+          4808
         ],
         "UpgradeabilityProxy": [
-          5023
+          5057
         ]
       },
       "license": "agpl-3.0"
@@ -1102,37 +1102,37 @@
             ".5"
           ]
         },
-        "id": 4489,
+        "id": 4523,
         "name": "PragmaDirective",
         "src": "37:22:31"
       },
       {
         "attributes": {
-          "SourceUnit": 4400,
+          "SourceUnit": 4434,
           "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/BaseAdminUpgradeabilityProxy.sol",
           "file": "./BaseAdminUpgradeabilityProxy.sol",
-          "scope": 4559,
+          "scope": 4593,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 4490,
+        "id": 4524,
         "name": "ImportDirective",
         "src": "61:44:31"
       },
       {
         "attributes": {
-          "SourceUnit": 4622,
+          "SourceUnit": 4656,
           "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/InitializableUpgradeabilityProxy.sol",
           "file": "./InitializableUpgradeabilityProxy.sol",
-          "scope": 4559,
+          "scope": 4593,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 4491,
+        "id": 4525,
         "name": "ImportDirective",
         "src": "106:48:31"
       },
@@ -1140,29 +1140,29 @@
         "attributes": {
           "abstract": false,
           "contractDependencies": [
-            4399,
-            4464,
-            4621,
-            4774
+            4433,
+            4498,
+            4655,
+            4808
           ],
           "contractKind": "contract",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            4558,
-            4621,
-            4399,
-            4464,
-            4774
+            4592,
+            4655,
+            4433,
+            4498,
+            4808
           ],
           "name": "InitializableAdminUpgradeabilityProxy",
-          "scope": 4559
+          "scope": 4593
         },
         "children": [
           {
             "attributes": {
               "text": " @title InitializableAdminUpgradeabilityProxy\n @dev Extends from BaseAdminUpgradeabilityProxy with an initializer for\n initializing the implementation, admin, and init data."
             },
-            "id": 4492,
+            "id": 4526,
             "name": "StructuredDocumentation",
             "src": "156:187:31"
           },
@@ -1172,15 +1172,15 @@
               {
                 "attributes": {
                   "name": "BaseAdminUpgradeabilityProxy",
-                  "referencedDeclaration": 4399,
+                  "referencedDeclaration": 4433,
                   "type": "contract BaseAdminUpgradeabilityProxy"
                 },
-                "id": 4493,
+                "id": 4527,
                 "name": "UserDefinedTypeName",
                 "src": "396:28:31"
               }
             ],
-            "id": 4494,
+            "id": 4528,
             "name": "InheritanceSpecifier",
             "src": "396:28:31"
           },
@@ -1190,15 +1190,15 @@
               {
                 "attributes": {
                   "name": "InitializableUpgradeabilityProxy",
-                  "referencedDeclaration": 4621,
+                  "referencedDeclaration": 4655,
                   "type": "contract InitializableUpgradeabilityProxy"
                 },
-                "id": 4495,
+                "id": 4529,
                 "name": "UserDefinedTypeName",
                 "src": "428:32:31"
               }
             ],
-            "id": 4496,
+            "id": 4530,
             "name": "InheritanceSpecifier",
             "src": "428:32:31"
           },
@@ -1212,7 +1212,7 @@
                 null
               ],
               "name": "initialize",
-              "scope": 4558,
+              "scope": 4592,
               "stateMutability": "payable",
               "virtual": false,
               "visibility": "public"
@@ -1222,7 +1222,7 @@
                 "attributes": {
                   "text": " Contract initializer.\n @param _logic address of the initial implementation.\n @param _admin Address of the proxy administrator.\n @param _data Data to send as msg.data to the implementation to initialize the proxied contract.\n It should include the signature and the parameters of the function to be called, as described in\n https://solidity.readthedocs.io/en/v0.4.24/abi-spec.html#function-selector-and-argument-encoding.\n This parameter is optional, if no data is given the initialization call to proxied contract will be skipped."
                 },
-                "id": 4497,
+                "id": 4531,
                 "name": "StructuredDocumentation",
                 "src": "465:569:31"
               },
@@ -1233,7 +1233,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_logic",
-                      "scope": 4544,
+                      "scope": 4578,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1246,12 +1246,12 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 4498,
+                        "id": 4532,
                         "name": "ElementaryTypeName",
                         "src": "1062:7:31"
                       }
                     ],
-                    "id": 4499,
+                    "id": 4533,
                     "name": "VariableDeclaration",
                     "src": "1062:14:31"
                   },
@@ -1260,7 +1260,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_admin",
-                      "scope": 4544,
+                      "scope": 4578,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1273,12 +1273,12 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 4500,
+                        "id": 4534,
                         "name": "ElementaryTypeName",
                         "src": "1082:7:31"
                       }
                     ],
-                    "id": 4501,
+                    "id": 4535,
                     "name": "VariableDeclaration",
                     "src": "1082:14:31"
                   },
@@ -1287,7 +1287,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_data",
-                      "scope": 4544,
+                      "scope": 4578,
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "type": "bytes",
@@ -1299,17 +1299,17 @@
                           "name": "bytes",
                           "type": "bytes"
                         },
-                        "id": 4502,
+                        "id": 4536,
                         "name": "ElementaryTypeName",
                         "src": "1102:5:31"
                       }
                     ],
-                    "id": 4503,
+                    "id": 4537,
                     "name": "VariableDeclaration",
                     "src": "1102:18:31"
                   }
                 ],
-                "id": 4504,
+                "id": 4538,
                 "name": "ParameterList",
                 "src": "1056:68:31"
               },
@@ -1320,7 +1320,7 @@
                   ]
                 },
                 "children": [],
-                "id": 4505,
+                "id": 4539,
                 "name": "ParameterList",
                 "src": "1140:0:31"
               },
@@ -1359,7 +1359,7 @@
                               "type": "function (bool) pure",
                               "value": "require"
                             },
-                            "id": 4506,
+                            "id": 4540,
                             "name": "Identifier",
                             "src": "1146:7:31"
                           },
@@ -1401,18 +1401,18 @@
                                         null
                                       ],
                                       "overloadedDeclarations": [
-                                        4428
+                                        4462
                                       ],
-                                      "referencedDeclaration": 4428,
+                                      "referencedDeclaration": 4462,
                                       "type": "function () view returns (address)",
                                       "value": "_implementation"
                                     },
-                                    "id": 4507,
+                                    "id": 4541,
                                     "name": "Identifier",
                                     "src": "1154:15:31"
                                   }
                                 ],
-                                "id": 4508,
+                                "id": 4542,
                                 "name": "FunctionCall",
                                 "src": "1154:17:31"
                               },
@@ -1450,12 +1450,12 @@
                                         "attributes": {
                                           "name": "address"
                                         },
-                                        "id": 4509,
+                                        "id": 4543,
                                         "name": "ElementaryTypeName",
                                         "src": "1175:7:31"
                                       }
                                     ],
-                                    "id": 4510,
+                                    "id": 4544,
                                     "name": "ElementaryTypeNameExpression",
                                     "src": "1175:7:31"
                                   },
@@ -1470,27 +1470,27 @@
                                       "type": "int_const 0",
                                       "value": "0"
                                     },
-                                    "id": 4511,
+                                    "id": 4545,
                                     "name": "Literal",
                                     "src": "1183:1:31"
                                   }
                                 ],
-                                "id": 4512,
+                                "id": 4546,
                                 "name": "FunctionCall",
                                 "src": "1175:10:31"
                               }
                             ],
-                            "id": 4513,
+                            "id": 4547,
                             "name": "BinaryOperation",
                             "src": "1154:31:31"
                           }
                         ],
-                        "id": 4514,
+                        "id": 4548,
                         "name": "FunctionCall",
                         "src": "1146:40:31"
                       }
                     ],
-                    "id": 4515,
+                    "id": 4549,
                     "name": "ExpressionStatement",
                     "src": "1146:40:31"
                   },
@@ -1528,7 +1528,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "initialize",
-                              "referencedDeclaration": 4620,
+                              "referencedDeclaration": 4654,
                               "type": "function (address,bytes memory)"
                             },
                             "children": [
@@ -1537,16 +1537,16 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4621,
+                                  "referencedDeclaration": 4655,
                                   "type": "type(contract InitializableUpgradeabilityProxy)",
                                   "value": "InitializableUpgradeabilityProxy"
                                 },
-                                "id": 4516,
+                                "id": 4550,
                                 "name": "Identifier",
                                 "src": "1192:32:31"
                               }
                             ],
-                            "id": 4518,
+                            "id": 4552,
                             "name": "MemberAccess",
                             "src": "1192:43:31"
                           },
@@ -1555,11 +1555,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 4499,
+                              "referencedDeclaration": 4533,
                               "type": "address",
                               "value": "_logic"
                             },
-                            "id": 4519,
+                            "id": 4553,
                             "name": "Identifier",
                             "src": "1236:6:31"
                           },
@@ -1568,21 +1568,21 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 4503,
+                              "referencedDeclaration": 4537,
                               "type": "bytes memory",
                               "value": "_data"
                             },
-                            "id": 4520,
+                            "id": 4554,
                             "name": "Identifier",
                             "src": "1244:5:31"
                           }
                         ],
-                        "id": 4521,
+                        "id": 4555,
                         "name": "FunctionCall",
                         "src": "1192:58:31"
                       }
                     ],
-                    "id": 4522,
+                    "id": 4556,
                     "name": "ExpressionStatement",
                     "src": "1192:58:31"
                   },
@@ -1618,7 +1618,7 @@
                               "type": "function (bool) pure",
                               "value": "assert"
                             },
-                            "id": 4523,
+                            "id": 4557,
                             "name": "Identifier",
                             "src": "1256:6:31"
                           },
@@ -1641,11 +1641,11 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4246,
+                                  "referencedDeclaration": 4280,
                                   "type": "bytes32",
                                   "value": "ADMIN_SLOT"
                                 },
-                                "id": 4524,
+                                "id": 4558,
                                 "name": "Identifier",
                                 "src": "1263:10:31"
                               },
@@ -1683,12 +1683,12 @@
                                         "attributes": {
                                           "name": "bytes32"
                                         },
-                                        "id": 4525,
+                                        "id": 4559,
                                         "name": "ElementaryTypeName",
                                         "src": "1277:7:31"
                                       }
                                     ],
-                                    "id": 4526,
+                                    "id": 4560,
                                     "name": "ElementaryTypeNameExpression",
                                     "src": "1277:7:31"
                                   },
@@ -1740,12 +1740,12 @@
                                                 "attributes": {
                                                   "name": "uint256"
                                                 },
-                                                "id": 4527,
+                                                "id": 4561,
                                                 "name": "ElementaryTypeName",
                                                 "src": "1285:7:31"
                                               }
                                             ],
-                                            "id": 4528,
+                                            "id": 4562,
                                             "name": "ElementaryTypeNameExpression",
                                             "src": "1285:7:31"
                                           },
@@ -1779,7 +1779,7 @@
                                                   "type": "function (bytes memory) pure returns (bytes32)",
                                                   "value": "keccak256"
                                                 },
-                                                "id": 4529,
+                                                "id": 4563,
                                                 "name": "Identifier",
                                                 "src": "1293:9:31"
                                               },
@@ -1794,17 +1794,17 @@
                                                   "type": "literal_string \"eip1967.proxy.admin\"",
                                                   "value": "eip1967.proxy.admin"
                                                 },
-                                                "id": 4530,
+                                                "id": 4564,
                                                 "name": "Literal",
                                                 "src": "1303:21:31"
                                               }
                                             ],
-                                            "id": 4531,
+                                            "id": 4565,
                                             "name": "FunctionCall",
                                             "src": "1293:32:31"
                                           }
                                         ],
-                                        "id": 4532,
+                                        "id": 4566,
                                         "name": "FunctionCall",
                                         "src": "1285:41:31"
                                       },
@@ -1819,32 +1819,32 @@
                                           "type": "int_const 1",
                                           "value": "1"
                                         },
-                                        "id": 4533,
+                                        "id": 4567,
                                         "name": "Literal",
                                         "src": "1329:1:31"
                                       }
                                     ],
-                                    "id": 4534,
+                                    "id": 4568,
                                     "name": "BinaryOperation",
                                     "src": "1285:45:31"
                                   }
                                 ],
-                                "id": 4535,
+                                "id": 4569,
                                 "name": "FunctionCall",
                                 "src": "1277:54:31"
                               }
                             ],
-                            "id": 4536,
+                            "id": 4570,
                             "name": "BinaryOperation",
                             "src": "1263:68:31"
                           }
                         ],
-                        "id": 4537,
+                        "id": 4571,
                         "name": "FunctionCall",
                         "src": "1256:76:31"
                       }
                     ],
-                    "id": 4538,
+                    "id": 4572,
                     "name": "ExpressionStatement",
                     "src": "1256:76:31"
                   },
@@ -1876,11 +1876,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 4378,
+                              "referencedDeclaration": 4412,
                               "type": "function (address)",
                               "value": "_setAdmin"
                             },
-                            "id": 4539,
+                            "id": 4573,
                             "name": "Identifier",
                             "src": "1338:9:31"
                           },
@@ -1889,39 +1889,39 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 4501,
+                              "referencedDeclaration": 4535,
                               "type": "address",
                               "value": "_admin"
                             },
-                            "id": 4540,
+                            "id": 4574,
                             "name": "Identifier",
                             "src": "1348:6:31"
                           }
                         ],
-                        "id": 4541,
+                        "id": 4575,
                         "name": "FunctionCall",
                         "src": "1338:17:31"
                       }
                     ],
-                    "id": 4542,
+                    "id": 4576,
                     "name": "ExpressionStatement",
                     "src": "1338:17:31"
                   }
                 ],
-                "id": 4543,
+                "id": 4577,
                 "name": "Block",
                 "src": "1140:220:31"
               }
             ],
-            "id": 4544,
+            "id": 4578,
             "name": "FunctionDefinition",
             "src": "1037:323:31"
           },
           {
             "attributes": {
               "baseFunctions": [
-                4398,
-                4760
+                4432,
+                4794
               ],
               "implemented": true,
               "isConstructor": false,
@@ -1930,7 +1930,7 @@
                 null
               ],
               "name": "_willFallback",
-              "scope": 4558,
+              "scope": 4592,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "internal"
@@ -1940,7 +1940,7 @@
                 "attributes": {
                   "text": " @dev Only fall back when the sender is not the admin."
                 },
-                "id": 4545,
+                "id": 4579,
                 "name": "StructuredDocumentation",
                 "src": "1364:68:31"
               },
@@ -1949,25 +1949,25 @@
                   {
                     "attributes": {
                       "name": "BaseAdminUpgradeabilityProxy",
-                      "referencedDeclaration": 4399,
+                      "referencedDeclaration": 4433,
                       "type": "contract BaseAdminUpgradeabilityProxy"
                     },
-                    "id": 4547,
+                    "id": 4581,
                     "name": "UserDefinedTypeName",
                     "src": "1478:28:31"
                   },
                   {
                     "attributes": {
                       "name": "Proxy",
-                      "referencedDeclaration": 4774,
+                      "referencedDeclaration": 4808,
                       "type": "contract Proxy"
                     },
-                    "id": 4548,
+                    "id": 4582,
                     "name": "UserDefinedTypeName",
                     "src": "1508:5:31"
                   }
                 ],
-                "id": 4549,
+                "id": 4583,
                 "name": "OverrideSpecifier",
                 "src": "1469:45:31"
               },
@@ -1978,7 +1978,7 @@
                   ]
                 },
                 "children": [],
-                "id": 4546,
+                "id": 4580,
                 "name": "ParameterList",
                 "src": "1457:2:31"
               },
@@ -1989,7 +1989,7 @@
                   ]
                 },
                 "children": [],
-                "id": 4550,
+                "id": 4584,
                 "name": "ParameterList",
                 "src": "1515:0:31"
               },
@@ -2025,7 +2025,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "_willFallback",
-                              "referencedDeclaration": 4398,
+                              "referencedDeclaration": 4432,
                               "type": "function ()"
                             },
                             "children": [
@@ -2034,46 +2034,46 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 4399,
+                                  "referencedDeclaration": 4433,
                                   "type": "type(contract BaseAdminUpgradeabilityProxy)",
                                   "value": "BaseAdminUpgradeabilityProxy"
                                 },
-                                "id": 4551,
+                                "id": 4585,
                                 "name": "Identifier",
                                 "src": "1521:28:31"
                               }
                             ],
-                            "id": 4553,
+                            "id": 4587,
                             "name": "MemberAccess",
                             "src": "1521:42:31"
                           }
                         ],
-                        "id": 4554,
+                        "id": 4588,
                         "name": "FunctionCall",
                         "src": "1521:44:31"
                       }
                     ],
-                    "id": 4555,
+                    "id": 4589,
                     "name": "ExpressionStatement",
                     "src": "1521:44:31"
                   }
                 ],
-                "id": 4556,
+                "id": 4590,
                 "name": "Block",
                 "src": "1515:55:31"
               }
             ],
-            "id": 4557,
+            "id": 4591,
             "name": "FunctionDefinition",
             "src": "1435:135:31"
           }
         ],
-        "id": 4558,
+        "id": 4592,
         "name": "ContractDefinition",
         "src": "344:1228:31"
       }
     ],
-    "id": 4559,
+    "id": 4593,
     "name": "SourceUnit",
     "src": "37:1536:31"
   },
@@ -2083,7 +2083,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-04-23T11:47:24.444Z",
+  "updatedAt": "2021-04-25T20:03:02.070Z",
   "devdoc": {
     "details": "Extends from BaseAdminUpgradeabilityProxy with an initializer for initializing the implementation, admin, and init data.",
     "kind": "dev",

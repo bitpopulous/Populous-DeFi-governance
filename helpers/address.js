@@ -13,7 +13,8 @@ const getGovernanceActors = accounts => ({
   owner: getOwner(accounts),
   firstUser: getUserAddress(accounts, 1),
   secondUser: getUserAddress(accounts, 2),
-  thirdUser: getUserAddress(accounts, 3)
+  thirdUser: getUserAddress(accounts, 3),
+  fourthUser: getUserAddress(accounts, 4)
 });
 
 const getGovernanceActorsAsync = async () => {

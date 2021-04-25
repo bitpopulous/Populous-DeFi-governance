@@ -58,7 +58,7 @@ const deployGovernanceStrategy = async () => {
 };
 
 const deployGovernance = async () => {
-  const {owner} = await getGovernanceActorsAsync();
+  const {owner, firstUser, secondUser, thirdUser, fourthUser} = await getGovernanceActorsAsync();
   const votingDelay = 0;
   const guardian = owner;
   const executors = [];
@@ -82,7 +82,13 @@ const deployGovernance = async () => {
   );
 
   // todo - mint ppt and pxt for users
-  // set voting token admin to governance
+  const amountToMint = 1000000 * (10**8);
+  for (let from of [owner, firstUser, secondUser, thirdUser, fourthUser]) {
+    
+  }
+
+  // set governance as voting token admin
+  await votingTokenInstance.setAdmin(governanceInstance.address, {from: owner});
 
   return [
     governanceInstance,
@@ -93,7 +99,7 @@ const deployGovernance = async () => {
     votingDelay,
     guardian,
     executors,
-    {from: owner}
+    {owner}
   ];
 };
 
