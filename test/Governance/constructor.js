@@ -35,7 +35,7 @@ describe('Governance deployment', () => {
         expectBignumberEqual(await governanceInstance.getProposalsCount(), 0);
         expect(await governanceInstance.isExecutorAuthorized(executorInstance.address)).to.be.equal(true);
         expect(await governanceInstance.getGuardian()).to.be.equal(owner);
-        expectBignumberEqual(await governanceInstance.getVotingDelay(), 0);
+        expectBignumberEqual(await governanceInstance.getVotingDelay(), votingDelay);
     });
 
     it('should set correct governance guardian and executor with timelock admin', async () => {
