@@ -1,5 +1,4 @@
 
-
 //voting
 xit('approve tokens to swap before voting');
 xit('vote should fail, if tokens to swap are not approved');

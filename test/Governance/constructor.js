@@ -62,7 +62,7 @@ describe('Governance deployment', () => {
         expect(await governanceInstance.getGuardian()).to.be.equal(owner);
     });
 
-    it('should return correct total propostion power from governance strategy', async () => {
+    it('should return correct total propostion power from governance strategy and token balances', async () => {
         const [
             governanceInstance,
             votingTokenInstance,
@@ -85,6 +85,11 @@ describe('Governance deployment', () => {
 
         expectBignumberEqual(await governanceStrategyInstance.getTotalPropositionSupply(), mintAmount * 5);
         expectBignumberEqual(await governanceStrategyInstance.getPropositionPower(firstUser), mintAmount);
+
+        for (let user of [firstUser, secondUser, thirdUser, fourthUser]) {
+            expectBignumberEqual(await pptInstance.balanceOf(user), mintAmount);
+            expectBignumberEqual(await pxtInstance.balanceOf(user), mintAmount);
+        }
     });
 
     it('should get correct executor variables', async () => {

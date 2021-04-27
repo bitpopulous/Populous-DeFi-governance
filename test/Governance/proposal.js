@@ -4,11 +4,12 @@ const {expectBignumberEqual} = require('../../helpers/index');
 const {
     deployExecutor
 } = require('../helpers/deploy');
-const {duration, toBN, advanceBlock} = require('../../helpers/utils');
+const {duration, toBN, advanceBlock, latest} = require('../../helpers/utils');
 const {ethers} = require('ethers');
 const {ipfsBytes32Hash} = require('../helpers/constants');
 const {PROPOSAL_STATES} = require('../../helpers/constants');
 const { web3 } = require('@openzeppelin/test-helpers/src/setup');
+const { findEventInTransaction } = require('../../helpers/events');
 
 describe('Proposal', () => {
     it('should create valid proposal without target, function signature or call data', async () => {
@@ -32,8 +33,54 @@ describe('Proposal', () => {
 
         const proposalTx = await governanceInstance.create(executorInstance.address, [ZERO_ADDRESS], ['0'], [''], ['0x'], [false], ipfsBytes32Hash, { from: firstUser });
 
+        const {args} = await findEventInTransaction(proposalTx, 'ProposalCreated');
+        
+        expectBignumberEqual(args.id, 0);
+        expectBignumberEqual(await governanceInstance.getProposalsCount(), 1);
+
     });
 
+    it('shold return valid proposal information after proposal creation', async () => {
+        const [
+            governanceInstance,
+            votingTokenInstance,
+            pptInstance,
+            pxtInstance,
+            governanceStrategyInstance,
+            votingDelay,
+            guardian,
+            executorInstance,
+            {
+                owner, 
+                firstUser, 
+                secondUser, 
+                thirdUser, 
+                fourthUser
+            }
+        ] = await deployExecutor();
+
+        const proposalTx = await governanceInstance.create(
+                executorInstance.address, 
+                [ZERO_ADDRESS], ['0'], [''], ['0x'], 
+                [false], ipfsBytes32Hash, { from: firstUser });
+
+        const {args} = await findEventInTransaction(proposalTx, 'ProposalCreated');
+
+        expectBignumberEqual(args.id, 0);
+        expectBignumberEqual(await governanceInstance.getProposalsCount(), 1);
+        expect(args.creator).to.be.equal(firstUser);
+        expect(args.executor).to.be.equal(executorInstance.address);
+        expect(args.targets).to.have.members([ZERO_ADDRESS]);
+        expectBignumberEqual(args.values[0], 0);
+        expect(args.signatures).to.have.members(['']);
+        expect(args.calldatas).to.have.members(['0x']);
+        expect(args.withDelegatecalls).to.have.members([false]);
+        expectBignumberEqual(args.startBlock, (toBN(await web3.eth.getBlockNumber())).add(await governanceInstance.getVotingDelay()))
+        expectBignumberEqual(args.endBlock, toBN(args.startBlock).add(await executorInstance.VOTING_DURATION()));
+        expect(args.strategy).to.be.equal(governanceStrategyInstance.address);
+        expect(args.ipfsHash).to.be.equal(ipfsBytes32Hash);
+    });
+    
 
     it('should create valid proposal with target, function signature or call data', async () => {
         const [

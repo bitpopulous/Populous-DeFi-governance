@@ -10,6 +10,7 @@ const MockVotingToken = artifacts.require('MockVotingToken');
 // const {latest, duration, toBN} = require('../../helpers/utils');
 // const {parseEther} = ethers.utils;
 
+const {MAX_UINT_AMOUNT} = require('../helpers/constants');
 const {getGovernanceActorsAsync} = require('../../helpers/address');
 
 
@@ -57,9 +58,13 @@ const deployGovernanceStrategy = async () => {
   ];
 };
 
-const deployGovernance = async () => {
+const deployGovernance = async (options = {}) => {
   const {owner, firstUser, secondUser, thirdUser, fourthUser} = await getGovernanceActorsAsync();
-  const votingDelay = 0;
+  
+  const {
+    votingDelay = 0
+  } = options;
+
   const guardian = owner;
   const executors = [];
 
@@ -85,8 +90,11 @@ const deployGovernance = async () => {
   const amountToMint = 1000000 * (10**8);
   for (let wallet of [owner, firstUser, secondUser, thirdUser, fourthUser]) {
     await pptInstance.mint(wallet, amountToMint, {from: owner});
-
     await pxtInstance.mint(wallet, amountToMint, {from:owner});
+
+    // voters must approve tokens for governance to perform token swap
+    await pptInstance.approve(governanceInstance.address, MAX_UINT_AMOUNT, {from: wallet});
+    await pxtInstance.approve(governanceInstance.address, MAX_UINT_AMOUNT, {from: wallet});
   }
 
   // set governance as voting token admin

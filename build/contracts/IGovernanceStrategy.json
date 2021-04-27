@@ -34,19 +34,6 @@
       "type": "function"
     },
     {
-      "inputs": [],
-      "name": "getTotalVotingSupply",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
       "inputs": [
         {
           "internalType": "address",
@@ -66,7 +53,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.5+commit.eb77ed08\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getPropositionPower\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalPropositionSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalVotingSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getVotingPower\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"getPropositionPower(address)\":{\"details\":\"Returns the Proposition Power of a user at a specific block number.\",\"params\":{\"user\":\"Address of the user.\"},\"returns\":{\"_0\":\"Power number*\"}},\"getTotalPropositionSupply()\":{\"details\":\"Returns the total supply of Outstanding Proposition Tokens \",\"returns\":{\"_0\":\"total supply at blockNumber*\"}},\"getTotalVotingSupply()\":{\"details\":\"Returns the total supply of Outstanding Voting Tokens \",\"returns\":{\"_0\":\"total supply at blockNumber*\"}},\"getVotingPower(address)\":{\"details\":\"Returns the Vote Power of a user.\",\"params\":{\"user\":\"Address of the user.\"},\"returns\":{\"_0\":\"Vote number*\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernanceStrategy.sol\":\"IGovernanceStrategy\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernanceStrategy.sol\":{\"keccak256\":\"0xc5de376e6f941a0d425eed957a8944894a8c1c03ad008c13eeff6f2da1233e37\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://dd9f7824e210bd5459aec2515f341988297f57ce4afff23e15dd81e80881a07e\",\"dweb:/ipfs/QmW6b96KYuVcn5QshTkTfKVuQUnw5kpFuNci3MZSjySrCd\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.5+commit.eb77ed08\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getPropositionPower\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalPropositionSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getVotingPower\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"getPropositionPower(address)\":{\"details\":\"Returns the Proposition Power of a user at a specific block number.\",\"params\":{\"user\":\"Address of the user.\"},\"returns\":{\"_0\":\"Power number*\"}},\"getTotalPropositionSupply()\":{\"details\":\"Returns the total supply of Outstanding Proposition Tokens \",\"returns\":{\"_0\":\"total supply at blockNumber*\"}},\"getVotingPower(address)\":{\"details\":\"Returns the Vote Power of a user.\",\"params\":{\"user\":\"Address of the user.\"},\"returns\":{\"_0\":\"Vote number*\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernanceStrategy.sol\":\"IGovernanceStrategy\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernanceStrategy.sol\":{\"keccak256\":\"0xd69c1a414ace8da57a6b53e6ee54fe9cf6e6926adc2e1d962d96d5460bd8d677\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://a45def800fb575d280bb816438e544fe8ef9645afae6a44bf94e6a678fe05a4f\",\"dweb:/ipfs/QmVqxxoCYknVf38SHQis1TvVUeiXNsnQa6NEpvamnf3WAC\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -74,21 +61,21 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity 0.7.5;\npragma abicoder v2;\n\ninterface IGovernanceStrategy {\n  /**\n   * @dev Returns the Proposition Power of a user at a specific block number.\n   * @param user Address of the user.\n   * @return Power number\n   **/\n  function getPropositionPower(address user) external view returns (uint256);\n  /**\n   * @dev Returns the total supply of Outstanding Proposition Tokens \n   * @return total supply at blockNumber\n   **/\n  function getTotalPropositionSupply() external view returns (uint256);\n  /**\n   * @dev Returns the total supply of Outstanding Voting Tokens \n   * @return total supply at blockNumber\n   **/\n  function getTotalVotingSupply() external view returns (uint256);\n  /**\n   * @dev Returns the Vote Power of a user.\n   * @param user Address of the user.\n   * @return Vote number\n   **/\n  function getVotingPower(address user) external view returns (uint256);\n}\n",
+  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity 0.7.5;\npragma abicoder v2;\n\ninterface IGovernanceStrategy {\n  /**\n   * @dev Returns the Proposition Power of a user at a specific block number.\n   * @param user Address of the user.\n   * @return Power number\n   **/\n  function getPropositionPower(address user) external view returns (uint256);\n  /**\n   * @dev Returns the total supply of Outstanding Proposition Tokens \n   * @return total supply at blockNumber\n   **/\n  function getTotalPropositionSupply() external view returns (uint256);\n  \n  /**\n   * @dev Returns the Vote Power of a user.\n   * @param user Address of the user.\n   * @return Vote number\n   **/\n  function getVotingPower(address user) external view returns (uint256);\n}\n",
   "sourcePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernanceStrategy.sol",
   "ast": {
     "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernanceStrategy.sol",
     "exportedSymbols": {
       "IGovernanceStrategy": [
-        8159
+        8172
       ]
     },
-    "id": 8160,
+    "id": 8173,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 8129,
+        "id": 8148,
         "literals": [
           "solidity",
           "0.7",
@@ -98,7 +85,7 @@
         "src": "37:22:46"
       },
       {
-        "id": 8130,
+        "id": 8149,
         "literals": [
           "abicoder",
           "v2"
@@ -112,38 +99,38 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 8159,
+        "id": 8172,
         "linearizedBaseContracts": [
-          8159
+          8172
         ],
         "name": "IGovernanceStrategy",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "documentation": {
-              "id": 8131,
+              "id": 8150,
               "nodeType": "StructuredDocumentation",
               "src": "115:152:46",
               "text": " @dev Returns the Proposition Power of a user at a specific block number.\n @param user Address of the user.\n @return Power number*"
             },
             "functionSelector": "ff729975",
-            "id": 8138,
+            "id": 8157,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getPropositionPower",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8134,
+              "id": 8153,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8133,
+                  "id": 8152,
                   "mutability": "mutable",
                   "name": "user",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8138,
+                  "scope": 8157,
                   "src": "299:12:46",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -152,7 +139,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 8132,
+                    "id": 8151,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "299:7:46",
@@ -168,16 +155,16 @@
               "src": "298:14:46"
             },
             "returnParameters": {
-              "id": 8137,
+              "id": 8156,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8136,
+                  "id": 8155,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8138,
+                  "scope": 8157,
                   "src": "336:7:46",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -186,7 +173,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8135,
+                    "id": 8154,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "336:7:46",
@@ -200,7 +187,7 @@
               ],
               "src": "335:9:46"
             },
-            "scope": 8159,
+            "scope": 8172,
             "src": "270:75:46",
             "stateMutability": "view",
             "virtual": false,
@@ -208,35 +195,35 @@
           },
           {
             "documentation": {
-              "id": 8139,
+              "id": 8158,
               "nodeType": "StructuredDocumentation",
               "src": "348:121:46",
               "text": " @dev Returns the total supply of Outstanding Proposition Tokens \n @return total supply at blockNumber*"
             },
             "functionSelector": "3bb879ae",
-            "id": 8144,
+            "id": 8163,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getTotalPropositionSupply",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8140,
+              "id": 8159,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "506:2:46"
             },
             "returnParameters": {
-              "id": 8143,
+              "id": 8162,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8142,
+                  "id": 8161,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8144,
+                  "scope": 8163,
                   "src": "532:7:46",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -245,7 +232,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8141,
+                    "id": 8160,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "532:7:46",
@@ -259,7 +246,7 @@
               ],
               "src": "531:9:46"
             },
-            "scope": 8159,
+            "scope": 8172,
             "src": "472:69:46",
             "stateMutability": "view",
             "virtual": false,
@@ -267,89 +254,30 @@
           },
           {
             "documentation": {
-              "id": 8145,
+              "id": 8164,
               "nodeType": "StructuredDocumentation",
-              "src": "544:116:46",
-              "text": " @dev Returns the total supply of Outstanding Voting Tokens \n @return total supply at blockNumber*"
-            },
-            "functionSelector": "c909c59c",
-            "id": 8150,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "getTotalVotingSupply",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 8146,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "692:2:46"
-            },
-            "returnParameters": {
-              "id": 8149,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 8148,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 8150,
-                  "src": "718:7:46",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 8147,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "718:7:46",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "717:9:46"
-            },
-            "scope": 8159,
-            "src": "663:64:46",
-            "stateMutability": "view",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "documentation": {
-              "id": 8151,
-              "nodeType": "StructuredDocumentation",
-              "src": "730:117:46",
+              "src": "547:117:46",
               "text": " @dev Returns the Vote Power of a user.\n @param user Address of the user.\n @return Vote number*"
             },
             "functionSelector": "bb4d4436",
-            "id": 8158,
+            "id": 8171,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getVotingPower",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8154,
+              "id": 8167,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8153,
+                  "id": 8166,
                   "mutability": "mutable",
                   "name": "user",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8158,
-                  "src": "874:12:46",
+                  "scope": 8171,
+                  "src": "691:12:46",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -357,10 +285,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 8152,
+                    "id": 8165,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "874:7:46",
+                    "src": "691:7:46",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -370,20 +298,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "873:14:46"
+              "src": "690:14:46"
             },
             "returnParameters": {
-              "id": 8157,
+              "id": 8170,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8156,
+                  "id": 8169,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8158,
-                  "src": "911:7:46",
+                  "scope": 8171,
+                  "src": "728:7:46",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -391,10 +319,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8155,
+                    "id": 8168,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "911:7:46",
+                    "src": "728:7:46",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -403,27 +331,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "910:9:46"
+              "src": "727:9:46"
             },
-            "scope": 8159,
-            "src": "850:70:46",
+            "scope": 8172,
+            "src": "667:70:46",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 8160,
-        "src": "81:841:46"
+        "scope": 8173,
+        "src": "81:658:46"
       }
     ],
-    "src": "37:886:46"
+    "src": "37:703:46"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernanceStrategy.sol",
       "exportedSymbols": {
         "IGovernanceStrategy": [
-          8159
+          8172
         ]
       },
       "license": "agpl-3.0"
@@ -437,7 +365,7 @@
             ".5"
           ]
         },
-        "id": 8129,
+        "id": 8148,
         "name": "PragmaDirective",
         "src": "37:22:46"
       },
@@ -448,7 +376,7 @@
             "v2"
           ]
         },
-        "id": 8130,
+        "id": 8149,
         "name": "PragmaDirective",
         "src": "60:19:46"
       },
@@ -464,10 +392,10 @@
           "contractKind": "interface",
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            8159
+            8172
           ],
           "name": "IGovernanceStrategy",
-          "scope": 8160
+          "scope": 8173
         },
         "children": [
           {
@@ -480,7 +408,7 @@
                 null
               ],
               "name": "getPropositionPower",
-              "scope": 8159,
+              "scope": 8172,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -490,7 +418,7 @@
                 "attributes": {
                   "text": " @dev Returns the Proposition Power of a user at a specific block number.\n @param user Address of the user.\n @return Power number*"
                 },
-                "id": 8131,
+                "id": 8150,
                 "name": "StructuredDocumentation",
                 "src": "115:152:46"
               },
@@ -501,7 +429,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "user",
-                      "scope": 8138,
+                      "scope": 8157,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -514,17 +442,17 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 8132,
+                        "id": 8151,
                         "name": "ElementaryTypeName",
                         "src": "299:7:46"
                       }
                     ],
-                    "id": 8133,
+                    "id": 8152,
                     "name": "VariableDeclaration",
                     "src": "299:12:46"
                   }
                 ],
-                "id": 8134,
+                "id": 8153,
                 "name": "ParameterList",
                 "src": "298:14:46"
               },
@@ -535,7 +463,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 8138,
+                      "scope": 8157,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -547,22 +475,22 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 8135,
+                        "id": 8154,
                         "name": "ElementaryTypeName",
                         "src": "336:7:46"
                       }
                     ],
-                    "id": 8136,
+                    "id": 8155,
                     "name": "VariableDeclaration",
                     "src": "336:7:46"
                   }
                 ],
-                "id": 8137,
+                "id": 8156,
                 "name": "ParameterList",
                 "src": "335:9:46"
               }
             ],
-            "id": 8138,
+            "id": 8157,
             "name": "FunctionDefinition",
             "src": "270:75:46"
           },
@@ -576,7 +504,7 @@
                 null
               ],
               "name": "getTotalPropositionSupply",
-              "scope": 8159,
+              "scope": 8172,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -586,7 +514,7 @@
                 "attributes": {
                   "text": " @dev Returns the total supply of Outstanding Proposition Tokens \n @return total supply at blockNumber*"
                 },
-                "id": 8139,
+                "id": 8158,
                 "name": "StructuredDocumentation",
                 "src": "348:121:46"
               },
@@ -597,7 +525,7 @@
                   ]
                 },
                 "children": [],
-                "id": 8140,
+                "id": 8159,
                 "name": "ParameterList",
                 "src": "506:2:46"
               },
@@ -608,7 +536,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 8144,
+                      "scope": 8163,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -620,97 +548,24 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 8141,
+                        "id": 8160,
                         "name": "ElementaryTypeName",
                         "src": "532:7:46"
                       }
                     ],
-                    "id": 8142,
+                    "id": 8161,
                     "name": "VariableDeclaration",
                     "src": "532:7:46"
                   }
                 ],
-                "id": 8143,
+                "id": 8162,
                 "name": "ParameterList",
                 "src": "531:9:46"
               }
             ],
-            "id": 8144,
+            "id": 8163,
             "name": "FunctionDefinition",
             "src": "472:69:46"
-          },
-          {
-            "attributes": {
-              "functionSelector": "c909c59c",
-              "implemented": false,
-              "isConstructor": false,
-              "kind": "function",
-              "modifiers": [
-                null
-              ],
-              "name": "getTotalVotingSupply",
-              "scope": 8159,
-              "stateMutability": "view",
-              "virtual": false,
-              "visibility": "external"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "text": " @dev Returns the total supply of Outstanding Voting Tokens \n @return total supply at blockNumber*"
-                },
-                "id": 8145,
-                "name": "StructuredDocumentation",
-                "src": "544:116:46"
-              },
-              {
-                "attributes": {
-                  "parameters": [
-                    null
-                  ]
-                },
-                "children": [],
-                "id": 8146,
-                "name": "ParameterList",
-                "src": "692:2:46"
-              },
-              {
-                "children": [
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "mutability": "mutable",
-                      "name": "",
-                      "scope": 8150,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "uint256",
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "uint256",
-                          "type": "uint256"
-                        },
-                        "id": 8147,
-                        "name": "ElementaryTypeName",
-                        "src": "718:7:46"
-                      }
-                    ],
-                    "id": 8148,
-                    "name": "VariableDeclaration",
-                    "src": "718:7:46"
-                  }
-                ],
-                "id": 8149,
-                "name": "ParameterList",
-                "src": "717:9:46"
-              }
-            ],
-            "id": 8150,
-            "name": "FunctionDefinition",
-            "src": "663:64:46"
           },
           {
             "attributes": {
@@ -722,7 +577,7 @@
                 null
               ],
               "name": "getVotingPower",
-              "scope": 8159,
+              "scope": 8172,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -732,9 +587,9 @@
                 "attributes": {
                   "text": " @dev Returns the Vote Power of a user.\n @param user Address of the user.\n @return Vote number*"
                 },
-                "id": 8151,
+                "id": 8164,
                 "name": "StructuredDocumentation",
-                "src": "730:117:46"
+                "src": "547:117:46"
               },
               {
                 "children": [
@@ -743,7 +598,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "user",
-                      "scope": 8158,
+                      "scope": 8171,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -756,19 +611,19 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 8152,
+                        "id": 8165,
                         "name": "ElementaryTypeName",
-                        "src": "874:7:46"
+                        "src": "691:7:46"
                       }
                     ],
-                    "id": 8153,
+                    "id": 8166,
                     "name": "VariableDeclaration",
-                    "src": "874:12:46"
+                    "src": "691:12:46"
                   }
                 ],
-                "id": 8154,
+                "id": 8167,
                 "name": "ParameterList",
-                "src": "873:14:46"
+                "src": "690:14:46"
               },
               {
                 "children": [
@@ -777,7 +632,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 8158,
+                      "scope": 8171,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -789,34 +644,34 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 8155,
+                        "id": 8168,
                         "name": "ElementaryTypeName",
-                        "src": "911:7:46"
+                        "src": "728:7:46"
                       }
                     ],
-                    "id": 8156,
+                    "id": 8169,
                     "name": "VariableDeclaration",
-                    "src": "911:7:46"
+                    "src": "728:7:46"
                   }
                 ],
-                "id": 8157,
+                "id": 8170,
                 "name": "ParameterList",
-                "src": "910:9:46"
+                "src": "727:9:46"
               }
             ],
-            "id": 8158,
+            "id": 8171,
             "name": "FunctionDefinition",
-            "src": "850:70:46"
+            "src": "667:70:46"
           }
         ],
-        "id": 8159,
+        "id": 8172,
         "name": "ContractDefinition",
-        "src": "81:841:46"
+        "src": "81:658:46"
       }
     ],
-    "id": 8160,
+    "id": 8173,
     "name": "SourceUnit",
-    "src": "37:886:46"
+    "src": "37:703:46"
   },
   "compiler": {
     "name": "solc",
@@ -824,7 +679,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-04-23T11:47:24.523Z",
+  "updatedAt": "2021-04-26T21:00:29.303Z",
   "devdoc": {
     "kind": "dev",
     "methods": {
@@ -839,12 +694,6 @@
       },
       "getTotalPropositionSupply()": {
         "details": "Returns the total supply of Outstanding Proposition Tokens ",
-        "returns": {
-          "_0": "total supply at blockNumber*"
-        }
-      },
-      "getTotalVotingSupply()": {
-        "details": "Returns the total supply of Outstanding Voting Tokens ",
         "returns": {
           "_0": "total supply at blockNumber*"
         }

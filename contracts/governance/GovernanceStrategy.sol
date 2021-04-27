@@ -56,14 +56,6 @@ contract GovernanceStrategy is Ownable, IGovernanceStrategy {
   }
 
   /**
-   * @dev Returns the total supply of Outstanding Voting Tokens 
-   * @return total supply at blockNumber
-   **/
-  function getTotalVotingSupply() public view override returns (uint256) {
-    return votingToken.totalSupply();
-  }
-
-  /**
    * @dev Returns the Proposition Power of a user.
    * @param user Address of the user.
    * @return Power number

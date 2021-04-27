@@ -156,7 +156,7 @@ contract ProposalValidator is IProposalValidator {
     returns (bool)
   {
     IPopulousGovernanceV2.ProposalWithoutVotes memory proposal = governance.getProposalById(proposalId);
-    uint256 votingSupply = IGovernanceStrategy(proposal.strategy).getTotalVotingSupply();
+    uint256 votingSupply = proposal.forVotes + proposal.againstVotes; //IGovernanceStrategy(proposal.strategy).getTotalVotingSupply();
 
     return proposal.forVotes >= getMinimumVotingPowerNeeded(votingSupply);
   }
@@ -175,7 +175,7 @@ contract ProposalValidator is IProposalValidator {
     returns (bool)
   {
     IPopulousGovernanceV2.ProposalWithoutVotes memory proposal = governance.getProposalById(proposalId);
-    uint256 votingSupply = IGovernanceStrategy(proposal.strategy).getTotalVotingSupply();
+    uint256 votingSupply = proposal.forVotes + proposal.againstVotes; //IGovernanceStrategy(proposal.strategy).getTotalVotingSupply();
 
     return (proposal.forVotes.mul(ONE_HUNDRED_WITH_PRECISION).div(votingSupply) >
       proposal.againstVotes.mul(ONE_HUNDRED_WITH_PRECISION).div(votingSupply).add(

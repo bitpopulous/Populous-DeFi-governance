@@ -14,11 +14,7 @@ interface IGovernanceStrategy {
    * @return total supply at blockNumber
    **/
   function getTotalPropositionSupply() external view returns (uint256);
-  /**
-   * @dev Returns the total supply of Outstanding Voting Tokens 
-   * @return total supply at blockNumber
-   **/
-  function getTotalVotingSupply() external view returns (uint256);
+  
   /**
    * @dev Returns the Vote Power of a user.
    * @param user Address of the user.
