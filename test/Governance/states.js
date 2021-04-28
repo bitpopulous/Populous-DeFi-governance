@@ -177,8 +177,9 @@ describe('Proposal States', () => {
         //will not: execute a canceled proposal; 
         //will not: execute a queued proposal before timelock; 
         //will not: execute a queued proposal after grace period (expired); 
+        
         // 5 sec before grace period reached
-        //await advanceBlockTo(Number(executionTime + gracePeriod - 5).toString());
+        //await advanceBlockTo(executionTime + gracePeriod - 5);
 
         //conditions: block.timestamp >= executionTime (checks uint256 executionTime = block.timestamp.add(proposal.executor.getDelay()))
         const executeTx = await governanceInstance.execute(proposalId, {from: firstUser}) 
