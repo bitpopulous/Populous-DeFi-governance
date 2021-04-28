@@ -16,7 +16,7 @@ describe('MockPPT mint', () => {
 
         expectBignumberEqual(await pptInstance.balanceOf(user), 0);
 
-        await pptInstance.mint(user, amountToMint, {from: owner});
+        await pptInstance.mint(amountToMint, {from: user});
 
         expectBignumberEqual(await pptInstance.balanceOf(user), amountToMint);
     });
@@ -32,7 +32,7 @@ describe('MockPXT mint', () => {
 
         expectBignumberEqual(await pxtInstance.balanceOf(user), 0);
 
-        await pxtInstance.mint(user, amountToMint, {from: owner});
+        await pxtInstance.mint(amountToMint, {from: user});
 
         expectBignumberEqual(await pxtInstance.balanceOf(user), amountToMint);
     });

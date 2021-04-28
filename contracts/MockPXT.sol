@@ -7,8 +7,8 @@ contract MockPXT is ERC20 {
     string public symbol = "PXT";
     string public name = "PXT";
 
-    function mint(address account, uint256 amount) external returns (bool) {
-        _mint(account, amount);
+    function mint(uint256 amount) external returns (bool) {
+        _mint(msg.sender, amount);
         return true;
     }
 }

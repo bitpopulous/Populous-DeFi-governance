@@ -89,8 +89,8 @@ const deployGovernance = async (options = {}) => {
   // mint ppt and pxt for users
   const amountToMint = 1000000 * (10**8);
   for (let wallet of [owner, firstUser, secondUser, thirdUser, fourthUser]) {
-    await pptInstance.mint(wallet, amountToMint, {from: owner});
-    await pxtInstance.mint(wallet, amountToMint, {from:owner});
+    await pptInstance.mint(amountToMint, {from: wallet});
+    await pxtInstance.mint(amountToMint, {from: wallet});
 
     // voters must approve tokens for governance to perform token swap
     await pptInstance.approve(governanceInstance.address, MAX_UINT_AMOUNT, {from: wallet});
