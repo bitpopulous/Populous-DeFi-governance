@@ -681,15 +681,27 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
   function redeemLockedTokens(
     uint256 proposalId
   ) external override {
+    require(
+      getProposalState(proposalId) != ProposalState.Pending &&
+      getProposalState(proposalId) != ProposalState.Active, 
+      'Governance: getVotingOutcome: VOTING_OPEN'
+    );
+
     address voter = _msgSender();
     uint256 votingPower = IVotingStrategy(_proposals[proposalId].strategy).getVotingPower(
       voter    
     );
-  
+    
     LockedTokens memory lockTokens = getLockedTokens(proposalId, voter);
+    require(lockTokens.amount > 0, "Governance:redeemLockedTokens: user has no locked tokens");
+    
+    Proposal storage proposal = _proposals[proposalId];
+    proposal.lockedTokens[voter].amount = 0;
+
     MockVotingToken voteToken = MockVotingToken(_votingToken);
     uint248 voteOnProposal = getVoteOnProposal(proposalId, voter).votingPower;
     require(votingPower >= voteOnProposal, 'Governance: redeemLockedTokens: VOTING POWER MUST BE ABOVE or EQUAL TO VOTE ON PROPOSAL');
+    
     IERC20Detailed userToken = IERC20Detailed(lockTokens.tokenAddress);
   
     require(

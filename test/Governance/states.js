@@ -194,7 +194,26 @@ describe('Proposal States', () => {
     });
 
 
-    xit('redeem locked tokens from proposal');
+    it('redeem locked tokens from proposal', async () => {
+        const mintAmount = 1000000 * (10 ** 8);
+        const fourthUserLockedTokens = await governanceInstance.getLockedTokens(proposalId, fourthUser);
+        // check vote struct for voter support and voting power
+        const fourthUserVotes = await governanceInstance.getVoteOnProposal(proposalId, fourthUser);
+        
+        expectBignumberEqual(fourthUserLockedTokens.amount, mintAmount/2);
+        expect(fourthUserLockedTokens.tokenAddress).to.be.equal(pxtInstance.address);
+        expectBignumberEqual(fourthUserVotes.votingPower, mintAmount/2);
+        expect(fourthUserVotes.support).to.be.equal(false);
+
+        expectBignumberEqual(await pxtInstance.balanceOf(fourthUser), mintAmount/2);
+        expectBignumberEqual(await votingTokenInstance.balanceOf(fourthUser), mintAmount/2);
+
+        await governanceInstance.redeemLockedTokens(proposalId, {from: fourthUser});
+    
+        expectBignumberEqual(await pxtInstance.balanceOf(fourthUser), mintAmount);
+        expectBignumberEqual(await votingTokenInstance.balanceOf(fourthUser), 0);
+
+    });
 
     xit('expired proposal');
     
