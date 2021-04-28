@@ -1,7 +1,7 @@
 # Populous Governance v2
 
 
-## Ethereum (ropsten) test network deployment for Populous governance smart contracts with automated migration scripts in required order - 28/04/2021
+## Ethereum (ropsten) test network deployment for Populous Governance smart contracts with automated migration scripts in required order - 28/04/2021
 
 ```
 deployer/admin - 0xC6561dF9180a8863fA9a16aB376eFbca17166CF4
