@@ -5,7 +5,7 @@ const PopulousGovernanceV2 = artifacts.require('PopulousGovernanceV2');
 const Executor = artifacts.require('Executor');
 const MockVotingToken = artifacts.require('MockVotingToken');
 
-// const {deployProxy} = require('@openzeppelin/truffle-upgrades');
+const {deployProxy} = require('@openzeppelin/truffle-upgrades');
 // const {ethers} = require('ethers');
 // const {latest, duration, toBN} = require('../../helpers/utils');
 // const {parseEther} = ethers.utils;
@@ -75,6 +75,8 @@ const deployGovernance = async (options = {}) => {
     votingTokenInstance
   ] = await deployGovernanceStrategy();
 
+
+  // with constructor
   const governanceInstance = await PopulousGovernanceV2.new(
     votingTokenInstance.address,
     pptInstance.address,
@@ -85,6 +87,19 @@ const deployGovernance = async (options = {}) => {
     executors,
     {from: owner}
   );
+
+  // with upgradeability proxy
+  /* const governanceInstance = await deployProxy(
+    PopulousGovernanceV2, 
+    [
+      votingTokenInstance.address,
+      pptInstance.address,
+      pxtInstance.address,
+      governanceStrategyInstance.address,
+      votingDelay,
+      guardian,
+      executors
+    ], {initializer: 'initialize'}); */
 
   // mint ppt and pxt for users
   const amountToMint = 1000000 * (10**8);
