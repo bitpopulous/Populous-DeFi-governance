@@ -11,6 +11,10 @@ const { advanceBlock } = require('@openzeppelin/test-helpers/src/time');
 const { web3 } = require('@openzeppelin/test-helpers/src/setup');
 const ExecutorWithTimelock = artifacts.require('ExecutorWithTimelock');
 
+const mintAmount = 1000000 * (10 ** 8);
+const votingTokenAmount = mintAmount/2;
+const pxtPower = votingTokenAmount * 5;
+const pptPower = votingTokenAmount;
 
 describe('Proposal States', () => {
     
@@ -80,7 +84,7 @@ describe('Proposal States', () => {
         }
 
         const outcome = await governanceInstance.getVotingOutcome(
-            pptInstance.address, mintAmount/2,
+            pptInstance.address, votingTokenAmount,
             proposalId, true, {from: thirdUser});
         
         expect(outcome.forVotes, mintAmount); // ppt issued x2 of voting token
@@ -99,40 +103,40 @@ describe('Proposal States', () => {
         }
 
         const outcome = await governanceInstance.getVotingOutcome(
-            pxtInstance.address, mintAmount/2,
+            pxtInstance.address, votingTokenAmount,
             proposalId, false, {from: secondUser});
         
         expect(outcome.forVotes, 0); // ppt issued x2 of voting token
-        expect(outcome.againstVotes, mintAmount/2);
+        expect(outcome.againstVotes, votingTokenAmount);
     });
 
     it('should vote and move to succeeded state', async () => {
         expectBignumberEqual(await governanceInstance.getProposalState(proposalId), PROPOSAL_STATES.Active);
         
-        const mintAmount = 1000000 * (10 ** 8);
+        
 
         // voting duration is 5 blocks, 5 mined TXs on ganache 
         // (one await advanceBlock(); in active test above) to get proposal from pending to active
 
         // 3 votes for with different tokens        
         await governanceInstance.submitVote(
-            pxtInstance.address, mintAmount/2,
+            pxtInstance.address, votingTokenAmount,
             proposalId, true, {from: firstUser}
         )
 
         await governanceInstance.submitVote(
-            pptInstance.address, mintAmount/2,
+            pptInstance.address, votingTokenAmount,
             proposalId, true, {from: secondUser}
         )
 
         await governanceInstance.submitVote(
-            pxtInstance.address, mintAmount/2,
+            pxtInstance.address, votingTokenAmount,
             proposalId, true, {from: thirdUser}
         )
 
         // 1 vote against
         await governanceInstance.submitVote(
-            pxtInstance.address, mintAmount/2,
+            pxtInstance.address, votingTokenAmount,
             proposalId, false, {from: fourthUser}
         )
 
@@ -143,9 +147,9 @@ describe('Proposal States', () => {
         // check vote struct for voter support and voting power
         const fourthUserVotes = await governanceInstance.getVoteOnProposal(proposalId, fourthUser);
         
-        expectBignumberEqual(fourthUserLockedTokens.amount, mintAmount/2);
+        expectBignumberEqual(fourthUserLockedTokens.amount, votingTokenAmount);
         expect(fourthUserLockedTokens.tokenAddress).to.be.equal(pxtInstance.address);
-        expectBignumberEqual(fourthUserVotes.votingPower, mintAmount/2);
+        expectBignumberEqual(fourthUserVotes.votingPower, pxtPower);
         expect(fourthUserVotes.support).to.be.equal(false);
 
         await advanceBlock();
@@ -199,13 +203,13 @@ describe('Proposal States', () => {
         // check vote struct for voter support and voting power
         const fourthUserVotes = await governanceInstance.getVoteOnProposal(proposalId, fourthUser);
         
-        expectBignumberEqual(fourthUserLockedTokens.amount, mintAmount/2);
+        expectBignumberEqual(fourthUserLockedTokens.amount, votingTokenAmount);
         expect(fourthUserLockedTokens.tokenAddress).to.be.equal(pxtInstance.address);
-        expectBignumberEqual(fourthUserVotes.votingPower, mintAmount/2);
+        expectBignumberEqual(fourthUserVotes.votingPower, pxtPower);
         expect(fourthUserVotes.support).to.be.equal(false);
 
-        expectBignumberEqual(await pxtInstance.balanceOf(fourthUser), mintAmount/2);
-        expectBignumberEqual(await votingTokenInstance.balanceOf(fourthUser), mintAmount/2);
+        expectBignumberEqual(await pxtInstance.balanceOf(fourthUser), votingTokenAmount);
+        expectBignumberEqual(await votingTokenInstance.balanceOf(fourthUser), pxtPower);
 
         await governanceInstance.redeemLockedTokens(proposalId, {from: fourthUser});
     
@@ -285,7 +289,7 @@ describe('Failed Proposal', () => {
         }
 
         const outcome = await governanceInstance.getVotingOutcome(
-            pptInstance.address, mintAmount/2,
+            pptInstance.address, votingTokenAmount,
             proposalId, true, {from: thirdUser});
         
         expect(outcome.forVotes, mintAmount); // ppt issued x2 of voting token
@@ -304,11 +308,11 @@ describe('Failed Proposal', () => {
         }
 
         const outcome = await governanceInstance.getVotingOutcome(
-            pxtInstance.address, mintAmount/2,
+            pxtInstance.address, votingTokenAmount,
             proposalId, false, {from: secondUser});
         
         expect(outcome.forVotes, 0); // ppt issued x2 of voting token
-        expect(outcome.againstVotes, mintAmount/2);
+        expect(outcome.againstVotes, votingTokenAmount);
     });
 
     it('should vote and move to failed state', async () => {
@@ -321,23 +325,23 @@ describe('Failed Proposal', () => {
 
         // 3 votes for with different tokens        
         await governanceInstance.submitVote(
-            pxtInstance.address, mintAmount/2,
+            pxtInstance.address, votingTokenAmount,
             proposalId, false, {from: firstUser}
         )
 
         await governanceInstance.submitVote(
-            pptInstance.address, mintAmount/2,
+            pptInstance.address, votingTokenAmount,
             proposalId, false, {from: secondUser}
         )
 
         await governanceInstance.submitVote(
-            pxtInstance.address, mintAmount/2,
+            pxtInstance.address, votingTokenAmount,
             proposalId, false, {from: thirdUser}
         )
 
         // 1 vote against
         await governanceInstance.submitVote(
-            pxtInstance.address, mintAmount/2,
+            pxtInstance.address, votingTokenAmount,
             proposalId, true, {from: fourthUser}
         )
 
@@ -348,9 +352,9 @@ describe('Failed Proposal', () => {
         // check vote struct for voter support and voting power
         const fourthUserVotes = await governanceInstance.getVoteOnProposal(proposalId, fourthUser);
         
-        expectBignumberEqual(fourthUserLockedTokens.amount, mintAmount/2);
+        expectBignumberEqual(fourthUserLockedTokens.amount, votingTokenAmount);
         expect(fourthUserLockedTokens.tokenAddress).to.be.equal(pxtInstance.address);
-        expectBignumberEqual(fourthUserVotes.votingPower, mintAmount/2);
+        expectBignumberEqual(fourthUserVotes.votingPower, pxtPower);
         expect(fourthUserVotes.support).to.be.equal(true);
 
         await advanceBlock();

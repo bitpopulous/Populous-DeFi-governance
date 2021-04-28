@@ -511,18 +511,18 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
     uint256 votingPower = 0;
 
     if (tokenAddress == _PPT) {
-      votingPower = tokenAmount.mul(2); // to issue x2 for PPT
+      votingPower = tokenAmount; // to issue 1-1 for PPT
       _tokenSwapAndLock(
         proposalId, voter, 
         tokenAddress, tokenAmount, 
         votingPower
       );
     } else if (tokenAddress == _PXT) {
-      votingPower = tokenAmount;
+      votingPower = tokenAmount.mul(5);
       _tokenSwapAndLock(
         proposalId, voter, 
         tokenAddress, tokenAmount, 
-        tokenAmount // to issue 1-1 for PXT
+        votingPower // to issue x5 for PXT
       ); 
     }
 
