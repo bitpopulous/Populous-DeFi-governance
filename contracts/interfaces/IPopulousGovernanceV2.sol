@@ -309,14 +309,14 @@ interface IPopulousGovernanceV2 {
    * @param tokenAmount the amount of tokens to use as voting power
    * @param proposalId id of the proposal
    * @param support boolean, true = vote for, false = vote against
-   * @return for votes and against votes
+   * @return votingPower, for votes and against votes
    **/
   function getVotingOutcome(
     address tokenAddress, 
     uint256 tokenAmount,
     uint256 proposalId, 
     bool support
-  ) external view returns (uint256, uint256);
+  ) external view returns (uint256, uint256, uint256);
 
   /**
    * @dev Getter function to get tokens locked in proposal for user
