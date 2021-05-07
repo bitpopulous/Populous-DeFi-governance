@@ -497,8 +497,7 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
     require(state == ProposalState.Active, 'Governance: submitVote: VOTING_CLOSED');
     Proposal storage proposal = _proposals[proposalId];
     Vote storage vote = proposal.votes[voter];
-    LockedTokens storage lockedTokens = proposal.lockedTokens[voter];
-
+    
     require(vote.votingPower == 0, 'Governance: submitVote: VOTE_ALREADY_SUBMITTED');
     
     require(tokenAmount > 0, 'Governance: submitVote: TOKEN AMOUNT TO SWAP MUST BE ABOVE 0');
@@ -619,14 +618,14 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
    * @param tokenAmount the amount of tokens to use as voting power
    * @param proposalId id of the proposal
    * @param support boolean, true = vote for, false = vote against
-   * @return for votes and against votes
+   * @return votingPower, for votes and against votes
    **/
   function getVotingOutcome(
     address tokenAddress, 
     uint256 tokenAmount,
     uint256 proposalId, 
     bool support
-  ) external view override returns (uint256, uint256) {
+  ) external view override returns (uint256, uint256, uint256) {
     require(getProposalState(proposalId) == ProposalState.Active, 'Governance: getVotingOutcome: VOTING_CLOSED');
     ProposalWithoutVotes memory proposal = getProposalById(proposalId);
     address voter = _msgSender();
@@ -640,13 +639,12 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
       'Governance: getVotingOutcome: TOKEN_ADDRESS MUST BE PPT OR PXT TO VOTE'
     );
 
-    IERC20Detailed userToken = IERC20Detailed(tokenAddress);
     uint256 votingPower = 0;
 
     if (tokenAddress == _PPT) {
-      votingPower = tokenAmount.mul(2);
-    } else if (tokenAddress == _PXT) {
       votingPower = tokenAmount;
+    } else if (tokenAddress == _PXT) {
+      votingPower = tokenAmount.mul(5);
     }
     
     if (support) {
@@ -655,7 +653,7 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
       proposal.againstVotes = proposal.againstVotes.add(votingPower);
     }
 
-    return (proposal.forVotes, proposal.againstVotes);
+    return (votingPower, proposal.forVotes, proposal.againstVotes);
   }
 
   /**

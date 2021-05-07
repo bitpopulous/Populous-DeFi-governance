@@ -87,8 +87,8 @@ describe('Proposal States', () => {
             pptInstance.address, votingTokenAmount,
             proposalId, true, {from: thirdUser});
         
-        expect(outcome.forVotes, mintAmount); // ppt issued x2 of voting token
-        expect(outcome.againstVotes, 0);
+        expectBignumberEqual(outcome[1], pptPower); // ppt issued x1 of voting token
+        expectBignumberEqual(outcome[2], 0);
     });
 
 
@@ -106,8 +106,8 @@ describe('Proposal States', () => {
             pxtInstance.address, votingTokenAmount,
             proposalId, false, {from: secondUser});
         
-        expect(outcome.forVotes, 0); // ppt issued x2 of voting token
-        expect(outcome.againstVotes, votingTokenAmount);
+        expectBignumberEqual(outcome[1], 0); // ppt issued x1 of voting token
+        expectBignumberEqual(outcome[2], pxtPower);
     });
 
     it('should vote and move to succeeded state', async () => {
@@ -292,8 +292,8 @@ describe('Failed Proposal', () => {
             pptInstance.address, votingTokenAmount,
             proposalId, true, {from: thirdUser});
         
-        expect(outcome.forVotes, mintAmount); // ppt issued x2 of voting token
-        expect(outcome.againstVotes, 0);
+        expectBignumberEqual(outcome[1], pptPower); // ppt issued x2 of voting token
+        expectBignumberEqual(outcome[2], 0);
     });
 
 
@@ -311,8 +311,9 @@ describe('Failed Proposal', () => {
             pxtInstance.address, votingTokenAmount,
             proposalId, false, {from: secondUser});
         
-        expect(outcome.forVotes, 0); // ppt issued x2 of voting token
-        expect(outcome.againstVotes, votingTokenAmount);
+        expectBignumberEqual(outcome[0], pxtPower)
+        expectBignumberEqual(outcome[1], 0); // ppt issued x1 of voting token
+        expectBignumberEqual(outcome[2], pxtPower);
     });
 
     it('should vote and move to failed state', async () => {
@@ -328,6 +329,14 @@ describe('Failed Proposal', () => {
             pxtInstance.address, votingTokenAmount,
             proposalId, false, {from: firstUser}
         )
+    
+        const outcome = await governanceInstance.getVotingOutcome(
+            pptInstance.address, votingTokenAmount,
+            proposalId, false, {from: secondUser});
+        
+        expectBignumberEqual(outcome[0], pptPower)
+        expectBignumberEqual(outcome[1], 0);
+        expectBignumberEqual(outcome[2], pptPower+pxtPower); // against votes / power
 
         await governanceInstance.submitVote(
             pptInstance.address, votingTokenAmount,
