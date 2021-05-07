@@ -52,7 +52,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -65,7 +66,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -78,7 +80,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -111,7 +114,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -124,7 +128,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -143,7 +148,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -162,7 +168,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.7.5+commit.eb77ed08\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"pxt_\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"ppt_\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"votingToken_\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"PPT\",\"outputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PXT\",\"outputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getPropositionPower\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalPropositionSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getVotingPower\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"votingToken\",\"outputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Populous*\",\"details\":\"Smart contract containing logic to measure users' relative power to propose and vote. User Power = User Power from Populous Token + User Power from stkPopulous Token. User Power from Token = Token Power + Token Power as Delegatee [- Token Power if user has delegated] Two wrapper functions linked to Populous Tokens's GovernancePowerDelegationERC20.sol implementation - getPropositionPowerAt: fetching a user Proposition Power at a specified block - getVotingPowerAt: fetching a user Voting Power at a specified block\",\"kind\":\"dev\",\"methods\":{\"constructor\":{\"details\":\"Constructor, register tokens used for Voting and Proposition Powers.\",\"params\":{\"pxt_\":\"The address of the Populous PXT Token contract.*\"}},\"getPropositionPower(address)\":{\"details\":\"Returns the Proposition Power of a user.\",\"params\":{\"user\":\"Address of the user.\"},\"returns\":{\"_0\":\"Power number*\"}},\"getTotalPropositionSupply()\":{\"details\":\"Returns the total supply of Proposition Tokens Available for Governance\",\"returns\":{\"_0\":\"total supply at blockNumber*\"}},\"getVotingPower(address)\":{\"details\":\"Returns the Vote Power of a user.\",\"params\":{\"user\":\"Address of the user.\"},\"returns\":{\"_0\":\"Vote number*\"}},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"title\":\"Governance Strategy contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/governance/GovernanceStrategy.sol\":\"GovernanceStrategy\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/ERC20.sol\":{\"keccak256\":\"0xe0c517bf9078a763269f3e8f1ec0940788692163491aab614641d4c34c22e6d5\",\"urls\":[\"bzz-raw://2003d8c68c16a6cb1b42c3a746ced842112a19714460cfb94e51395a214d7edd\",\"dweb:/ipfs/QmQ2fAeqfpahSEiySGT8GMkB9viLvpSb8U1mA7xAgdvfEW\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/Context.sol\":{\"keccak256\":\"0x1184b768b1e5b8e13eb4a589c3b14c2bf6e04e9d061012c6c772a9830272a1f7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://be5034806781ef4986f7edd2ff2fe8dead05c2aeee627f55a4a68cfe21d43479\",\"dweb:/ipfs/QmQ5QNcLBdQSPRQSmxmNvBf6r2pS1AbNPPoEWw3Q2WHRmN\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/Ownable.sol\":{\"keccak256\":\"0xc347ba87002f53e62bcd62fdd61c620ea2b6f783a247679a12ed549a139993f1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://55fcc338ef316bfea381ba91564acd7ba677175076b59db95474778be7e00ae3\",\"dweb:/ipfs/QmTN9WP9wwAhpxnupRH4M5P7vPut37PGGVR9tMwSfiAEza\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/SafeMath.sol\":{\"keccak256\":\"0x82cac3eaeff0a73649987a5fa25258561857346745da180f51b332014df8166d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://07bd1ad47162f33326e5374c9aec9b3c514882b360f66b627b20c622b80053c3\",\"dweb:/ipfs/QmPrFNUxLyPQppcZQ5hD7L34rD5BWe9LQvw6SD1cLDNGn3\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/governance/GovernanceStrategy.sol\":{\"keccak256\":\"0xd854d488979a6eedd9c8bef0b678b96a11106168be3bccf1ecac60052156da31\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://d3bd55a7042e4981971216e1a1f62d3087db588f889693fd8c9392cba0f57510\",\"dweb:/ipfs/QmeZHBp5e8Nk1RTHustTJwEDhVqXCbH8jvfF7UNgEbkMUT\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IERC20.sol\":{\"keccak256\":\"0x388d7e22e4455851ae9d1309dabf9e01ff6849128ef607e89389b7cf8fe4df1d\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://6e8db75cc490f3a85bd8ef8b9419284831183777d36643f100a15c1c35a92d6d\",\"dweb:/ipfs/QmTz6RiRprnq58sA7fShW8w3ttyBzCXVHjCNyGbgNxkcWx\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernancePowerDelegationToken.sol\":{\"keccak256\":\"0x8be3a09e9cd801481f0e420771edfc3f04dbb0ebafba00282b7c980fc2b0c309\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://9e05d70025b5b3526c5df342652d66488840323d1854b89f365710a5b6aefc32\",\"dweb:/ipfs/QmfPun5g2YtLKDNcoNDruudF7dd5t6AQb38dgZnw6kYG71\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernanceStrategy.sol\":{\"keccak256\":\"0xd69c1a414ace8da57a6b53e6ee54fe9cf6e6926adc2e1d962d96d5460bd8d677\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://a45def800fb575d280bb816438e544fe8ef9645afae6a44bf94e6a678fe05a4f\",\"dweb:/ipfs/QmVqxxoCYknVf38SHQis1TvVUeiXNsnQa6NEpvamnf3WAC\"]}},\"version\":1}",
@@ -5041,12 +5048,13 @@
         }
       },
       "links": {},
-      "address": "0xE57B06e9a25d966f6a5c5862695fa1Bc9830150b",
-      "transactionHash": "0xd52d9e1010885b603cc8e9e735249d88d6d71b30991775625c93d32e5afff6c9"
+      "address": "0x5f36b394bFd7abb9c02Bb7083cb1C6e4497579dD",
+      "transactionHash": "0x5bd200e044873b2721b0e60c161c5d993b8c298cfb21eb099cc5ad7f17950d80"
     }
   },
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-05-07T10:26:52.941Z",
+  "updatedAt": "2021-05-07T10:47:07.858Z",
+  "networkType": "ethereum",
   "devdoc": {
     "author": "Populous*",
     "details": "Smart contract containing logic to measure users' relative power to propose and vote. User Power = User Power from Populous Token + User Power from stkPopulous Token. User Power from Token = Token Power + Token Power as Delegatee [- Token Power if user has delegated] Two wrapper functions linked to Populous Tokens's GovernancePowerDelegationERC20.sol implementation - getPropositionPowerAt: fetching a user Proposition Power at a specified block - getVotingPowerAt: fetching a user Voting Power at a specified block",
