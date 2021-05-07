@@ -7,6 +7,7 @@ import {IERC20} from '../interfaces/IERC20.sol';
 import {IGovernancePowerDelegationToken} from '../interfaces/IGovernancePowerDelegationToken.sol';
 import {Ownable} from '../dependencies/open-zeppelin/Ownable.sol';
 import {SafeMath} from '../dependencies/open-zeppelin/SafeMath.sol';
+import {ERC20} from '../ERC20.sol';
 
 /**
  * @title Governance Strategy contract
@@ -21,127 +22,64 @@ import {SafeMath} from '../dependencies/open-zeppelin/SafeMath.sol';
 contract GovernanceStrategy is Ownable, IGovernanceStrategy {
   using SafeMath for uint256;
 
-  address public immutable Populous;
-  address public immutable STK_Populous;
-
-  uint256 private pptWeight;
-  uint256 private pxtWeight;
-
-  event WeightSet(address indexed _token, uint256 indexed _weight);
+  // proposal creation token
+  // can be locked in exchange for voting token
+  ERC20 public PXT;
+  // can be locked in exchange for voting token
+  ERC20 public PPT; 
+  // voting token
+  ERC20 public votingToken; 
 
   /**
    * @dev Constructor, register tokens used for Voting and Proposition Powers.
-   * @param _populous The address of the Populous Token contract.
-   * @param _stkPopulous The address of the stkPopulous Token Contract
+   * @param pxt_ The address of the Populous PXT Token contract.
    **/
-  constructor(address _populous, address _stkPopulous, uint256 _pptWeight, uint256 _pxtWeight) {
-    Populous = _populous;
-    STK_Populous = _stkPopulous;
-    pptWeight = _pptWeight;
-    pxtWeight = _pxtWeight;
-  }
+  constructor(address pxt_, address ppt_, address votingToken_) {
+    require(
+      (pxt_ != address(0)) &&
+      (ppt_ != address(0)) &&
+      (votingToken_ != address(0)), 
+      "GovernanceStrategy: Invalid PXT/PPT token address"
+    );
 
-  /**
-   * @dev Returns the weight assigned to the PPT token for voting
-   * @return ppt assigned weight
-   **/
-  function getPPTWeight() public view returns (uint256) {
-    return pptWeight;
-  }
-
-  /**
-   * @dev Returns the weight assigned to the PXT token for voting
-   * @return pxt assigned weight
-   **/
-  function getPXTWeight() public view returns (uint256){
-    return pxtWeight;
-  }
-
-  /**
-   * @dev Assigns a weight to each PPT token for voting
-   * @param _weight weight to assign
-   * @return boolean true/false
-   **/
-  function setPPTWeight(uint256 _weight) external onlyOwner returns (bool) {
-    require(_weight > 0, "weight cannot be 0 or less");
-    pptWeight = _weight;
-    emit WeightSet(Populous, _weight);
-    return true;
-  }
-
-  /**
-   * @dev Assigns a weight to each PPT token for voting
-   * @param _weight weight to assign
-   * @return boolean true/false
-   **/
-  function setPXTWeight(uint256 _weight) external onlyOwner returns (bool) {
-    require(_weight > 0, "weight cannot be 0 or less");
-    pxtWeight = _weight;
-    emit WeightSet(Populous, _weight);
-    return true;
+    votingToken = ERC20(votingToken_);
+    PPT = ERC20(ppt_);
+    PXT = ERC20(pxt_);
   }
 
   /**
    * @dev Returns the total supply of Proposition Tokens Available for Governance
-   * = Populous Available for governance      + stkPopulous available
-   * The supply of Populous staked in stkPopulous are not taken into account so:
-   * = (Supply of Populous - Populous in stkPopulous) + (Supply of stkPopulous)
-   * = Supply of Populous, Since the supply of stkPopulous is equal to the number of Populous staked
-   * @param blockNumber Blocknumber at which to evaluate
    * @return total supply at blockNumber
    **/
-  function getTotalPropositionSupplyAt(uint256 blockNumber) public view override returns (uint256) {
-    return IERC20(Populous).totalSupplyAt(blockNumber);
+  function getTotalPropositionSupply() public view override returns (uint256) {
+    return PXT.totalSupply();
   }
 
   /**
-   * @dev Returns the total supply of Outstanding Voting Tokens 
-   * @param blockNumber Blocknumber at which to evaluate
-   * @return total supply at blockNumber
-   **/
-  function getTotalVotingSupplyAt(uint256 blockNumber) public view override returns (uint256) {
-    return getTotalPropositionSupplyAt(blockNumber);
-  }
-
-  /**
-   * @dev Returns the Proposition Power of a user at a specific block number.
+   * @dev Returns the Proposition Power of a user.
    * @param user Address of the user.
-   * @param blockNumber Blocknumber at which to fetch Proposition Power
    * @return Power number
    **/
-  function getPropositionPowerAt(address user, uint256 blockNumber)
+  function getPropositionPower(address user)
     public
     view
     override
     returns (uint256)
   {
-    return
-      _getPowerByTypeAt(user, blockNumber, IGovernancePowerDelegationToken.DelegationType.PROPOSITION_POWER);
+    return PXT.balanceOf(user);
   }
 
   /**
-   * @dev Returns the Vote Power of a user at a specific block number.
+   * @dev Returns the Vote Power of a user.
    * @param user Address of the user.
-   * @param blockNumber Blocknumber at which to fetch Vote Power
    * @return Vote number
    **/
-  function getVotingPowerAt(address user, uint256 blockNumber)
+  function getVotingPower(address user)
     public
     view
     override
     returns (uint256)
   {
-    return _getPowerByTypeAt(user, blockNumber, IGovernancePowerDelegationToken.DelegationType.VOTING_POWER);
-  }
-
-  function _getPowerByTypeAt(
-    address user,
-    uint256 blockNumber,
-    IGovernancePowerDelegationToken.DelegationType powerType
-  ) internal view returns (uint256) {
-    return
-      (IGovernancePowerDelegationToken(Populous).getPowerAtBlock(user, blockNumber, powerType).mul(pptWeight))
-      .add
-      (IGovernancePowerDelegationToken(STK_Populous).getPowerAtBlock(user, blockNumber, powerType).mul(pxtWeight));
+    return votingToken.balanceOf(user);
   }
 }
