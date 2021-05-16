@@ -47,7 +47,8 @@ module.exports = function (deployer, network, accounts) {
                 (await GovernanceStrategy.deployed()).address,
                 votingDelay,
                 guardian,
-                executors
+                executors,
+                {gas: 3618591}
             )
 
             // voting token admin
@@ -64,13 +65,13 @@ module.exports = function (deployer, network, accounts) {
             minimumDelay = '0',
             maximumDelay = (ONE_DAY*30).toString(),//ONE_DAY.mul('30').toString();
             propositionThreshold = '100', //  1% proposition 
-            voteDuration = '50', // 50 blocks
+            voteDuration = '7200', // 5 days = 7200 blocks - 1 block per minute on ropsten
             voteDifferential = '500', // 5%
             minimumQuorum = '2000'; // 20%
 
             await deployer.deploy(
                 Executor,
-                guardian, // admin
+                admin,
                 delay,
                 gracePeriod,
                 minimumDelay,
@@ -78,7 +79,8 @@ module.exports = function (deployer, network, accounts) {
                 propositionThreshold,
                 voteDuration,
                 voteDifferential,
-                minimumQuorum
+                minimumQuorum,
+                {gas: 3618591}
             )
             
             const executorInstance = await Executor.deployed();
