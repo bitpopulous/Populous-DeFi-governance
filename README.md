@@ -2,6 +2,8 @@
 
 ## Ethereum (ropsten) test network deployment for Populous Governance smart contracts - 14/05/2021
 
+
+## Contract addresses
 ```
 deployer/admin - 0x614b32516601b7C424d0B284B498D5E14323ED3A
 
@@ -16,11 +18,18 @@ GovernanceStrategy: 0x1c3195d6c5DdB5B11cdfFD22aF2cC46553FeC848
 
 PopulousGovernanceV2: 0x914728F74d93BA9FB4a2547053641B249d8F791C
 
+Executor: 0xE10247C68732Bd87dDb1AE9d13EA61935C3DD128
 
 ```
 
-## Local Tests
 
+## Proposals
+```
+proposal id: 0 // created
+```
+
+
+## Local testing
 
 ```
 npm i 
