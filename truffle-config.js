@@ -3,7 +3,6 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 // added for typescript
 // require("ts-node/register");
 
-
 module.exports = {
   // this is required by truffle to find any typescript ts test files
   // test_file_extension_regexp: /.*\.ts$/,
@@ -34,9 +33,9 @@ module.exports = {
       },
       //chainId: 3,
       network_id: 3,
-      gas: 7721975,
+      gas: 7990000,
       skipDryRun: true,
-      gasPrice: 23000000000,
+      gasPrice: 3e10,
       //from: '0xC6561dF9180a8863fA9a16aB376eFbca17166CF4',
       from: '0x614b32516601b7C424d0B284B498D5E14323ED3A'
     },
