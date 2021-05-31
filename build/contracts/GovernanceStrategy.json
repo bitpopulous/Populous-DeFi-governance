@@ -165,9 +165,9 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.5+commit.eb77ed08\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"pxt_\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"ppt_\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"votingToken_\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"PPT\",\"outputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PXT\",\"outputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getPropositionPower\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalPropositionSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getVotingPower\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"votingToken\",\"outputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Populous*\",\"details\":\"Smart contract containing logic to measure users' relative power to propose and vote. User Power = User Power from Populous Token + User Power from stkPopulous Token. User Power from Token = Token Power + Token Power as Delegatee [- Token Power if user has delegated] Two wrapper functions linked to Populous Tokens's GovernancePowerDelegationERC20.sol implementation - getPropositionPowerAt: fetching a user Proposition Power at a specified block - getVotingPowerAt: fetching a user Voting Power at a specified block\",\"kind\":\"dev\",\"methods\":{\"constructor\":{\"details\":\"Constructor, register tokens used for Voting and Proposition Powers.\",\"params\":{\"pxt_\":\"The address of the Populous PXT Token contract.*\"}},\"getPropositionPower(address)\":{\"details\":\"Returns the Proposition Power of a user.\",\"params\":{\"user\":\"Address of the user.\"},\"returns\":{\"_0\":\"Power number*\"}},\"getTotalPropositionSupply()\":{\"details\":\"Returns the total supply of Proposition Tokens Available for Governance\",\"returns\":{\"_0\":\"total supply at blockNumber*\"}},\"getVotingPower(address)\":{\"details\":\"Returns the Vote Power of a user.\",\"params\":{\"user\":\"Address of the user.\"},\"returns\":{\"_0\":\"Vote number*\"}},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"title\":\"Governance Strategy contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/governance/GovernanceStrategy.sol\":\"GovernanceStrategy\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/ERC20.sol\":{\"keccak256\":\"0xe0c517bf9078a763269f3e8f1ec0940788692163491aab614641d4c34c22e6d5\",\"urls\":[\"bzz-raw://2003d8c68c16a6cb1b42c3a746ced842112a19714460cfb94e51395a214d7edd\",\"dweb:/ipfs/QmQ2fAeqfpahSEiySGT8GMkB9viLvpSb8U1mA7xAgdvfEW\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/Context.sol\":{\"keccak256\":\"0x1184b768b1e5b8e13eb4a589c3b14c2bf6e04e9d061012c6c772a9830272a1f7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://be5034806781ef4986f7edd2ff2fe8dead05c2aeee627f55a4a68cfe21d43479\",\"dweb:/ipfs/QmQ5QNcLBdQSPRQSmxmNvBf6r2pS1AbNPPoEWw3Q2WHRmN\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/Ownable.sol\":{\"keccak256\":\"0xc347ba87002f53e62bcd62fdd61c620ea2b6f783a247679a12ed549a139993f1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://55fcc338ef316bfea381ba91564acd7ba677175076b59db95474778be7e00ae3\",\"dweb:/ipfs/QmTN9WP9wwAhpxnupRH4M5P7vPut37PGGVR9tMwSfiAEza\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/SafeMath.sol\":{\"keccak256\":\"0x82cac3eaeff0a73649987a5fa25258561857346745da180f51b332014df8166d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://07bd1ad47162f33326e5374c9aec9b3c514882b360f66b627b20c622b80053c3\",\"dweb:/ipfs/QmPrFNUxLyPQppcZQ5hD7L34rD5BWe9LQvw6SD1cLDNGn3\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/governance/GovernanceStrategy.sol\":{\"keccak256\":\"0xd854d488979a6eedd9c8bef0b678b96a11106168be3bccf1ecac60052156da31\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://d3bd55a7042e4981971216e1a1f62d3087db588f889693fd8c9392cba0f57510\",\"dweb:/ipfs/QmeZHBp5e8Nk1RTHustTJwEDhVqXCbH8jvfF7UNgEbkMUT\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IERC20.sol\":{\"keccak256\":\"0x388d7e22e4455851ae9d1309dabf9e01ff6849128ef607e89389b7cf8fe4df1d\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://6e8db75cc490f3a85bd8ef8b9419284831183777d36643f100a15c1c35a92d6d\",\"dweb:/ipfs/QmTz6RiRprnq58sA7fShW8w3ttyBzCXVHjCNyGbgNxkcWx\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernancePowerDelegationToken.sol\":{\"keccak256\":\"0x8be3a09e9cd801481f0e420771edfc3f04dbb0ebafba00282b7c980fc2b0c309\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://9e05d70025b5b3526c5df342652d66488840323d1854b89f365710a5b6aefc32\",\"dweb:/ipfs/QmfPun5g2YtLKDNcoNDruudF7dd5t6AQb38dgZnw6kYG71\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernanceStrategy.sol\":{\"keccak256\":\"0xd69c1a414ace8da57a6b53e6ee54fe9cf6e6926adc2e1d962d96d5460bd8d677\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://a45def800fb575d280bb816438e544fe8ef9645afae6a44bf94e6a678fe05a4f\",\"dweb:/ipfs/QmVqxxoCYknVf38SHQis1TvVUeiXNsnQa6NEpvamnf3WAC\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b506040516106fe3803806106fe83398101604081905261002f9161013f565b600061003961011f565b600080546001600160a01b0319166001600160a01b0383169081178255604051929350917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a3506001600160a01b038316158015906100a357506001600160a01b03821615155b80156100b757506001600160a01b03811615155b6100dc5760405162461bcd60e51b81526004016100d390610181565b60405180910390fd5b600380546001600160a01b03199081166001600160a01b0393841617909155600280548216938316939093179092556001805490921692169190911790556101d2565b3390565b80516001600160a01b038116811461013a57600080fd5b919050565b600080600060608486031215610153578283fd5b61015c84610123565b925061016a60208501610123565b915061017860408501610123565b90509250925092565b60208082526031908201527f476f7665726e616e636553747261746567793a20496e76616c6964205058542f60408201527050505420746f6b656e206164647265737360781b606082015260800190565b61051d806101e16000396000f3fe608060405234801561001057600080fd5b50600436106100935760003560e01c80638da5cb5b116100665780638da5cb5b146100dd578063b0340123146100e5578063bb4d4436146100ed578063f2fde38b14610100578063ff7299751461011357610093565b806338cb3dd1146100985780633bb879ae146100b6578063678b2012146100cb578063715018a6146100d3575b600080fd5b6100a0610126565b6040516100ad91906104a4565b60405180910390f35b6100be610135565b6040516100ad91906104b8565b6100a06101b7565b6100db6101c6565b005b6100a061027a565b6100a0610289565b6100be6100fb36600461045e565b610298565b6100db61010e36600461045e565b61031f565b6100be61012136600461045e565b610429565b6001546001600160a01b031681565b600154604080516318160ddd60e01b815290516000926001600160a01b0316916318160ddd916004808301926020929190829003018186803b15801561017a57600080fd5b505afa15801561018e573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101b2919061048c565b905090565b6002546001600160a01b031681565b6101ce61045a565b6000546001600160a01b03908116911614610230576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b600080546040516001600160a01b03909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a3600080546001600160a01b0319169055565b6000546001600160a01b031690565b6003546001600160a01b031681565b6003546040516370a0823160e01b81526000916001600160a01b0316906370a08231906102c99085906004016104a4565b60206040518083038186803b1580156102e157600080fd5b505afa1580156102f5573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610319919061048c565b92915050565b61032761045a565b6000546001600160a01b03908116911614610389576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b6001600160a01b0381166103ce5760405162461bcd60e51b81526004018080602001828103825260268152602001806104c26026913960400191505060405180910390fd5b600080546040516001600160a01b03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600080546001600160a01b0319166001600160a01b0392909216919091179055565b6001546040516370a0823160e01b81526000916001600160a01b0316906370a08231906102c99085906004016104a4565b3390565b60006020828403121561046f578081fd5b81356001600160a01b0381168114610485578182fd5b9392505050565b60006020828403121561049d578081fd5b5051919050565b6001600160a01b0391909116815260200190565b9081526020019056fe4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373a264697066735822122024964b6bb338f2385fee21b33213d5f4e8c163d7fc272bdb8f950b8f6d76347964736f6c63430007050033",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100935760003560e01c80638da5cb5b116100665780638da5cb5b146100dd578063b0340123146100e5578063bb4d4436146100ed578063f2fde38b14610100578063ff7299751461011357610093565b806338cb3dd1146100985780633bb879ae146100b6578063678b2012146100cb578063715018a6146100d3575b600080fd5b6100a0610126565b6040516100ad91906104a4565b60405180910390f35b6100be610135565b6040516100ad91906104b8565b6100a06101b7565b6100db6101c6565b005b6100a061027a565b6100a0610289565b6100be6100fb36600461045e565b610298565b6100db61010e36600461045e565b61031f565b6100be61012136600461045e565b610429565b6001546001600160a01b031681565b600154604080516318160ddd60e01b815290516000926001600160a01b0316916318160ddd916004808301926020929190829003018186803b15801561017a57600080fd5b505afa15801561018e573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101b2919061048c565b905090565b6002546001600160a01b031681565b6101ce61045a565b6000546001600160a01b03908116911614610230576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b600080546040516001600160a01b03909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a3600080546001600160a01b0319169055565b6000546001600160a01b031690565b6003546001600160a01b031681565b6003546040516370a0823160e01b81526000916001600160a01b0316906370a08231906102c99085906004016104a4565b60206040518083038186803b1580156102e157600080fd5b505afa1580156102f5573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610319919061048c565b92915050565b61032761045a565b6000546001600160a01b03908116911614610389576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b6001600160a01b0381166103ce5760405162461bcd60e51b81526004018080602001828103825260268152602001806104c26026913960400191505060405180910390fd5b600080546040516001600160a01b03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600080546001600160a01b0319166001600160a01b0392909216919091179055565b6001546040516370a0823160e01b81526000916001600160a01b0316906370a08231906102c99085906004016104a4565b3390565b60006020828403121561046f578081fd5b81356001600160a01b0381168114610485578182fd5b9392505050565b60006020828403121561049d578081fd5b5051919050565b6001600160a01b0391909116815260200190565b9081526020019056fe4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373a264697066735822122024964b6bb338f2385fee21b33213d5f4e8c163d7fc272bdb8f950b8f6d76347964736f6c63430007050033",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.5+commit.eb77ed08\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"pxt_\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"ppt_\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"votingToken_\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"PPT\",\"outputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PXT\",\"outputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getPropositionPower\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalPropositionSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getVotingPower\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"votingToken\",\"outputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Populous*\",\"details\":\"Smart contract containing logic to measure users' relative power to propose and vote. User Power = User Power from Populous Token + User Power from stkPopulous Token. User Power from Token = Token Power + Token Power as Delegatee [- Token Power if user has delegated] Two wrapper functions linked to Populous Tokens's GovernancePowerDelegationERC20.sol implementation - getPropositionPowerAt: fetching a user Proposition Power at a specified block - getVotingPowerAt: fetching a user Voting Power at a specified block\",\"kind\":\"dev\",\"methods\":{\"constructor\":{\"details\":\"Constructor, register tokens used for Voting and Proposition Powers.\",\"params\":{\"pxt_\":\"The address of the Populous PXT Token contract.*\"}},\"getPropositionPower(address)\":{\"details\":\"Returns the Proposition Power of a user.\",\"params\":{\"user\":\"Address of the user.\"},\"returns\":{\"_0\":\"Power number*\"}},\"getTotalPropositionSupply()\":{\"details\":\"Returns the total supply of Proposition Tokens Available for Governance\",\"returns\":{\"_0\":\"total supply at blockNumber*\"}},\"getVotingPower(address)\":{\"details\":\"Returns the Vote Power of a user.\",\"params\":{\"user\":\"Address of the user.\"},\"returns\":{\"_0\":\"Vote number*\"}},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"title\":\"Governance Strategy contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/governance/GovernanceStrategy.sol\":\"GovernanceStrategy\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/ERC20.sol\":{\"keccak256\":\"0xe0c517bf9078a763269f3e8f1ec0940788692163491aab614641d4c34c22e6d5\",\"urls\":[\"bzz-raw://2003d8c68c16a6cb1b42c3a746ced842112a19714460cfb94e51395a214d7edd\",\"dweb:/ipfs/QmQ2fAeqfpahSEiySGT8GMkB9viLvpSb8U1mA7xAgdvfEW\"]},\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/Context.sol\":{\"keccak256\":\"0x1184b768b1e5b8e13eb4a589c3b14c2bf6e04e9d061012c6c772a9830272a1f7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://be5034806781ef4986f7edd2ff2fe8dead05c2aeee627f55a4a68cfe21d43479\",\"dweb:/ipfs/QmQ5QNcLBdQSPRQSmxmNvBf6r2pS1AbNPPoEWw3Q2WHRmN\"]},\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/Ownable.sol\":{\"keccak256\":\"0xc347ba87002f53e62bcd62fdd61c620ea2b6f783a247679a12ed549a139993f1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://55fcc338ef316bfea381ba91564acd7ba677175076b59db95474778be7e00ae3\",\"dweb:/ipfs/QmTN9WP9wwAhpxnupRH4M5P7vPut37PGGVR9tMwSfiAEza\"]},\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/SafeMath.sol\":{\"keccak256\":\"0x82cac3eaeff0a73649987a5fa25258561857346745da180f51b332014df8166d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://07bd1ad47162f33326e5374c9aec9b3c514882b360f66b627b20c622b80053c3\",\"dweb:/ipfs/QmPrFNUxLyPQppcZQ5hD7L34rD5BWe9LQvw6SD1cLDNGn3\"]},\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/governance/GovernanceStrategy.sol\":{\"keccak256\":\"0xd854d488979a6eedd9c8bef0b678b96a11106168be3bccf1ecac60052156da31\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://d3bd55a7042e4981971216e1a1f62d3087db588f889693fd8c9392cba0f57510\",\"dweb:/ipfs/QmeZHBp5e8Nk1RTHustTJwEDhVqXCbH8jvfF7UNgEbkMUT\"]},\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IERC20.sol\":{\"keccak256\":\"0x388d7e22e4455851ae9d1309dabf9e01ff6849128ef607e89389b7cf8fe4df1d\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://6e8db75cc490f3a85bd8ef8b9419284831183777d36643f100a15c1c35a92d6d\",\"dweb:/ipfs/QmTz6RiRprnq58sA7fShW8w3ttyBzCXVHjCNyGbgNxkcWx\"]},\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IGovernancePowerDelegationToken.sol\":{\"keccak256\":\"0x8be3a09e9cd801481f0e420771edfc3f04dbb0ebafba00282b7c980fc2b0c309\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://9e05d70025b5b3526c5df342652d66488840323d1854b89f365710a5b6aefc32\",\"dweb:/ipfs/QmfPun5g2YtLKDNcoNDruudF7dd5t6AQb38dgZnw6kYG71\"]},\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IGovernanceStrategy.sol\":{\"keccak256\":\"0xd69c1a414ace8da57a6b53e6ee54fe9cf6e6926adc2e1d962d96d5460bd8d677\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://a45def800fb575d280bb816438e544fe8ef9645afae6a44bf94e6a678fe05a4f\",\"dweb:/ipfs/QmVqxxoCYknVf38SHQis1TvVUeiXNsnQa6NEpvamnf3WAC\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516106fe3803806106fe83398101604081905261002f9161013f565b600061003961011f565b600080546001600160a01b0319166001600160a01b0383169081178255604051929350917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a3506001600160a01b038316158015906100a357506001600160a01b03821615155b80156100b757506001600160a01b03811615155b6100dc5760405162461bcd60e51b81526004016100d390610181565b60405180910390fd5b600380546001600160a01b03199081166001600160a01b0393841617909155600280548216938316939093179092556001805490921692169190911790556101d2565b3390565b80516001600160a01b038116811461013a57600080fd5b919050565b600080600060608486031215610153578283fd5b61015c84610123565b925061016a60208501610123565b915061017860408501610123565b90509250925092565b60208082526031908201527f476f7665726e616e636553747261746567793a20496e76616c6964205058542f60408201527050505420746f6b656e206164647265737360781b606082015260800190565b61051d806101e16000396000f3fe608060405234801561001057600080fd5b50600436106100935760003560e01c80638da5cb5b116100665780638da5cb5b146100dd578063b0340123146100e5578063bb4d4436146100ed578063f2fde38b14610100578063ff7299751461011357610093565b806338cb3dd1146100985780633bb879ae146100b6578063678b2012146100cb578063715018a6146100d3575b600080fd5b6100a0610126565b6040516100ad91906104a4565b60405180910390f35b6100be610135565b6040516100ad91906104b8565b6100a06101b7565b6100db6101c6565b005b6100a061027a565b6100a0610289565b6100be6100fb36600461045e565b610298565b6100db61010e36600461045e565b61031f565b6100be61012136600461045e565b610429565b6001546001600160a01b031681565b600154604080516318160ddd60e01b815290516000926001600160a01b0316916318160ddd916004808301926020929190829003018186803b15801561017a57600080fd5b505afa15801561018e573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101b2919061048c565b905090565b6002546001600160a01b031681565b6101ce61045a565b6000546001600160a01b03908116911614610230576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b600080546040516001600160a01b03909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a3600080546001600160a01b0319169055565b6000546001600160a01b031690565b6003546001600160a01b031681565b6003546040516370a0823160e01b81526000916001600160a01b0316906370a08231906102c99085906004016104a4565b60206040518083038186803b1580156102e157600080fd5b505afa1580156102f5573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610319919061048c565b92915050565b61032761045a565b6000546001600160a01b03908116911614610389576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b6001600160a01b0381166103ce5760405162461bcd60e51b81526004018080602001828103825260268152602001806104c26026913960400191505060405180910390fd5b600080546040516001600160a01b03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600080546001600160a01b0319166001600160a01b0392909216919091179055565b6001546040516370a0823160e01b81526000916001600160a01b0316906370a08231906102c99085906004016104a4565b3390565b60006020828403121561046f578081fd5b81356001600160a01b0381168114610485578182fd5b9392505050565b60006020828403121561049d578081fd5b5051919050565b6001600160a01b0391909116815260200190565b9081526020019056fe4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373a26469706673582212202d399f8bd3938fb971da3a6b66c20361fd7913f732859123da911b658be967b064736f6c63430007050033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100935760003560e01c80638da5cb5b116100665780638da5cb5b146100dd578063b0340123146100e5578063bb4d4436146100ed578063f2fde38b14610100578063ff7299751461011357610093565b806338cb3dd1146100985780633bb879ae146100b6578063678b2012146100cb578063715018a6146100d3575b600080fd5b6100a0610126565b6040516100ad91906104a4565b60405180910390f35b6100be610135565b6040516100ad91906104b8565b6100a06101b7565b6100db6101c6565b005b6100a061027a565b6100a0610289565b6100be6100fb36600461045e565b610298565b6100db61010e36600461045e565b61031f565b6100be61012136600461045e565b610429565b6001546001600160a01b031681565b600154604080516318160ddd60e01b815290516000926001600160a01b0316916318160ddd916004808301926020929190829003018186803b15801561017a57600080fd5b505afa15801561018e573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101b2919061048c565b905090565b6002546001600160a01b031681565b6101ce61045a565b6000546001600160a01b03908116911614610230576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b600080546040516001600160a01b03909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a3600080546001600160a01b0319169055565b6000546001600160a01b031690565b6003546001600160a01b031681565b6003546040516370a0823160e01b81526000916001600160a01b0316906370a08231906102c99085906004016104a4565b60206040518083038186803b1580156102e157600080fd5b505afa1580156102f5573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610319919061048c565b92915050565b61032761045a565b6000546001600160a01b03908116911614610389576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b6001600160a01b0381166103ce5760405162461bcd60e51b81526004018080602001828103825260268152602001806104c26026913960400191505060405180910390fd5b600080546040516001600160a01b03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600080546001600160a01b0319166001600160a01b0392909216919091179055565b6001546040516370a0823160e01b81526000916001600160a01b0316906370a08231906102c99085906004016104a4565b3390565b60006020828403121561046f578081fd5b81356001600160a01b0381168114610485578182fd5b9392505050565b60006020828403121561049d578081fd5b5051919050565b6001600160a01b0391909116815260200190565b9081526020019056fe4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373a26469706673582212202d399f8bd3938fb971da3a6b66c20361fd7913f732859123da911b658be967b064736f6c63430007050033",
   "immutableReferences": {},
   "generatedSources": [
     {
@@ -1638,9 +1638,9 @@
   "sourceMap": "1086:1580:17:-:0;;;1552:328;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;833:17:11;853:12;:10;:12::i;:::-;871:6;:18;;-1:-1:-1;;;;;;871:18:11;-1:-1:-1;;;;;871:18:11;;;;;;;900:43;;871:18;;-1:-1:-1;871:18:11;900:43;;871:6;;900:43;-1:-1:-1;;;;;;1636:18:17;;;;;;1635:50;;-1:-1:-1;;;;;;1666:18:17;;;;1635:50;:88;;;;-1:-1:-1;;;;;;1696:26:17;;;;1635:88;1620:169;;;;-1:-1:-1;;;1620:169:17;;;;;;;:::i;:::-;;;;;;;;;1796:11;:33;;-1:-1:-1;;;;;;1796:33:17;;;-1:-1:-1;;;;;1796:33:17;;;;;;;1835:3;:17;;;;;;;;;;;;;;-1:-1:-1;1858:17:17;;;;;;;;;;;;;1086:1580;;586:98:8;669:10;586:98;:::o;14:179:31:-;95:13;;-1:-1:-1;;;;;137:31:31;;127:42;;117:2;;183:1;180;173:12;117:2;76:117;;;:::o;198:394::-;;;;355:2;343:9;334:7;330:23;326:32;323:2;;;376:6;368;361:22;323:2;404:42;436:9;404:42;:::i;:::-;394:52;;465:51;512:2;501:9;497:18;465:51;:::i;:::-;455:61;;535:51;582:2;571:9;567:18;535:51;:::i;:::-;525:61;;313:279;;;;;:::o;597:413::-;799:2;781:21;;;838:2;818:18;;;811:30;877:34;872:2;857:18;;850:62;-1:-1:-1;;;943:2:31;928:18;;921:47;1000:3;985:19;;771:239::o;:::-;1086:1580:17;;;;;;",
   "deployedSourceMap": "1086:1580:17:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1258:16;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;2020:111;;;:::i;:::-;;;;;;;:::i;1326:16::-;;;:::i;1599:135:11:-;;;:::i;:::-;;1016:71;;;:::i;1365:24:17:-;;;:::i;2524:140::-;;;;;;:::i;:::-;;:::i;1873:226:11:-;;;;;;:::i;:::-;;:::i;2263:137:17:-;;;;;;:::i;:::-;;:::i;1258:16::-;;;-1:-1:-1;;;;;1258:16:17;;:::o;2020:111::-;2109:3;;:17;;;-1:-1:-1;;;2109:17:17;;;;2087:7;;-1:-1:-1;;;;;2109:3:17;;:15;;:17;;;;;;;;;;;;;;:3;:17;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;2102:24;;2020:111;:::o;1326:16::-;;;-1:-1:-1;;;;;1326:16:17;;:::o;1599:135:11:-;1212:12;:10;:12::i;:::-;1202:6;;-1:-1:-1;;;;;1202:6:11;;;:22;;;1194:67;;;;;-1:-1:-1;;;1194:67:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1701:1:::1;1685:6:::0;;1664:40:::1;::::0;-1:-1:-1;;;;;1685:6:11;;::::1;::::0;1664:40:::1;::::0;1701:1;;1664:40:::1;1727:1;1710:19:::0;;-1:-1:-1;;;;;;1710:19:11::1;::::0;;1599:135::o;1016:71::-;1054:7;1076:6;-1:-1:-1;;;;;1076:6:11;1016:71;:::o;1365:24:17:-;;;-1:-1:-1;;;;;1365:24:17;;:::o;2524:140::-;2632:11;;:27;;-1:-1:-1;;;2632:27:17;;2608:7;;-1:-1:-1;;;;;2632:11:17;;:21;;:27;;2654:4;;2632:27;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;2625:34;2524:140;-1:-1:-1;;2524:140:17:o;1873:226:11:-;1212:12;:10;:12::i;:::-;1202:6;;-1:-1:-1;;;;;1202:6:11;;;:22;;;1194:67;;;;;-1:-1:-1;;;1194:67:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;1957:22:11;::::1;1949:73;;;;-1:-1:-1::0;;;1949:73:11::1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2054:6;::::0;;2033:38:::1;::::0;-1:-1:-1;;;;;2033:38:11;;::::1;::::0;2054:6;::::1;::::0;2033:38:::1;::::0;::::1;2077:6;:17:::0;;-1:-1:-1;;;;;;2077:17:11::1;-1:-1:-1::0;;;;;2077:17:11;;;::::1;::::0;;;::::1;::::0;;1873:226::o;2263:137:17:-;2376:3;;:19;;-1:-1:-1;;;2376:19:17;;2352:7;;-1:-1:-1;;;;;2376:3:17;;:13;;:19;;2390:4;;2376:19;;;:::i;586:98:8:-;669:10;586:98;:::o;14:306:31:-;;126:2;114:9;105:7;101:23;97:32;94:2;;;147:6;139;132:22;94:2;178:23;;-1:-1:-1;;;;;230:31:31;;220:42;;210:2;;281:6;273;266:22;210:2;309:5;84:236;-1:-1:-1;;;84:236:31:o;325:194::-;;448:2;436:9;427:7;423:23;419:32;416:2;;;469:6;461;454:22;416:2;-1:-1:-1;497:16:31;;406:113;-1:-1:-1;406:113:31:o;524:203::-;-1:-1:-1;;;;;688:32:31;;;;670:51;;658:2;643:18;;625:102::o;953:177::-;1099:25;;;1087:2;1072:18;;1054:76::o",
   "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity 0.7.5;\npragma abicoder v2;\n\nimport {IGovernanceStrategy} from '../interfaces/IGovernanceStrategy.sol';\nimport {IERC20} from '../interfaces/IERC20.sol';\nimport {IGovernancePowerDelegationToken} from '../interfaces/IGovernancePowerDelegationToken.sol';\nimport {Ownable} from '../dependencies/open-zeppelin/Ownable.sol';\nimport {SafeMath} from '../dependencies/open-zeppelin/SafeMath.sol';\nimport {ERC20} from '../ERC20.sol';\n\n/**\n * @title Governance Strategy contract\n * @dev Smart contract containing logic to measure users' relative power to propose and vote.\n * User Power = User Power from Populous Token + User Power from stkPopulous Token.\n * User Power from Token = Token Power + Token Power as Delegatee [- Token Power if user has delegated]\n * Two wrapper functions linked to Populous Tokens's GovernancePowerDelegationERC20.sol implementation\n * - getPropositionPowerAt: fetching a user Proposition Power at a specified block\n * - getVotingPowerAt: fetching a user Voting Power at a specified block\n * @author Populous\n **/\ncontract GovernanceStrategy is Ownable, IGovernanceStrategy {\n  using SafeMath for uint256;\n\n  // proposal creation token\n  // can be locked in exchange for voting token\n  ERC20 public PXT;\n  // can be locked in exchange for voting token\n  ERC20 public PPT; \n  // voting token\n  ERC20 public votingToken; \n\n  /**\n   * @dev Constructor, register tokens used for Voting and Proposition Powers.\n   * @param pxt_ The address of the Populous PXT Token contract.\n   **/\n  constructor(address pxt_, address ppt_, address votingToken_) {\n    require(\n      (pxt_ != address(0)) &&\n      (ppt_ != address(0)) &&\n      (votingToken_ != address(0)), \n      \"GovernanceStrategy: Invalid PXT/PPT token address\"\n    );\n\n    votingToken = ERC20(votingToken_);\n    PPT = ERC20(ppt_);\n    PXT = ERC20(pxt_);\n  }\n\n  /**\n   * @dev Returns the total supply of Proposition Tokens Available for Governance\n   * @return total supply at blockNumber\n   **/\n  function getTotalPropositionSupply() public view override returns (uint256) {\n    return PXT.totalSupply();\n  }\n\n  /**\n   * @dev Returns the Proposition Power of a user.\n   * @param user Address of the user.\n   * @return Power number\n   **/\n  function getPropositionPower(address user)\n    public\n    view\n    override\n    returns (uint256)\n  {\n    return PXT.balanceOf(user);\n  }\n\n  /**\n   * @dev Returns the Vote Power of a user.\n   * @param user Address of the user.\n   * @return Vote number\n   **/\n  function getVotingPower(address user)\n    public\n    view\n    override\n    returns (uint256)\n  {\n    return votingToken.balanceOf(user);\n  }\n}\n",
-  "sourcePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/governance/GovernanceStrategy.sol",
+  "sourcePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/governance/GovernanceStrategy.sol",
   "ast": {
-    "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/governance/GovernanceStrategy.sol",
+    "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/governance/GovernanceStrategy.sol",
     "exportedSymbols": {
       "ERC20": [
         635
@@ -1649,13 +1649,13 @@
         2452
       ],
       "IERC20": [
-        4604
+        4603
       ],
       "IGovernancePowerDelegationToken": [
-        4827
+        4826
       ],
       "IGovernanceStrategy": [
-        4853
+        4852
       ],
       "Ownable": [
         1415
@@ -1688,12 +1688,12 @@
         "src": "60:19:17"
       },
       {
-        "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernanceStrategy.sol",
+        "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IGovernanceStrategy.sol",
         "file": "../interfaces/IGovernanceStrategy.sol",
         "id": 2329,
         "nodeType": "ImportDirective",
         "scope": 2453,
-        "sourceUnit": 4854,
+        "sourceUnit": 4853,
         "src": "81:74:17",
         "symbolAliases": [
           {
@@ -1710,12 +1710,12 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IERC20.sol",
+        "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IERC20.sol",
         "file": "../interfaces/IERC20.sol",
         "id": 2331,
         "nodeType": "ImportDirective",
         "scope": 2453,
-        "sourceUnit": 4605,
+        "sourceUnit": 4604,
         "src": "156:48:17",
         "symbolAliases": [
           {
@@ -1732,12 +1732,12 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernancePowerDelegationToken.sol",
+        "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IGovernancePowerDelegationToken.sol",
         "file": "../interfaces/IGovernancePowerDelegationToken.sol",
         "id": 2333,
         "nodeType": "ImportDirective",
         "scope": 2453,
-        "sourceUnit": 4828,
+        "sourceUnit": 4827,
         "src": "205:98:17",
         "symbolAliases": [
           {
@@ -1754,7 +1754,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/Ownable.sol",
+        "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/Ownable.sol",
         "file": "../dependencies/open-zeppelin/Ownable.sol",
         "id": 2335,
         "nodeType": "ImportDirective",
@@ -1776,7 +1776,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/SafeMath.sol",
+        "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/SafeMath.sol",
         "file": "../dependencies/open-zeppelin/SafeMath.sol",
         "id": 2337,
         "nodeType": "ImportDirective",
@@ -1798,7 +1798,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/ERC20.sol",
+        "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/ERC20.sol",
         "file": "../ERC20.sol",
         "id": 2339,
         "nodeType": "ImportDirective",
@@ -1843,10 +1843,10 @@
               "id": 2343,
               "name": "IGovernanceStrategy",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4853,
+              "referencedDeclaration": 4852,
               "src": "1126:19:17",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IGovernanceStrategy_$4853",
+                "typeIdentifier": "t_contract$_IGovernanceStrategy_$4852",
                 "typeString": "contract IGovernanceStrategy"
               }
             },
@@ -1858,7 +1858,7 @@
         "contractDependencies": [
           1172,
           1415,
-          4853
+          4852
         ],
         "contractKind": "contract",
         "documentation": {
@@ -1871,7 +1871,7 @@
         "id": 2452,
         "linearizedBaseContracts": [
           2452,
-          4853,
+          4852,
           1415,
           1172
         ],
@@ -2765,7 +2765,7 @@
           },
           {
             "baseFunctions": [
-              4844
+              4843
             ],
             "body": {
               "id": 2420,
@@ -2891,7 +2891,7 @@
           },
           {
             "baseFunctions": [
-              4838
+              4837
             ],
             "body": {
               "id": 2435,
@@ -3063,7 +3063,7 @@
           },
           {
             "baseFunctions": [
-              4852
+              4851
             ],
             "body": {
               "id": 2450,
@@ -3242,7 +3242,7 @@
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/governance/GovernanceStrategy.sol",
+      "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/governance/GovernanceStrategy.sol",
       "exportedSymbols": {
         "ERC20": [
           635
@@ -3251,13 +3251,13 @@
           2452
         ],
         "IERC20": [
-          4604
+          4603
         ],
         "IGovernancePowerDelegationToken": [
-          4827
+          4826
         ],
         "IGovernanceStrategy": [
-          4853
+          4852
         ],
         "Ownable": [
           1415
@@ -3294,8 +3294,8 @@
       },
       {
         "attributes": {
-          "SourceUnit": 4854,
-          "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernanceStrategy.sol",
+          "SourceUnit": 4853,
+          "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IGovernanceStrategy.sol",
           "file": "../interfaces/IGovernanceStrategy.sol",
           "scope": 2453,
           "symbolAliases": [
@@ -3321,8 +3321,8 @@
       },
       {
         "attributes": {
-          "SourceUnit": 4605,
-          "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IERC20.sol",
+          "SourceUnit": 4604,
+          "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IERC20.sol",
           "file": "../interfaces/IERC20.sol",
           "scope": 2453,
           "symbolAliases": [
@@ -3348,8 +3348,8 @@
       },
       {
         "attributes": {
-          "SourceUnit": 4828,
-          "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernancePowerDelegationToken.sol",
+          "SourceUnit": 4827,
+          "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IGovernancePowerDelegationToken.sol",
           "file": "../interfaces/IGovernancePowerDelegationToken.sol",
           "scope": 2453,
           "symbolAliases": [
@@ -3376,7 +3376,7 @@
       {
         "attributes": {
           "SourceUnit": 1416,
-          "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/Ownable.sol",
+          "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/Ownable.sol",
           "file": "../dependencies/open-zeppelin/Ownable.sol",
           "scope": 2453,
           "symbolAliases": [
@@ -3403,7 +3403,7 @@
       {
         "attributes": {
           "SourceUnit": 1656,
-          "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/SafeMath.sol",
+          "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/SafeMath.sol",
           "file": "../dependencies/open-zeppelin/SafeMath.sol",
           "scope": 2453,
           "symbolAliases": [
@@ -3430,7 +3430,7 @@
       {
         "attributes": {
           "SourceUnit": 636,
-          "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/ERC20.sol",
+          "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/ERC20.sol",
           "file": "../ERC20.sol",
           "scope": 2453,
           "symbolAliases": [
@@ -3460,13 +3460,13 @@
           "contractDependencies": [
             1172,
             1415,
-            4853
+            4852
           ],
           "contractKind": "contract",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
             2452,
-            4853,
+            4852,
             1415,
             1172
           ],
@@ -3506,7 +3506,7 @@
               {
                 "attributes": {
                   "name": "IGovernanceStrategy",
-                  "referencedDeclaration": 4853,
+                  "referencedDeclaration": 4852,
                   "type": "contract IGovernanceStrategy"
                 },
                 "id": 2343,
@@ -4460,7 +4460,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                4844
+                4843
               ],
               "functionSelector": "3bb879ae",
               "implemented": true,
@@ -4618,7 +4618,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                4838
+                4837
               ],
               "functionSelector": "ff729975",
               "implemented": true,
@@ -4812,7 +4812,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                4852
+                4851
               ],
               "functionSelector": "bb4d4436",
               "implemented": true,
@@ -5019,7 +5019,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-05-16T18:15:33.750Z",
+  "updatedAt": "2021-05-31T17:29:55.482Z",
   "devdoc": {
     "author": "Populous*",
     "details": "Smart contract containing logic to measure users' relative power to propose and vote. User Power = User Power from Populous Token + User Power from stkPopulous Token. User Power from Token = Token Power + Token Power as Delegatee [- Token Power if user has delegated] Two wrapper functions linked to Populous Tokens's GovernancePowerDelegationERC20.sol implementation - getPropositionPowerAt: fetching a user Proposition Power at a specified block - getVotingPowerAt: fetching a user Voting Power at a specified block",

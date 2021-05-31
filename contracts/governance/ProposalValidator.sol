@@ -177,9 +177,14 @@ contract ProposalValidator is IProposalValidator {
     IPopulousGovernanceV2.ProposalWithoutVotes memory proposal = governance.getProposalById(proposalId);
     uint256 votingSupply = proposal.forVotes + proposal.againstVotes; //IGovernanceStrategy(proposal.strategy).getTotalVotingSupply();
 
-    return (proposal.forVotes.mul(ONE_HUNDRED_WITH_PRECISION).div(votingSupply) >
+    if (votingSupply > 0) {
+      return (proposal.forVotes.mul(ONE_HUNDRED_WITH_PRECISION).div(votingSupply) >
       proposal.againstVotes.mul(ONE_HUNDRED_WITH_PRECISION).div(votingSupply).add(
         VOTE_DIFFERENTIAL
       ));
+    } else {
+      return false;
+    }
+    
   }
 }

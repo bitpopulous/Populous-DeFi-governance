@@ -19,18 +19,18 @@ module.exports = {
         const secret = require("./secret.json");
         return new HDWalletProvider(secret.mnemonic, `https://ropsten.infura.io/v3/${secret.infuraKey[1]}`, 2);
       }, */
-      /* provider: function () {
+      provider: function () {
         const secret = require("./secret.json");
         return new HDWalletProvider(
-          secret.mnemonic,//secret.alchemy, 
+          secret.alchemy,//secret.mnemonic, 
           'wss://eth-ropsten.ws.alchemyapi.io/v2/2vcXaK3xR2xUx2XYhEVzfpX7maV4uHlp');
-      }, */
-      provider: function () {
+      },
+      /* provider: function () {
         const secret = require("./secret.json");
         return new HDWalletProvider(
           secret.alchemy, 
           'https://eth-ropsten.alchemyapi.io/v2/YHz3pFrYNC4ZyJFS6zzgSEVKJ3jePsUY');
-      },
+      }, */
       //chainId: 3,
       network_id: 3,
       gas: 7990000,
