@@ -24,16 +24,20 @@ module.exports = function (deployer, network, accounts) {
 
 
             // mock PPT
-            await deployer.deploy(MockPPT);
-            ppt = (await MockPPT.deployed()).address;
+            /* await deployer.deploy(MockPPT);
+            ppt = (await MockPPT.deployed()).address; */
 
             // mock PXT
-            await deployer.deploy(MockPXT);
-            pxt = (await MockPXT.deployed()).address;
+            /* await deployer.deploy(MockPXT);
+            pxt = (await MockPXT.deployed()).address; */
 
             // mock votingToken
-            await deployer.deploy(MockVotingToken);
-            votingToken = (await MockVotingToken.deployed()).address;
+            /* await deployer.deploy(MockVotingToken);
+            votingToken = (await MockVotingToken.deployed()).address; */
+
+            ppt = '0xb98D0E430175f343D43DfC113E8b31F49F71892d';
+            pxt = '0x9510D07aa3B3394D2236dF039C5292C063D12487';
+            votingToken = '0x3772FfAA0C1FA1e25ED67572ADf1e982776115be';
 
             // governance strategy
             await deployer.deploy(GovernanceStrategy, pxt, ppt, votingToken);
@@ -47,12 +51,11 @@ module.exports = function (deployer, network, accounts) {
                 (await GovernanceStrategy.deployed()).address,
                 votingDelay,
                 guardian,
-                executors,
-                {gas: 3618591}
+                executors
             )
 
             // voting token admin
-            const votingTokenInstance = await MockVotingToken.deployed();
+            const votingTokenInstance = await MockVotingToken.at(votingToken);
             const governanceInstance = await PopulousGovernanceV2.deployed();
             await votingTokenInstance.setAdmin(
                 governanceInstance.address
@@ -79,8 +82,7 @@ module.exports = function (deployer, network, accounts) {
                 propositionThreshold,
                 voteDuration,
                 voteDifferential,
-                minimumQuorum,
-                {gas: 3618591}
+                minimumQuorum
             )
             
             const executorInstance = await Executor.deployed();

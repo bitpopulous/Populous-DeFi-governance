@@ -33,9 +33,9 @@ module.exports = {
       }, */
       //chainId: 3,
       network_id: 3,
-      gas: 7990000,
+      gas: 8000000,
       skipDryRun: true,
-      gasPrice: 3e10,
+      gasPrice: 80000000000,
       //from: '0xC6561dF9180a8863fA9a16aB376eFbca17166CF4',
       from: '0x614b32516601b7C424d0B284B498D5E14323ED3A'
     },
