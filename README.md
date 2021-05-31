@@ -25,7 +25,7 @@ Executor: 0xE10247C68732Bd87dDb1AE9d13EA61935C3DD128
 
 ## Proposals
 ```
-proposal id: 0 // created
+proposal id: 1 // created
 ```
 
 
