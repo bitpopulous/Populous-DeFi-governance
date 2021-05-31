@@ -25,8 +25,40 @@ Executor: 0xE10247C68732Bd87dDb1AE9d13EA61935C3DD128
 
 ## Proposals
 ```
+proposal id: 1 // created
+```
+
+
+
+## Ethereum (ropsten) test network deployment for Populous Governance smart contracts - 31/05/2021
+
+
+## Contract addresses
+```
+deployer/admin - 0x614b32516601b7C424d0B284B498D5E14323ED3A
+
+
+MockPPT: 0xb98D0E430175f343D43DfC113E8b31F49F71892d
+
+MockPXT: 0x9510D07aa3B3394D2236dF039C5292C063D12487
+
+MockVotingToken: 0x3772FfAA0C1FA1e25ED67572ADf1e982776115be
+
+GovernanceStrategy: 0xdc69Ae7c0bceE89c41186Eb4a7849508B02D2ccA
+
+PopulousGovernanceV2: 0xA7685bB8dA6f95c40766daA6A2bAFe1d7Aad2B39
+
+Executor: 0x6A44F97ae0a40FD5db6F81F386C62BdA059E5060
+
+```
+
+
+## Proposals
+```
 proposal id: 0 // created
 ```
+
+
 
 
 ## Local testing

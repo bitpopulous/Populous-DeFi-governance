@@ -450,12 +450,7 @@ contract PopulousGovernanceV2 is Ownable, IPopulousGovernanceV2 {
       return ProposalState.Pending;
     } else if (block.number <= proposal.endBlock) {
       return ProposalState.Active;
-    } else if (
-      //todo - check
-        (proposal.forVotes + proposal.againstVotes) > 0 &&
-        !IProposalValidator(address(proposal.executor)).isProposalPassed(this, proposalId)
-      ) 
-    {
+    } else if (!IProposalValidator(address(proposal.executor)).isProposalPassed(this, proposalId)) {
       return ProposalState.Failed;
     } else if (proposal.executionTime == 0) {
       return ProposalState.Succeeded;
