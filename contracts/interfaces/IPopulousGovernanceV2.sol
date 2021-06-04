@@ -328,12 +328,13 @@ interface IPopulousGovernanceV2 {
   function getLockedTokens(uint256 proposalId, address voter) external view returns(LockedTokens memory);
 
   /**
-   * @dev Function to redeem tokens locked in proposal for user
+   * dev Function to redeem tokens locked in proposal for user
    * by proposal id
-   * @param proposalId id of the proposal to get
-   **/
+   * param proposalId id of the proposal to get
+   *
   function redeemLockedTokens(
     uint256 proposalId
   ) external;
+*/
 
 }

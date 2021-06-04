@@ -68,14 +68,14 @@ module.exports = function (deployer, network, accounts) {
                 ],
                 { deployer, initializer: 'initialize' }
             )
-            const governance = await PopulousGovernanceV2.deployed();
-            console.log('Governance V1 contract: ', governance.address);
+            const governanceInstance = await PopulousGovernanceV2.deployed();
+            console.log('Governance V1 contract: ', governanceInstance.address);
 
 
             // voting token admin
             const votingTokenInstance = await MockVotingToken.at(votingToken);
             await votingTokenInstance.setAdmin(
-                governance.address
+                governanceInstance.address
             );
         
             let ONE_DAY = 60*60*24, // BigNumber.from('60').mul('60').mul('24');
@@ -149,12 +149,11 @@ module.exports = function (deployer, network, accounts) {
                 { deployer, initializer: 'initialize' }
             )
 
-            const governance = await PopulousGovernanceV2.deployed();
-            console.log('Governance V1 contract: ', governance.address);
+            const governanceInstance = await PopulousGovernanceV2.deployed();
+            console.log('Governance V1 contract: ', governanceInstance.address);
 
             // voting token admin
             const votingTokenInstance = await MockVotingToken.at(votingToken);
-            const governanceInstance = await PopulousGovernanceV2.deployed();
             await votingTokenInstance.setAdmin(
                 governanceInstance.address
             );

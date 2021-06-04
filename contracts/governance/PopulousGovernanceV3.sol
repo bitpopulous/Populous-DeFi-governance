@@ -680,7 +680,7 @@ contract PopulousGovernanceV3 is VersionedInitializable, Owned, IPopulousGoverna
    **/
   function redeemLockedTokens(
     uint256 proposalId
-  ) external override {
+  ) external {
     require(
       getProposalState(proposalId) != ProposalState.Pending &&
       getProposalState(proposalId) != ProposalState.Active, 
