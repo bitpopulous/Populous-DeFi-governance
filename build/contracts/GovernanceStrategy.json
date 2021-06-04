@@ -52,8 +52,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -66,8 +65,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -80,8 +78,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -94,8 +91,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -128,8 +124,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -142,8 +137,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -162,8 +156,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -182,8 +175,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.7.5+commit.eb77ed08\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"pxt_\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"ppt_\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"votingToken_\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"PPT\",\"outputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PXT\",\"outputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"_owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getPropositionPower\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTotalPropositionSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getVotingPower\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"votingToken\",\"outputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Populous*\",\"details\":\"Smart contract containing logic to measure users' relative power to propose and vote. User Power = User Power from Populous Token + User Power from stkPopulous Token. User Power from Token = Token Power + Token Power as Delegatee [- Token Power if user has delegated] Two wrapper functions linked to Populous Tokens's GovernancePowerDelegationERC20.sol implementation - getPropositionPowerAt: fetching a user Proposition Power at a specified block - getVotingPowerAt: fetching a user Voting Power at a specified block\",\"kind\":\"dev\",\"methods\":{\"constructor\":{\"details\":\"Constructor, register tokens used for Voting and Proposition Powers.\",\"params\":{\"pxt_\":\"The address of the Populous PXT Token contract.*\"}},\"getPropositionPower(address)\":{\"details\":\"Returns the Proposition Power of a user.\",\"params\":{\"user\":\"Address of the user.\"},\"returns\":{\"_0\":\"Power number*\"}},\"getTotalPropositionSupply()\":{\"details\":\"Returns the total supply of Proposition Tokens Available for Governance\",\"returns\":{\"_0\":\"total supply at blockNumber*\"}},\"getVotingPower(address)\":{\"details\":\"Returns the Vote Power of a user.\",\"params\":{\"user\":\"Address of the user.\"},\"returns\":{\"_0\":\"Vote number*\"}},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"title\":\"Governance Strategy contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/governance/GovernanceStrategy.sol\":\"GovernanceStrategy\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/ERC20.sol\":{\"keccak256\":\"0xc6bc392dfd3a028e8afeee2ccdbda7c709b0157bb99114443b5796b2b52fa0a9\",\"license\":\"Unlicensed\",\"urls\":[\"bzz-raw://2c7c0170736ae84638919f07c0c8416a3df3ff77c4c0223596d8172869c5cc42\",\"dweb:/ipfs/QmavZRBLgMR5mQuH43uef43W3Nf6HYGf7cVzwiYA53JymR\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/Context.sol\":{\"keccak256\":\"0x1184b768b1e5b8e13eb4a589c3b14c2bf6e04e9d061012c6c772a9830272a1f7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://be5034806781ef4986f7edd2ff2fe8dead05c2aeee627f55a4a68cfe21d43479\",\"dweb:/ipfs/QmQ5QNcLBdQSPRQSmxmNvBf6r2pS1AbNPPoEWw3Q2WHRmN\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/dependencies/open-zeppelin/SafeMath.sol\":{\"keccak256\":\"0x82cac3eaeff0a73649987a5fa25258561857346745da180f51b332014df8166d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://07bd1ad47162f33326e5374c9aec9b3c514882b360f66b627b20c622b80053c3\",\"dweb:/ipfs/QmPrFNUxLyPQppcZQ5hD7L34rD5BWe9LQvw6SD1cLDNGn3\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/governance/GovernanceStrategy.sol\":{\"keccak256\":\"0xefc686d29017ea34fdc4499ee19b351f816ee76d9b59375df708d0dd3b84b6e7\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://c1edc6cfefa353e69ccf9e363171afc99f647386f50989636cec3a6e4a5037ea\",\"dweb:/ipfs/QmYfxSBsJ9DtFKsoJPRorkPyj7UzwHy5bykw1oVshn54XS\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IERC20.sol\":{\"keccak256\":\"0x388d7e22e4455851ae9d1309dabf9e01ff6849128ef607e89389b7cf8fe4df1d\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://6e8db75cc490f3a85bd8ef8b9419284831183777d36643f100a15c1c35a92d6d\",\"dweb:/ipfs/QmTz6RiRprnq58sA7fShW8w3ttyBzCXVHjCNyGbgNxkcWx\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernancePowerDelegationToken.sol\":{\"keccak256\":\"0x8be3a09e9cd801481f0e420771edfc3f04dbb0ebafba00282b7c980fc2b0c309\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://9e05d70025b5b3526c5df342652d66488840323d1854b89f365710a5b6aefc32\",\"dweb:/ipfs/QmfPun5g2YtLKDNcoNDruudF7dd5t6AQb38dgZnw6kYG71\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernanceStrategy.sol\":{\"keccak256\":\"0xd69c1a414ace8da57a6b53e6ee54fe9cf6e6926adc2e1d962d96d5460bd8d677\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://a45def800fb575d280bb816438e544fe8ef9645afae6a44bf94e6a678fe05a4f\",\"dweb:/ipfs/QmVqxxoCYknVf38SHQis1TvVUeiXNsnQa6NEpvamnf3WAC\"]},\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/misc/Ownable.sol\":{\"keccak256\":\"0xa792b05d4ece249c74a878fa7de3ac3740275c3b5011b6e35a1d998caa45f7ef\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5a6b379ee7e2f4cd32a095745835bbeabbb54d9afe3380c920e4bb80e527774d\",\"dweb:/ipfs/QmVrc6YCwd5uxrgRawCArDSwihdzxy1cYQAYjWh4FzCvRP\"]}},\"version\":1}",
@@ -1670,16 +1662,16 @@
         2510
       ],
       "IERC20": [
-        6398
+        6547
       ],
       "IGovernancePowerDelegationToken": [
-        6621
+        6770
       ],
       "IGovernanceStrategy": [
-        6647
+        6796
       ],
       "Ownable": [
-        7331
+        7486
       ],
       "SafeMath": [
         1633
@@ -1714,7 +1706,7 @@
         "id": 2387,
         "nodeType": "ImportDirective",
         "scope": 2511,
-        "sourceUnit": 6648,
+        "sourceUnit": 6797,
         "src": "81:74:18",
         "symbolAliases": [
           {
@@ -1736,7 +1728,7 @@
         "id": 2389,
         "nodeType": "ImportDirective",
         "scope": 2511,
-        "sourceUnit": 6399,
+        "sourceUnit": 6548,
         "src": "156:48:18",
         "symbolAliases": [
           {
@@ -1758,7 +1750,7 @@
         "id": 2391,
         "nodeType": "ImportDirective",
         "scope": 2511,
-        "sourceUnit": 6622,
+        "sourceUnit": 6771,
         "src": "205:98:18",
         "symbolAliases": [
           {
@@ -1780,7 +1772,7 @@
         "id": 2393,
         "nodeType": "ImportDirective",
         "scope": 2511,
-        "sourceUnit": 7332,
+        "sourceUnit": 7487,
         "src": "304:44:18",
         "symbolAliases": [
           {
@@ -1848,10 +1840,10 @@
               "id": 2399,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 7331,
+              "referencedDeclaration": 7486,
               "src": "1095:7:18",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$7331",
+                "typeIdentifier": "t_contract$_Ownable_$7486",
                 "typeString": "contract Ownable"
               }
             },
@@ -1864,10 +1856,10 @@
               "id": 2401,
               "name": "IGovernanceStrategy",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 6647,
+              "referencedDeclaration": 6796,
               "src": "1104:19:18",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IGovernanceStrategy_$6647",
+                "typeIdentifier": "t_contract$_IGovernanceStrategy_$6796",
                 "typeString": "contract IGovernanceStrategy"
               }
             },
@@ -1878,8 +1870,8 @@
         ],
         "contractDependencies": [
           1172,
-          6647,
-          7331
+          6796,
+          7486
         ],
         "contractKind": "contract",
         "documentation": {
@@ -1892,8 +1884,8 @@
         "id": 2510,
         "linearizedBaseContracts": [
           2510,
-          6647,
-          7331,
+          6796,
+          7486,
           1172
         ],
         "name": "GovernanceStrategy",
@@ -2786,7 +2778,7 @@
           },
           {
             "baseFunctions": [
-              6638
+              6787
             ],
             "body": {
               "id": 2478,
@@ -2912,7 +2904,7 @@
           },
           {
             "baseFunctions": [
-              6632
+              6781
             ],
             "body": {
               "id": 2493,
@@ -3084,7 +3076,7 @@
           },
           {
             "baseFunctions": [
-              6646
+              6795
             ],
             "body": {
               "id": 2508,
@@ -3272,16 +3264,16 @@
           2510
         ],
         "IERC20": [
-          6398
+          6547
         ],
         "IGovernancePowerDelegationToken": [
-          6621
+          6770
         ],
         "IGovernanceStrategy": [
-          6647
+          6796
         ],
         "Ownable": [
-          7331
+          7486
         ],
         "SafeMath": [
           1633
@@ -3315,7 +3307,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 6648,
+          "SourceUnit": 6797,
           "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernanceStrategy.sol",
           "file": "../interfaces/IGovernanceStrategy.sol",
           "scope": 2511,
@@ -3342,7 +3334,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 6399,
+          "SourceUnit": 6548,
           "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IERC20.sol",
           "file": "../interfaces/IERC20.sol",
           "scope": 2511,
@@ -3369,7 +3361,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 6622,
+          "SourceUnit": 6771,
           "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernancePowerDelegationToken.sol",
           "file": "../interfaces/IGovernancePowerDelegationToken.sol",
           "scope": 2511,
@@ -3396,7 +3388,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 7332,
+          "SourceUnit": 7487,
           "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/misc/Ownable.sol",
           "file": "../misc/Ownable.sol",
           "scope": 2511,
@@ -3480,15 +3472,15 @@
           "abstract": false,
           "contractDependencies": [
             1172,
-            6647,
-            7331
+            6796,
+            7486
           ],
           "contractKind": "contract",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
             2510,
-            6647,
-            7331,
+            6796,
+            7486,
             1172
           ],
           "name": "GovernanceStrategy",
@@ -3509,7 +3501,7 @@
               {
                 "attributes": {
                   "name": "Ownable",
-                  "referencedDeclaration": 7331,
+                  "referencedDeclaration": 7486,
                   "type": "contract Ownable"
                 },
                 "id": 2399,
@@ -3527,7 +3519,7 @@
               {
                 "attributes": {
                   "name": "IGovernanceStrategy",
-                  "referencedDeclaration": 6647,
+                  "referencedDeclaration": 6796,
                   "type": "contract IGovernanceStrategy"
                 },
                 "id": 2401,
@@ -4481,7 +4473,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6638
+                6787
               ],
               "functionSelector": "3bb879ae",
               "implemented": true,
@@ -4639,7 +4631,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6632
+                6781
               ],
               "functionSelector": "ff729975",
               "implemented": true,
@@ -4833,7 +4825,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6646
+                6795
               ],
               "functionSelector": "bb4d4436",
               "implemented": true,
@@ -5038,37 +5030,9 @@
     "name": "solc",
     "version": "0.7.5+commit.eb77ed08.Emscripten.clang"
   },
-  "networks": {
-    "3": {
-      "events": {
-        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "previousOwner",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "newOwner",
-              "type": "address"
-            }
-          ],
-          "name": "OwnershipTransferred",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xE293d25789Bf44c7798B29532118f128F8DBd421",
-      "transactionHash": "0x1c6588a6b7fbc8d70b91f6279d6d4246093359cf00fdb577626902e0daf3d3d9"
-    }
-  },
+  "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-06-04T11:56:26.074Z",
-  "networkType": "ethereum",
+  "updatedAt": "2021-06-04T16:39:26.416Z",
   "devdoc": {
     "author": "Populous*",
     "details": "Smart contract containing logic to measure users' relative power to propose and vote. User Power = User Power from Populous Token + User Power from stkPopulous Token. User Power from Token = Token Power + Token Power as Delegatee [- Token Power if user has delegated] Two wrapper functions linked to Populous Tokens's GovernancePowerDelegationERC20.sol implementation - getPropositionPowerAt: fetching a user Proposition Power at a specified block - getVotingPowerAt: fetching a user Voting Power at a specified block",

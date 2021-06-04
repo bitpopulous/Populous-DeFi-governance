@@ -680,7 +680,7 @@ contract PopulousGovernanceV3 is VersionedInitializable, Owned, IPopulousGoverna
    **/
   function redeemLockedTokens(
     uint256 proposalId
-  ) external {
+  ) public override {
     require(
       getProposalState(proposalId) != ProposalState.Pending &&
       getProposalState(proposalId) != ProposalState.Active, 
@@ -715,6 +715,13 @@ contract PopulousGovernanceV3 is VersionedInitializable, Owned, IPopulousGoverna
     );
     
     emit LockedTokensRedeemed(voter, lockTokens.tokenAddress, lockTokens.amount);
+  }
+
+  function payToRedeemLockedTokens(
+    uint256 proposalId
+  ) external payable {
+    require(msg.value > 0, "Governance: payToRedeemLockedTokens: msg.value is not above 0");
+    redeemLockedTokens(proposalId);
   }
 
   function getChainId() public pure returns (uint256) {

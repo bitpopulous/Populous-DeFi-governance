@@ -675,10 +675,10 @@ contract PopulousGovernanceV2 is VersionedInitializable, Owned, IPopulousGoverna
   }
 
   /**
-   * dev Function to redeem tokens locked in proposal for user
+   * @dev Function to redeem tokens locked in proposal for user
    * by proposal id
-   * param proposalId id of the proposal to get
-   **
+   * @param proposalId id of the proposal to get
+   **/
   function redeemLockedTokens(
     uint256 proposalId
   ) external override {
@@ -717,7 +717,6 @@ contract PopulousGovernanceV2 is VersionedInitializable, Owned, IPopulousGoverna
     
     emit LockedTokensRedeemed(voter, lockTokens.tokenAddress, lockTokens.amount);
   }
-  */
 
   function getChainId() public pure returns (uint256) {
     uint256 chainId;

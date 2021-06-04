@@ -2,10 +2,11 @@ const MockPPT = artifacts.require('MockPPT');
 const MockPXT = artifacts.require('MockPXT');
 const GovernanceStrategy = artifacts.require('GovernanceStrategy');
 const PopulousGovernanceV2 = artifacts.require('PopulousGovernanceV2');
+const PopulousGovernanceV3 = artifacts.require('PopulousGovernanceV3');
 const Executor = artifacts.require('Executor');
 const MockVotingToken = artifacts.require('MockVotingToken');
 
-const {deployProxy} = require('@openzeppelin/truffle-upgrades');
+const {deployProxy, upgradeProxy} = require('@openzeppelin/truffle-upgrades');
 // const {ethers} = require('ethers');
 // const {latest, duration, toBN} = require('../../helpers/utils');
 // const {parseEther} = ethers.utils;
@@ -58,6 +59,11 @@ const deployGovernanceStrategy = async () => {
   ];
 };
 
+const upgradeGovernance = async (governanceAddress) => {
+  const governanceV2 = await upgradeProxy(governanceAddress, PopulousGovernanceV3);
+  return governanceV2;
+}
+
 const deployGovernance = async (options = {}) => {
   const {owner, firstUser, secondUser, thirdUser, fourthUser} = await getGovernanceActorsAsync();
   
@@ -77,7 +83,7 @@ const deployGovernance = async (options = {}) => {
 
 
   // with constructor
-  const governanceInstance = await PopulousGovernanceV2.new(
+  /* const governanceInstance = await PopulousGovernanceV2.new(
     votingTokenInstance.address,
     pptInstance.address,
     pxtInstance.address,
@@ -86,10 +92,10 @@ const deployGovernance = async (options = {}) => {
     guardian,
     executors,
     {from: owner}
-  );
+  ); */
 
   // with upgradeability proxy
-  /* const governanceInstance = await deployProxy(
+  const governanceInstance = await deployProxy(
     PopulousGovernanceV2, 
     [
       votingTokenInstance.address,
@@ -99,7 +105,7 @@ const deployGovernance = async (options = {}) => {
       votingDelay,
       guardian,
       executors
-    ], {initializer: 'initialize'}); */
+    ], {initializer: 'initialize'});
 
   // mint ppt and pxt for users
   const amountToMint = 1000000 * (10**8);
@@ -198,6 +204,7 @@ const deployExecutor = async (options = {}) => {
 };
 
 module.exports = {
+  upgradeGovernance,
   deployExecutor,
   deployGovernance,
   deployGovernanceStrategy,
