@@ -1,5 +1,4 @@
-//pragma solidity >=0.4.21 <0.6.0;
-
+//SPDX-License-Identifier: Unlicensed
 pragma solidity 0.7.5;
 
 
@@ -7,7 +6,7 @@ contract Migrations {
   address public owner;
   uint public last_completed_migration;
 
-  constructor() public {
+  constructor() {
     owner = msg.sender;
   }
 

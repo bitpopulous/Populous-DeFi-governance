@@ -15,20 +15,20 @@ import './Context.sol';
  * `onlyOwner`, which can be applied to your functions to restrict their use to
  * the owner.
  */
-contract Ownable is Context {
-  address private _owner;
+contract Owned is Context {
+  address public _owner;
 
   event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
 
   /**
-   * @dev Initializes the contract setting the deployer as the initial owner.
-   */
+   * Initializes the contract setting the deployer as the initial owner.
+   
   constructor() {
     address msgSender = _msgSender();
     _owner = msgSender;
     emit OwnershipTransferred(address(0), msgSender);
   }
-
+*/
   /**
    * @dev Returns the address of the current owner.
    */

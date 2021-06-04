@@ -25,7 +25,7 @@ import "../dependencies/open-zeppelin/VersionedInitializable.sol";
  *                   The transition to "Canceled" can appear in multiple states
  * @author Populous
  **/
-contract PopulousGovernanceV2 is VersionedInitializable, Owned, IPopulousGovernanceV2 {
+contract PopulousGovernanceV3 is VersionedInitializable, Owned, IPopulousGovernanceV2 {
   using SafeMath for uint256;
 
   address private _governanceStrategy;
@@ -52,7 +52,7 @@ contract PopulousGovernanceV2 is VersionedInitializable, Owned, IPopulousGoverna
     _;
   }
 
-  uint256 public constant GOVERNANCE_REVISION = 0x1;
+  uint256 public constant GOVERNANCE_REVISION = 0x2;
 
   function getRevision() internal pure override returns (uint256) {
       return GOVERNANCE_REVISION;
@@ -68,7 +68,6 @@ contract PopulousGovernanceV2 is VersionedInitializable, Owned, IPopulousGoverna
     address[] memory executors
   ) initializer public {
     address msgSender = _msgSender();
-    
     _owner = msgSender;
     emit OwnershipTransferred(address(0), msgSender);
     _setGovernanceStrategy(governanceStrategy);

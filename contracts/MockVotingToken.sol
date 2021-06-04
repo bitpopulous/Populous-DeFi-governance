@@ -1,9 +1,10 @@
+//SPDX-License-Identifier: Unlicensed
 pragma solidity 0.7.5;
 pragma abicoder v2;
 
 import "./ERC20.sol";
 import "./interfaces/IPopulousGovernanceV2.sol";
-import {Ownable} from './dependencies/open-zeppelin/Ownable.sol';
+import {Ownable} from './misc/Ownable.sol';
 
 /**
  * @title MockVotingToken

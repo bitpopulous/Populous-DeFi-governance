@@ -1,6 +1,6 @@
 # Populous Governance v2
 
-## Ethereum (ropsten) test network deployment for Populous Governance smart contracts - 14/05/2021
+## Ethereum (ropsten) test network deployment for Populous Governance smart contracts - 4/06/2021
 
 
 ## Contract addresses
@@ -14,18 +14,21 @@ MockPXT: 0x9510D07aa3B3394D2236dF039C5292C063D12487
 
 MockVotingToken: 0x3772FfAA0C1FA1e25ED67572ADf1e982776115be
 
-GovernanceStrategy: 0x1c3195d6c5DdB5B11cdfFD22aF2cC46553FeC848
+GovernanceStrategy: 0xC02bB198Fb9d5d2b001fDAc095D11F123493c491
 
-PopulousGovernanceV2: 0x914728F74d93BA9FB4a2547053641B249d8F791C
+PopulousGovernanceV2: 0x538712e3068f6BDAc356F51059B887505d9EC426, Proxy Address: 0x4F270BC6836b0C4D11c9ec26E32A8920C79B2561
+ProxyAdmin: 0x0C94fDA96f4807319351C1472952c1d88BD6670c
+TransparentUpgradeableProxy: 0x4F270BC6836b0C4D11c9ec26E32A8920C79B2561
 
-Executor: 0xE10247C68732Bd87dDb1AE9d13EA61935C3DD128
+Executor: 0xE72a45e7099386EE3FF4749af4C7D421B6Ea571E
 
 ```
 
 
 ## Proposals
 ```
-proposal id: 1 // created
+proposal id: 0 // created
+https://ropsten.etherscan.io/tx/0xe9ed2d5c8c89963960ee1f2bb051e2b36e4dc652cbebf0ae128f334cb79885bc
 ```
 
 
