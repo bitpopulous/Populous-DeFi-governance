@@ -74,9 +74,8 @@ module.exports = function (deployer, network, accounts) {
 
             // voting token admin
             const votingTokenInstance = await MockVotingToken.at(votingToken);
-            const governanceInstance = await PopulousGovernanceV2.deployed();
             await votingTokenInstance.setAdmin(
-                governanceInstance.address
+                governance.address
             );
         
             let ONE_DAY = 60*60*24, // BigNumber.from('60').mul('60').mul('24');
