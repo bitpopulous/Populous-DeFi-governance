@@ -11,9 +11,7 @@ const { deployProxy, prepareUpgrade, upgradeProxy } = require('@openzeppelin/tru
 module.exports = function (deployer, network, accounts) {
     // Using the accounts within the migrations.
 
-    if (network == "ropsten") {
-
-    } else if (network == "development") {
+    if (network == "development") {
         /* deployer.then(async () => {
             const governance = await PopulousGovernanceV2.deployed();
             await upgradeProxy(governance.address, PopulousGovernanceV3, {deployer});

@@ -5,6 +5,7 @@ const PopulousGovernanceV2 = artifacts.require('PopulousGovernanceV2');
 const PopulousGovernanceV3 = artifacts.require('PopulousGovernanceV3');
 const Executor = artifacts.require('Executor');
 const MockVotingToken = artifacts.require('MockVotingToken');
+const PopulousVotingToken = artifacts.require('PopulousVotingToken');
 const { deployProxy, prepareUpgrade, upgradeProxy } = require('@openzeppelin/truffle-upgrades');
 
 
@@ -198,6 +199,84 @@ module.exports = function (deployer, network, accounts) {
                     executors, {from: accounts[1]})
             console.log(await governance.getGuardian(), 'guardian after change')
  */
+        })
+    } else if (network == "live") {
+        deployer.then(async () => {
+            let ppt;
+            let pxt;
+            let votingToken;
+
+            // governance strategy
+            const votingDelay = 0;
+            const guardian = "0x70393B06D018e148B593A91E022EA73071c17007";
+            const executors = [];
+
+            // PPT
+            ppt = "0xd4fa1460F537bb9085d22C7bcCB5DD450Ef28e3a";
+
+            // PXT
+            pxt = "0xc14830E53aA344E8c14603A91229A0b925b0B262";
+
+            // votingToken
+            await deployer.deploy(PopulousVotingToken);
+            votingToken = (await PopulousVotingToken.deployed()).address;
+
+            // governance strategy
+            await deployer.deploy(GovernanceStrategy, pxt, ppt, votingToken);
+
+            // governance
+            await deployProxy(
+                PopulousGovernanceV2, 
+                [
+                    votingToken,
+                    ppt,
+                    pxt,
+                    (await GovernanceStrategy.deployed()).address,
+                    votingDelay,
+                    guardian,
+                    executors
+                ],
+                { deployer, initializer: 'initialize' }
+            )
+
+            const governanceInstance = await PopulousGovernanceV2.deployed();
+            console.log('Governance V1 contract: ', governanceInstance.address);
+
+            // voting token admin
+            const votingTokenInstance = await PopulousVotingToken.at(votingToken);
+            await votingTokenInstance.setAdmin(
+                governanceInstance.address
+            );
+        
+            let ONE_DAY = 60*60*24, // BigNumber.from('60').mul('60').mul('24');
+            admin = governanceInstance.address,
+            delay = '60', // 60 secs // minimum time between queueing and execution of proposal
+            gracePeriod = (ONE_DAY*14).toString(), //ONE_DAY.mul('14').toString();
+            minimumDelay = '0',
+            maximumDelay = (ONE_DAY*30).toString(),//ONE_DAY.mul('30').toString();
+            propositionThreshold = '100', //  1% proposition 
+            voteDuration = '17200', // 172000 blocks - approx 48 hours
+            voteDifferential = '500', // 5%
+            minimumQuorum = '2000'; // 20%
+
+            await deployer.deploy(
+                Executor,
+                admin,
+                delay,
+                gracePeriod,
+                minimumDelay,
+                maximumDelay,
+                propositionThreshold,
+                voteDuration,
+                voteDifferential,
+                minimumQuorum
+            )
+            
+            const executorInstance = await Executor.deployed();
+            await governanceInstance.authorizeExecutors(
+                [executorInstance.address] 
+            );
+
         })
     }
 
