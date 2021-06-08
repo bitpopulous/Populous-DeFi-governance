@@ -31,7 +31,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.5+commit.eb77ed08\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"},{\"internalType\":\"enum IGovernancePowerDelegationToken.DelegationType\",\"name\":\"delegationType\",\"type\":\"uint8\"}],\"name\":\"getPowerAtBlock\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"getPowerAtBlock(address,uint256,uint8)\":{\"details\":\"get the power of a user at a specified block\",\"params\":{\"blockNumber\":\"block number at which to get power\",\"delegationType\":\"delegation type (propose/vote)*\",\"user\":\"address of the user\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IGovernancePowerDelegationToken.sol\":\"IGovernancePowerDelegationToken\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IGovernancePowerDelegationToken.sol\":{\"keccak256\":\"0x8be3a09e9cd801481f0e420771edfc3f04dbb0ebafba00282b7c980fc2b0c309\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://9e05d70025b5b3526c5df342652d66488840323d1854b89f365710a5b6aefc32\",\"dweb:/ipfs/QmfPun5g2YtLKDNcoNDruudF7dd5t6AQb38dgZnw6kYG71\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.5+commit.eb77ed08\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"},{\"internalType\":\"enum IGovernancePowerDelegationToken.DelegationType\",\"name\":\"delegationType\",\"type\":\"uint8\"}],\"name\":\"getPowerAtBlock\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"getPowerAtBlock(address,uint256,uint8)\":{\"details\":\"get the power of a user at a specified block\",\"params\":{\"blockNumber\":\"block number at which to get power\",\"delegationType\":\"delegation type (propose/vote)*\",\"user\":\"address of the user\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernancePowerDelegationToken.sol\":\"IGovernancePowerDelegationToken\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernancePowerDelegationToken.sol\":{\"keccak256\":\"0x8be3a09e9cd801481f0e420771edfc3f04dbb0ebafba00282b7c980fc2b0c309\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://9e05d70025b5b3526c5df342652d66488840323d1854b89f365710a5b6aefc32\",\"dweb:/ipfs/QmfPun5g2YtLKDNcoNDruudF7dd5t6AQb38dgZnw6kYG71\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -40,36 +40,36 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity 0.7.5;\npragma abicoder v2;\n\ninterface IGovernancePowerDelegationToken {\n  enum DelegationType {VOTING_POWER, PROPOSITION_POWER}\n  /**\n   * @dev get the power of a user at a specified block\n   * @param user address of the user\n   * @param blockNumber block number at which to get power\n   * @param delegationType delegation type (propose/vote)\n   **/\n  function getPowerAtBlock(\n    address user,\n    uint256 blockNumber,\n    DelegationType delegationType\n  ) external view returns (uint256);\n}\n",
-  "sourcePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IGovernancePowerDelegationToken.sol",
+  "sourcePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernancePowerDelegationToken.sol",
   "ast": {
-    "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IGovernancePowerDelegationToken.sol",
+    "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernancePowerDelegationToken.sol",
     "exportedSymbols": {
       "IGovernancePowerDelegationToken": [
-        4826
+        6770
       ]
     },
-    "id": 4827,
+    "id": 6771,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4809,
+        "id": 6753,
         "literals": [
           "solidity",
           "0.7",
           ".5"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:22:23"
+        "src": "37:22:25"
       },
       {
-        "id": 4810,
+        "id": 6754,
         "literals": [
           "abicoder",
           "v2"
         ],
         "nodeType": "PragmaDirective",
-        "src": "60:19:23"
+        "src": "60:19:25"
       },
       {
         "abstract": false,
@@ -77,60 +77,60 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 4826,
+        "id": 6770,
         "linearizedBaseContracts": [
-          4826
+          6770
         ],
         "name": "IGovernancePowerDelegationToken",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "IGovernancePowerDelegationToken.DelegationType",
-            "id": 4813,
+            "id": 6757,
             "members": [
               {
-                "id": 4811,
+                "id": 6755,
                 "name": "VOTING_POWER",
                 "nodeType": "EnumValue",
-                "src": "148:12:23"
+                "src": "148:12:25"
               },
               {
-                "id": 4812,
+                "id": 6756,
                 "name": "PROPOSITION_POWER",
                 "nodeType": "EnumValue",
-                "src": "162:17:23"
+                "src": "162:17:25"
               }
             ],
             "name": "DelegationType",
             "nodeType": "EnumDefinition",
-            "src": "127:53:23"
+            "src": "127:53:25"
           },
           {
             "documentation": {
-              "id": 4814,
+              "id": 6758,
               "nodeType": "StructuredDocumentation",
-              "src": "183:219:23",
+              "src": "183:219:25",
               "text": " @dev get the power of a user at a specified block\n @param user address of the user\n @param blockNumber block number at which to get power\n @param delegationType delegation type (propose/vote)*"
             },
             "functionSelector": "c2ffbb91",
-            "id": 4825,
+            "id": 6769,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getPowerAtBlock",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4821,
+              "id": 6765,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4816,
+                  "id": 6760,
                   "mutability": "mutable",
                   "name": "user",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4825,
-                  "src": "435:12:23",
+                  "scope": 6769,
+                  "src": "435:12:25",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -138,10 +138,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 4815,
+                    "id": 6759,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "435:7:23",
+                    "src": "435:7:25",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -152,12 +152,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 4818,
+                  "id": 6762,
                   "mutability": "mutable",
                   "name": "blockNumber",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4825,
-                  "src": "453:19:23",
+                  "scope": 6769,
+                  "src": "453:19:25",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -165,10 +165,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4817,
+                    "id": 6761,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "453:7:23",
+                    "src": "453:7:25",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -178,46 +178,46 @@
                 },
                 {
                   "constant": false,
-                  "id": 4820,
+                  "id": 6764,
                   "mutability": "mutable",
                   "name": "delegationType",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4825,
-                  "src": "478:29:23",
+                  "scope": 6769,
+                  "src": "478:29:25",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_DelegationType_$4813",
+                    "typeIdentifier": "t_enum$_DelegationType_$6757",
                     "typeString": "enum IGovernancePowerDelegationToken.DelegationType"
                   },
                   "typeName": {
-                    "id": 4819,
+                    "id": 6763,
                     "name": "DelegationType",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 4813,
-                    "src": "478:14:23",
+                    "referencedDeclaration": 6757,
+                    "src": "478:14:25",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_DelegationType_$4813",
+                      "typeIdentifier": "t_enum$_DelegationType_$6757",
                       "typeString": "enum IGovernancePowerDelegationToken.DelegationType"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "429:82:23"
+              "src": "429:82:25"
             },
             "returnParameters": {
-              "id": 4824,
+              "id": 6768,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4823,
+                  "id": 6767,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4825,
-                  "src": "535:7:23",
+                  "scope": 6769,
+                  "src": "535:7:25",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -225,10 +225,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4822,
+                    "id": 6766,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "535:7:23",
+                    "src": "535:7:25",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -237,27 +237,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "534:9:23"
+              "src": "534:9:25"
             },
-            "scope": 4826,
-            "src": "405:139:23",
+            "scope": 6770,
+            "src": "405:139:25",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 4827,
-        "src": "81:465:23"
+        "scope": 6771,
+        "src": "81:465:25"
       }
     ],
-    "src": "37:510:23"
+    "src": "37:510:25"
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IGovernancePowerDelegationToken.sol",
+      "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IGovernancePowerDelegationToken.sol",
       "exportedSymbols": {
         "IGovernancePowerDelegationToken": [
-          4826
+          6770
         ]
       },
       "license": "agpl-3.0"
@@ -271,9 +271,9 @@
             ".5"
           ]
         },
-        "id": 4809,
+        "id": 6753,
         "name": "PragmaDirective",
-        "src": "37:22:23"
+        "src": "37:22:25"
       },
       {
         "attributes": {
@@ -282,9 +282,9 @@
             "v2"
           ]
         },
-        "id": 4810,
+        "id": 6754,
         "name": "PragmaDirective",
-        "src": "60:19:23"
+        "src": "60:19:25"
       },
       {
         "attributes": {
@@ -298,10 +298,10 @@
           "contractKind": "interface",
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            4826
+            6770
           ],
           "name": "IGovernancePowerDelegationToken",
-          "scope": 4827
+          "scope": 6771
         },
         "children": [
           {
@@ -314,22 +314,22 @@
                 "attributes": {
                   "name": "VOTING_POWER"
                 },
-                "id": 4811,
+                "id": 6755,
                 "name": "EnumValue",
-                "src": "148:12:23"
+                "src": "148:12:25"
               },
               {
                 "attributes": {
                   "name": "PROPOSITION_POWER"
                 },
-                "id": 4812,
+                "id": 6756,
                 "name": "EnumValue",
-                "src": "162:17:23"
+                "src": "162:17:25"
               }
             ],
-            "id": 4813,
+            "id": 6757,
             "name": "EnumDefinition",
-            "src": "127:53:23"
+            "src": "127:53:25"
           },
           {
             "attributes": {
@@ -341,7 +341,7 @@
                 null
               ],
               "name": "getPowerAtBlock",
-              "scope": 4826,
+              "scope": 6770,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -351,9 +351,9 @@
                 "attributes": {
                   "text": " @dev get the power of a user at a specified block\n @param user address of the user\n @param blockNumber block number at which to get power\n @param delegationType delegation type (propose/vote)*"
                 },
-                "id": 4814,
+                "id": 6758,
                 "name": "StructuredDocumentation",
-                "src": "183:219:23"
+                "src": "183:219:25"
               },
               {
                 "children": [
@@ -362,7 +362,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "user",
-                      "scope": 4825,
+                      "scope": 6769,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -375,21 +375,21 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 4815,
+                        "id": 6759,
                         "name": "ElementaryTypeName",
-                        "src": "435:7:23"
+                        "src": "435:7:25"
                       }
                     ],
-                    "id": 4816,
+                    "id": 6760,
                     "name": "VariableDeclaration",
-                    "src": "435:12:23"
+                    "src": "435:12:25"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "blockNumber",
-                      "scope": 4825,
+                      "scope": 6769,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -401,21 +401,21 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 4817,
+                        "id": 6761,
                         "name": "ElementaryTypeName",
-                        "src": "453:7:23"
+                        "src": "453:7:25"
                       }
                     ],
-                    "id": 4818,
+                    "id": 6762,
                     "name": "VariableDeclaration",
-                    "src": "453:19:23"
+                    "src": "453:19:25"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "delegationType",
-                      "scope": 4825,
+                      "scope": 6769,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "enum IGovernancePowerDelegationToken.DelegationType",
@@ -425,22 +425,22 @@
                       {
                         "attributes": {
                           "name": "DelegationType",
-                          "referencedDeclaration": 4813,
+                          "referencedDeclaration": 6757,
                           "type": "enum IGovernancePowerDelegationToken.DelegationType"
                         },
-                        "id": 4819,
+                        "id": 6763,
                         "name": "UserDefinedTypeName",
-                        "src": "478:14:23"
+                        "src": "478:14:25"
                       }
                     ],
-                    "id": 4820,
+                    "id": 6764,
                     "name": "VariableDeclaration",
-                    "src": "478:29:23"
+                    "src": "478:29:25"
                   }
                 ],
-                "id": 4821,
+                "id": 6765,
                 "name": "ParameterList",
-                "src": "429:82:23"
+                "src": "429:82:25"
               },
               {
                 "children": [
@@ -449,7 +449,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 4825,
+                      "scope": 6769,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -461,34 +461,34 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 4822,
+                        "id": 6766,
                         "name": "ElementaryTypeName",
-                        "src": "535:7:23"
+                        "src": "535:7:25"
                       }
                     ],
-                    "id": 4823,
+                    "id": 6767,
                     "name": "VariableDeclaration",
-                    "src": "535:7:23"
+                    "src": "535:7:25"
                   }
                 ],
-                "id": 4824,
+                "id": 6768,
                 "name": "ParameterList",
-                "src": "534:9:23"
+                "src": "534:9:25"
               }
             ],
-            "id": 4825,
+            "id": 6769,
             "name": "FunctionDefinition",
-            "src": "405:139:23"
+            "src": "405:139:25"
           }
         ],
-        "id": 4826,
+        "id": 6770,
         "name": "ContractDefinition",
-        "src": "81:465:23"
+        "src": "81:465:25"
       }
     ],
-    "id": 4827,
+    "id": 6771,
     "name": "SourceUnit",
-    "src": "37:510:23"
+    "src": "37:510:25"
   },
   "compiler": {
     "name": "solc",
@@ -496,7 +496,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-05-31T18:29:42.853Z",
+  "updatedAt": "2021-06-04T16:39:26.484Z",
   "devdoc": {
     "kind": "dev",
     "methods": {

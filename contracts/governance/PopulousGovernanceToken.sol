@@ -10,7 +10,7 @@ import {Ownable} from './misc/Ownable.sol';
  * @title MockVotingToken
  * @dev Implements ERC20 minting logic
  */
-contract MockVotingToken is ERC20, Ownable {
+contract PopulousGovernanceToken is ERC20, Ownable {
     uint256 public decimals = 8;
     string public symbol = "PGT";
     string public name = "Populous Governance Token";
@@ -18,12 +18,12 @@ contract MockVotingToken is ERC20, Ownable {
     address public admin;
 
     modifier onlyAdmin() {
-        require(admin == _msgSender(), 'MockVotingToken: caller is not the admin');
+        require(admin == _msgSender(), 'PopulousGovernanceToken: caller is not the admin');
         _;
     }
 
     function setAdmin(address _admin) public onlyOwner {
-        require(_admin != address(0), "MockVotingToken: Invalid admin address");
+        require(_admin != address(0), "PopulousGovernanceToken: Invalid admin address");
         admin = _admin;
     }
 

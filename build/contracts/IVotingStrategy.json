@@ -21,7 +21,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.5+commit.eb77ed08\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getVotingPower\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IVotingStrategy.sol\":\"IVotingStrategy\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IVotingStrategy.sol\":{\"keccak256\":\"0xa7b39febc8bb82da0fa017b880caf32e9b4744140c2aced7775338b0a6995f24\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://7048036a6cc5b8a38df9084e296ff958c5ed2fd7437bd5cf1f977aa63e791785\",\"dweb:/ipfs/QmWpgByMj596hU1eUvwqHjDasf9bdkqcn5hzBPefqoK18J\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.5+commit.eb77ed08\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getVotingPower\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IVotingStrategy.sol\":\"IVotingStrategy\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IVotingStrategy.sol\":{\"keccak256\":\"0xa7b39febc8bb82da0fa017b880caf32e9b4744140c2aced7775338b0a6995f24\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://7048036a6cc5b8a38df9084e296ff958c5ed2fd7437bd5cf1f977aa63e791785\",\"dweb:/ipfs/QmWpgByMj596hU1eUvwqHjDasf9bdkqcn5hzBPefqoK18J\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -30,36 +30,36 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity 0.7.5;\npragma abicoder v2;\n\ninterface IVotingStrategy {\n  function getVotingPower(address user) external view returns (uint256);\n}\n",
-  "sourcePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IVotingStrategy.sol",
+  "sourcePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IVotingStrategy.sol",
   "ast": {
-    "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IVotingStrategy.sol",
+    "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IVotingStrategy.sol",
     "exportedSymbols": {
       "IVotingStrategy": [
-        5393
+        7337
       ]
     },
-    "id": 5394,
+    "id": 7338,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 5384,
+        "id": 7328,
         "literals": [
           "solidity",
           "0.7",
           ".5"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:22:27"
+        "src": "37:22:29"
       },
       {
-        "id": 5385,
+        "id": 7329,
         "literals": [
           "abicoder",
           "v2"
         ],
         "nodeType": "PragmaDirective",
-        "src": "60:19:27"
+        "src": "60:19:29"
       },
       {
         "abstract": false,
@@ -67,33 +67,33 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 5393,
+        "id": 7337,
         "linearizedBaseContracts": [
-          5393
+          7337
         ],
         "name": "IVotingStrategy",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "functionSelector": "bb4d4436",
-            "id": 5392,
+            "id": 7336,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getVotingPower",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 5388,
+              "id": 7332,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 5387,
+                  "id": 7331,
                   "mutability": "mutable",
                   "name": "user",
                   "nodeType": "VariableDeclaration",
-                  "scope": 5392,
-                  "src": "135:12:27",
+                  "scope": 7336,
+                  "src": "135:12:29",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -101,10 +101,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 5386,
+                    "id": 7330,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "135:7:27",
+                    "src": "135:7:29",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -114,20 +114,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "134:14:27"
+              "src": "134:14:29"
             },
             "returnParameters": {
-              "id": 5391,
+              "id": 7335,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 5390,
+                  "id": 7334,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 5392,
-                  "src": "172:7:27",
+                  "scope": 7336,
+                  "src": "172:7:29",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -135,10 +135,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 5389,
+                    "id": 7333,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "172:7:27",
+                    "src": "172:7:29",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -147,27 +147,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "171:9:27"
+              "src": "171:9:29"
             },
-            "scope": 5393,
-            "src": "111:70:27",
+            "scope": 7337,
+            "src": "111:70:29",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 5394,
-        "src": "81:102:27"
+        "scope": 7338,
+        "src": "81:102:29"
       }
     ],
-    "src": "37:147:27"
+    "src": "37:147:29"
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/Users/nemitariajienka/Desktop/DeFi_backup/Populous-DeFi-governance/contracts/interfaces/IVotingStrategy.sol",
+      "absolutePath": "/Users/nemitariajienka/Desktop/projects/populous/Populous-DeFi-governance/contracts/interfaces/IVotingStrategy.sol",
       "exportedSymbols": {
         "IVotingStrategy": [
-          5393
+          7337
         ]
       },
       "license": "agpl-3.0"
@@ -181,9 +181,9 @@
             ".5"
           ]
         },
-        "id": 5384,
+        "id": 7328,
         "name": "PragmaDirective",
-        "src": "37:22:27"
+        "src": "37:22:29"
       },
       {
         "attributes": {
@@ -192,9 +192,9 @@
             "v2"
           ]
         },
-        "id": 5385,
+        "id": 7329,
         "name": "PragmaDirective",
-        "src": "60:19:27"
+        "src": "60:19:29"
       },
       {
         "attributes": {
@@ -208,10 +208,10 @@
           "contractKind": "interface",
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            5393
+            7337
           ],
           "name": "IVotingStrategy",
-          "scope": 5394
+          "scope": 7338
         },
         "children": [
           {
@@ -224,7 +224,7 @@
                 null
               ],
               "name": "getVotingPower",
-              "scope": 5393,
+              "scope": 7337,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -237,7 +237,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "user",
-                      "scope": 5392,
+                      "scope": 7336,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -250,19 +250,19 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 5386,
+                        "id": 7330,
                         "name": "ElementaryTypeName",
-                        "src": "135:7:27"
+                        "src": "135:7:29"
                       }
                     ],
-                    "id": 5387,
+                    "id": 7331,
                     "name": "VariableDeclaration",
-                    "src": "135:12:27"
+                    "src": "135:12:29"
                   }
                 ],
-                "id": 5388,
+                "id": 7332,
                 "name": "ParameterList",
-                "src": "134:14:27"
+                "src": "134:14:29"
               },
               {
                 "children": [
@@ -271,7 +271,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 5392,
+                      "scope": 7336,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -283,34 +283,34 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 5389,
+                        "id": 7333,
                         "name": "ElementaryTypeName",
-                        "src": "172:7:27"
+                        "src": "172:7:29"
                       }
                     ],
-                    "id": 5390,
+                    "id": 7334,
                     "name": "VariableDeclaration",
-                    "src": "172:7:27"
+                    "src": "172:7:29"
                   }
                 ],
-                "id": 5391,
+                "id": 7335,
                 "name": "ParameterList",
-                "src": "171:9:27"
+                "src": "171:9:29"
               }
             ],
-            "id": 5392,
+            "id": 7336,
             "name": "FunctionDefinition",
-            "src": "111:70:27"
+            "src": "111:70:29"
           }
         ],
-        "id": 5393,
+        "id": 7337,
         "name": "ContractDefinition",
-        "src": "81:102:27"
+        "src": "81:102:29"
       }
     ],
-    "id": 5394,
+    "id": 7338,
     "name": "SourceUnit",
-    "src": "37:147:27"
+    "src": "37:147:29"
   },
   "compiler": {
     "name": "solc",
@@ -318,7 +318,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-05-31T18:29:42.860Z",
+  "updatedAt": "2021-06-04T16:39:26.489Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

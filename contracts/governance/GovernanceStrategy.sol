@@ -5,7 +5,7 @@ pragma abicoder v2;
 import {IGovernanceStrategy} from '../interfaces/IGovernanceStrategy.sol';
 import {IERC20} from '../interfaces/IERC20.sol';
 import {IGovernancePowerDelegationToken} from '../interfaces/IGovernancePowerDelegationToken.sol';
-import {Ownable} from '../dependencies/open-zeppelin/Ownable.sol';
+import {Ownable} from '../misc/Ownable.sol';
 import {SafeMath} from '../dependencies/open-zeppelin/SafeMath.sol';
 import {ERC20} from '../ERC20.sol';
 

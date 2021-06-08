@@ -42,6 +42,19 @@ module.exports = {
     live: {
       provider: function () {
         const secret = require("./secret.json");
+        //return new HDWalletProvider(secret.mnemonic, `https://mainnet.infura.io/v3/${secret.infuraKey}`);
+        return new HDWalletProvider(secret.alchemyLive, 
+        'wss://eth-mainnet.ws.alchemyapi.io/v2/3P31QKdNiRqKQxUN-a8KozuSagHs9JC7');
+      },
+      network_id: 1,
+      gas: 6721975, // 6721975, // default gas limit
+      skipDryRun: true,
+      gasPrice: 250000000000, //75000000000, //GWEI 250 on metamask
+      from: "0x70393B06D018e148B593A91E022EA73071c17007"
+    },
+    /* live: {
+      provider: function () {
+        const secret = require("./secret.json");
         return new HDWalletProvider(secret.mnemonic, `https://mainnet.infura.io/v3/${secret.infuraKey}`);
       },
       chainId: 1,
@@ -49,7 +62,7 @@ module.exports = {
       gas: 6721975,
       skipDryRun: true,
       gasPrice: 75000000000,
-    },
+    }, */
   },
   mocha: {
     timeout: 1200000

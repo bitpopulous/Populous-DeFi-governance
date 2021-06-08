@@ -1,8 +1,8 @@
 const { expect } = require('chai');
 const { ZERO_ADDRESS, getGovernanceActorsAsync } = require('../../helpers/address');
 const {expectBignumberEqual} = require('../../helpers/index');
-const {deployExecutor} = require('../helpers/deploy');
-const {duration, toBN, increaseTo} = require('../../helpers/utils');
+const {deployExecutor, upgradeGovernance} = require('../helpers/deploy');
+const {duration, toBN, increaseTo, shouldFailWithMessage, parseEther} = require('../../helpers/utils');
 const {findEventInTransaction} = require('../../helpers/events');
 const {PROPOSAL_STATES} = require('../../helpers/constants');
 const {ethers} = require('ethers');
@@ -631,8 +631,16 @@ describe('Proposal States', () => {
             expectBignumberEqual(await pxtInstance.balanceOf(fourthUser), votingTokenAmount);
             expectBignumberEqual(await votingTokenInstance.balanceOf(fourthUser), pxtPower);
 
-            await governanceInstance.redeemLockedTokens(proposalId, {from: fourthUser});
-        
+            const governanceV2Instance = await upgradeGovernance(governanceInstance.address);
+
+            //await governanceInstance.redeemLockedTokens(proposalId, {from: fourthUser});
+            await shouldFailWithMessage(
+                governanceV2Instance.payToRedeemLockedTokens(proposalId, {from: fourthUser}),
+                "Governance: payToRedeemLockedTokens: msg.value is not above 0"
+            );
+
+            await governanceV2Instance.payToRedeemLockedTokens(proposalId, {from: fourthUser, value: parseEther('0.1')});
+
             expectBignumberEqual(await pxtInstance.balanceOf(fourthUser), mintAmount);
             expectBignumberEqual(await votingTokenInstance.balanceOf(fourthUser), 0);
 
