@@ -2,9 +2,9 @@
 pragma solidity 0.7.5;
 pragma abicoder v2;
 
-import "./ERC20.sol";
-import "./interfaces/IPopulousGovernanceV2.sol";
-import {Ownable} from './misc/Ownable.sol';
+import "../ERC20.sol";
+import "../interfaces/IPopulousGovernanceV2.sol";
+import {Ownable} from '../misc/Ownable.sol';
 
 /**
  * @title MockVotingToken
