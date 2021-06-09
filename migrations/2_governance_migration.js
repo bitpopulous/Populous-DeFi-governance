@@ -5,7 +5,7 @@ const PopulousGovernanceV2 = artifacts.require('PopulousGovernanceV2');
 const PopulousGovernanceV3 = artifacts.require('PopulousGovernanceV3');
 const Executor = artifacts.require('Executor');
 const MockVotingToken = artifacts.require('MockVotingToken');
-const PopulousVotingToken = artifacts.require('PopulousVotingToken');
+const PopulousGovernanceToken = artifacts.require('PopulousGovernanceToken');
 const { deployProxy, prepareUpgrade, upgradeProxy } = require('@openzeppelin/truffle-upgrades');
 
 
@@ -129,8 +129,8 @@ module.exports = function (deployer, network, accounts) {
             pxt = (await MockPXT.deployed()).address;
 
             // mock votingToken
-            await deployer.deploy(MockVotingToken);
-            votingToken = (await MockVotingToken.deployed()).address;
+            await deployer.deploy(PopulousGovernanceToken);
+            votingToken = (await PopulousGovernanceToken.deployed()).address;
 
             // governance strategy
             await deployer.deploy(GovernanceStrategy, pxt, ppt, votingToken);
@@ -218,8 +218,8 @@ module.exports = function (deployer, network, accounts) {
             pxt = "0xc14830E53aA344E8c14603A91229A0b925b0B262";
 
             // votingToken
-            await deployer.deploy(PopulousVotingToken);
-            votingToken = (await PopulousVotingToken.deployed()).address;
+            await deployer.deploy(PopulousGovernanceToken);
+            votingToken = (await PopulousGovernanceToken.deployed()).address;
 
             // governance strategy
             await deployer.deploy(GovernanceStrategy, pxt, ppt, votingToken);
@@ -243,7 +243,7 @@ module.exports = function (deployer, network, accounts) {
             console.log('Governance V1 contract: ', governanceInstance.address);
 
             // voting token admin
-            const votingTokenInstance = await PopulousVotingToken.at(votingToken);
+            const votingTokenInstance = await PopulousGovernanceToken.at(votingToken);
             await votingTokenInstance.setAdmin(
                 governanceInstance.address
             );
@@ -255,7 +255,7 @@ module.exports = function (deployer, network, accounts) {
             minimumDelay = '0',
             maximumDelay = (ONE_DAY*30).toString(),//ONE_DAY.mul('30').toString();
             propositionThreshold = '100', //  1% proposition 
-            voteDuration = '17200', // 172000 blocks - approx 48 hours
+            voteDuration = '17200', // 17200 blocks
             voteDifferential = '500', // 5%
             minimumQuorum = '2000'; // 20%
 
