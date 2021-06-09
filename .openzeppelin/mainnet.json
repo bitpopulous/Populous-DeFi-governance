@@ -1,0 +1,270 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0xEcB08C9F7c3e309D788663D5262663955C1D5320",
+    "txHash": "0x4433bbb45d7f19cda11f57440c8d36eb0316b5e6a1e5913aaa02cdebcace6579"
+  },
+  "proxies": [
+    {
+      "address": "0x2696966537B9f9F608F6963C51459555e08fbC49",
+      "txHash": "0xc8ff5c01c308c3034d5ccc8581dd7879ab6e3bc794ad0c7e0a9177f5c9f56e5e",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x4B5E9F22990F3469608937Cd36A7F5C0700218EE",
+      "txHash": "0x81fbba1d3e189ba8ca0dbc5ba806778a4b5c2144895fbd53e1561cd4b7558d50",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "6377e1758272e702f66df925a239e3c9ab10506d7de5d2cc23d34acd2940fe48": {
+      "address": "0xdb2be5d622eE5af21FDdaeFd83a8b990E57c714B",
+      "txHash": "0xdb3e44e750bf96421c636f0431ca4316ccb2943e82bbbeaa8cbb79e212c3e648",
+      "layout": {
+        "storage": [
+          {
+            "contract": "VersionedInitializable",
+            "label": "lastInitializedRevision",
+            "type": "t_uint256",
+            "src": "dependencies/open-zeppelin/VersionedInitializable.sol:22"
+          },
+          {
+            "contract": "VersionedInitializable",
+            "label": "initializing",
+            "type": "t_bool",
+            "src": "dependencies/open-zeppelin/VersionedInitializable.sol:27"
+          },
+          {
+            "contract": "VersionedInitializable",
+            "label": "______gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "dependencies/open-zeppelin/VersionedInitializable.sol:74"
+          },
+          {
+            "contract": "Owned",
+            "label": "_owner",
+            "type": "t_address",
+            "src": "dependencies/open-zeppelin/Owned.sol:19"
+          },
+          {
+            "contract": "PopulousGovernanceV2",
+            "label": "_governanceStrategy",
+            "type": "t_address",
+            "src": "governance/PopulousGovernanceV2.sol:31"
+          },
+          {
+            "contract": "PopulousGovernanceV2",
+            "label": "_votingDelay",
+            "type": "t_uint256",
+            "src": "governance/PopulousGovernanceV2.sol:32"
+          },
+          {
+            "contract": "PopulousGovernanceV2",
+            "label": "_votingToken",
+            "type": "t_address",
+            "src": "governance/PopulousGovernanceV2.sol:34"
+          },
+          {
+            "contract": "PopulousGovernanceV2",
+            "label": "_PPT",
+            "type": "t_address",
+            "src": "governance/PopulousGovernanceV2.sol:35"
+          },
+          {
+            "contract": "PopulousGovernanceV2",
+            "label": "_PXT",
+            "type": "t_address",
+            "src": "governance/PopulousGovernanceV2.sol:36"
+          },
+          {
+            "contract": "PopulousGovernanceV2",
+            "label": "_proposalsCount",
+            "type": "t_uint256",
+            "src": "governance/PopulousGovernanceV2.sol:38"
+          },
+          {
+            "contract": "PopulousGovernanceV2",
+            "label": "_proposals",
+            "type": "t_mapping(t_uint256,t_struct(Proposal)5121_storage)",
+            "src": "governance/PopulousGovernanceV2.sol:39"
+          },
+          {
+            "contract": "PopulousGovernanceV2",
+            "label": "_authorizedExecutors",
+            "type": "t_mapping(t_address,t_bool)",
+            "src": "governance/PopulousGovernanceV2.sol:40"
+          },
+          {
+            "contract": "PopulousGovernanceV2",
+            "label": "_guardian",
+            "type": "t_address",
+            "src": "governance/PopulousGovernanceV2.sol:42"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint256,t_struct(Proposal)5121_storage)": {
+            "label": "mapping(uint256 => struct IPopulousGovernanceV2.Proposal)"
+          },
+          "t_struct(Proposal)5121_storage": {
+            "label": "struct IPopulousGovernanceV2.Proposal",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_uint256"
+              },
+              {
+                "label": "creator",
+                "type": "t_address"
+              },
+              {
+                "label": "executor",
+                "type": "t_contract(IExecutorWithTimelock)5004"
+              },
+              {
+                "label": "targets",
+                "type": "t_array(t_address)dyn_storage"
+              },
+              {
+                "label": "values",
+                "type": "t_array(t_uint256)dyn_storage"
+              },
+              {
+                "label": "signatures",
+                "type": "t_array(t_string_storage)dyn_storage"
+              },
+              {
+                "label": "calldatas",
+                "type": "t_array(t_bytes_storage)dyn_storage"
+              },
+              {
+                "label": "withDelegatecalls",
+                "type": "t_array(t_bool)dyn_storage"
+              },
+              {
+                "label": "startBlock",
+                "type": "t_uint256"
+              },
+              {
+                "label": "endBlock",
+                "type": "t_uint256"
+              },
+              {
+                "label": "executionTime",
+                "type": "t_uint256"
+              },
+              {
+                "label": "forVotes",
+                "type": "t_uint256"
+              },
+              {
+                "label": "againstVotes",
+                "type": "t_uint256"
+              },
+              {
+                "label": "executed",
+                "type": "t_bool"
+              },
+              {
+                "label": "canceled",
+                "type": "t_bool"
+              },
+              {
+                "label": "strategy",
+                "type": "t_address"
+              },
+              {
+                "label": "ipfsHash",
+                "type": "t_bytes32"
+              },
+              {
+                "label": "votes",
+                "type": "t_mapping(t_address,t_struct(Vote)5068_storage)"
+              },
+              {
+                "label": "lockedTokens",
+                "type": "t_mapping(t_address,t_struct(LockedTokens)5073_storage)"
+              }
+            ]
+          },
+          "t_contract(IExecutorWithTimelock)5004": {
+            "label": "contract IExecutorWithTimelock"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_array(t_uint256)dyn_storage": {
+            "label": "uint256[]"
+          },
+          "t_array(t_string_storage)dyn_storage": {
+            "label": "string[]"
+          },
+          "t_string_storage": {
+            "label": "string"
+          },
+          "t_array(t_bytes_storage)dyn_storage": {
+            "label": "bytes[]"
+          },
+          "t_bytes_storage": {
+            "label": "bytes"
+          },
+          "t_array(t_bool)dyn_storage": {
+            "label": "bool[]"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_mapping(t_address,t_struct(Vote)5068_storage)": {
+            "label": "mapping(address => struct IPopulousGovernanceV2.Vote)"
+          },
+          "t_struct(Vote)5068_storage": {
+            "label": "struct IPopulousGovernanceV2.Vote",
+            "members": [
+              {
+                "label": "support",
+                "type": "t_bool"
+              },
+              {
+                "label": "votingPower",
+                "type": "t_uint248"
+              }
+            ]
+          },
+          "t_mapping(t_address,t_struct(LockedTokens)5073_storage)": {
+            "label": "mapping(address => struct IPopulousGovernanceV2.LockedTokens)"
+          },
+          "t_struct(LockedTokens)5073_storage": {
+            "label": "struct IPopulousGovernanceV2.LockedTokens",
+            "members": [
+              {
+                "label": "tokenAddress",
+                "type": "t_address"
+              },
+              {
+                "label": "amount",
+                "type": "t_uint256"
+              }
+            ]
+          },
+          "t_uint248": {
+            "label": "uint248"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    }
+  }
+}

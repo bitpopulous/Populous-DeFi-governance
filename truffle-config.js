@@ -44,12 +44,13 @@ module.exports = {
         const secret = require("./secret.json");
         //return new HDWalletProvider(secret.mnemonic, `https://mainnet.infura.io/v3/${secret.infuraKey}`);
         return new HDWalletProvider(secret.alchemyLive, 
-        'wss://eth-mainnet.ws.alchemyapi.io/v2/3P31QKdNiRqKQxUN-a8KozuSagHs9JC7');
+        //'wss://eth-mainnet.ws.alchemyapi.io/v2/3P31QKdNiRqKQxUN-a8KozuSagHs9JC7');
+        'https://eth-mainnet.alchemyapi.io/v2/M217izn2Ga9rnRYfITlvewDqy3LvtWQQ');
       },
       network_id: 1,
-      gas: 6721975, // 6721975, // default gas limit
+      gas: 6721975,
       skipDryRun: true,
-      gasPrice: 250000000000, //75000000000, //GWEI 250 on metamask
+      gasPrice: 90000000000, // gwei
       from: "0x70393B06D018e148B593A91E022EA73071c17007"
     },
     /* live: {

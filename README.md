@@ -1,78 +1,119 @@
 # Populous Governance v2
 
-## Ethereum (ropsten) test network deployment for Populous Governance smart contracts - 4/06/2021
-
-LENDING_POOL_ADDRESS='0x1472A9C004a13DA9121cAcDBAa44d3b36bcA9828'
-LENDING_POOL_CORE_ADDRESS='0x431807b38eB69AA1cc4F25b768c72C804edBde01'
-LENDING_POOL_DATA_PROVIDER_ADDRESS='0x9a639822cDF927D1b4E6Ca0F5E036B08735224bF'
-LENDING_POOL_CONFIGURATOR_ADDRESS='0xaE01FdF43a8AcE9aba7dE078df18C35f4ca99786'
-REWARD_POOL_ADDRESS_MANAGER_ADDRESS='0x734E0062b849B7652f039804FA608fB443514B47'
-CHAINLINK_PROXY_PRICE_PROVIDER_ADDRESS='0xF2155f95Dbd8cBfD98508842a4A260038b759A83'
-FEE_PROVIDER_ADDRESS='0x6073CE5893128a97F7ba578917f0462c23144d4A'
-TEST_FAUCET_ADDRESS='0xef7AC240a2aF92bc0F16db189faD7A0F4c551Be2'
-GOVERNANCE_V2_ADDRESS='0x73Ee862aac17D3eeb308dA207B814A786735fc20'
-GOVERNANCE_STRATEGY_ADDRESS='0x099a6B83B1A124B89231D40C123124a8c780e228'
-DAI_ADDRESS='0x24c957F1F40EfF22F8247e62EBa40b2D87672280
-MockPPT='0xb98D0E430175f343D43DfC113E8b31F49F71892d'
-MockPXT='0x9510D07aa3B3394D2236dF039C5292C063D12487'
-MockVotingToken='0x3772FfAA0C1FA1e25ED67572ADf1e982776115be'
+## Ethereum (live network) deployment for Populous Governance smart contracts - 09/06/2021
 
 ## Contract addresses
 ```
-deployer/admin - 0x614b32516601b7C424d0B284B498D5E14323ED3A
+deployer/admin - 0x70393B06D018e148B593A91E022EA73071c17007
 
 
-MockPPT: 0xb98D0E430175f343D43DfC113E8b31F49F71892d
+PPT: 0xd4fa1460F537bb9085d22C7bcCB5DD450Ef28e3a
 
-MockPXT: 0x9510D07aa3B3394D2236dF039C5292C063D12487
+PXT: 0xc14830E53aA344E8c14603A91229A0b925b0B262
 
-MockVotingToken: 0x3772FfAA0C1FA1e25ED67572ADf1e982776115be
+ProxyAdmin: 0xEcB08C9F7c3e309D788663D5262663955C1D5320
 
-GovernanceStrategy: 0x099a6B83B1A124B89231D40C123124a8c780e228
-
-PopulousGovernanceV2: Proxy Address: 0x73Ee862aac17D3eeb308dA207B814A786735fc20
-ProxyAdmin: 0x0C94fDA96f4807319351C1472952c1d88BD6670c
-TransparentUpgradeableProxy: 0x73Ee862aac17D3eeb308dA207B814A786735fc20
-
-Executor: 0x6742dF4C4721406c893B967B4629C9203D4085e2
-
-```
+Starting migrations...
+======================
+> Network name:    'live'
+> Network id:      1
+> Block gas limit: 15000000 (0xe4e1c0)
 
 
-## Proposals
-```
-proposal id: 0 // created
-tx: '0x4522a6529934be0453e99fb60bd836385283525e5637342616ab05919b138ec2'
-```
+2_governance_migration.js
+=========================
+
+   Deploying 'PopulousGovernanceToken'
+   -----------------------------------
+   > transaction hash:    0x1d3573839fcd0cdf48d2b5488a8180a5c6149e71b22db5e06e9089df0ea92052
+   > Blocks: 3            Seconds: 20
+   > contract address:    0xECCBFB62B4de507E9709085ADF464Ae6B9f59ce7
+   > block number:        12600919
+   > block timestamp:     1623249678
+   > account:             0x70393B06D018e148B593A91E022EA73071c17007
+   > balance:             0.975867644443941602
+   > gas used:            992906 (0xf268a)
+   > gas price:           90 gwei
+   > value sent:          0 ETH
+   > total cost:          0.08936154 ETH
 
 
-
-## Ethereum (ropsten) test network deployment for Populous Governance smart contracts - 31/05/2021
-
-
-## Contract addresses
-```
-deployer/admin - 0x614b32516601b7C424d0B284B498D5E14323ED3A
-
-
-MockPPT: 0xb98D0E430175f343D43DfC113E8b31F49F71892d
-
-MockPXT: 0x9510D07aa3B3394D2236dF039C5292C063D12487
-
-MockVotingToken: 0x3772FfAA0C1FA1e25ED67572ADf1e982776115be
-
-GovernanceStrategy: 0xdc69Ae7c0bceE89c41186Eb4a7849508B02D2ccA
-
-PopulousGovernanceV2: 0xA7685bB8dA6f95c40766daA6A2bAFe1d7Aad2B39
-
-Executor: 0x6A44F97ae0a40FD5db6F81F386C62BdA059E5060
-
-```
+   Deploying 'GovernanceStrategy'
+   ------------------------------
+   > transaction hash:    0x828a1c6d1c080f7db36f8828384720278ce0886ee37ca8d7eec7cdecd62423c4
+   > Blocks: 3            Seconds: 12
+   > contract address:    0xCCbe9380a975E2c881e25d86957862f2C9a89727
+   > block number:        12600922
+   > block timestamp:     1623249701
+   > account:             0x70393B06D018e148B593A91E022EA73071c17007
+   > balance:             0.936074324443941602
+   > gas used:            442148 (0x6bf24)
+   > gas price:           90 gwei
+   > value sent:          0 ETH
+   > total cost:          0.03979332 ETH
 
 
-## Proposals
-```
-proposal id: 0 // created
+   Deploying 'TransparentUpgradeableProxy'
+   ---------------------------------------
+   > transaction hash:    0x81fbba1d3e189ba8ca0dbc5ba806778a4b5c2144895fbd53e1561cd4b7558d50
+   > Blocks: 4            Seconds: 16
+   > contract address:    0x4B5E9F22990F3469608937Cd36A7F5C0700218EE
+   > block number:        12600926
+   > block timestamp:     1623249726
+   > account:             0x70393B06D018e148B593A91E022EA73071c17007
+   > balance:             0.867002204443941602
+   > gas used:            767468 (0xbb5ec)
+   > gas price:           90 gwei
+   > value sent:          0 ETH
+   > total cost:          0.06907212 ETH
+
+Governance V1 contract:  0x4B5E9F22990F3469608937Cd36A7F5C0700218EE
+
+   Deploying 'Executor'
+   --------------------
+   > transaction hash:    0x848e16434263665827a007500ec48d43379acc709aa78bba46216d4a5facb32c
+   > Blocks: 3            Seconds: 28
+   > contract address:    0x9F4DBA1c4930De6dd785d3AF165e9C0132556897
+   > block number:        12600930
+   > block timestamp:     1623249760
+   > account:             0x70393B06D018e148B593A91E022EA73071c17007
+   > balance:             0.705671444443941602
+   > gas used:            1746358 (0x1aa5b6)
+   > gas price:           90 gwei
+   > value sent:          0 ETH
+   > total cost:          0.15717222 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:           0.3553992 ETH
+
+
+3_transfer_ownership.js
+=======================
+✔ 0x2696966537B9f9F608F6963C51459555e08fbC49 (transparent) proxy ownership transfered through admin proxy
+✔ 0x4B5E9F22990F3469608937Cd36A7F5C0700218EE (transparent) proxy ownership transfered through admin proxy
+
+   > Saving migration to chain.
+   -------------------------------------
+   > Total cost:                   0 ETH
+
+
+4_upgrade_governance.js
+=======================
+
+   > Saving migration to chain.
+   -------------------------------------
+   > Total cost:                   0 ETH
+
+
+Summary
+=======
+> Total deployments:   4
+> Final cost:          0.3553992 ETH
+
+
 ```
 
 
