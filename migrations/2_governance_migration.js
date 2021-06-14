@@ -74,7 +74,7 @@ module.exports = function (deployer, network, accounts) {
 
 
             // voting token admin
-            const votingTokenInstance = await MockVotingToken.at(votingToken);
+            const votingTokenInstance = await PopulousGovernanceToken.at(votingToken);
             await votingTokenInstance.setAdmin(
                 governanceInstance.address
             );
@@ -154,7 +154,7 @@ module.exports = function (deployer, network, accounts) {
             console.log('Governance V1 contract: ', governanceInstance.address);
 
             // voting token admin
-            const votingTokenInstance = await MockVotingToken.at(votingToken);
+            const votingTokenInstance = await PopulousGovernanceToken.at(votingToken);
             await votingTokenInstance.setAdmin(
                 governanceInstance.address
             );
